@@ -98,6 +98,7 @@ def lines_of(page):
 
 def expand_units(s):
     units = []
+    s = re.sub(r"\([^)]*\)", "", s)
     for part in re.split(r",", s):
         part = part.strip()
         if not part:
@@ -108,11 +109,12 @@ def expand_units(s):
             if a <= b and b - a < 30:
                 units += [f"{i:03d}" for i in range(a, b + 1)]
                 continue
-        m = re.fullmatch(r"\d{1,3}", part)
-        if m:
-            units.append(f"{int(part):03d}"); continue
-        units.append(part)
-    return units
+        nums = re.findall(r"\b\d{3}\b", part)
+        if nums:
+            units += nums; continue
+        if part:
+            units.append(part)
+    return sorted(set(units))
 
 
 def to_int(s):
@@ -178,6 +180,9 @@ def parse_pdf(data, url, year, bad):
 
 
 def season_start(s, year):
+    m = re.match(r"20\d\d-(\d\d)-(\d\d)", s or "")
+    if m:
+        return f"{m.group(1)}-{m.group(2)}"
     m = re.match(r"([A-Z][a-z]{2})\s+(\d{1,2})", s or "")
     if not m or m.group(1) not in MONTHS:
         return "99-99"
@@ -224,6 +229,9 @@ def parse():
             if b.get("total") is None or b.get("quota") is None:
                 if len(bad) < 50: bad.append(f"{year} incomplete block {title} {b['units_raw']} {url.rsplit('/',1)[-1]}")
                 continue
+            if "Guided" in typ:
+                name = "Mule Deer Antlered NR Guided"
+            name = re.sub(r"\s+", " ", name).strip()
             b.update(year=year, res=res, name=name, sp=sp, url=url)
             raw.append(b); n_ok += 1
         sp_codes = sorted({b["sp"] for b in raw if b["url"] == url})
@@ -231,21 +239,32 @@ def parse():
                         "title": f"{year} Bonus Point and Application Choice Trends - {typ.replace('-', ' ')}"})
         LOG.append(f"{url}: {len(blocks)} blocks, {n_ok} kept")
 
-    # group into hunts: key (sp, name, weapon, units) -> per year sorted seasons
-    groups = collections.defaultdict(lambda: collections.defaultdict(set))
+    # group into hunts: (sp, name, weapon, units); seasons matched across years by start date (+-7 days)
+    def doy(md):
+        mo, d = md.split("-")
+        return 99 * 31 if mo == "99" else (int(mo) - 1) * 31 + int(d)
+    groups = collections.defaultdict(list)
     for b in raw:
         b["units"] = expand_units(b["units_raw"])
         b["weapon_k"] = weapon_of(b.get("weapon", ""), b["name"])
         b["start"] = season_start(b.get("season"), b["year"])
-        gk = (b["sp"], b["name"], b["weapon_k"], tuple(b["units"]))
-        groups[gk][b["year"]].add(b["start"])
+        b["gk"] = (b["sp"], b["name"], b["weapon_k"], tuple(b["units"]))
+        groups[b["gk"]].append(doy(b["start"]))
+    clusters = {}
+    for gk, ds in groups.items():
+        cl, last = [], None
+        for d in sorted(set(ds)):
+            if last is None or d - last > 7:
+                cl.append([])
+            cl[-1].append(d); last = d
+        clusters[gk] = cl
     hunts = {}
     for b in raw:
-        gk = (b["sp"], b["name"], b["weapon_k"], tuple(b["units"]))
-        starts = sorted(groups[gk][b["year"]])
-        idx = starts.index(b["start"]) + 1
+        gk = b["gk"]
+        cl = clusters[gk]
+        idx = next(i for i, c in enumerate(cl) if doy(b["start"]) in c) + 1
         typecode = re.sub(r"[^A-Za-z]+", "", b["name"].replace("Mule Deer", "").replace("Elk", "").replace("Antelope", ""))
-        hid = f"{b['sp']}-{typecode}-{b['weapon_k'][:3].upper()}-{'.'.join(b['units'])}" + (f"-S{idx}" if max(len(s) for s in groups[gk].values()) > 1 else "")
+        hid = f"{b['sp']}-{typecode}-{b['weapon_k'][:3].upper()}-{'.'.join(b['units'])}" + (f"-S{idx}" if len(cl) > 1 else "")
         h = hunts.get(hid)
         if h is None:
             kind = "special" if "guided" in b["name"].lower() else "limited"

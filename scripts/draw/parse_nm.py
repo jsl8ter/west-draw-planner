@@ -20,6 +20,7 @@ CODE = re.compile(r"^(ELK|DER|ANT)-(\d)-(\d{3})$")
 SPECIES = {"ELK": "E", "DER": "D", "ANT": "P"}
 SKIP = re.compile(r"youth|landowner|auction|raffle|enhancement|private land only|ranch only", re.I)
 DEBUG = Counter()
+REUSED = []
 
 
 def s(v):
@@ -47,7 +48,7 @@ def layout(hdr):
     # right block: ... | HT(5) | R(1st..4th,T) | NR(5) | O(5) | R% NR% O% T%
     m = {"code": L, "desc": L + 1, "bag": bag, "lic": lic,
          "app_T": firsts[0], "app_R": firsts[1], "app_NR": firsts[2], "app_O": firsts[3],
-         "dr_R": rp - 15, "dr_NR": rp - 10, "dr_O": rp - 5, "dr_T": rp - 20}
+         "dr_R": rp - 15, "dr_NR": rp - 10, "dr_O": rp - 5}
     for k in ("dr_R", "dr_NR", "dr_O"):
         assert h[m[k]] == "1st" and h[m[k] + 4] in ("t", "total"), (k, h[m[k]:m[k] + 5])
     return m
@@ -62,10 +63,17 @@ def weapon_of(desc):
 
 def sex_of(bag):
     b = bag.upper()
-    if b.startswith("ES") or b in ("ES-BOW", "ESWTD"): return "either"
-    if b.startswith("A") and not b.startswith("APRE"): return "female"
-    if b.startswith(("MB", "APRE", "FAD", "FAWTD", "MM", "BB")): return "male"
+    if b.startswith("ES") or "/A" in b: return "either"          # ES, ESWTD, MB/A, APRE/6/A
+    if b in ("A", "F-IM"): return "female"                       # antlerless; female-immature pronghorn
+    if b.startswith(("MB", "APRE", "FA")): return "male"         # mature bull/buck, antler-point, fork-antlered
     return None
+
+
+WEAPON = {"1": "any", "2": "archery", "3": "muzzleloader"}       # NM hunt-code middle digit
+
+
+def norm(desc):
+    return re.sub(r"[^a-z0-9]+", " ", desc.lower()).strip()
 
 
 def parse_book(year, url, title, hunts, sources):
@@ -95,18 +103,27 @@ def parse_book(year, url, title, hunts, sources):
             sp = SPECIES[sp3]
             if sp3 == "DER" and ("WTD" in bag.upper() or re.search(r"white-?tail|coues", desc, re.I)):
                 sp = "C"
-            units = re.findall(r"\b\d{1,2}[A-Z]?\b", re.sub(r"^units?\s*", "", desc.split(":")[0], flags=re.I))
-            h = hunts.setdefault(c0, {"id": c0, "species": sp, "units": units, "label": desc + (f" ({bag})" if bag else ""),
-                                      "kind": "limited", "years": {}})
-            w = weapon_of(desc); x = sex_of(bag)
-            if w: h["weapon"] = w
-            if x: h["sex"] = x
-            if "mobility" in desc.lower(): h["kind"] = "special"
-            y = {"T": {"tags": vals["lic"], "apps": vals["app_T"], "drawn": vals["dr_T"]},
-                 "R": {"apps": vals["app_R"], "drawn": vals["dr_R"]},
-                 "NR": {"apps": vals["app_NR"], "drawn": vals["dr_NR"]},
-                 "O": {"apps": vals["app_O"], "drawn": vals["dr_O"]}}
-            h["years"][str(year)] = y
+            units = re.findall(r"\b\d{1,2}[A-Z]?\b", re.sub(r"^units?\s*", "", desc.split(":")[0], flags=re.I)) or [desc]
+            key = (c0, norm(desc), bag.upper())
+            h = hunts.get(key)
+            if h is None:
+                same = [k for k in hunts if k[0] == c0]
+                if same:
+                    REUSED.append(f"{year} {c0} '{desc}' {bag} differs from '{hunts[same[0]]['label']}' -> separate entry")
+                h = hunts[key] = {"id": c0 if not same else f"{c0} ({year})", "species": sp, "units": units,
+                                  "label": desc + (f" ({bag})" if bag else ""),
+                                  "weapon": WEAPON.get(c0.split("-")[1], "other"), "kind": "limited", "years": {}}
+                x = sex_of(bag)
+                if x: h["sex"] = x
+                if "mobility" in desc.lower(): h["kind"] = "special"
+            elif str(year) in h["years"]:
+                if len(bad) < 50: bad.append(f"{year} duplicate row {c0}")
+                continue
+            dT = vals["dr_R"] + vals["dr_NR"] + vals["dr_O"]
+            h["years"][str(year)] = {"T": {"tags": vals["lic"], "apps": vals["app_T"], "drawn": dT},
+                                     "R": {"apps": vals["app_R"], "drawn": vals["dr_R"]},
+                                     "NR": {"apps": vals["app_NR"], "drawn": vals["dr_NR"]},
+                                     "O": {"apps": vals["app_O"], "drawn": vals["dr_O"]}}
             nh += 1
     LOG.append(f"{year} {url} rows={nrows} hunts(E/D/C/P kept)={nh}")
     LOG.extend(bad)
@@ -118,7 +135,10 @@ def parse():
     for year, url, title in SOURCES:
         try: parse_book(year, url, title, hunts, sources)
         except Exception as e: LOG.append(f"{year} FAILED {url}: {e!r}")
-    LOG.append("apps = 1st-choice applicants; drawn = licenses drawn by 1st-choice applicants (report also has 2nd-4th choice).")
+    LOG.append(f"hunt codes reused for a different hunt (desc/bag changed): {len(REUSED)}; first 40:")
+    LOG.extend(REUSED[:40])
+    LOG.append("apps = 1st-choice applicants; drawn = licenses drawn by 1st-choice applicants (report also has 2nd-4th choice); T.drawn = R+NR+O first-choice drawn.")
+    LOG.append("weapon from hunt-code digit: 1 any legal sporting arm, 2 bow, 3 muzzleloader. Species C = DER hunts with whitetail bag (FAWTD/ESWTD).")
     LOG.append("NR = non-resident (unguided) pool only; outfitter-pool applicants/drawn are reported separately under key 'O' (nonresidents applying through an outfitter). T = hunt total incl. all pools.")
     LOG.append("Per-residency license quotas are not published in the odds report; only total Licenses (T.tags).")
     LOG.append("DEBUG species/digit/bag counts: " + "; ".join(f"{a}-{b} {c}:{n}" for (a, b, c), n in sorted(DEBUG.items())))

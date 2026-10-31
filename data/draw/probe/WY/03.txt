@@ -1,0 +1,171 @@
+URL: https://wgfd.wyo.gov/media/33871/download
+FINAL: https://wgfd.wyo.gov/media/33871/download
+TYPE: application/pdf
+DISPOSITION: attachment; filename=2026_DemandReport_Antelope_NR_Special_PP.pdf
+BYTES: 268802
+
+PDF PAGES: 21
+
+
+----- PAGE 1 TEXT -----
+Demand Report - Non-Resident Antelope State of Wyoming Date: 6/15/2026
+Nonresident Special Preference Point Wyoming Game and Fish Time: 9:44:46 AM
+Fiscal Division Page: 14
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+001 1 ANY ANTELOPE 73 2 3 2 100.00%
+71 0 < 3 0 100.00%
+71 14 2 14 100.00%
+57 17 < 2 17 100.00%
+40 29 1 29 100.00%
+11 5 < 1 5 100.00%
+6 6 0 31 19.35%
+0 < 0 0 0.00%
+002 1 ANY ANTELOPE 15 2 2 2 100.00%
+13 0 < 2 0 100.00%
+13 2 1 2 100.00%
+11 0 < 1 0 100.00%
+11 11 0 13 84.62%
+0 < 0 0 0.00%
+003 1 ANY ANTELOPE 29 4 2 4 100.00%
+25 0 < 2 0 100.00%
+25 0 1 0 100.00%
+25 0 < 1 0 100.00%
+25 9 0 9 100.00%
+004 1 ANY ANTELOPE 6 1 4 1 100.00%
+5 0 < 4 0 100.00%
+5 2 3 2 100.00%
+3 0 < 3 0 100.00%
+3 2 2 2 100.00%
+1 0 < 2 0 100.00%
+1 1 1 8 12.50%
+0 < 1 4 0.00%
+005 1 ANY ANTELOPE 6 2 < 5 2 100.00%
+4 0 4 0 100.00%
+4 5 < 4 10 40.00%
+0 <= 3 6 0.00%
+006 1 ANY ANTELOPE; 11 12 < 4 12 91.67%
+0 <= 3 11 0.00%
+007 1 ANY ANTELOPE 24 1 6 1 100.00%
+23 4 < 6 4 100.00%
+19 2 5 2 100.00%
+17 0 < 5 0 100.00%
+17 2 4 2 100.00%
+15 7 < 4 7 100.00%
+8 8 3 8 100.00%
+
+----- PAGE 2 TEXT -----
+Demand Report - Non-Resident Antelope State of Wyoming Date: 6/15/2026
+Nonresident Special Preference Point Wyoming Game and Fish Time: 9:44:47 AM
+Fiscal Division Page: 15
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+0 < 3 18 0.00%
+008 1 ANY ANTELOPE 41 5 2 5 100.00%
+36 0 < 2 0 100.00%
+36 8 1 8 100.00%
+28 10 < 1 10 100.00%
+18 18 0 18 100.00%
+0 < 0 0 0.00%
+009 1 ANY ANTELOPE; 15 1 8 1 100.00%
+14 0 < 8 0 100.00%
+14 0 7 0 100.00%
+14 0 < 7 0 100.00%
+14 0 6 0 100.00%
+14 0 < 6 0 100.00%
+14 1 5 1 100.00%
+13 0 < 5 0 100.00%
+13 5 4 5 100.00%
+8 0 < 4 0 100.00%
+8 3 3 3 100.00%
+5 0 < 3 0 100.00%
+5 3 2 3 100.00%
+2 0 < 2 0 100.00%
+2 2 1 10 20.00%
+0 < 1 11 0.00%
+010 1 ANY ANTELOPE 24 2 < 2 2 100.00%
+22 0 1 0 100.00%
+22 0 < 1 0 100.00%
+22 3 0 3 100.00%
+011 1 ANY ANTELOPE 29 1 4 1 100.00%
+28 0 < 4 0 100.00%
+28 0 3 0 100.00%
+28 0 < 3 0 100.00%
+28 11 2 11 100.00%
+17 6 < 2 6 100.00%
+11 6 1 6 100.00%
+5 5 < 1 8 62.50%
+0 <= 0 32 0.00%
+015 1 ANY ANTELOPE 35 1 2 1 100.00%
+34 0 < 2 0 100.00%
+34 2 1 2 100.00%
+32 31 < 1 31 100.00%
+
+----- PAGE 3 TEXT -----
+Demand Report - Non-Resident Antelope State of Wyoming Date: 6/15/2026
+Nonresident Special Preference Point Wyoming Game and Fish Time: 9:44:47 AM
+Fiscal Division Page: 16
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+1 1 0 21 4.76%
+0 < 0 0 0.00%
+016 1 ANY ANTELOPE 12 3 4 3 100.00%
+9 2 < 4 2 100.00%
+7 2 3 2 100.00%
+5 4 < 3 4 100.00%
+1 1 2 6 16.67%
+0 < 2 10 0.00%
+017 1 ANY ANTELOPE 30 5 3 5 100.00%
+25 10 < 3 10 100.00%
+15 15 2 16 93.75%
+0 < 2 29 0.00%
+018 1 ANY ANTELOPE 15 1 7 1 100.00%
+14 0 < 7 0 100.00%
+14 0 6 0 100.00%
+14 0 < 6 0 100.00%
+14 4 5 4 100.00%
+10 0 < 5 0 100.00%
+10 2 4 2 100.00%
+8 0 < 4 0 100.00%
+8 5 3 5 100.00%
+3 5 < 3 5 60.00%
+0 <= 2 13 0.00%
+019 1 ANY ANTELOPE 43 1 2 1 100.00%
+42 0 < 2 0 100.00%
+42 10 1 10 100.00%
+32 0 < 1 0 100.00%
+32 9 0 9 100.00%
+020 1 ANY ANTELOPE 45 2 < 2 2 100.00%
+43 5 1 5 100.00%
+38 2 < 1 2 100.00%
+36 3 0 3 100.00%
+021 1 ANY ANTELOPE 24 1 5 1 100.00%
+23 0 < 5 0 100.00%
+23 3 4 3 100.00%
+20 2 < 4 2 100.00%
+18 15 3 15 100.00%
+3 2 < 3 2 100.00%
+1 1 2 13 7.69%
+0 < 2 16 0.00%
+
+----- PAGE 21 TEXT -----
+Demand Report - Non-Resident Antelope State of Wyoming Date: 6/15/2026
+Nonresident Special Preference Point Wyoming Game and Fish Time: 9:44:54 AM
+Fiscal Division Page: 34
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+7 0 < 6 0 100.00%
+7 0 5 0 100.00%
+7 0 < 5 0 100.00%
+7 2 4 2 100.00%
+5 0 < 4 0 100.00%
+5 1 3 1 100.00%
+4 0 < 3 0 100.00%
+4 1 2 1 100.00%
+3 0 < 2 0 100.00%
+3 3 1 3 100.00%
+0 < 1 5 0.00%

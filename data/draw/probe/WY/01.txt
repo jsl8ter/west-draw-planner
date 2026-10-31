@@ -1,0 +1,162 @@
+URL: https://wgfd.wyo.gov/media/33777/download
+FINAL: https://wgfd.wyo.gov/media/33777/download
+TYPE: application/pdf
+DISPOSITION: attachment; filename=2026_DrawingOdds_Elk_PP_NR.pdf
+BYTES: 376728
+
+PDF PAGES: 31
+
+
+----- PAGE 1 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Preference Point Wyoming Game and Fish Time: 3:31:55 PM
+Fiscal Division Page: 38
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+001 1 ANY ELK 6 2 18 2 100.00%
+4 0 < 18 0 100.00%
+4 4 17 5 80.00%
+0 < 17 374 0.00%
+001 4 ANTLERLESS ELK 9 1 3 1 100.00%
+8 3 < 3 3 100.00%
+5 5 2 7 71.43%
+0 < 2 11 0.00%
+006 1 ANY ELK 1 1 13 1 100.00%
+0 < 13 48 0.00%
+006 4 ANTLERLESS ELK 3 0 < 1 0 100.00%
+3 1 0 1 100.00%
+007 1 ANY ELK 69 1 19 1 100.00%
+68 0 < 19 0 100.00%
+68 2 18 2 100.00%
+66 0 < 18 0 100.00%
+66 6 17 6 100.00%
+60 3 < 17 3 100.00%
+57 14 16 14 100.00%
+43 6 < 16 6 100.00%
+37 17 15 17 100.00%
+20 8 < 15 8 100.00%
+12 12 14 36 33.33%
+0 < 14 982 0.00%
+007 2 ANY ELK 36 3 9 3 100.00%
+33 0 < 9 0 100.00%
+33 2 8 2 100.00%
+31 3 < 8 3 100.00%
+28 1 7 1 100.00%
+27 0 < 7 0 100.00%
+27 4 6 4 100.00%
+23 2 < 6 2 100.00%
+21 7 5 7 100.00%
+14 0 < 5 0 100.00%
+14 11 4 11 100.00%
+3 7 < 4 7 42.86%
+0 <= 3 73 0.00%
+008 1 ANY ELK 12 1 11 1 100.00%
+11 0 < 11 0 100.00%
+11 0 10 0 100.00%
+
+----- PAGE 2 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Preference Point Wyoming Game and Fish Time: 3:31:56 PM
+Fiscal Division Page: 39
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+11 0 < 10 0 100.00%
+11 0 9 0 100.00%
+11 0 < 9 0 100.00%
+11 0 8 0 100.00%
+11 0 < 8 0 100.00%
+11 0 7 0 100.00%
+11 0 < 7 0 100.00%
+11 0 6 0 100.00%
+11 0 < 6 0 100.00%
+11 1 5 1 100.00%
+10 0 < 5 0 100.00%
+10 1 4 1 100.00%
+9 0 < 4 0 100.00%
+9 2 3 2 100.00%
+7 0 < 3 0 100.00%
+7 7 2 7 100.00%
+0 < 2 23 0.00%
+011 1 ANY ELK 8 3 17 3 100.00%
+5 0 < 17 0 100.00%
+5 3 16 3 100.00%
+2 0 < 16 0 100.00%
+2 4 15 4 50.00%
+0 < 15 124 0.00%
+011 2 LIMITED QUOTA, ANY E 8 1 13 1 100.00%
+7 0 < 13 0 100.00%
+7 0 12 0 100.00%
+7 0 < 12 0 100.00%
+7 0 11 0 100.00%
+7 0 < 11 0 100.00%
+7 0 10 0 100.00%
+7 0 < 10 0 100.00%
+7 0 9 0 100.00%
+7 0 < 9 0 100.00%
+7 0 8 0 100.00%
+7 3 < 8 3 100.00%
+4 4 7 4 100.00%
+0 < 7 41 0.00%
+011 4 ANTLERLESS ELK 10 3 2 3 100.00%
+7 0 < 2 0 100.00%
+7 1 1 1 100.00%
+
+----- PAGE 3 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Preference Point Wyoming Game and Fish Time: 3:31:56 PM
+Fiscal Division Page: 40
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+6 0 < 1 0 100.00%
+6 6 0 22 27.27%
+0 < 0 0 0.00%
+011 9 ANY ELK, ARCHERY ONL 6 1 16 1 100.00%
+5 0 < 16 0 100.00%
+5 0 15 0 100.00%
+5 0 < 15 0 100.00%
+5 0 14 0 100.00%
+5 0 < 14 0 100.00%
+5 2 13 2 100.00%
+3 2 < 13 2 100.00%
+1 1 12 1 100.00%
+0 < 12 52 0.00%
+016 1 ANY ELK 11 5 20 5 100.00%
+6 0 < 20 0 100.00%
+6 3 19 3 100.00%
+3 0 < 19 0 100.00%
+3 3 18 10 30.00%
+0 < 18 584 0.00%
+016 2 ANY ELK 9 2 20 2 100.00%
+7 0 < 20 0 100.00%
+7 5 19 5 100.00%
+2 0 < 19 0 100.00%
+2 2 18 4 50.00%
+0 < 18 419 0.00%
+016 4 ANTLERLESS ELK 30 2 6 2 100.00%
+28 0 < 6 0 100.00%
+28 0 5 0 100.00%
+28 0 < 5 0 100.00%
+28 1 4 1 100.00%
+27 0 < 4 0 100.00%
+27 1 3 1 100.00%
+26 0 < 3 0 100.00%
+26 3 2 3 100.00%
+23 0 < 2 0 100.00%
+23 5 1 5 100.00%
+18 4 < 1 4 100.00%
+14 14 0 40 35.00%
+0 < 0 0 0.00%
+019 1 ANY ELK 7 2 < 14 2 100.00%
+
+----- PAGE 31 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Preference Point Wyoming Game and Fish Time: 3:32:07 PM
+Fiscal Division Page: 68
+Hunt Hunt Pref First Choice First Choice
+Area Type Description Quota Issued Points Applicants Success Odds
+---- ---- ----------------------- ----- ------ ------ ------------ ------------
+62 63 < 6 351 17.66%
+0 <= 5 4156 0.00%

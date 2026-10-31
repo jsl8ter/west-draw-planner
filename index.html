@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="odds.js"></script>
 <style>
 /* Layout: field-map app — sticky tab bar, full-width map first, unit detail below; one column on phones */
 :root{
@@ -104,6 +105,17 @@ td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;
 .callout ol{margin:0;padding-left:20px}
 a{color:var(--accent)}
 .src{font-size:12.5px;color:var(--muted);word-break:break-word}
+.hunt{border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:6px}
+.hunt .hh{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
+.hunt .code{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px 12px;font-variant-numeric:tabular-nums}
+.stats div b{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500}
+details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight:600}
+.dtab{overflow-x:auto;margin-top:6px}
+.dtab table{min-width:640px;font-size:12.5px}
+.dtab td,.dtab th{padding:4px 6px;font-family:var(--mono);white-space:nowrap}
+.dtab tr.me td{background:color-mix(in srgb,var(--panel) 80%,var(--accent))}
+.oddsbig{font-family:var(--display);font-size:26px;font-weight:700;line-height:1}
 .leaflet-tooltip.ulbl{font:600 12px var(--body);padding:2px 6px}
 @media (max-width:520px){.yr{grid-template-columns:1fr;gap:4px}.dl{grid-template-columns:1fr;gap:2px}.li{grid-template-columns:12px 40px 1fr auto}#map{height:60vh}.basebar button{padding:7px 8px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -130,6 +142,15 @@ a{color:var(--accent)}
     <div class="row"><span class="lbl">Color by</span>
       <button class="chip" id="c-tier" aria-pressed="true" data-color="tier">Hunt quality</button>
       <button class="chip" id="c-chance" aria-pressed="false" data-color="chance">My draw chance</button>
+      <button class="chip" id="c-points" aria-pressed="false" data-color="points">Points needed</button>
+      <button class="chip" id="c-odds" aria-pressed="false" data-color="odds">My odds (draw data)</button>
+      <button class="chip" id="c-trophy" aria-pressed="false" data-color="trophy">Trophy potential</button>
+    </div>
+    <div class="row" id="wpnRow"><span class="lbl">Weapon</span>
+      <button class="chip" data-wpn="any" aria-pressed="true">Any</button>
+      <button class="chip" data-wpn="rifle" aria-pressed="false">Rifle</button>
+      <button class="chip" data-wpn="archery" aria-pressed="false">Archery</button>
+      <button class="chip" data-wpn="muzzleloader" aria-pressed="false">Muzzleloader</button>
     </div>
     <div class="row" id="tierRow"><span class="lbl">Show</span></div>
   </div>
@@ -143,6 +164,7 @@ a{color:var(--accent)}
     </div>
     <div class="legend" id="legend"></div>
     <div class="status" id="status"></div>
+    <div class="status" id="dstatus"></div>
   </div>
   <div id="sheet"></div>
   <div class="list" id="list"></div>
@@ -624,7 +646,19 @@ function attach(L,feats,forced){
     }
     [...new Set(hits)].forEach(f=>f._e.push(i));
   }
-  const keep=L.onlyMatched?feats.filter(f=>f._e.length):feats;
+  const D=DRAW[L.st];feats.forEach(f=>f._h=[]);
+  if(D){
+    D.hunts.forEach((h,hi)=>{
+      if(!L.sp.includes(h.species))return;
+      for(const u of (h.units||[])){
+        let hits=[];
+        if(L.kind==="num"){for(const t of tokens(L.st,String(u))){if(idx[t])hits.push(...idx[t])}}
+        else{const k=String(u).toLowerCase().replace(/\b(nonresident|nr|region|general)\b/g,"").replace(/\s+/g," ").trim();hits=feats.filter(f=>f._lc===k)}
+        hits.forEach(f=>{if(!f._h.includes(hi))f._h.push(hi)});
+      }
+    });
+  }
+  const keep=L.onlyMatched?feats.filter(f=>f._e.length||f._h.length):feats;
   const gj=window.L.geoJSON({type:"FeatureCollection",features:keep},{
     renderer:canvas,
     style:f=>styleFor(f,L),
@@ -643,7 +677,14 @@ function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
 function styleFor(f,L){
   const es=entriesFor(f);
   const line=base==="sat"?"#ffffff":"#2b322d";
-  const isSel=sel!=null&&f._e.includes(sel);
+  const isSel=(sel!=null&&f._e.includes(sel))||selF===f;
+  if(colorMode==="points"||colorMode==="odds"||colorMode==="trophy"){
+    const v=metric(f,L);
+    if(v==null) return {color:line,weight:.7,opacity:.55,dashArray:L.zone?"7 5":null,fill:true,fillOpacity:0.01};
+    const c=rampColor(colorMode,v);
+    if(L.zone) return {color:isSel?css("--accent"):c,weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:c,fillOpacity:.14};
+    return {color:isSel?css("--accent"):line,weight:isSel?3:1,opacity:.9,dashArray:null,fill:true,fillColor:c,fillOpacity:base==="sat"?.6:.5};
+  }
   if(!es.length) return {color:line,weight:.7,opacity:.55,fill:true,fillOpacity:0.01};
   const u=U[es[0]];
   if(L.zone) return {color:isSel?css("--accent"):colorHex(u),weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:colorHex(u),fillOpacity:.14};
@@ -660,8 +701,56 @@ const colorHex=u=>colorMode==="tier"?css(TIERV[u[4]]):css(CHV[chance(u)][1]);
 const colorOf=u=>colorMode==="tier"?TIERC[u[4]]:CH[chance(u)][1];
 const reqText=u=>u[7]!=null?`${u[7]}${u[7]>=20?"+":""} pts`:(u[8]!=null?`${u[8]}% odds`:"no draw");
 
+// ---------- draw data, trophy, metrics ----------
+const DSTATES=["CO","WY","UT","AZ","NM","NV","OR","ID","MT"];
+const DRAW={};let TROPHY=null;const DLS={};
+async function loadData(){
+  await Promise.all(DSTATES.map(async st=>{try{const r=await fetch(`data/draw/${st}.json`,{cache:"no-cache"});if(r.ok){DRAW[st]=await r.json();DLS[st]="ok"}else DLS[st]="none"}catch(e){DLS[st]="none"}}));
+  try{const r=await fetch("data/trophy.json",{cache:"no-cache"});if(r.ok)TROPHY=await r.json()}catch(e){}
+  renderDStatus();
+}
+function renderDStatus(){
+  const parts=DSTATES.map(st=>{const d=DRAW[st];if(!d||!d.hunts||!d.hunts.length)return `<span class="wait">${st} pending</span>`;
+    const ys=[...new Set(d.hunts.flatMap(h=>Object.keys(h.years||{})))].sort();return `<span class="ok">${st} ✓ ${d.hunts.length} hunts ${ys.length?ys[0]+"–"+ys[ys.length-1]:""}</span>`});
+  document.getElementById("dstatus").innerHTML="Draw data: "+parts.join("")+(TROPHY?` <span class="ok">Trophy ✓</span>`:` <span class="wait">Trophy pending</span>`);
+}
+let wpn="any";
+const huntOk=h=>h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"));
+function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}
+function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
+function huntOdds(st,h){const s=Odds.summarize(sysOf(st),h,"NR",myPts(st,h.species));return s}
+function oddsVal(s){if(!s)return null;if(s.projected!=null)return s.projected;const h=s.historical;return h.length?h[h.length-1][1]:s.overall}
+function metric(f,Lc){
+  const st=Lc.st,hs=huntsOf(f,st);
+  if(colorMode==="trophy"){const t=trophyOf(st,sp,f._id);return t?t.s:null}
+  if(colorMode==="points"){
+    if(hs.length){
+      if(sysOf(st)==="random")return "R";
+      const v=hs.map(h=>{const y=Odds.latestYear(h,"NR");return y?h.years[y].NR.min_pts:null}).filter(x=>x!=null);
+      if(v.length)return Math.min(...v);
+    }
+    const es=entriesFor(f).map(i=>U[i]).filter(u=>u[7]!=null);return es.length?Math.min(...es.map(u=>u[7])):(entriesFor(f).some(i=>U[i][8]!=null)?"R":null);
+  }
+  if(colorMode==="odds"){
+    const v=hs.map(h=>oddsVal(huntOdds(st,h))).filter(x=>x!=null);return v.length?Math.max(...v):null;
+  }
+  return null;
+}
+function trophyOf(st,s,id){
+  const t=TROPHY&&TROPHY.units&&TROPHY.units[st]&&TROPHY.units[st][s];if(!t)return null;
+  if(t[id])return t[id];const n=normId(id);for(const k in t){if(normId(k)===n||k.toLowerCase()===String(id).toLowerCase())return t[k]}return null;
+}
+const RAMP={
+  points:[[0,"#2f8a4a","0–1"],[2,"#8bbf3f","2–4"],[5,"#e4c228","5–8"],[9,"#e08a1e","9–13"],[14,"#c8452c","14–19"],[20,"#7a2a6e","20+"]],
+  odds:[[0,"#7a2a6e","<2%"],[.02,"#c8452c","2–10%"],[.10,"#e08a1e","10–25%"],[.25,"#e4c228","25–50%"],[.50,"#8bbf3f","50–75%"],[.75,"#2f8a4a","75%+"]],
+  trophy:[[1,"#e8e1c8","1 · opportunity"],[2,"#e9c46a","2"],[3,"#e08a1e","3 · solid"],[4,"#c8452c","4"],[5,"#6e1b47","5 · top tier"]]
+};
+function rampColor(mode,v){if(v==="R")return "#4f8fd0";const r=RAMP[mode];let c=r[0][1];for(const [t,col] of r){if(v>=t)c=col}return c}
+const pct=x=>x==null?"–":x===0?"0%":x>=.995?"100%":x<.001&&x>0?"<0.1%":(x*100).toFixed(x<.1?1:0)+"%";
+const n0=x=>x==null?"–":Number(x).toLocaleString();
+
 // ---------- state ----------
-let colorMode="tier",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,base="topo";
+let colorMode="tier",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,selF=null,base="topo";
 let PTS={};
 try{PTS=JSON.parse(localStorage.getItem("wdp-pts")||"{}")}catch(e){PTS={}}
 const savePts=()=>{try{localStorage.setItem("wdp-pts",JSON.stringify(PTS))}catch(e){}};
@@ -696,7 +785,8 @@ function renderDots(){
   U.forEach((u,i)=>{
     if(u[1]!==sp||!tierOn.has(u[4]))return;
     if(ENTRY_SHAPES[i]&&ENTRY_SHAPES[i].length)return;
-    const m=L.circleMarker([u[5],u[6]],{renderer:canvas,radius:sel===i?9:6.5,color:sel===i?css("--ink"):"#fff",weight:sel===i?3:1.5,fillColor:colorHex(u),fillOpacity:1});
+    const fc=colorMode==="points"?(u[7]!=null?rampColor("points",u[7]):(u[8]!=null?rampColor("points","R"):"#9aa39a")):(colorMode==="odds"||colorMode==="trophy")?"#9aa39a":colorHex(u);
+    const m=L.circleMarker([u[5],u[6]],{renderer:canvas,radius:sel===i?9:6.5,color:sel===i?css("--ink"):"#fff",weight:sel===i?3:1.5,fillColor:fc,fillOpacity:1});
     m.bindTooltip(`${u[0]} ${u[2]}`,{className:"ulbl",direction:"top"});
     m.on("click",()=>pick(i));m.addTo(dots);
   });
@@ -712,10 +802,16 @@ function render(){restyle();renderList()}
 const spRow=document.getElementById("spRow"),tierRow=document.getElementById("tierRow");
 for(const k in SPECIES){const b=document.createElement("button");b.className="chip";b.id="sp-"+k;b.dataset.sp=k;b.setAttribute("aria-pressed",k===sp);b.textContent=SPECIES[k];b.onclick=()=>{sp=k;sel=null;document.getElementById("sheet").innerHTML="";spRow.querySelectorAll("[data-sp]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sp===k));render()};spRow.appendChild(b)}
 for(const k in TIERS){const b=document.createElement("button");b.className="chip";b.id="ti-"+k;b.setAttribute("aria-pressed","true");b.innerHTML=`<i class="dot" style="background:${TIERC[k]}"></i>${TIERS[k].split(" /")[0]}`;b.onclick=()=>{tierOn.has(k)?tierOn.delete(k):tierOn.add(k);b.setAttribute("aria-pressed",tierOn.has(k));render()};tierRow.appendChild(b)}
+document.querySelectorAll("[data-wpn]").forEach(b=>b.onclick=()=>{wpn=b.dataset.wpn;document.querySelectorAll("[data-wpn]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
 document.querySelectorAll("[data-color]").forEach(b=>b.onclick=()=>{colorMode=b.dataset.color;document.querySelectorAll("[data-color]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
 
 function renderLegend(){
   const L=document.getElementById("legend");
+  if(RAMP[colorMode]){
+    const title={points:"NR points needed to draw (latest year, easiest hunt in unit)",odds:`Your best NR odds next year, using My Points for ${SPECIES[sp].toLowerCase()}`,trophy:"Trophy potential"}[colorMode];
+    L.innerHTML=`<span><b>${title}</b></span>`+RAMP[colorMode].map(([,c,l])=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`).join("")+(colorMode==="points"?`<span><i class="sq" style="background:#4f8fd0"></i>Random draw (no points)</span>`:"")+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>No data yet</span>`;
+    return;
+  }
   L.innerHTML=(colorMode==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span><span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-tag region or zone</span>`;
 }
 function renderStatus(){
@@ -735,14 +831,60 @@ function entrySheet(i){const u=U[i],c=chance(u);
   return `<div class="sheet"><div class="row" style="justify-content:space-between"><h3>${SN[u[0]]} · ${SPECIES[u[1]]} · ${u[2]}</h3><span class="pill" style="background:${TIERC[u[4]]}">${TIERS[u[4]]}</span></div>
   <div class="kv"><div><b>Near</b>${u[3]}</div><div><b>${u[7]!=null?"NR points needed":"NR draw odds"}</b>${u[7]!=null?`~${u[7]}${u[7]>=20?"+":""}`:(u[8]!=null?`~${u[8]}%`:"No draw")}</div><div><b>Your points</b>${u[7]!=null?myPts(u[0],u[1]):"n/a"}</div><div><b>Your chance</b><span class="pill" style="background:${CH[c][1]}">${CH[c][0]}</span></div></div>
   ${u[9]?`<p>${u[9]}</p>`:""}<p class="note">${STATE_INFO[u[0]].sys}</p></div>`}
-function pick(i,zoom){sel=i;restyle();renderList();document.getElementById("sheet").innerHTML=entrySheet(i);
+function pick(i,zoom){sel=i;selF=null;restyle();renderList();
+  const sh0=(ENTRY_SHAPES[i]||[])[0];let extra="";
+  if(sh0&&sh0.feature){const g=Object.values(POLY).find(g=>g.hasLayer&&g.hasLayer(sh0));if(g)extra=huntsSheet(sh0.feature,g._cfg)}
+  document.getElementById("sheet").innerHTML=entrySheet(i)+extra;
   if(zoom){const sh=ENTRY_SHAPES[i];if(sh&&sh.length){const b=L.featureGroup(sh).getBounds();map.fitBounds(b,{maxZoom:9,padding:[30,30]})}else map.setView([U[i][5],U[i][6]],8)}}
+let lastShown=null;
+const WPN={any:"Any legal weapon",rifle:"Rifle",archery:"Archery",muzzleloader:"Muzzleloader",other:"Other"};
+function blkCells(b){return b?`<td>${n0(b.apps)}</td><td>${n0(b.tags)}</td><td>${n0(b.drawn)}</td><td>${b.apps&&(b.drawn??b.tags)!=null?pct(Math.min(1,(b.drawn??b.tags)/b.apps)):"–"}</td><td>${b.min_pts??"–"}</td>`:`<td colspan="5">–</td>`}
+function huntCard(st,h){
+  const sys=sysOf(st),mp=myPts(st,h.species),s=huntOdds(st,h);
+  const y=s?s.year:Object.keys(h.years).sort().pop();const Y=h.years[y]||{};
+  const nr=Y.NR||{},r=Y.R||{},t=Y.T||{};
+  const tot={apps:t.apps??((nr.apps||0)+(r.apps||0)||null),tags:t.tags??((nr.tags||0)+(r.tags||0)||null),drawn:t.drawn??((nr.drawn||0)+(r.drawn||0)||null)};
+  const ov=b=>b&&b.apps?pct(Math.min(1,(b.drawn??b.tags??0)/b.apps)):"–";
+  const proj=s?oddsVal(s):null;
+  const cr=s&&s.creep&&s.creep.series.length>1?s.creep.series.map(x=>`${x[0]}: ${x[1]}`).join(" → ")+(s.creep.slope!=null?` (${s.creep.slope>=0?"+":""}${s.creep.slope.toFixed(2)}/yr)`:""):"";
+  const rows=Object.keys(h.years).sort().reverse().map(yy=>{const Z=h.years[yy];const T=Z.T||{apps:(Z.NR?.apps||0)+(Z.R?.apps||0)||null,tags:(Z.NR?.tags||0)+(Z.R?.tags||0)||null,drawn:(Z.NR?.drawn||0)+(Z.R?.drawn||0)||null};return `<tr><td>${yy}</td>${blkCells(Z.NR)}${blkCells(Z.R)}<td>${n0(T.apps)}</td><td>${n0(T.tags)}</td><td>${ov(T)}</td></tr>`}).join("");
+  const bp=(nr.by_pts||[]).slice().sort((a,b)=>b[0]-a[0]);
+  const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
+  return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
+  <div class="stats">
+    <div><b>Your odds ${y?+y+1:""} (${mp} pts)</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
+    <div><b>NR ${y} drawn</b>${n0(nr.drawn??nr.tags)} of ${n0(nr.apps)} · ${ov(nr)}</div>
+    <div><b>NR pts needed ${y}</b>${nr.min_pts??(sys==="random"?"random":"–")}</div>
+    <div><b>Resident ${y}</b>${n0(r.drawn??r.tags)} of ${n0(r.apps)} · ${ov(r)}</div>
+    <div><b>Total ${y}</b>${n0(tot.drawn??tot.tags)} of ${n0(tot.apps)} · ${ov(tot)}</div>
+    ${s&&s.years!=null?`<div><b>Est. years to draw</b>${s.years>30?"30+":s.years}</div>`:""}
+  </div>
+  ${s&&s.historical.length?`<p class="note">Your odds at ${mp} pts in past draws: ${s.historical.map(([yy,v])=>`${yy} ${pct(v)}`).join(" · ")}</p>`:""}
+  ${cr?`<p class="note">NR points needed by year: ${cr}</p>`:""}
+  <details class="dt"><summary>All years: nonresident, resident, total</summary><div class="dtab"><table>
+   <thead><tr><th rowspan="2">Year</th><th colspan="5">Nonresident</th><th colspan="5">Resident</th><th colspan="3">Total</th></tr>
+   <tr><th>Apps</th><th>Tags</th><th>Drawn</th><th>Draw %</th><th>Min pts</th><th>Apps</th><th>Tags</th><th>Drawn</th><th>Draw %</th><th>Min pts</th><th>Apps</th><th>Tags</th><th>Draw %</th></tr></thead>
+   <tbody>${rows}</tbody></table></div></details>
+  ${bp.length?`<details class="dt"><summary>${y} nonresident results by points</summary><div class="dtab"><table style="min-width:280px"><thead><tr><th>Points</th><th>Apps</th><th>Drawn</th><th>Draw %</th></tr></thead><tbody>${bpRows}</tbody></table></div></details>`:""}
+  </div>`;
+}
+function huntsSheet(f,Lc){
+  const hs=huntsOf(f,Lc.st);const d=DRAW[Lc.st];const tr=trophyOf(Lc.st,sp,f._id);
+  const trophy=tr?`<p><b>Trophy potential ${tr.s}/5.</b> ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
+  if(!d)return trophy?`<div class="sheet">${trophy}<p class="note">${SN[Lc.st]} draw results are still being added.</p></div>`:"";
+  if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
+  const order=h=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99};
+  return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} · ${SPECIES[sp]} draw results</h3>${trophy}
+  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. Odds use your ${SN[Lc.st]} ${SPECIES[sp].toLowerCase()} points from My Points and ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. Next-year odds assume everyone who missed gains a point and tags stay the same.</p>
+  ${hs.slice().sort((a,b)=>order(a)-order(b)).map(h=>huntCard(Lc.st,h)).join("")}</div>`;
+}
 function showFeature(f,Lc,lyr){
+  lastShown=[f,Lc,lyr];selF=f;
   const es=entriesFor(f);
-  if(es.length){sel=es[0];restyle();renderList();document.getElementById("sheet").innerHTML=es.map(entrySheet).join("");return}
+  if(es.length){sel=es[0];restyle();renderList();document.getElementById("sheet").innerHTML=es.map(entrySheet).join("")+huntsSheet(f,Lc);return}
   sel=null;restyle();
-  const s=STATE_INFO[Lc.st];
-  document.getElementById("sheet").innerHTML=`<div class="sheet"><h3>${SN[Lc.st]} · Unit ${f._id}</h3><p>This unit isn't rated in the planner yet for ${SPECIES[sp].toLowerCase()}. Check the state's draw report for its odds.</p><div class="kv"><div><b>Deadline</b>${s.date}</div><div><b>Payment</b>${s.pay}</div></div><a href="${Lc.src}" target="_blank" rel="noopener">${SN[Lc.st]} official unit maps</a></div>`;
+  const s=STATE_INFO[Lc.st];const hs=huntsSheet(f,Lc);
+  document.getElementById("sheet").innerHTML=hs||`<div class="sheet"><h3>${SN[Lc.st]} · Unit ${f._id}</h3><p>This unit isn't rated in the planner yet for ${SPECIES[sp].toLowerCase()}.</p><div class="kv"><div><b>Deadline</b>${s.date}</div><div><b>Payment</b>${s.pay}</div></div><a href="${Lc.src}" target="_blank" rel="noopener">${SN[Lc.st]} official unit maps</a></div>`;
 }
 
 // ---------- other views ----------
@@ -761,7 +903,7 @@ window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",render);
 
 renderLegend();renderStatus();renderDots();renderList();buildStates();buildCosts();buildDates();buildPts();show(location.hash.slice(1));
-LAYERS.forEach(loadLayer);
+loadData().then(()=>LAYERS.forEach(loadLayer));
 
 </script>
 </body>

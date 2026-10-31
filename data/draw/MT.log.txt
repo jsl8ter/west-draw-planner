@@ -7,27 +7,7 @@ repository: 231 reports listed
 2022 2022 Deer B Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=107105 -> 817 rows, 92 LPTs
 2022 2022 Elk B Bonus Points Drawing Statistics Report: https://myfwp.mt.gov/getRepositoryFile?objectID=107106 -> 953 rows, 84 LPTs
 2023 2023 Deer Permit Bonus Point Drawing Statistics Report: https://myfwp.mt.gov/getRepositoryFile?objectID=108845 -> 771 rows, 33 LPTs
-2023 2023 Elk Permit Bonus Point Drawing Statistics Report: https://myfwp.mt.gov/getRepositoryFile?objectID=108847 -> 952 rows, 31 LPTs
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 1 481 481 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 2 89 89 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 3 28 28 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 4 19 19 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 5 9 9 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 6 3 3 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 7 5 5 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 9 1 1 100
-  unparsed: ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 2649 2649 100
-  unparsed: ELK PERMIT 270-45 (FirsNt OChNoRiEceSI ODEnNlyT) 1 91 91 100
-  unparsed: ELK PERMIT 270-45 (FirsNt OChNoRiEceSI ODEnNlyT) 2 45 45 100
-  unparsed: ELK PERMIT 270-45 (FirsNt OChNoRiEceSI ODEnNlyT) 3 13 13 100
-  unparsed: ELK PERMIT 270-45 (FirsNt OChNoRiEceSI ODEnNlyT) 4 4 4 100
-  unparsed: ELK PERMIT 270-45 (FirsNt OChNoRiEceSI ODEnNlyT) 462 462 100
-  unparsed: ELK PERMIT 411-20 (FirsRt E&SaIDmEpN; TO LnAlyN)DOWNER 1 25 17 68
-  unparsed: ELK PERMIT 411-20 (FirsRt E&SaIDmEpN; TO LnAlyN)DOWNER 2 4 4 100
-  unparsed: ELK PERMIT 411-20 (FirsRt E&SaIDmEpN; TO LnAlyN)DOWNER 3 5 5 100
-  unparsed: ELK PERMIT 411-20 (FirsRt E&SaIDmEpN; TO LnAlyN)DOWNER 4 4 4 100
-  unparsed: ELK PERMIT 411-20 (FirsRt E&SaIDmEpN; TO LnAlyN)DOWNER 5 1 1 100
-  unparsed: ELK PERMIT 411-20 (FirsRt E&SaIDmEpN; TO LnAlyN)DOWNER 28 17 60.71
+2023 2023 Elk Permit Bonus Point Drawing Statistics Report: https://myfwp.mt.gov/getRepositoryFile?objectID=108847 -> 1221 rows, 41 LPTs
 2023 2023 Deer B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=109340 -> 816 rows, 92 LPTs
 2023 2023 Elk B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=109342 -> 977 rows, 80 LPTs
 2023 2023 Antelope B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=109599 -> 429 rows, 34 LPTs

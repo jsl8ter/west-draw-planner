@@ -1,0 +1,109 @@
+NV: OK 725 hunts, years ['2021', '2022', '2023', '2024', '2025']
+media api: 203 trend files found
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-NonResident-Guided-Antlered-ALW-Bonus-Point-and-Application-Trend-2025.pdf: 55 blocks, 55 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 41 blocks, 41 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 41 blocks, 41 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 57 blocks, 57 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 57 blocks, 57 kept
+https://www.ndow.org/wp-content/uploads/2026/04/Elk-Spike-ALW-Bonus-Point-and-Application-Trend-2025-1.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlerless-Muzzleloader-Bonus-Point-and-Application-Trend-2025.pdf: 24 blocks, 24 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlerless-Archery-Bonus-Point-and-Application-Trend-2025.pdf: 28 blocks, 28 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlerless-ALW-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 34 blocks, 34 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlerless-ALW-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 30 blocks, 30 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2025.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlered-Archery-Bonus-Point-and-Application-Trend-2025.pdf: 26 blocks, 26 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlered-ALW-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 27 blocks, 27 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Elk-Antlered-ALW-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 23 blocks, 23 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Antelope-Horns-Shorter-ALW-Bonus-Point-and-Application-Trend-2025.pdf: 13 blocks, 13 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Antelope-Horns-Longer-Muzzleloader-Bonus-Point-and-Application-Trend-2025.pdf: 42 blocks, 42 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 32 blocks, 32 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 26 blocks, 26 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 34 blocks, 34 kept
+https://www.ndow.org/wp-content/uploads/2026/01/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-NonResident-2025.pdf: 32 blocks, 32 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-NonResident-Guided-Antlered-ALW-Bonus-Point-and-Application-Trend-2024.pdf: 56 blocks, 56 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-Resident-2024.pdf: 41 blocks, 41 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-NonResident-2024.pdf: 41 blocks, 41 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-Resident-2024.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-NonResident-2024.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-Resident-2024.pdf: 57 blocks, 57 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-NonResident-2024.pdf: 57 blocks, 57 kept
+https://www.ndow.org/wp-content/uploads/2025/02/Elk-Spike-ALW-Bonus-Point-and-Application-Trend-2024.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2025/02/Elk-Antlerless-Muzzleloader-Bonus-Point-and-Application-Trend-2024.pdf: 24 blocks, 24 kept
+https://www.ndow.org/wp-content/uploads/2025/02/Elk-Antlerless-Archery-Bonus-Point-and-Application-Trend-2024.pdf: 28 blocks, 28 kept
+https://www.ndow.org/wp-content/uploads/2025/02/Elk-Antlerless-ALW-Bonus-Point-and-Application-Trend-2024.pdf: 62 blocks, 62 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Elk-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2024.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Elk-Antlered-Archery-Bonus-Point-and-Application-Trend-2024.pdf: 26 blocks, 26 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Elk-Antlered-ALW-Bonus-Point-and-Application-Trend-2024.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2025/02/Antelope-Horns-Shorter-Bonus-Point-and-Application-Trend-2024.pdf: 12 blocks, 12 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Antelope-Horns-Longer-Muzzleloader-Bonus-Point-and-Application-Trend-2024.pdf: 42 blocks, 42 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-2024.pdf: 58 blocks, 58 kept
+https://www.ndow.org/wp-content/uploads/2025/01/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-2024.pdf: 68 blocks, 68 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Mule-Deer-NonResident-Guided-Antlered-ALW-Bonus-Point-and-Application-Trend-2023.pdf: 57 blocks, 57 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Mule-Deer-Antlerless-Bonus-Point-and-Application-Trend-2023.pdf: 4 blocks, 4 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2023.pdf: 82 blocks, 82 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-2023.pdf: 100 blocks, 100 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-2023.pdf: 114 blocks, 114 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Spike-ALW-Bonus-Point-and-Application-Trend-2023.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Antlerless-Muzzleloader-Bonus-Point-and-Application-Trend-2023.pdf: 24 blocks, 24 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Antlerless-Archery-Bonus-Point-and-Application-Trend-2023.pdf: 28 blocks, 28 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Antlerless-ALW-Bonus-Point-and-Application-Trend-2023.pdf: 62 blocks, 62 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2023.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Antlered-Archery-Bonus-Point-and-Application-Trend-2023.pdf: 26 blocks, 26 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Elk-Antlered-ALW-Bonus-Point-and-Application-Trend-2023.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Antelope-Horns-Shorter-Bonus-Point-and-Application-Trend-2023.pdf: 14 blocks, 14 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Antelope-Horns-Longer-Muzzle-Bonus-Point-and-Application-Trend-2023.pdf: 42 blocks, 42 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-2023.pdf: 58 blocks, 58 kept
+https://www.ndow.org/wp-content/uploads/2024/02/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-2023.pdf: 68 blocks, 68 kept
+https://www.ndow.org/wp-content/uploads/2023/01/Mule-Deer-NonResident-Guided-Antlered-ALW-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 55 blocks, 55 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Mule-Deer-Antlerless-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 5 blocks, 5 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 80 blocks, 80 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 96 blocks, 96 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 114 blocks, 114 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Spike-ALW-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 23 blocks, 23 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Antlerless-Muzzleloader-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 23 blocks, 23 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Antlerless-Archery-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 28 blocks, 28 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Antlerless-ALW-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 60 blocks, 60 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Antlered-Archery-Bonus-Point-and-Application-Trend-2022.pdf: 26 blocks, 26 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Elk-Antlered-ALW-Bonus-Point-and-Application-Trend-2022-ADA-update.pdf: 52 blocks, 52 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Antelope-Horns-Shorter-Bonus-Point-and-Application-Trend-2022.pdf: 12 blocks, 12 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Antelope-Horns-Longer-Muzzle-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 42 blocks, 42 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 58 blocks, 58 kept
+https://www.ndow.org/wp-content/uploads/2023/02/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-2022-ADA.pdf: 68 blocks, 68 kept
+https://www.ndow.org/wp-content/uploads/2022/12/Mule-Deer-NonResident-Guided-Antlered-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 57 blocks, 57 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Mule-Deer-Antlerless-Bonus-Point-and-Application-Trend-2021.pdf: 5 blocks, 5 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2021.pdf: 80 blocks, 80 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Mule-Deer-Antlered-Archery-Bonus-Point-and-Application-Trend-2021.pdf: 96 blocks, 96 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Mule-Deer-Antlered-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 116 blocks, 116 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Spike-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 23 blocks, 23 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Antlerless-Muzzleloader-Bonus-Point-and-Application-Trend-2021.pdf: 23 blocks, 23 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Antlerless-Archery-Bonus-Point-and-Application-Trend-2021.pdf: 28 blocks, 28 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Antlerless-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 60 blocks, 60 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-2021.pdf: 25 blocks, 25 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Antlered-Archery-Bonus-Point-and-Application-Trend-2021.pdf: 26 blocks, 26 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Elk-Antlered-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 50 blocks, 50 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Antelope-Horns-Shorter-Bonus-Point-and-Application-Trend-2021.pdf: 18 blocks, 18 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Antelope-Horns-Longer-Muzzle-Bonus-Point-and-Application-Trend-2021.pdf: 42 blocks, 42 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-2021.pdf: 58 blocks, 58 kept
+https://www.ndow.org/wp-content/uploads/2022/03/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 68 blocks, 68 kept
+NOTE: apps = 1st-choice applicants; drawn = successful over all 5 choices; by_pts drawn = 1st-choice successful
+NOTE: hunts are NDOW unit-group x season blocks (no hunt numbers in source); id = species-type-weapon-units[-season#]
+hunts per species: {'D': 372, 'E': 225, 'P': 128}
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-043.044.045.046 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-061.062.064.066.067.068 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-071.072.073.074.075.076.077.078.079.091 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-101.102.103.104.105.106.107.108.109 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-101.102.103.104.105.106.107.108.109 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-111.112.113 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-114.115 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-121 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-131.132.133.134 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-141.142.143.144.145 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-151.152.153.154.155.156 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-161.162.163.164 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-171.172.173 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-171.172.173 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-221.222.223 NR (kept first)
+UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-221.222.223 NR (kept first)

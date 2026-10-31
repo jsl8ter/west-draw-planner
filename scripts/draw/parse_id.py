@@ -37,17 +37,30 @@ def get_json(path, params):
     raise err
 
 
+_LIST = {}
+
+
 def hunt_list(year, game_id, game_name):
     """controlled hunts whose season overlaps Jul 1 Y .. Mar 31 Y+1, keyed by hunt number"""
+    if year not in _LIST:
+        _LIST[year] = _fetch_list(year)
+    return _pick(_LIST[year], year, game_name)
+
+
+def _fetch_list(year):
     rows, off = [], 0
     while True:
-        d = get_json("list/", {"start": f"{year}-7-1", "end": f"{year + 1}-3-31", "game": game_id,
+        d = get_json("list/", {"start": f"{year}-7-1", "end": f"{year + 1}-3-31",
                                "limit": 100, "offset": off, "search": "Controlled"})
         rr = d.get("rows") or []
         rows += rr
         off += len(rr)
         if not rr or off >= int(d.get("total") or 0):
             break
+    return rows
+
+
+def _pick(rows, year, game_name):
     out = {}
     for r in rows:
         if (r.get("game") or "").lower() != game_name.lower() or "controlled" not in (r.get("season") or "").lower():

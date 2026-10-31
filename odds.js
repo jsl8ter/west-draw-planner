@@ -58,11 +58,24 @@
   }
 
   // Historical odds at `pts` for one year's residency block {apps,drawn,tags,min_pts,by_pts}
+  // pref75 reports often count only the points phase in by_pts; the random phase shows up
+  // only in the hunt's total drawn. Returns P(random | missed points phase) or 0.
+  function randomShare(blk) {
+    if (!blk || !blk.by_pts || blk.drawn == null || !blk.apps) return 0;
+    const prefDrawn = blk.by_pts.reduce((s, r) => s + (r[2] || 0), 0);
+    const extra = blk.drawn - prefDrawn, pool = blk.apps - prefDrawn;
+    return extra > 0 && pool > 0 ? Math.min(1, extra / pool) : 0;
+  }
+
   function historical(system, blk, pts) {
     if (!blk) return null;
+    if (blk.apps && blk.drawn != null && blk.drawn >= blk.apps) return 1; // undersubscribed
     if (blk.by_pts && blk.by_pts.length) {
       const rows = sortRows(blk.by_pts);
+      const rs = system === "pref75" ? randomShare(blk) : 0;
       const row = rows.find(r => r[0] === pts);
+      if (row && rs) { const pp = row[2] / row[1]; return pp + (1 - pp) * rs; }
+      if (!row && rs && pts <= rows[0][0]) { const lower = rows.find(r => r[0] < pts); const pp = lower ? lower[2] / lower[1] : 0; return pp + (1 - pp) * rs; }
       if (row) return row[2] / row[1];
       const maxP = rows[0][0];
       if (pts > maxP) return 1;

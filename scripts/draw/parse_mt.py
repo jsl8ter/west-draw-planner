@@ -138,6 +138,29 @@ BON_RE = re.compile(r"^([A-Z][A-Z0-9 \-]*?)\s+(\d{3}-\d{2})\b(.*?)\s(RESIDENT LA
                     r"RESIDENT|NONRESIDENT)\s+(?:(\d+)\s+)?(\d+)\s+(\d+)\s+[\d.]+$")
 
 
+BON2_RE = re.compile(r"^([A-Z][A-Z0-9 \-]*?)\s+(\d{3}-\d{2})\s+(.*?[a-z].*?)\s+(?:(\d+)\s+)?(\d+)\s+(\d+)\s+[\d.]+$")
+RESIDENCIES = ["NONRESIDENT LANDOWNER", "RESIDENT LANDOWNER", "NONRESIDENT", "RESIDENT"]
+
+
+def _subseq(needle, hay):
+    it = iter(hay)
+    return all(ch in it for ch in needle)
+
+
+def untangle(line):
+    """Rows where a wrapped note was printed over the residency column, e.g.
+    'ELK PERMIT 270-45 (FirsRt ECShIDoiEcNe TOnly) 1 481 481 100' = '(First Choice Only)' + 'RESIDENT'.
+    The residency is the longest candidate that is an in-order subsequence of the capital letters."""
+    m = BON2_RE.match(line)
+    if not m:
+        return None
+    caps = re.sub(r"[^A-Z]", "", m.group(3))
+    for r in RESIDENCIES:
+        if _subseq(r.replace(" ", ""), caps):
+            return m.group(1), m.group(2), r, m.group(4), m.group(5), m.group(6)
+    return None
+
+
 def parse_bonus(data):
     """Rows keyed (item, code, residency, raw points). Some PDFs overlap a wrapped note with the residency
     column (interleaved text); a second pass with a tight y tolerance recovers most of those rows."""
@@ -146,15 +169,16 @@ def parse_bonus(data):
     for ytol in passes:
         for line in pdf_lines(data, ytol):
             m = BON_RE.match(line)
-            if not m:
+            g = (m.group(1), m.group(2), m.group(4), m.group(5), m.group(6), m.group(7)) if m else untangle(line)
+            if not g:
                 if re.search(r"\d{3}-\d{2}", line) and " TOTAL " not in line and "TOTAL " not in line[:20]:
                     bad.setdefault(ytol, []).append(line)
                 continue
-            item = re.sub(r"\s+-\s+ARCHERY ONLY$", "", m.group(1).strip())
+            item = re.sub(r"\s+-\s+ARCHERY ONLY$", "", g[0].strip())
             item = re.sub(r"\s+LICENSE$", "", item)
-            key = (item, m.group(2), m.group(4), m.group(5))
+            key = (item, g[1], g[2], g[3])
             if key not in rows:
-                rows[key] = (int(m.group(6)), int(m.group(7)))
+                rows[key] = (int(g[4]), int(g[5]))
     out = {}
     for (item, code, res, pts), (apps, succ) in rows.items():
         # some years print the 0-point group with a blank points cell -> counted as 0 points

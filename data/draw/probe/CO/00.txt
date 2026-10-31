@@ -1,17 +1,194 @@
-URL: https://cpw.widen.net/s/jzvr7hzzl8/postdrawrecapreport_elk-26_05142026_1426
-FINAL: https://cpw.widen.net/s/jzvr7hzzl8/postdrawrecapreport_elk-26_05142026_1426
-TYPE: text/html
-DISPOSITION: 
-BYTES: 24677
+URL: https://cpw.widen.net/content/tl5sj6pnkb/original/PostDrawRecapReport_ELK-26_05142026_1426.pdf?u=qdpcdt&download=true
+FINAL: https://cf-store.widencdn.net/cpw/8/c/a/8ca35268-9f1d-4c45-b661-50e319840d6c.pdf?response-content-disposition=attachment%3B%20filename%3D%22PostDrawRecapReport_ELK-26_05142026_1426.pdf%22&response-content-type=application%2Fpdf&Expires=1793476881&Signature=UK7dP2AjNpCAzBW84AvU~KooN7yWCMr1HHdoOJJyrvs0HRQ6t-EHkw2tcayjUjwpHQBWV1hvYAAV34pKuE658uaAgFruo2gpeceH5qrmuvRRtm1ILcYVd1-lb41MGdEy85eeKWcmPz11rjhaFdOsDsuRYpVqgtpnWlSd1oUKsJFuih3pQxAv3uPhCEAy4n2EZSzzcbxYgKZfHfM8wH-TEjvDcW7rtdNtlDBXEa0DrphowYyR5WPug3UnjxdHfr1Ue0Brgo9moXvCMOJ~NWihkaTjY2dcv9uvneXUR5lqtznlibcKmY27JfUuKMRW1bjlO5yKOeSc6HhaSbcJW7hwhQ__&Key-Pair-Id=APKAJD5XONOBVWWOA65A
+TYPE: application/pdf
+DISPOSITION: attachment; filename="PostDrawRecapReport_ELK-26_05142026_1426.pdf"
+BYTES: 28968369
 
-HTML TEXT:
- PostDrawRecapReport_ELK-26_05142026_1426.pdf Thumbnails Document Outline Attachments Layers Current Outline Item Previous Next Highlight All Match Case Match Diacritics Whole Words Presentation Mode Open Print Download Current View Go to First Page Go to Last Page Rotate Clockwise Rotate Counterclockwise Text Selection Tool Hand Tool Page Scrolling Vertical Scrolling Horizontal Scrolling Wrapped Scrolling No Spreads Odd Spreads Even Spreads Document Properties… Toggle Sidebar Find Previous Next Presentation Mode Open Print Download Download Current View Tools Zoom Out Zoom In Automatic Zoom Actual Size Page Fit Page Width 50% 75% 100% 125% 150% 200% 300% 400% More Information Less Information Close Enter the password to open this PDF file: Cancel OK File name: - File size: - Title: - Author: - Subject: - Keywords: - Creation Date: - Modification Date: - Creator: - PDF Producer: - PDF Version: - Page Count: - Page Size: - Fast Web View: - Close Preparing document for printing… 0% Cancel 
+PDF PAGES: 1282
 
-LINKS:
- | /favicon.ico?customer=cpw
- | /vendor/pdfjs2/web/viewer.css?v=73dc5ccb
- | /css/pdf-pdfjs2.css?v=73dc5ccb
- | /vendor/pdfjs2/web/locale/locale.properties?v=73dc5ccb
- | #
- | /content/tl5sj6pnkb/original/PostDrawRecapReport_ELK-26_05142026_1426.pdf?u=qdpcdt&amp;download=true
- | #
+
+----- PAGE 1 TEXT -----
+The State of Colorado is committed to providing equitable access to our services to all. Please contact our Colorado Parks and Wildlife Accessibility Specialist (accessdnr@state.co.us or
+Digital Accommodation Request Form) for personalized accessibility assistance using this PDF. We will contact you directly within two business days. Visit our accessibility webpage for
+more information and services, including AIRA, our free service for blind and low-vision users.
+Colorado Parks and Wildlife Draw Recap
+2026 Primary ELK Post Draw Report
+5/14/2026 2:26:15 PM
+Page 1 of 1282
+General HC LPP HC
+Total Hunt Codes Choice General Apps LPP Apps Pre-Draw Quota Adult Youth Landowner (LPP)
+Errors Errors
+Total Choice 1 267835 2467 0 0 Original General Draw Res NonRes Preference Unrestricted Restricted
+1040 T T o o t t a a l l C C h h o o i i c c e e 2 3 9 4 4 3 5 4 3 8 9 7 1 1 7 2 8 3 4 0 0 0 0 0 130710 115329 De b t y e r D m r i a n w ed De b t y e r D m r i a n w ed 8917 3245 3219
+Total Choice 4 27647 944 0 0
+Apps General Apps LPP Apps Post-Draw # Drawn Balance Res NonRes Res NonRes Unrestricted Restricted
+Ineligible 0 0 104435 26275 56704 36483 6262 1697 2178 1111
+54% 35% 6% 2% 2% 1%
+Choice Res NonRes Res NonRes Unrestricted Restricted
+Choice 1 Success % 38.00% 21.00% 37.00% 16.00% 43.00% 18.00%
+Overall Success % 23.00%
+Pre-Draw Applicants Post-Draw Successful
+Adult Youth Landowner (LPP) Adult Youth Landowner (LPP)
+Choice Preference Points Res NonRes Res NonRes Unrestricted Restricted Choice Preference Points Res NonRes Res NonRes Unrestricted Restricted
+40 2 - - - - - 40 - - - - - -
+39 1 - - - - - 39 - - - - - -
+38 1 - - - - - 38 - - - - - -
+37 - - - - - - 37 - - - - - -
+36 1 2 - - - - 36 1 - - - - -
+35 4 9 - - - - 35 - 4 - - - -
+34 4 39 - - - - 34 - 7 - - - -
+33 8 108 - - - - 33 1 10 - - - -
+32 21 142 - - - - 32 4 8 - - - -
+31 47 201 - - - - 31 2 7 - - - -
+30 71 241 - - - - 30 11 14 - - - -
+29 111 289 - - - - 29 15 15 - - - -
+28 168 354 - - - - 28 24 29 - - - -
+27 214 396 - - - - 27 28 32 - - - -
+1 1
+26 254 417 - - - - 26 19 32 - - - -
+25 287 439 - - - - 25 18 21 - - - -
+24 304 485 - - - - 24 21 26 - - - -
+23 327 402 - - - - 23 28 16 - - - -
+22 368 452 - - - - 22 15 24 - - - -
+21 407 586 - - - - 21 29 23 - - - -
+20 460 732 - - - - 20 37 35 - - - -
+19 465 729 - - - - 19 24 20 - - - -
+18 511 833 - - 1 1 18 47 27 - - - -
+17 597 763 - - 1 1 17 47 37 - - - -
+16 679 871 - - - - 16 60 40 - - - -
+15 659 891 - - 1 1 15 69 47 - - - -
+14 813 936 - - 3 2 14 63 47 - - 1 -
+13 976 970 - - 1 1 13 98 36 - - - -
+
+----- PAGE 2 TEXT -----
+Colorado Parks and Wildlife Draw Recap
+2026 Primary ELK Post Draw Report
+5/14/2026 2:26:15 PM
+Page 2 of 1282
+12 1191 1110 - - 3 3 12 144 62 - - - -
+11 1430 1377 - - 7 3 11 213 58 - - 4 1
+10 1759 1572 - - 6 6 10 202 87 - - 6 -
+9 2235 2071 - - 11 7 9 182 106 - - 7 1
+8 2683 3904 - - 18 13 8 245 213 - - 5 2
+7 2900 4358 - - 25 19 7 360 236 - - 5 -
+1 6 3674 5048 155 99 23 18 1 6 504 351 14 3 5 1
+5 4489 6810 421 294 45 37 5 680 552 36 9 10 5
+4 5338 8664 521 542 83 67 4 1041 878 49 23 21 7
+3 7190 11316 853 814 147 113 3 1866 1239 122 43 46 20
+2 10216 13588 1295 1162 211 158 2 3397 1839 290 77 69 20
+1 19501 19661 2450 1851 380 255 1 9503 4603 907 236 158 36
+0 44885 41468 6308 3585 1501 1062 0 24353 17441 3072 985 712 232
+Total Choice 1 115251 132234 12003 8347 2467 1767 Total Choice 1 43351 28222 4490 1376 1049 325
+Total Choice 2 58373 28771 6169 1226 1784 1344 Total Choice 2 11062 7223 1481 268 235 160
+Total Choice 3 27121 13027 2827 512 1230 925 Total Choice 3 1691 776 225 45 29 28
+Total Choice 4 16936 8664 1699 348 944 737 Total Choice 4 600 262 66 8 17 10
+Grand Total 217681 182696 22698 10433 6425 4773 Grand Total 56704 36483 6262 1697 1330 523
+Landowner Leftover Choice 1 1294 922 Landowner Leftover Choice 1 403 251
+Landowner Leftover Choice 2 972 720 Landowner Leftover Choice 2 257 203
+Landowner Leftover Choice 3 784 609 Landowner Leftover Choice 3 188 134
+Landowner Leftover Totals 3050 2251 Landowner Leftover Totals 848 588
+
+----- PAGE 3 TEXT -----
+Colorado Parks and Wildlife Draw Recap
+2026 Primary ELK Post Draw Report
+5/14/2026 2:26:15 PM
+Page 3 of 1282
+EE001E1R
+Total Quota Description Regulation Level # Drawn Pre-Draw Quota Adult Youth Landowner (LPP)
+Amount LPP Unrestricted (up to) 10% 1 Original General Draw Res NonRes Preference Unrestricted Restricted
+11 LPP Restricted (up to) 10% 1 11 9 Determined Determined N/A 1 1
+Youth Preference (up to) N/A N/A by Draw by Draw
+Remaining NonResident Cap (up to) 20% 1 Post- # Drawn Balance Res NonRes Res NonRes Unrestricted Restricted
+Balance Hybrid Draw (up to) 20% 1 Draw
+11 0 8 1 0 0 1 1
+0
+Choice General Apps LPP Apps 73% 9% 0% 0% 9% 9%
+# Drawn Hunt Code List Total Choice 1 322 12
+Total Choice 2 76 0
+11 EE001E1R A Total Choice 3 69 0
+Total Choice 4 44 0
+Title Res NonRes Res NonRes Unrestricted Restricted
+20 Pref 32 Pref None None
+Drawn Out At 4 Pref Points 4 Pref Points
+Points Points Drawn Drawn
+# Drawn at Final Level 2 of 6 1 of 1 N/A N/A 1 of 2 1 of 2
+% Drawn at Final Level 33% 100% N/A N/A 50% 50%
+Pre-Draw Applicants Post-Draw Successful
+Adult Youth Landowner (LPP) Adult Youth Landowner (LPP)
+Choice Preference Points Res NonRes Res NonRes Unrestricted Restricted Choice Preference Points Res NonRes Res NonRes Unrestricted Restricted
+32 - 1 - - - - 32 - 1 - - - -
+31 - 2 - - - - 31 - - - - - -
+30 - 3 - - - - 30 - - - - - -
+29 - 3 - - - - 29 - - - - - -
+28 - 1 - - - - 28 - - - - - -
+27 - 1 - - - - 27 - - - - - -
+26 - 1 - - - - 26 - - - - - -
+25 - 2 - - - - 25 - - - - - -
+24 1 3 - - - - 24 1 - - - - -
+23 1 2 - - - - 23 1 - - - - -
+22 1 - - - - - 22 1 - - - - -
+1 1
+21 2 - - - - - 21 2 - - - - -
+20 6 2 - - - - 20 2 - - - - -
+19 6 1 - - - - 19 - - - - - -
+18 1 2 - - - - 18 - - - - - -
+17 3 3 - - - - 17 1 - - - - -
+16 4 1 - - - - 16 - - - - - -
+15 - 1 - - - - 15 - - - - - -
+14 2 - - - - - 14 - - - - - -
+13 4 2 - - - - 13 - - - - - -
+12 2 2 - - - - 12 - - - - - -
+11 5 1 - - - - 11 - - - - - -
+
+----- PAGE 1282 TEXT -----
+Colorado Parks and Wildlife Draw Recap
+2026 Primary ELK Post Draw Report
+5/14/2026 2:26:15 PM
+Page 1282 of 1282
+17 319 586 - - 1 1 17 - - - - - -
+16 372 695 - - - - 16 - - - - - -
+15 367 699 - - 1 1 15 - - - - - -
+14 433 753 - - 2 2 14 - - - - - -
+13 554 781 - - 1 1 13 - - - - - -
+12 675 870 - - 3 3 12 - - - - - -
+11 721 1117 - - 1 - 11 - - - - - -
+10 933 1204 - - - - 10 - - - - - -
+9 1168 1604 - - 2 1 9 - - - - - -
+1 1
+8 1447 3105 - - 5 5 8 - - - - - -
+7 1519 3524 - - 13 12 7 - - - - - -
+6 1897 3983 92 84 14 13 6 - - - - - -
+5 2270 5309 236 255 22 20 5 - - - - - -
+4 2766 6496 308 456 36 35 4 - - - - - -
+3 3249 8169 483 677 39 38 3 - - - - - -
+2 3889 9366 658 964 59 54 2 - - - - - -
+1 4995 11831 961 1378 93 88 1 - - - - - -
+0 6759 16486 1393 1991 166 132 0 - - - - - -
+Total Choice 1 36456 81322 4131 5805 459 407 Total Choice 1 0 0 0 0 0 0
+Total Choice 2 0 0 0 0 0 0 Total Choice 2 0 0 0 0 0 0
+Total Choice 3 0 0 0 0 0 0 Total Choice 3 0 0 0 0 0 0
+Total Choice 4 0 0 0 0 0 0 Total Choice 4 0 0 0 0 0 0
+Grand Total 36456 81322 4131 5805 459 407 Grand Total 0 0 0 0 0 0
+Landowner Leftover Choice 1 0 0 Landowner Leftover Choice 1 0 0
+Landowner Leftover Choice 2 0 0 Landowner Leftover Choice 2 0 0
+Landowner Leftover Choice 3 0 0 Landowner Leftover Choice 3 0 0
+
+----- PAGE 1 TABLE -----
+General HC LPP HC
+Choice General Apps LPP Apps
+Errors Errors
+Total Choice 1 267835 2467 0 0
+Total Choice 2 94539 1784 0 0
+Total Choice 3 43487 1230 0 0
+Total Choice 4 27647 944 0 0
+Apps General Apps LPP Apps
+Ineligible 0 0 | None | None
+None | General Apps | LPP Apps
+None | 0 | 0
+
+----- PAGE 1 TABLE -----
+Pre-Draw | Quota | None | Adult | None | Youth | Landowner (LPP) | None
+None | Original | General Draw | Res | NonRes | Preference | Unrestricted | Restricted
+None | 130710 | 115329 | Determined
+by Draw | Determined
+by Draw | 8917 | 3245 | 3219

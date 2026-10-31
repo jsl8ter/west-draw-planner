@@ -527,6 +527,7 @@ const LAYERS=[
  {id:"UT",st:"UT",sp:"EDP",name:"Utah hunt boundaries",url:"https://dwrmapserv.utah.gov/dwrarcgis/rest/services/hunt/Boundaries_and_Tables_for_HuntP/FeatureServer/0",alt:["https://dwrmapserv.utah.gov/arcgis/rest/services/hunt/Boundaries_and_Tables/MapServer/0"],f:["Boundary_Name"],kind:"name",onlyMatched:true,utah:true,src:"https://dwrapps.utah.gov/huntboundary/hbstart"},
  {id:"NV",st:"NV",sp:"EDP",name:"Nevada hunt units",items:["63f5d9da297f4422a646cd8bdf8cd9a5","8d73ddae778440a99101186fd214fbc9"],f:["HUNTUNIT","HUNT_UNIT","HuntUnit","UNIT","Unit","UNIT_NUM","UnitNumber","NAME"],kind:"num",src:"https://www.ndow.org/blog/hunt-unit-boundaries/"},
  {id:"OR",st:"OR",sp:"EDP",name:"Oregon WMUs",url:"https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/FeatureServer/0",alt:["https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/MapServer/0","https://nrimp.dfw.state.or.us/arcgis/rest/services/Compass/ODFW_WildlifeManagementUnits/MapServer/0","https://services1.arcgis.com/CD5mKowwN6nIaqd8/ArcGIS/rest/services/OR_wildlife_mgmt_units/FeatureServer/0","https://services.arcgis.com/uUvqNMGPm7axC2dD/ArcGIS/rest/services/Eastern_OR_Wildlife_Management_Units/FeatureServer/19"],partial:{"Eastern_OR":"eastern Oregon only"},f:["UNIT_NAME"],kind:"name",src:"https://myodfw.com/articles/wildlife-management-units"},
+ {id:"ORD",st:"OR",sp:"D",name:"Oregon 2026 deer hunt areas",url:"https://nrimp.dfw.state.or.us/arcgis/rest/services/ORHAM/ODFW_Eastern_Oregon_Deer_Hunt_Areas/FeatureServer/0",f:["HuntArea"],kind:"name",zone:true,onlyMatched:true,src:"https://myodfw.com/articles/wildlife-management-units"},
  {id:"ID",st:"ID",sp:"EDP",name:"Idaho GMUs",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/GameManagementUnits/FeatureServer/0",f:["NAME"],kind:"num",src:"https://idfg.idaho.gov/data/gis"},
  {id:"IDZ",st:"ID",sp:"E",name:"Idaho elk zones",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/ElkManagementZones/FeatureServer/0",f:["NAME"],kind:"name",zone:true,onlyMatched:true,src:"https://idfg.idaho.gov/data/gis"},
  {id:"MT",st:"MT",sp:"ED",name:"Montana deer/elk districts",url:"https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/11",f:["DISTRICT"],kind:"num",src:"https://fwp.mt.gov/hunt/maps"},
@@ -652,7 +653,12 @@ function attach(L,feats,forced){
       if(!L.sp.includes(h.species))return;
       for(const u of (h.units||[])){
         let hits=[];
-        if(L.kind==="num"){for(const t of tokens(L.st,String(u))){if(idx[t])hits.push(...idx[t])}}
+        if(L.kind==="num"){for(const t of tokens(L.st,String(u))){
+          if(idx[t]){hits.push(...idx[t]);continue}
+          const sub=Object.keys(idx).filter(k=>new RegExp("^"+t+"[A-Z]+$").test(k));
+          if(sub.length){sub.forEach(k=>hits.push(...idx[k]));continue}
+          const m=t.match(/^(\d+[A-Z]?)[NSEW]$/);if(m){const b=m[1];if(idx[b])hits.push(...idx[b]);else{const n=b.replace(/[A-Z]$/,"");if(idx[n])hits.push(...idx[n])}}
+        }}
         else{const k=String(u).toLowerCase().replace(/\b(nonresident|nr|region|general)\b/g,"").replace(/\s+/g," ").trim();hits=feats.filter(f=>f._lc===k)}
         hits.forEach(f=>{if(!f._h.includes(hi))f._h.push(hi)});
       }

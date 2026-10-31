@@ -252,14 +252,18 @@ def parse():
         b["weapon_k"] = weapon_of(b.get("weapon", ""), b["name"])
         b["start"] = season_start(b.get("season"), b["year"])
         b["gk"] = (b["sp"], b["name"], b["weapon_k"], tuple(b["units"]))
-        groups[b["gk"]].append(doy(b["start"]))
+        groups[b["gk"]].append((doy(b["start"]), b["year"]))
     clusters = {}
     for gk, ds in groups.items():
-        cl, last = [], None
-        for d in sorted(set(ds)):
-            if last is None or d - last > 7:
-                cl.append([])
-            cl[-1].append(d); last = d
+        years_at = collections.defaultdict(set)
+        for d, y in ds:
+            years_at[d].add(y)
+        cl, last, cl_years = [], None, set()
+        for d in sorted(years_at):
+            # new season cluster when the start date jumps > 5 days or the same year already has a season here
+            if last is None or d - last > 5 or (years_at[d] & cl_years):
+                cl.append([]); cl_years = set()
+            cl[-1].append(d); last = d; cl_years |= years_at[d]
         clusters[gk] = cl
     hunts = {}
     occ = collections.Counter()

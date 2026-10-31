@@ -22,6 +22,7 @@ import io, os, re, sys, time, tempfile, concurrent.futures as cf
 import requests, pdfplumber
 
 LOG = []
+DIAG = []
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) west-draw-planner/1.0"}
 PAGES = {
     "E": "https://cpw.state.co.us/activities/hunting/big-game/hunting-elk/elk-statistics",
@@ -30,11 +31,11 @@ PAGES = {
 }
 SPLETTER = {"E": "E", "D": "D", "A": "P"}
 NYEARS = int(os.environ.get("CO_YEARS", "5"))
+ONLY = [(2026, "P"), (2022, "E")]  # debug subset; empty = all
 BUDGET = float(os.environ.get("CO_BUDGET_MIN", "48")) * 60
 CODE = re.compile(r"^([EDA])([EMF])(\d{3})([A-Z]\d)([A-Z])$")
 COLS = ["RA", "NA", "RY", "NY", "LU", "LR"]
-SEASONS = {"O1": "1st rifle season", "O2": "2nd rifle season", "O3": "3rd rifle season", "O4": "4th rifle season",
-           "E1": "early season", "L1": "late season", "P1": "private land", "W1": "plains season"}
+SEASONS = {"O1": "1st season", "O2": "2nd season", "O3": "3rd season", "O4": "4th season"}
 METHOD = {"R": "rifle", "A": "archery", "M": "muzzleloader"}
 SEX = {"M": "male", "F": "female", "E": "either"}
 SPNAME = {"E": "elk", "D": "deer", "A": "pronghorn"}
@@ -74,57 +75,54 @@ def pdf_url(share):
     return "https://cpw.widen.net" + m.group(1).replace("&amp;", "&")
 
 
+def _line(words, top, tol=3.5):
+    return sorted([w for w in words if abs(w["top"] - top) <= tol], key=lambda w: w["x0"])
+
+
 def drawn_out(page):
     """Map column -> text of the 'Drawn Out At' cell, using word x positions."""
-    words = page.extract_words(keep_blank_chars=False, use_text_flow=False)
-    lines = {}
-    for w in words:
-        lines.setdefault(round(w["top"]), []).append(w)
-    tops = sorted(lines)
-    # 'Drawn Out At' label
+    words = page.extract_words()
     dtop = None
-    for t in tops:
-        ws = sorted(lines[t], key=lambda w: w["x0"])
-        txt = " ".join(w["text"] for w in ws)
-        if "Drawn Out At" in txt and dtop is None:
-            dtop = t
+    for w in words:
+        if w["text"] == "Drawn":
+            ln = _line(words, w["top"])
+            j = ln.index(w)
+            if j + 2 < len(ln) and ln[j + 1]["text"] == "Out" and ln[j + 2]["text"] == "At":
+                dtop = w["top"]; dx = ln[j + 2]["x1"]; break
     if dtop is None:
+        if len(DIAG) < 8:
+            DIAG.append("drawn_out: label not found")
         return {}
-    # header line above with Res NonRes Res NonRes Unrestricted Restricted
-    hdr = None
-    for t in tops:
-        if t >= dtop:
-            break
-        ws = sorted(lines[t], key=lambda w: w["x0"])
-        texts = [w["text"] for w in ws]
-        if "Unrestricted" in texts and "Restricted" in texts and texts.count("Res") >= 2:
-            k = len(texts) - 1 - texts[::-1].index("Restricted")
-            # take the last 6 header words ending at the last 'Restricted'
-            seq = ws[k - 5:k + 1]
-            if [w["text"] for w in seq] == ["Res", "NonRes", "Res", "NonRes", "Unrestricted", "Restricted"]:
-                hdr = (t, seq)
-    if not hdr:
+    cands = [w for w in words if w["text"] == "Restricted" and w["top"] < dtop - 2]
+    if not cands:
+        if len(DIAG) < 8:
+            DIAG.append("drawn_out: no header above")
         return {}
-    htop, seq = hdr
+    last = max(cands, key=lambda w: w["top"])
+    ln = _line(words, last["top"])
+    j = ln.index(last)
+    seq = ln[j - 5:j + 1] if j >= 5 else []
+    if [w["text"] for w in seq] != ["Res", "NonRes", "Res", "NonRes", "Unrestricted", "Restricted"]:
+        if len(DIAG) < 8:
+            DIAG.append("drawn_out: header " + " ".join(w["text"] for w in ln))
+        return {}
+    htop = last["top"]
     centers = [(w["x0"] + w["x1"]) / 2 for w in seq]
-    left = seq[0]["x0"] - 25
-    end = None
-    for t in tops:
-        if t > dtop and any(w["text"] == "#" for w in lines[t]):
-            end = t; break
-    if end is None:
-        end = dtop + 30
+    ends = [w["top"] for w in words if w["text"] == "#" and w["top"] > dtop + 2]
+    end = min(ends) if ends else dtop + 30
     cells = {c: [] for c in COLS}
-    for t in tops:
-        if t <= htop or t >= end:
+    for w in words:
+        if not (htop + 3 < w["top"] < end - 2):
             continue
-        for w in sorted(lines[t], key=lambda w: w["x0"]):
-            xc = (w["x0"] + w["x1"]) / 2
-            if w["x1"] < left:
-                continue
-            k = min(range(6), key=lambda j: abs(centers[j] - xc))
-            cells[COLS[k]].append((t, w["x0"], w["text"]))
-    return {c: " ".join(x[2] for x in sorted(v)) for c, v in cells.items()}
+        if w["x1"] <= dx + 1:
+            continue
+        xc = (w["x0"] + w["x1"]) / 2
+        k = min(range(6), key=lambda j: abs(centers[j] - xc))
+        cells[COLS[k]].append((round(w["top"]), w["x0"], w["text"]))
+    out = {c: " ".join(x[2] for x in sorted(v)) for c, v in cells.items()}
+    if len(DIAG) < 3:
+        DIAG.append(f"drawn_out sample: {out}")
+    return out
 
 
 def work(args):
@@ -161,8 +159,16 @@ def parse_pages(pages, year, sp, bad):
             if cur is None:
                 continue
             m = re.match(r"^(\d+) LPP Restricted", ln)
-            if m and cur["quota"] is None:
-                cur["quota"] = int(m.group(1)); continue
+            if m:
+                if cur["quota"] is None:
+                    cur["quota"] = int(m.group(1))
+                else:
+                    cur["dup"] = cur.get("dup", 0) + 1
+                    if len(DIAG) < 4:
+                        DIAG.append(f"{year} {sp} second quota block under {cur['code']} page {k+1}: " + " / ".join(lines[:14]))
+                continue
+            if cur.get("closed"):
+                continue
             m = re.search(r"Total Choice 1 (\d+) (\d+)", ln)
             if m and cur["apps"] is None and not re.match(r"^Total Choice 1 (\S+ ){6}Total Choice 1", ln):
                 cur["apps"] = int(m.group(1))
@@ -179,6 +185,7 @@ def parse_pages(pages, year, sp, bad):
             if m:
                 if cur["c1"] is None:
                     cur["c1"] = ([tok(x) for x in m.group(1).split()], [tok(x) for x in m.group(2).split()])
+                cur["closed"] = True
                 continue
             t = ln.split()
             if all(re.fullmatch(r"\d+|-", x) for x in t) and len(t) in (14, 16):
@@ -242,8 +249,7 @@ def build(h, bad):
 def label(code):
     m = CODE.match(code)
     s, sex, gmu, season, meth = m.groups()
-    return (f"GMU {int(gmu)} {SPNAME[s]} {SEX[sex]} - {SEASONS.get(season, season)} "
-            f"{METHOD.get(meth, meth)}")
+    return f"GMU {int(gmu)} {SPNAME[s]} {SEX[sex]} - {METHOD.get(meth, meth)} {SEASONS.get(season, season)}"
 
 
 def parse():
@@ -255,7 +261,8 @@ def parse():
     jobs = []
     for sp, lst in by_sp.items():
         for y, href in sorted(set(lst), reverse=True)[:NYEARS]:
-            jobs.append((y, sp, href))
+            if not ONLY or (y, sp) in ONLY:
+                jobs.append((y, sp, href))
     jobs.sort(key=lambda j: (-j[0], j[1]))  # newest first so a time cut drops the oldest
     hunts, sources, bad_all = {}, [], []
     ncpu = max(2, os.cpu_count() or 2)
@@ -306,6 +313,7 @@ def parse():
         sources.append({"year": y, "species": sp, "url": url, "title": f"{y} Primary {SPNAME['A' if sp=='P' else sp]} Post Draw Report (draw recap)"})
         LOG.append(f"{url} | {y} {sp} | pages {n} hunts {nh} unparsed {len(bad)} | {time.time()-t0:.0f}s")
         bad_all += [f"  {y} {sp} {b}" for b in bad]
+    LOG.extend(DIAG)
     LOG.append(f"unparsed/mismatch rows total {len(bad_all)} (first 50):")
     LOG.extend(bad_all[:50])
     out = sorted(hunts.values(), key=lambda h: h["id"])

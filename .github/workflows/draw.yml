@@ -9,15 +9,15 @@ on:
       states:
         description: "Space-separated state codes (blank = all)"
         default: ""
-  push:
-    branches: [main]
-    paths: ["scripts/draw/**", ".github/workflows/draw.yml"]
+      urls:
+        description: "For probe: space-separated URLs"
+        default: ""
 
 permissions:
   contents: write
 
 concurrency:
-  group: draw-stats
+  group: draw-${{ github.event.inputs.states || 'push' }}-${{ github.event.inputs.step || 'x' }}
   cancel-in-progress: false
 
 jobs:
@@ -35,12 +35,13 @@ jobs:
         env:
           STEP: ${{ github.event.inputs.step || '' }}
           STATES: ${{ github.event.inputs.states || '' }}
+          URLS: ${{ github.event.inputs.urls || '' }}
         run: |
           if [ -z "$STEP" ]; then STEP=$(cat scripts/draw/NEXT_STEP 2>/dev/null || echo inventory); fi
           echo "step=$STEP states=$STATES"
           case "$STEP" in
             inventory) python scripts/draw/inventory.py $STATES ;;
-            probe)     python scripts/draw/probe.py $STATES ;;
+            probe)     python scripts/draw/probe.py $STATES $URLS ;;
             parse)     python scripts/draw/parse_all.py $STATES ;;
           esac
       - name: Commit data
@@ -50,5 +51,4 @@ jobs:
           git add data
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Update draw statistics data"
-          git pull --rebase origin main
-          git push
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push && break; sleep $((RANDOM % 10 + 3)); done

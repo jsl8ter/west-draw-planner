@@ -1,50 +1,16 @@
-UT: OK 682 hunts, years ['2021', '2022', '2023', '2024', '2025']
+UT: OK 684 hunts, years ['2021', '2022', '2023', '2024', '2025']
 not available: https://wildlife.utah.gov/pdf/bg/2026/26_bg-odds.pdf
 not available: https://wildlife.utah.gov/pdf/bg/2026/26_deer_odds.pdf
-https://wildlife.utah.gov/pdf/bg/2025/25_bg-odds.pdf: 489 D/E/P buck/bull hunts {'D': 193, 'E': 208, 'P': 88}
+https://wildlife.utah.gov/pdf/bg/2025/25_bg-odds.pdf: 493 D/E/P buck/bull hunts {'D': 195, 'E': 210, 'P': 88}
 https://wildlife.utah.gov/pdf/bg/2025/25_deer_odds.pdf: 106 D/E/P buck/bull hunts {'D': 106}
-https://wildlife.utah.gov/pdf/bg/2024/24_bg-odds.pdf: 477 D/E/P buck/bull hunts {'D': 185, 'E': 207, 'P': 85}
+https://wildlife.utah.gov/pdf/bg/2024/24_bg-odds.pdf: 481 D/E/P buck/bull hunts {'D': 187, 'E': 209, 'P': 85}
 https://wildlife.utah.gov/pdf/bg/2024/24_deer_odds.pdf: 104 D/E/P buck/bull hunts {'D': 104}
-https://wildlife.utah.gov/pdf/bg/2023/23_bg-odds.pdf: 482 D/E/P buck/bull hunts {'D': 187, 'E': 209, 'P': 86}
+https://wildlife.utah.gov/pdf/bg/2023/23_bg-odds.pdf: 486 D/E/P buck/bull hunts {'D': 189, 'E': 211, 'P': 86}
 https://wildlife.utah.gov/pdf/bg/2023/23_deer_odds.pdf: 104 D/E/P buck/bull hunts {'D': 104}
-https://wildlife.utah.gov/pdf/bg/2022/22_bg-odds.pdf: 460 D/E/P buck/bull hunts {'D': 185, 'E': 188, 'P': 87}
+https://wildlife.utah.gov/pdf/bg/2022/22_bg-odds.pdf: 462 D/E/P buck/bull hunts {'D': 187, 'E': 188, 'P': 87}
 https://wildlife.utah.gov/pdf/bg/2022/22_deer_odds.pdf: 96 D/E/P buck/bull hunts {'D': 96}
-https://wildlife.utah.gov/pdf/bg/2021/21_bg-odds.pdf: 447 D/E/P buck/bull hunts {'D': 178, 'E': 184, 'P': 85}
+https://wildlife.utah.gov/pdf/bg/2021/21_bg-odds.pdf: 450 D/E/P buck/bull hunts {'D': 180, 'E': 185, 'P': 85}
 https://wildlife.utah.gov/pdf/bg/2021/21_deer_odds.pdf: 96 D/E/P buck/bull hunts {'D': 96}
-years: [2025, 2024, 2023, 2022, 2021]; hunts by species/kind: {('D', 'limited'): 86, ('D', 'special'): 129, ('E', 'limited'): 167, ('E', 'special'): 72, ('P', 'limited'): 73, ('P', 'special'): 26, ('D', 'general'): 129}
+years: [2025, 2024, 2023, 2022, 2021]; hunts by species/kind: {('D', 'limited'): 88, ('D', 'special'): 129, ('E', 'limited'): 167, ('E', 'special'): 72, ('P', 'limited'): 73, ('P', 'special'): 26, ('D', 'general'): 129}
 NOTE: tags omitted (DWR odds reports do not print quotas); drawn = total permits issued in the draw; LE min_pts = lowest point level drawn in the bonus (max-point) pass; general deer min_pts = lowest level drawn.
 NOTE: general-season buck deer is a preference-point draw (kind=general); LE/OIAL/CWMU use bonus points (bonus50). CWMU public draw permits are kind=special. Dedicated Hunter, youth, lifetime, antlerless excluded.
-UNPARSED 2025 DB1002 p4: Totals 1801 0 1 1 in 1801.0 Totals 0 0 0 0 N/A
-UNPARSED 2025 DB1002: no Totals row (33 rows)
-UNPARSED 2025 DB1003 p5: Totals 2657 11 10 21 1 in 126.5 Totals 3411 2 1 3 in 1137.0
-UNPARSED 2025 DB1003: no Totals row (33 rows)
-UNPARSED 2025 EB3024 p213: Totals 1715 5 4 9 1 in 190.6 Totals 1388 0 1 1 in 1388.0
-UNPARSED 2025 EB3024: no Totals row (33 rows)
-UNPARSED 2025 EB3066 p238: Totals 1366 5 5 10 1 in 136.6 Totals 1669 0 1 1 in 1669.0
-UNPARSED 2025 EB3066: no Totals row (33 rows)
-UNPARSED 2024 DB1002 p4: Totals 2040 0 1 1 in 2040.0 Totals 0 0 0 0 N/A
-UNPARSED 2024 DB1002: no Totals row (32 rows)
-UNPARSED 2024 DB1003 p5: Totals 3441 12 12 24 1 in 143.4 Totals 3956 2 1 3 in 1318.7
-UNPARSED 2024 DB1003: no Totals row (32 rows)
-UNPARSED 2024 EB3024 p205: Totals 1504 4 3 7 1 in 214.9 Totals 1199 0 1 1 in 1199.0
-UNPARSED 2024 EB3024: no Totals row (32 rows)
-UNPARSED 2024 EB3066 p230: Totals 1485 5 4 9 1 in 165.0 Totals 2030 0 1 1 in 2030.0
-UNPARSED 2024 EB3066: no Totals row (32 rows)
-UNPARSED 2023 DB1002 p4: Totals 1729 0 1 1 in 1729.0 Totals 0 0 0 0 N/A
-UNPARSED 2023 DB1002: no Totals row (31 rows)
-UNPARSED 2023 DB1003 p5: Totals 3225 12 12 24 1 in 134.4 Totals 3336 2 1 3 in 1112.0
-UNPARSED 2023 DB1003: no Totals row (31 rows)
-UNPARSED 2023 EB3024 p207: Totals 1274 3 3 6 1 in 212.3 Totals 1002 0 1 1 in 1002.0
-UNPARSED 2023 EB3024: no Totals row (31 rows)
-UNPARSED 2023 EB3066 p232: Totals 1378 4 3 7 1 in 196.9 Totals 1706 0 1 1 in 1706.0
-UNPARSED 2023 EB3066: no Totals row (31 rows)
-UNPARSED 2022 DB1002 p5: Totals 1896 0 1 1 in 1896.0 Totals 0 0 0 0 N/A
-UNPARSED 2022 DB1002: no Totals row (30 rows)
-UNPARSED 2022 DB1003 p6: Totals 3725 12 11 23 1 in 162.0 Totals 3692 2 1 3 in 1230.7
-UNPARSED 2022 DB1003: no Totals row (30 rows)
-UNPARSED 2021 DB1002 p5: Totals 1886 0 1 1 in 1886.0 Totals 0 0 0 0 N/A
-UNPARSED 2021 DB1002: no Totals row (29 rows)
-UNPARSED 2021 DB1003 p6: Totals 4355 12 11 23 1 in 189.3 Totals 3984 2 1 3 in 1328.0
-UNPARSED 2021 DB1003: no Totals row (29 rows)
-UNPARSED 2021 EB3024 p203: Totals 1371 6 6 12 1 in 114.3 Totals 1017 0 1 1 in 1017.0
-UNPARSED 2021 EB3024: no Totals row (29 rows)

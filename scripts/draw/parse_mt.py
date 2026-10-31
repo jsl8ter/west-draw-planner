@@ -5,7 +5,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 def parse():
     s = requests.Session(); s.headers.update(UA)
     r = s.get("https://myfwp.mt.gov/fwpPub/drawingStatistics", timeout=60)
-    for oid in ("28562", "94776"):
+    for oid in ("28561", "28566"):
         r = s.post("https://myfwp.mt.gov/fwpPub/repositoryList_input.action", data={"repositoryObjectId": oid},
                    headers={"X-Requested-With": "XMLHttpRequest", "Referer": "https://myfwp.mt.gov/fwpPub/drawingStatistics"}, timeout=60)
         t = r.text

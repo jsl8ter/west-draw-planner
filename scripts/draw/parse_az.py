@@ -156,6 +156,10 @@ def parse_bpr(year, path, pages, out):
     if n == 0 and pages: LOG.append("   first lines: " + " | ".join(pages[0].splitlines()[:12]))
 
 
+def strip_notes(a):
+    return re.sub(r"^\([\d,]+\)\s*", "", a)
+
+
 def norm_type(t):
     return re.sub(r"[^a-z]+", " ", t.lower().replace("antelope", "pronghorn")).strip()
 
@@ -299,19 +303,20 @@ def parse():
             if sp is None or re.search(r"youth", m["method"] + m["type"], re.I): continue
             if not (dr12.get(num) or bpr.get(num) or m["apps1"] is not None):
                 nskip += 1; continue
-            gk = (sp, tuple(sorted(unit_list(m["unit"]))), norm_method(m["method"]), sex_of(m["type"]))
+            sx = sex_of(m["type"])   # 2022 lists deer as just "DEER"/"WHITETAIL DEER": unknown sex matches any
+            gk = (sp, tuple(sorted(unit_list(m["unit"]))), norm_method(m["method"]))
             mo, dy, _ = (int(x) for x in m["open"].split("/"))
             doy = mo * 31 + dy
             best = None
             for h in groups.get(gk, []):
-                if id(h) in used: continue
+                if id(h) in used or (sx and h.get("sex") and sx != h["sex"]): continue
                 dd = abs(h["_doy"] - doy)
                 if dd <= 14 and (best is None or dd < best[0]): best = (dd, h)
             if best: h = best[1]
             else:
                 hid = num if num not in hunts else f"{num} ({y})"
                 h = {"id": hid, "species": sp, "units": unit_list(m["unit"]),
-                     "label": f"{m.get('area') or m['unit']} {m['type']} - {m['method']} {m['open']}-{m['close']}",
+                     "label": f"{strip_notes(m.get('area') or m['unit'])} {m['type']} - {m['method']} {m['open']}-{m['close']}",
                      "weapon": weapon_of(m["method"]),
                      "kind": "special" if re.search(r"limited opp|champ", m["method"], re.I) else "limited", "years": {}}
                 s = sex_of(m["type"])

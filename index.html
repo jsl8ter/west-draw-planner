@@ -659,7 +659,7 @@ function attach(L,feats,forced){
           if(sub.length){sub.forEach(k=>hits.push(...idx[k]));continue}
           const m=t.match(/^(\d+[A-Z]?)[NSEW]$/);if(m){const b=m[1];if(idx[b])hits.push(...idx[b]);else{const n=b.replace(/[A-Z]$/,"");if(idx[n])hits.push(...idx[n])}}
         }}
-        else{const k=String(u).toLowerCase().replace(/\b(nonresident|nr|region|general)\b/g,"").replace(/\s+/g," ").trim();hits=feats.filter(f=>f._lc===k||(f.properties.alt&&f.properties.alt.toLowerCase().replace(/\s+/g," ").trim()===k))}
+        else{const k=String(u).toLowerCase().replace(/\b(nonresident|nr|region|general|mule deer)\b/g,"").replace(/\s+/g," ").trim();hits=feats.filter(f=>f._lc===k||(f.properties.alt&&f.properties.alt.toLowerCase().replace(/\s+/g," ").trim()===k))}
         hits.forEach(f=>{if(!f._h.includes(hi))f._h.push(hi)});
       }
     });

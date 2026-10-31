@@ -40,7 +40,7 @@ def layout(hdr):
     L, Rs = hunt_cols[0], hunt_cols[1]
     left = h[L:Rs]
     lic = next(i for i, c in enumerate(left) if c.startswith("lic")) + L
-    bag = next((i + L for i, c in enumerate(left) if c.startswith("bag")), None)
+    bag = next((i for i, c in enumerate(h) if c.startswith("bag")), None)
     firsts = [i + L for i, c in enumerate(left) if c == "1st"]
     # left groups in order: hunt total, resident, nonresident, outfitter (first-choice col of each)
     rp = next(i for i, c in enumerate(h) if c == "r%")

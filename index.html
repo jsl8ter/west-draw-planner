@@ -459,7 +459,7 @@ const LAYERS=[
  {id:"AZ",st:"AZ",sp:"EDCP",name:"Arizona GMUs",url:"https://services2.arcgis.com/os1CphwIyxBDDUGn/ArcGIS/rest/services/HunterDonationInteractiveWebmap_1921/FeatureServer/0",f:["GMUNAME"],kind:"num",src:"https://www.azgfd.com/hunting/where-to-hunt/"},
  {id:"UT",st:"UT",sp:"EDP",name:"Utah hunt boundaries",url:"https://dwrmapserv.utah.gov/dwrarcgis/rest/services/hunt/Boundaries_and_Tables_for_HuntP/FeatureServer/0",alt:["https://dwrmapserv.utah.gov/arcgis/rest/services/hunt/Boundaries_and_Tables/MapServer/0"],f:["Boundary_Name"],kind:"name",onlyMatched:true,utah:true,src:"https://dwrapps.utah.gov/huntboundary/hbstart"},
  {id:"NV",st:"NV",sp:"EDP",name:"Nevada hunt units",items:["63f5d9da297f4422a646cd8bdf8cd9a5","8d73ddae778440a99101186fd214fbc9"],f:["HUNTUNIT","HUNT_UNIT","HuntUnit","UNIT","Unit","UNIT_NUM","UnitNumber","NAME"],kind:"num",src:"https://www.ndow.org/blog/hunt-unit-boundaries/"},
- {id:"OR",st:"OR",sp:"EDP",name:"Oregon WMUs",url:"https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/MapServer/0",alt:["https://services.arcgis.com/uUvqNMGPm7axC2dD/ArcGIS/rest/services/Eastern_OR_Wildlife_Management_Units/FeatureServer/19"],f:["UNIT_NAME"],kind:"name",src:"https://myodfw.com/articles/wildlife-management-units"},
+ {id:"OR",st:"OR",sp:"EDP",name:"Oregon WMUs",url:"https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/FeatureServer/0",alt:["https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/MapServer/0","https://nrimp.dfw.state.or.us/arcgis/rest/services/Compass/ODFW_WildlifeManagementUnits/MapServer/0","https://services1.arcgis.com/CD5mKowwN6nIaqd8/ArcGIS/rest/services/OR_wildlife_mgmt_units/FeatureServer/0","https://services.arcgis.com/uUvqNMGPm7axC2dD/ArcGIS/rest/services/Eastern_OR_Wildlife_Management_Units/FeatureServer/19"],partial:{"Eastern_OR":"eastern Oregon only"},f:["UNIT_NAME"],kind:"name",src:"https://myodfw.com/articles/wildlife-management-units"},
  {id:"ID",st:"ID",sp:"EDP",name:"Idaho GMUs",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/GameManagementUnits/FeatureServer/0",f:["NAME"],kind:"num",src:"https://idfg.idaho.gov/data/gis"},
  {id:"IDZ",st:"ID",sp:"E",name:"Idaho elk zones",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/ElkManagementZones/FeatureServer/0",f:["NAME"],kind:"name",zone:true,onlyMatched:true,src:"https://idfg.idaho.gov/data/gis"},
  {id:"MT",st:"MT",sp:"ED",name:"Montana deer/elk districts",url:"https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/11",f:["DISTRICT"],kind:"num",src:"https://fwp.mt.gov/hunt/maps"},
@@ -503,16 +503,24 @@ function utahWhere(){
   const ors=[...keys].map(k=>`UPPER(Boundary_Name) LIKE '%${k.toUpperCase().replace(/'/g,"''")}%'`).join(" OR ");
   return `(${ors})`;
 }
+function esriToGeo(j){
+  return (j.features||[]).filter(f=>f.geometry&&f.geometry.rings).map(f=>({type:"Feature",properties:f.attributes||{},geometry:{type:"Polygon",coordinates:f.geometry.rings}}));
+}
 async function queryAll(base,where){
-  const feats=[];let off=0;
-  for(let page=0;page<15;page++){
-    const q=new URLSearchParams({where,outFields:"*",returnGeometry:"true",outSR:"4326",f:"geojson",geometryPrecision:"4",maxAllowableOffset:"0.003",resultOffset:String(off),resultRecordCount:"1000"});
-    const j=await getJSON(`${base}/query?${q}`);
-    const fs=j.features||[];feats.push(...fs);
-    const more=j.exceededTransferLimit||(j.properties&&j.properties.exceededTransferLimit);
-    if(!more||!fs.length)break;off+=fs.length;
+  for(const fmt of ["geojson","json"]){
+    try{
+      const feats=[];let off=0;
+      for(let page=0;page<15;page++){
+        const q=new URLSearchParams({where,outFields:"*",returnGeometry:"true",outSR:"4326",f:fmt,geometryPrecision:"4",maxAllowableOffset:"0.003",resultOffset:String(off),resultRecordCount:"1000"});
+        const j=await getJSON(`${base}/query?${q}`);
+        const fs=fmt==="geojson"?(j.features||[]):esriToGeo(j);feats.push(...fs);
+        const more=j.exceededTransferLimit||(j.properties&&j.properties.exceededTransferLimit);
+        if(!more||!fs.length)break;off+=fs.length;
+      }
+      if(feats.length) return feats;
+    }catch(e){if(fmt==="json")throw e}
   }
-  return feats;
+  return [];
 }
 async function loadLayer(L){
   LS[L.id]={state:"wait"};renderStatus();
@@ -523,7 +531,7 @@ async function loadLayer(L){
     let lastErr;
     for(const u of urls){
       for(const where of (L.utah?[utahWhere()+" AND Status='Active'",utahWhere()]:["1=1"])){
-        try{const feats=await queryAll(u,where);if(!feats.length)throw new Error("no features");LS[L.id]={state:"ok",n:feats.length,url:u};attach(L,feats);renderStatus();return}
+        try{const feats=await queryAll(u,where);if(!feats.length)throw new Error("no features");LS[L.id]={state:"ok",n:feats.length,url:u,note:Object.entries(L.partial||{}).find(([k])=>u.includes(k))?.[1]||""};attach(L,feats);renderStatus();return}
         catch(e){lastErr=e}
       }
     }
@@ -655,7 +663,7 @@ function renderLegend(){
 }
 function renderStatus(){
   document.getElementById("status").innerHTML="Boundaries: "+LAYERS.map(L=>{const s=LS[L.id]||{state:"wait"};
-    if(s.state==="ok")return `<span class="ok" title="${s.url}">${L.name} ✓ ${s.n}</span>`;
+    if(s.state==="ok")return s.note?`<span class="bad" title="${s.url}">${L.name} ⚠ ${s.note}</span>`:`<span class="ok" title="${s.url}">${L.name} ✓ ${s.n}</span>`;
     if(s.state==="bad")return `<span class="bad" title="${s.err}">${L.name} ✗ <a href="${L.src}" target="_blank" rel="noopener">official map</a></span>`;
     return `<span class="wait">${L.name} …</span>`}).join("");
 }

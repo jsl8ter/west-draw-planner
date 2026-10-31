@@ -1,0 +1,39 @@
+URL: https://myfwp.mt.gov/getRepositoryFile?objectID=110887
+FINAL: https://myfwp.mt.gov/getRepositoryFile?objectID=110887
+TYPE: application/pdf
+DISPOSITION: attachment; filename="2024 NR Combination Preference Point Statistics.pdf"
+BYTES: 73714
+
+PDF PAGES: 2
+
+
+----- PAGE 1 TEXT -----
+General Big Game/Elk Combo Primary Drawing Stats
+2024 Regular (Total apps 29,518)
+2.2 - 3 PP 100% Draw (4,562 apps)
+2 PP 90.27% Draw (8,949 apps, 8,078 successful)
+.2 - 1.8 PP 0% Draw (8,546 apps)
+0 PP 56.61% Draw (7,461 apps, 4,224 successful)
+2024 NR Landowner Priority Pool (Total apps 131)
+3 PP 100% Draw (2 apps)
+2 PP 100% Draw (36 apps)
+1 PP 100% Draw (69 apps)
+0 PP 100% Draw (24 apps)
+2023 (Total apps 30,985)
+2.2 - 3 PP 100% Draw (4,138 apps)
+2 PP 83.9% Draw (10,259 apps, 8,612 successful)
+.2 - 1.8 PP 0% Draw (9,443 apps)
+0 PP 60.2% Draw (7,055 apps, 4,250 successful)
+
+----- PAGE 2 TEXT -----
+General Deer Combo Primary Drawing Stats
+2024 (Total apps 15,634)
+1.2 - 3 PP 100% Draw (5,525 apps)
+1 PP 49.34% Draw (4,757 apps, 2,347 successful)
+.2 - .75 PP 0% Draw (271 apps)
+0 PP 51.62% Draw (5,081 apps, 2,623 successful)
+2023 (Total apps 15,929)
+1.2 - 3 PP 100% Draw (5,799 apps)
+1 PP 40.2% Draw (5,021 apps, 2,018 successful)
+.2 - .8 PP 0% Draw (243 apps)
+0 PP 53.6% (4,866 apps, 2,606 successful)

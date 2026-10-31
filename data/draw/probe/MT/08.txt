@@ -1,0 +1,20 @@
+URL: https://myfwp.mt.gov/getRepositoryFile?objectID=106434
+FINAL: https://myfwp.mt.gov/getRepositoryFile?objectID=106434
+TYPE: application/pdf
+DISPOSITION: attachment; filename="2022 Big Game and Elk Combo Statistics.pdf"
+BYTES: 409719
+
+PDF PAGES: 1
+
+
+----- PAGE 1 TEXT -----
+Big Game/Elk Combo Drawing Stats
+2022(Total apps 30,947)
+3-2.2 PP 100%Draw (3,651apps)
+2PP 97.5%Draw(9,336apps/ 9,098combosavailable)
+0PP 73.6% Draw (5,772apps/4249combosavailable)
+2021(Total apps 31,915)
+3-1.2 PP 100%Draw (6,952apps)
+1PP 31%Draw(18,933apps/5,792combosavailable)
+.2-.8PP 0% Draw (104apps)
+0PP 71.7% Draw (5926apps/4250combosavailable)

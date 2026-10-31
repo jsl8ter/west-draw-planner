@@ -1,4 +1,4 @@
-AZ: OK 804 hunts, years ['2022', '2023', '2024', '2025', '2026']
+AZ: OK 624 hunts, years ['2022', '2023', '2024', '2025', '2026']
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Deer-Draw-Odds.pdf: 210 hunts
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Elk-Draw-Odds.pdf: 262 hunts
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Pronghorn-Antelope-Draw-Odds.pdf: 66 hunts

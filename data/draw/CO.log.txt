@@ -1,0 +1,70 @@
+CO: OK 2426 hunts, years ['2022', '2023', '2024', '2025', '2026']
+recap links found: [(2021, 'D'), (2021, 'E'), (2021, 'P'), (2022, 'D'), (2022, 'E'), (2022, 'P'), (2023, 'D'), (2023, 'E'), (2023, 'P'), (2024, 'D'), (2024, 'E'), (2024, 'P'), (2025, 'D'), (2025, 'E'), (2025, 'P'), (2026, 'D'), (2026, 'E'), (2026, 'P')]
+https://cpw.widen.net/content/mirgybedih/original/PostDrawRecapReport_DEER-26_05112026_1505.pdf?u=qdpcdt&download=true | 2026 D | pages 1232 hunts 991 unparsed 2 | 94s
+https://cpw.widen.net/content/tl5sj6pnkb/original/PostDrawRecapReport_ELK-26_05142026_1426.pdf?u=qdpcdt&download=true | 2026 E | pages 1282 hunts 1039 unparsed 2 | 194s
+https://cpw.widen.net/content/5facqkeb5y/original/PostDrawRecapReport_PRONG-26_05212026_1006.pdf?u=qdpcdt&download=true | 2026 P | pages 404 hunts 302 unparsed 2 | 226s
+https://cpw.widen.net/content/vy2t2jygvr/original/PostDrawRecapReport_DEER-25_05102025_1540.pdf?u=qdpcdt&download=true | 2025 D | pages 1065 hunts 985 unparsed 2 | 310s
+https://cpw.widen.net/content/v8vurwjjn6/original/PostDrawRecapReport_ELK-25_05172025_0612.pdf?u=qdpcdt&download=true | 2025 E | pages 1123 hunts 1023 unparsed 2 | 398s
+https://cpw.widen.net/content/jsyu9ob6ci/original/PostDrawRecapReport_PRONG-25_05222025_0816.pdf?u=qdpcdt&download=true | 2025 P | pages 346 hunts 295 unparsed 2 | 426s
+https://cpw.widen.net/content/dmbkrapqzq/original/2024-Primary-DEER-Post-Draw-Report.pdf?u=xyuvvu&download=true | 2024 D | pages 1049 hunts 966 unparsed 2 | 508s
+https://cpw.widen.net/content/v8uftzwwry/original/2024-Primary-ELK-Post-Draw-Report.pdf?u=xyuvvu&download=true | 2024 E | pages 1082 hunts 990 unparsed 2 | 592s
+https://cpw.widen.net/content/ltxj5zp37d/original/2024-Primary-PRONGHORN-Post-Draw-Report.pdf?u=xyuvvu&download=true | 2024 P | pages 339 hunts 293 unparsed 2 | 618s
+https://cpw.widen.net/content/rpwnifzpgc/original/2023DeerDrawRecap.pdf?u=cn6igr&download=true | 2023 D | pages 1033 hunts 960 unparsed 2 | 697s
+https://cpw.widen.net/content/lb27c1naq6/original/2023ElkDrawRecap.pdf?u=cn6igr&download=true | 2023 E | pages 1075 hunts 1003 unparsed 2 | 780s
+https://cpw.widen.net/content/pvcxz46tey/original/2023PronghornDrawRecap.pdf?u=cn6igr&download=true | 2023 P | pages 360 hunts 316 unparsed 2 | 811s
+https://cpw.widen.net/content/shjyu2kemt/original/2022DeerDrawRecap.pdf?u=cn6igr&download=true | 2022 D | pages 1025 hunts 942 unparsed 2 | 893s
+https://cpw.widen.net/content/ux7xl3qkto/original/2022ElkDrawRecap.pdf?u=cn6igr&download=true | 2022 E | pages 943 hunts 787 unparsed 50 | 968s
+https://cpw.widen.net/content/sdiy2hlbbl/original/2022PronghornDrawRecap.pdf?u=cn6igr&download=true | 2022 P | pages 357 hunts 314 unparsed 2 | 998s
+unparsed/mismatch rows total 78 (first 50):
+  2026 D DM951P5R R: by_pts apps 17435 != total 34
+  2026 D DM951P5R NR: by_pts apps 41569 != total 1
+  2026 E EM851O4R R: by_pts apps 242 != total 60
+  2026 E EM851O4R NR: by_pts apps 582 != total 13
+  2026 P AM951O1R R: by_pts apps 8134 != total 124
+  2026 P AM951O1R NR: by_pts apps 4925 != total 11
+  2025 D DM951P5R R: by_pts apps 17842 != total 48
+  2025 D DM951P5R NR: by_pts apps 38274 != total 1
+  2025 E EM851O4R R: by_pts apps 280 != total 69
+  2025 E EM851O4R NR: by_pts apps 679 != total 12
+  2025 P AM951O1R R: by_pts apps 1043 != total 145
+  2025 P AM951O1R NR: by_pts apps 456 != total 9
+  2024 D DM951P5R R: by_pts apps 13606 != total 30
+  2024 D DM951P5R NR: by_pts apps 26000 != total 0
+  2024 E EM851O4R R: by_pts apps 115 != total 71
+  2024 E EM851O4R NR: by_pts apps 237 != total 17
+  2024 P AM951O1R R: by_pts apps 2251 != total 151
+  2024 P AM951O1R NR: by_pts apps 1019 != total 10
+  2023 D DM951P5R R: by_pts apps 9025 != total 36
+  2023 D DM951P5R NR: by_pts apps 14946 != total 0
+  2023 E EM851O4R R: by_pts apps 88 != total 38
+  2023 E EM851O4R NR: by_pts apps 259 != total 18
+  2023 P AM951O1R R: by_pts apps 3937 != total 146
+  2023 P AM951O1R NR: by_pts apps 1779 != total 11
+  2022 D DM951P7R R: by_pts apps 3881 != total 26
+  2022 D DM951P7R NR: by_pts apps 7052 != total 3
+  2022 E EF004O1M R: by_pts apps 132 != total 130
+  2022 E EF004W6R R: by_pts apps 20 != total 18
+  2022 E EF007O1M R: by_pts apps 170 != total 161
+  2022 E EF012O1M R: by_pts apps 94 != total 81
+  2022 E EF012O1M NR: by_pts apps 55 != total 47
+  2022 E EF014O1R NR: by_pts apps 24 != total 23
+  2022 E EF015O1R R: by_pts apps 38 != total 33
+  2022 E EF019L1R R: by_pts apps 38 != total 36
+  2022 E EF022L1R R: by_pts apps 155 != total 152
+  2022 E EF022L1R NR: by_pts apps 15 != total 12
+  2022 E EF035O1R R: by_pts apps 16 != total 15
+  2022 E EF035P5R R: by_pts apps 8 != total 7
+  2022 E EF038O1R R: by_pts apps 32 != total 31
+  2022 E EF042O2R R: by_pts apps 118 != total 116
+  2022 E EF043O1R R: by_pts apps 59 != total 58
+  2022 E EF044O1M R: by_pts apps 100 != total 23
+  2022 E EF044O1M NR: by_pts apps 24 != total 15
+  2022 E EF048O1M R: by_pts apps 29 != total 26
+  2022 E EF048O1M NR: by_pts apps 3 != total 2
+  2022 E EF050O1M R: by_pts apps 36 != total 34
+  2022 E EF052O2R R: by_pts apps 85 != total 84
+  2022 E EF052O2R NR: by_pts apps 37 != total 36
+  2022 E EF059O1R R: by_pts apps 50 != total 49
+  2022 E EF062O2R R: by_pts apps 218 != total 217
+hunts: E 1081 D 1008 P 337
+apps = 1st-choice applicants (adult + youth); T.drawn = all licenses drawn incl. landowner and later choices.

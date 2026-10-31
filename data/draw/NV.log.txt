@@ -1,4 +1,4 @@
-NV: OK 725 hunts, years ['2021', '2022', '2023', '2024', '2025']
+NV: OK 515 hunts, years ['2021', '2022', '2023', '2024', '2025']
 media api: 203 trend files found
 https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-NonResident-Guided-Antlered-ALW-Bonus-Point-and-Application-Trend-2025.pdf: 55 blocks, 55 kept
 https://www.ndow.org/wp-content/uploads/2026/01/Mule-Deer-Antlered-Muzzleloader-Bonus-Point-and-Application-Trend-Resident-2025.pdf: 41 blocks, 41 kept
@@ -90,20 +90,24 @@ https://www.ndow.org/wp-content/uploads/2022/03/Antelope-Horns-Longer-Archery-Bo
 https://www.ndow.org/wp-content/uploads/2022/03/Antelope-Horns-Longer-ALW-Bonus-Point-and-Application-Trend-2021.pdf: 68 blocks, 68 kept
 NOTE: apps = 1st-choice applicants; drawn = successful over all 5 choices; by_pts drawn = 1st-choice successful
 NOTE: hunts are NDOW unit-group x season blocks (no hunt numbers in source); id = species-type-weapon-units[-season#]
-hunts per species: {'D': 372, 'E': 225, 'P': 128}
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-043.044.045.046 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-061.062.064.066.067.068 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-071.072.073.074.075.076.077.078.079.091 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-101.102.103.104.105.106.107.108.109 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-101.102.103.104.105.106.107.108.109 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-111.112.113 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-114.115 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-121 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-131.132.133.134 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-141.142.143.144.145 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-151.152.153.154.155.156 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-161.162.163.164 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-171.172.173 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-171.172.173 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-221.222.223 NR (kept first)
-UNPARSED duplicate 2021 D-GuidedAntleredHunt-ANY-221.222.223 NR (kept first)
+hunts per species: {'D': 219, 'E': 169, 'P': 127}
+UNPARSED duplicate 2025 P-HornsLongerThanEars-ANY-033 R (kept first)
+UNPARSED duplicate 2025 P-HornsLongerThanEars-ANY-033 NR (kept first)
+UNPARSED duplicate 2024 P-HornsLongerThanEars-ANY-033 R (kept first)
+UNPARSED duplicate 2024 P-HornsLongerThanEars-ANY-041.042 R (kept first)
+UNPARSED duplicate 2024 P-HornsLongerThanEars-ANY-033 NR (kept first)
+UNPARSED duplicate 2024 P-HornsLongerThanEars-ANY-041.042 NR (kept first)
+UNPARSED duplicate 2023 P-HornsLongerThanEars-ANY-033 R (kept first)
+UNPARSED duplicate 2023 P-HornsLongerThanEars-ANY-041.042 R (kept first)
+UNPARSED duplicate 2023 P-HornsLongerThanEars-ANY-033 NR (kept first)
+UNPARSED duplicate 2023 P-HornsLongerThanEars-ANY-041.042 NR (kept first)
+UNPARSED duplicate 2022 E-Antlerless-ANY-231-S1 R (kept first)
+UNPARSED duplicate 2022 P-HornsLongerThanEars-ANY-033 R (kept first)
+UNPARSED duplicate 2022 P-HornsLongerThanEars-ANY-041.042 R (kept first)
+UNPARSED duplicate 2022 P-HornsLongerThanEars-ANY-033 NR (kept first)
+UNPARSED duplicate 2022 P-HornsLongerThanEars-ANY-041.042 NR (kept first)
+UNPARSED duplicate 2021 E-Antlerless-ANY-231-S1 R (kept first)
+UNPARSED duplicate 2021 P-HornsLongerThanEars-ANY-033 R (kept first)
+UNPARSED duplicate 2021 P-HornsLongerThanEars-ANY-041.042 R (kept first)
+UNPARSED duplicate 2021 P-HornsLongerThanEars-ANY-033 NR (kept first)
+UNPARSED duplicate 2021 P-HornsLongerThanEars-ANY-041.042 NR (kept first)

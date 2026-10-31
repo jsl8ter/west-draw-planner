@@ -171,18 +171,5 @@
    "modified": 1507829996000
   }
  ],
- "Wyoming elk hunt areas": [],
- "Wyoming deer hunt areas": [
-  {
-   "title": "Lab3Map_JamesHauter_WTL1",
-   "owner": "jhauter_UWyo",
-   "type": "Map Service",
-   "url": "https://tiles.arcgis.com/tiles/HVjI8GKrRtjcQ4Ry/arcgis/rest/services/Lab3Map_JamesHauter_WTL1/MapServer",
-   "id": "fec53384e9df449c8bc7f3673b820fc9",
-   "modified": 1758827778000
-  }
- ],
- "Wyoming antelope hunt areas": [],
- "WGFD hunt areas": [],
  "NDOW hunt units": []
 }

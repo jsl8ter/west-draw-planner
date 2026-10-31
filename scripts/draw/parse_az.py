@@ -53,8 +53,10 @@ def text_of(path):
             for p in pdf.pages:
                 tx = p.extract_text() or ""
                 if "Regulations" in path and re.search(r"(?m)[123]\d{3} [A-Z][a-z]{2} \d.* [123]\d{3} [A-Z][a-z]{2} \d", tx):
-                    w = float(p.width)  # two-column table page: read each column separately
-                    tx = "\n".join((p.crop((x0, 0, x1, float(p.height))).extract_text() or "") for x0, x1 in ((0, w / 2), (w / 2, w)))
+                    w = float(p.width)  # two-column table page: split where the second column's hunt numbers start
+                    xs = sorted(wd["x0"] for wd in p.extract_words() if re.fullmatch(r"[123]\d{3}", wd["text"]) and wd["x0"] > w * 0.3)
+                    cut = (xs[0] - 2) if xs else w / 2
+                    tx = "\n".join((p.crop((x0, 0, x1, float(p.height))).extract_text() or "") for x0, x1 in ((0, cut), (cut, w)))
                 out.append(tx)
         return path, out
     except Exception as e:
@@ -165,6 +167,9 @@ def year_rec(y, num, m, dr12, drbp, bpr, bpr_ok, bad):
     rec = {"T": {}, "R": {}, "NR": {}}
     G = (("All", "T", 0), ("Res", "R", 1), ("NonRes", "NR", 2))
     have_dr = bool(dr12) and all(g in dr12 for g, _, _ in G)
+    if have_dr and m["apps1"] and abs(dr12["All"][2] - m["apps1"]) > 0.5 * m["apps1"] + 20:
+        bad.append(f"{y} {num}: draw report row looks wrong (1st-choice {dr12['All'][2]} vs draw odds {m['apps1']}) - ignored")
+        have_dr, dr12, drbp = False, None, None
     if have_dr:
         rec["T"]["tags"] = dr12["All"][0]
         rec["NR"]["tags"] = dr12["NonRes"][0]
@@ -222,8 +227,8 @@ def parse_regs(year, path, pages, meta, bad):
     """Hunt tables in the regulation booklets: 'NNNN Mon d - Mon d, yyyy (notes) Open Areas Legal Wildlife Permits'."""
     method, n = None, 0
     for pg in pages:
-        for line in pg.splitlines():
-            line = line.strip()
+        lines = [l.strip() for l in pg.splitlines()]
+        for li, line in enumerate(lines):
             if not re.match(r"^[123]\d{3} ", line):
                 hs = [h for h in REG_HDR.finditer(line) if h.start() == 0 or line[h.start() - 1] == " "]
                 if hs and line.isupper() == line.upper().isupper() and hs[0].start() == 0:
@@ -241,6 +246,11 @@ def parse_regs(year, path, pages, meta, bad):
             if method is None: continue
             num, m1, d1, y1, m2, d2, y2, area, legal, permits = m.groups()
             units = reg_units(area)
+            if not units:  # open-area text wrapped onto the neighbouring lines of the table cell
+                nb = [lines[j] for j in (li - 1, li + 1) if 0 <= j < len(lines) and not re.match(r"^[123]\d{3} ", lines[j])
+                      and len(lines[j]) < 70 and not REG_HDR.search(lines[j])]
+                units = reg_units(" ".join(nb))
+                if units: area = " ".join(nb) + " " + area
             if not units:
                 if len(bad) < 50: bad.append(f"{year} regs no unit: {line}")
                 continue

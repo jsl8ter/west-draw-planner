@@ -111,6 +111,8 @@ def fetch_layer(cfg):
                 if not g:
                     continue
                 v = p.get(field)
+                if isinstance(v, float) and v.is_integer():
+                    v = int(v)
                 out.append({"type": "Feature", "properties": {"unit": "" if v is None else str(v).strip()},
                             "geometry": {"type": g["type"], "coordinates": round_coords(g["coordinates"])}})
             fc = {"type": "FeatureCollection", "features": out}

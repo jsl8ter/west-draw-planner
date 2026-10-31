@@ -157,11 +157,12 @@ a{color:var(--accent)}
   <div class="callout">
     <h3>Next 60 days</h3>
     <ol>
+      <li><b>Wyoming preference points by Mon, Nov 2.</b> Elk $52, deer $41, antelope $31 at wgfd.wyo.gov. They jump to $75 each on Jan 1, and Wyoming only gives points you buy.</li>
       <li><b>Arizona OTC archery deer tag (2027).</b> Usually goes on sale in early November at otcarchery.azgfd.com and sells out. $160 license + $300 tag. Good for Coues or mule deer in Aug or Dec–Jan.</li>
       <li><b>Arizona hunter ed point.</b> Take the online "Ethically Hunting Arizona" course before the February draw. It's a permanent extra bonus point for every species.</li>
       <li><b>Idaho general tag draw.</b> Buy the $185 license on Dec 1, apply Dec 5–15 ($18). Pick an uncapped elk zone (McCall, Weiser River, Panhandle).</li>
       <li><b>Montana preference point.</b> $100 by Dec 31 for the general combo draw. Makes a 2028 combo very likely.</li>
-      <li>Make accounts on all 8 state portals now so the spring deadlines are just a few clicks.</li>
+      <li>Make accounts on all 9 state portals now so the spring deadlines are just a few clicks.</li>
     </ol>
   </div>
 
@@ -170,7 +171,8 @@ a{color:var(--accent)}
     <div class="yr"><div class="y">2027</div><div class="body">
       <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Idaho general elk</b>, uncapped zone (McCall or Weiser River). Random draw in December; leftover tags often sell OTC in late March as a backup.</p>
       <p><span class="tag" style="color:var(--easy)">Hunt</span><b>New Mexico Coues deer, archery</b> in Unit 23 or 24 (about 75% nonresident odds in 2025). Backup: the Arizona OTC archery tag.</p>
-      <p><span class="tag" style="color:var(--premier)">Bank</span>Apply or buy points in AZ (elk, pronghorn, deer), UT (LE elk, deer, pronghorn), NV (elk, deer, antelope) and CO (elk, deer, pronghorn; points are free in 2027). Each one is a small lottery ticket at a top unit.</p>
+      <p><span class="tag" style="color:var(--easy)">Option</span><b>Wyoming pronghorn</b> in a 1-point area (24 Thunder Basin, 15 Clearmont or 2 Sundance) using the point you buy this week. Much of that country is private, so line up access before applying.</p>
+      <p><span class="tag" style="color:var(--premier)">Bank</span>Buy Wyoming elk and deer points each summer. Apply or buy points in AZ (elk, pronghorn, deer), UT (LE elk, deer, pronghorn), NV (elk, deer, antelope) and CO (elk, deer, pronghorn; points are free in 2027). Each one is a small lottery ticket at a top unit.</p>
     </div></div>
     <div class="yr"><div class="y">2028</div><div class="body">
       <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Montana general combo</b> (elk + deer) with 2 preference points, about 85–95% odds. Hunt any general district, such as the Gravelly Range.</p>
@@ -178,7 +180,7 @@ a{color:var(--accent)}
     </div></div>
     <div class="yr"><div class="y">2029</div><div class="body">
       <p><span class="tag" style="color:var(--mid)">Trophy-ish</span><b>Arizona Coues rifle</b>, Units 31/32 or 36. By then you'll have 2 earned points + the hunter ed point.</p>
-      <p><span class="tag" style="color:var(--easy)">Hunt</span>Idaho general elk or deer again, or Utah OTC general archery elk.</p>
+      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Wyoming general elk, Region E</b> (Bighorns), about 3 points in the regular draw. Or Idaho general elk/deer, or Utah OTC archery elk.</p>
     </div></div>
     <div class="yr"><div class="y">2030</div><div class="body">
       <p><span class="tag" style="color:var(--mid)">Trophy-ish</span><b>Colorado elk</b>, Units 66/67 (Lake City) or Unit 2 archery, using 3+ points.</p>
@@ -225,6 +227,43 @@ a{color:var(--accent)}
 </main>
 <script>
 const U=[
+["WY","E","124 Type 1","Rock Springs","premier",41.35,-108.75,20,null,"Bitter Creek. 3 NR tags; 20 pts in 2026."],
+["WY","E","100 Type 1","Farson","premier",41.95,-108.85,20,null,""],
+["WY","E","16 Type 1","Medicine Bow","premier",42.15,-106.35,18,null,"Shirley Mountain."],
+["WY","E","7 Type 1","Wheatland","premier",42.27,-105.45,14,null,"Laramie Peak. 69 NR tags; special draw 13 pts."],
+["WY","E","45 Type 1","Ten Sleep","premier",44.05,-107.3,13,null,"West slope of the Bighorns."],
+["WY","E","19 Type 1","Casper","premier",42.55,-106.4,11,null,"11–12 pts."],
+["WY","E","48 Type 1","Kaycee","mid",43.75,-107.0,7,null,"Lots of private land."],
+["WY","E","97 Type 1","Pinedale","mid",42.55,-109.6,5,null,""],
+["WY","E","98 Type 1","Boulder","mid",42.85,-109.55,5,null,"93% public. Nonresidents need a guide inside designated wilderness."],
+["WY","E","125 Type 1","Elk Mountain","mid",41.65,-106.45,5,null,"Mostly private land."],
+["WY","E","84 Type 1","Jackson","easy",43.35,-110.7,2,null,"7 NR tags. Wilderness nearby needs a guide."],
+["WY","E","General Region E","Sheridan","easy",44.3,-106.9,3,null,"NR general elk, regular draw ~3 pts (486 tags). Special draw 0 pts but $1,965."],
+["WY","E","General Region S","Rock Springs","mid",41.6,-108.5,5,null,"Regular draw ~5–6 pts; special ~3."],
+["WY","E","General Region W","Pinedale","mid",43.0,-110.0,5,null,"Regular draw ~5–6 pts; special under 4. Wilderness needs a guide."],
+["WY","D","128 Type 1","Dubois","premier",43.4,-109.6,20,null,"Wind River. 6 NR tags."],
+["WY","D","102 Type 1","Rock Springs","premier",41.45,-109.1,19,null,""],
+["WY","D","141","Green River","premier",41.6,-109.0,17,null,"2025 figure."],
+["WY","D","90","Shoshoni","premier",43.0,-107.9,16,null,"2025 figure."],
+["WY","D","89","Casper","premier",42.8,-107.4,15,null,"2025 figure."],
+["WY","D","34","Casper","premier",42.7,-106.6,14,null,"2025 figure."],
+["WY","D","General Region G","Big Piney","premier",42.6,-110.6,11,null,"Wyoming Range. 91 NR tags, 11–12 pts."],
+["WY","D","General Region H","Afton","mid",42.9,-110.9,8,null,"151 NR tags, ~8 pts."],
+["WY","D","General Region W","Lander","easy",42.5,-108.5,1,null,"379 NR tags, ~1 pt."],
+["WY","D","General Region B","Gillette","easy",44.3,-105.5,0,null,"Under 1 pt. Mostly private land."],
+["WY","D","General Region C","Sheridan","easy",44.6,-106.3,0,null,"1,095 NR tags. Mostly private land."],
+["WY","P","60","Wamsutter","premier",41.6,-108.3,19,null,"Table Rock. 2025 figure."],
+["WY","P","61","Rawlins","premier",41.9,-107.9,16,null,"Chain Lakes."],
+["WY","P","64","Jeffrey City","premier",42.3,-108.0,15,null,"Bison Basin."],
+["WY","P","57","Wamsutter","premier",41.35,-108.0,12,null,""],
+["WY","P","87","Pinedale","premier",42.8,-109.9,11,null,"Late hunt ~8 pts."],
+["WY","P","91","Farson","premier",42.2,-109.3,11,null,"Dry Sandy."],
+["WY","P","47","Medicine Bow","mid",42.3,-106.3,8,null,"Shirley Basin. Late hunt ~7."],
+["WY","P","25","Casper","mid",42.9,-106.6,4,null,"Special draw ~1 pt."],
+["WY","P","23","Wright","easy",43.6,-105.8,2,null,"Special draw 0 pts. Mostly private land."],
+["WY","P","15","Clearmont","easy",44.6,-106.4,1,null,"Mostly private land."],
+["WY","P","24","Wright","easy",43.9,-105.2,1,null,"Thunder Basin. Candidate 2027 hunt with the point you buy now."],
+["WY","P","2","Sundance","easy",44.6,-104.6,1,null,"23% odds at 1 pt. Mostly private land."],
 ["CO","E","201","Maybell","premier",40.8,-108.6,20,null,"Hybrid draw (5+ pts, apply solo, 1st choice) is the realistic path."],
 ["CO","E","10","Rangely","premier",40.0,-108.7,15,null,"Early rifle 15–20+ pts."],
 ["CO","E","61","Nucla","premier",38.3,-108.3,12,null,"Archery 12–16 pts; 1st rifle 20+."],
@@ -398,6 +437,7 @@ const U=[
 ];
 
 const STATE_INFO={
+WY:{sys:"Preference points: 75% of NR tags by points, 25% random. Points come only from the point-only purchase (Jul 1 – early Nov); applying and losing earns none. Regular and special draws (special costs more but needs fewer points).",nr:"16% of limited elk tags; NR general elk by region (E, S, W)",lic:"Included in tag price",app:"$15 / species (in price)",pt:"2026: elk $52, deer $41, antelope $31 · $75 each from Jan 1, 2027",tags:"Elk $707 (special $1,965) · Deer $389 (special $1,215) · Antelope $341 (special $1,215)",pay:"Full fee up front; refunded if not drawn",date:"Elk ~Feb 1; deer & antelope ~Jun 1 (2027 est.)",otc:"No OTC elk, deer or antelope. Leftover draw late June, then first-come leftovers. Nonresidents need a guide in designated wilderness.",url:"https://wgfd.wyo.gov/media/31721/download"},
 CO:{sys:"Preference points (1st choice). 2027 is the last pure-preference year; 2028 splits tags 50/50 preference/random. Hybrid random draw for 5+ pt holders.",nr:"Up to 20–25% of tags",lic:"$117.62 (small game + habitat stamp)",app:"$11.49 / species",pt:"Free in 2027 for elk, deer, pronghorn ($30 from 2028)",tags:"Elk ~$845 · Deer ~$507 · Pronghorn $507",pay:"Tag charged only if drawn",date:"Mar 1 – Apr 7 (2026); results late May",otc:"2nd/3rd rifle bull elk OTC in many western units. Archery elk west of I-25 is draw-only, but leftovers are plentiful.",url:"https://cpw.state.co.us/hunting/big-game/primary-draw"},
 NM:{sys:"Pure random draw. No points.",nr:"6% unguided + 10% shared with outfitter clients",lic:"$104 (license + validation + habitat stamp)",app:"$13 / species",pt:"None",tags:"Elk $773 (quality $998) · Deer/Coues $398 (quality $623) · Pronghorn $423",pay:"Full tag fee up front; refunded if not drawn",date:"~Mar 18 (2026); results Apr 22",otc:"No public-land OTC elk, deer or pronghorn. Landowner tags only.",url:"https://wildlife.dgf.nm.gov/hunting/applications-and-draw-information"},
 AZ:{sys:"Bonus points. 20% of tags to max points, rest random. Plus loyalty point (5 yrs in a row) and permanent hunter ed point.",nr:"Up to 10% per hunt",lic:"$160",app:"$15 / species",pt:"$15 / species",tags:"Elk $665 · Deer/Coues $315 · Pronghorn $565",pay:"Tag charged only if drawn",date:"Elk/pronghorn ~early Feb; deer ~early June",otc:"Nonresident archery deer tag ($300), first come first served, ~2,800 tags, on sale ~early Nov.",url:"https://www.azgfd.com/hunting/hunt-draw-and-licenses/big-game-draw/bonus-point-process/"},
@@ -409,6 +449,7 @@ MT:{sys:"General combo: preference points (75% by points, 25% random to 0-pt app
 };
 
 const COSTS=[
+["WY","Preference points: elk, deer, antelope","124","Buy by Nov 2 at 2026 prices ($225/yr from 2027); sets up a 2027 pronghorn and 2029 general elk"],
 ["AZ","License + elk, pronghorn, deer apps","205","Lottery chance at top units every year; builds bonus + loyalty points"],
 ["UT","License + LE elk, deer, pronghorn","210","50% random half gives a shot every year; builds toward Manti/Wasatch elk"],
 ["NV","License + elk, deer, antelope","202","Squared points make each year count more"],
@@ -420,6 +461,10 @@ const COSTS=[
 ];
 
 const DATES=[
+["2026-11-02","WY","Last day to buy preference points at 2026 prices (elk $52, deer $41, antelope $31); $75 each from Jan 1",0],
+["2027-02-01","WY","Nonresident elk draw deadline (opens Jan 2; full fee up front)",1],
+["2027-06-01","WY","Deer & antelope draw deadline",1],
+["2027-07-01","WY","Point-only purchase window opens",1],
 ["2026-11-03","AZ","OTC archery deer tags for 2027 go on sale (expected early Nov; 2026's sold Nov 3, 2025)",1],
 ["2026-11-30","OR","Point Saver window closes (only if you want to start Oregon points)",0],
 ["2026-12-01","ID","Nonresident licenses go on sale",0],
@@ -446,7 +491,7 @@ const SPECIES={E:"Elk",D:"Mule deer",C:"Coues deer",P:"Pronghorn"};
 const TIERS={premier:"Premier / hard to draw",mid:"Mid-tier",easy:"Easy draw",otc:"OTC / general"};
 const TIERV={premier:"--premier",mid:"--mid",easy:"--easy",otc:"--otc"};
 const CHV={likely:["Likely now","--likely"],close:["Close / 1–2 yrs","--close"],long:["Long shot","--long"],otc:["No draw needed","--otc"]};
-const SN={CO:"Colorado",UT:"Utah",NM:"New Mexico",AZ:"Arizona",NV:"Nevada",OR:"Oregon",ID:"Idaho",MT:"Montana"};
+const SN={CO:"Colorado",WY:"Wyoming",UT:"Utah",NM:"New Mexico",AZ:"Arizona",NV:"Nevada",OR:"Oregon",ID:"Idaho",MT:"Montana"};
 const STATES=Object.fromEntries(Object.entries(SN).map(([k,n])=>[k,{n}]));
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const TIERC=Object.fromEntries(Object.entries(TIERV).map(([k,v])=>[k,`var(${v})`]));
@@ -463,6 +508,11 @@ const LAYERS=[
  {id:"ID",st:"ID",sp:"EDP",name:"Idaho GMUs",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/GameManagementUnits/FeatureServer/0",f:["NAME"],kind:"num",src:"https://idfg.idaho.gov/data/gis"},
  {id:"IDZ",st:"ID",sp:"E",name:"Idaho elk zones",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/ElkManagementZones/FeatureServer/0",f:["NAME"],kind:"name",zone:true,onlyMatched:true,src:"https://idfg.idaho.gov/data/gis"},
  {id:"MT",st:"MT",sp:"ED",name:"Montana deer/elk districts",url:"https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/11",f:["DISTRICT"],kind:"num",src:"https://fwp.mt.gov/hunt/maps"},
+ {id:"WY",st:"WY",sp:"E",name:"Wyoming elk areas",url:"https://services6.arcgis.com/cWzdqIyxbijuhPLw/ArcGIS/rest/services/ElkHuntAreas/FeatureServer/0",f:["HUNTAREA"],kind:"num",src:"https://wgfd.wyo.gov/hunting-trapping/hunt-planner"},
+ {id:"WYD",st:"WY",sp:"D",name:"Wyoming deer areas",url:"https://services6.arcgis.com/cWzdqIyxbijuhPLw/ArcGIS/rest/services/2026_Deer_Hunt_Areas/FeatureServer/0",alt:["https://services6.arcgis.com/cWzdqIyxbijuhPLw/ArcGIS/rest/services/DeerHuntAreas/FeatureServer/0"],f:["HUNTAREA"],kind:"num",src:"https://wgfd.wyo.gov/hunting-trapping/hunt-planner"},
+ {id:"WYP",st:"WY",sp:"P",name:"Wyoming antelope areas",url:"https://services6.arcgis.com/cWzdqIyxbijuhPLw/ArcGIS/rest/services/AntelopeHuntAreas/FeatureServer/0",f:["HUNTAREA"],kind:"num",src:"https://wgfd.wyo.gov/hunting-trapping/hunt-planner"},
+ {id:"WYER",st:"WY",sp:"E",name:"Wyoming NR elk regions",url:"https://services6.arcgis.com/cWzdqIyxbijuhPLw/ArcGIS/rest/services/ElkNonresidentRegions/FeatureServer/0",f:["Region"],kind:"name",zone:true,onlyMatched:true,src:"https://wgfd.wyo.gov/hunting-trapping/hunt-planner"},
+ {id:"WYDR",st:"WY",sp:"D",name:"Wyoming NR deer regions",url:"https://services6.arcgis.com/cWzdqIyxbijuhPLw/ArcGIS/rest/services/DeerNonresidentRegions/FeatureServer/0",f:["Region"],kind:"name",zone:true,onlyMatched:true,src:"https://wgfd.wyo.gov/hunting-trapping/hunt-planner"},
  {id:"MTP",st:"MT",sp:"P",name:"Montana antelope districts",url:"https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/3",f:["DISTRICT"],kind:"num",src:"https://fwp.mt.gov/hunt/maps"}
 ];
 
@@ -470,12 +520,14 @@ const LAYERS=[
 const NAMEKEY={
  UT:{"Beaver, East":["beaver, east"],"Monroe":["monroe"],"San Juan":["san juan"],"Southwest Desert":["southwest desert"],"Boulder":["boulder"],"Fillmore, Pahvant":["fillmore, pahvant"],"Manti":["manti"],"Wasatch Mtns":["wasatch mtns","wasatch mountains"],"N & S Slope general":["north slope","south slope"],"Henry Mtns":["henry mtns","henry mountains"],"Paunsaugunt":["paunsaugunt"],"San Juan, Elk Ridge":["san juan, elk ridge"],"Fillmore, Oak Creek":["fillmore, oak creek le"],"Book Cliffs":["book cliffs"],"Thousand Lakes":["thousand lakes"],"General (SW Desert)":["southwest desert"],"San Rafael N. A":["san rafael, north"],"West Desert, Riverbed":["riverbed"],"Book Cliffs, Bitter Cr.":["book cliffs, bitter creek (pronghorn)"],"Diamond Mtn/Bonanza":["diamond mtn/bonanza"],"Box Elder, Promontory":["promontory"],"Pine Valley":["pine valley"]},
  OR:{"Wenaha":["wenaha"],"Sled Springs":["sled springs"],"Desolation/Ukiah":["desolation","ukiah"],"Mt Emily/Walla Walla":["emily","walla walla"],"Murderers Creek":["murderers"],"Cascade rifle bull":["santiam","mckenzie"],"Steens/Beulah/Silvies":["steens","beulah","silvies"],"Steens Mtn":["steens"],"Hart Mtn/Beatys":["beatys"],"Juniper/Whitehorse":["juniper","whitehorse"],"Owyhee/Malheur R.":["owyhee","malheur river"],"Wagontire/Silvies":["wagontire","silvies"],"468 Whitehorse":["whitehorse"],"471A Juniper":["juniper"],"470C Hart Mtn":["hart mtn","hart mountain"],"474A/B Warner":["warner"],"469A Steens":["steens"],"466A/467 Malheur/Owyhee":["malheur river","owyhee"],"476A Fort Rock":["fort rock"]},
- IDZ:{"Panhandle zone":["panhandle"],"McCall / Weiser zones":["mccall","weiser"]}
+ IDZ:{"Panhandle zone":["panhandle"],"McCall / Weiser zones":["mccall","weiser"]},
+ WYER:{"General Region E":["e"],"General Region S":["s"],"General Region W":["w"]},
+ WYDR:{"General Region G":["g"],"General Region H":["h"],"General Region W":["w"],"General Region B":["b"],"General Region C":["c"]}
 };
 // numeric overrides where the label doesn't spell out the districts
 const TOKOVR={"MT|Region 6/7 general":["700","701","702","704"],"MT|General (e.g. 324 Gravelly)":["324"],"ID|Clearwater/Salmon":[]};
 
-const normId=v=>String(v==null?"":v).toUpperCase().replace(/UNIT|GMU|HD/g,"").replace(/[\s.]/g,"").replace(/^0+(?=\d)/,"");
+const normId=v=>String(v==null?"":v).replace(/\.0+$/,"").toUpperCase().replace(/UNIT|GMU|HD/g,"").replace(/[\s.]/g,"").replace(/^0+(?=\d)/,"");
 function tokens(st,label){
   const o=TOKOVR[st+"|"+label]; if(o) return o;
   const first=label.split(" ")[0];
@@ -489,9 +541,10 @@ function tokens(st,label){
   }
   return out;
 }
-const isZoneEntry=u=>u[0]==="ID"&&NAMEKEY.IDZ[u[2]];
+const zoneHas=(L,u)=>!!(L.zone&&NAMEKEY[L.id]&&NAMEKEY[L.id][u[2]]);
+const isZoneEntry=u=>LAYERS.some(L=>L.st===u[0]&&L.sp.includes(u[1])&&zoneHas(L,u));
 function layersForEntry(u){
-  return LAYERS.filter(L=>L.st===u[0]&&L.sp.includes(u[1])&&(L.zone?!!isZoneEntry(u):!isZoneEntry(u)));
+  return LAYERS.filter(L=>L.st===u[0]&&L.sp.includes(u[1])&&(L.zone?zoneHas(L,u):!isZoneEntry(u)));
 }
 
 // ---------- fetching ----------
@@ -552,7 +605,7 @@ function attach(L,feats,forced){
   const field=forced||pickField(L,feats[0].properties);LS[L.id].field=field;
   const entries=U.map((u,i)=>[u,i]).filter(([u])=>layersForEntry(u).includes(L));
   const idx={};
-  feats.forEach(ft=>{ft._id=String(ft.properties[field]??"").trim();ft._n=normId(ft._id);ft._lc=ft._id.toLowerCase();ft._e=[];(idx[ft._n]=idx[ft._n]||[]).push(ft)});
+  feats.forEach(ft=>{ft._id=String(ft.properties[field]??"").trim();ft._n=normId(ft._id);ft._lc=ft._id.toLowerCase().replace(/\b(nonresident|nr|region|general)\b/g,"").replace(/\s+/g," ").trim();ft._e=[];(idx[ft._n]=idx[ft._n]||[]).push(ft)});
   for(const [u,i] of entries){
     let hits=[];
     if(L.kind==="num"){
@@ -561,11 +614,11 @@ function attach(L,feats,forced){
         else Object.keys(idx).filter(k=>new RegExp("^"+t+"[A-Z]+$").test(k)).forEach(k=>hits.push(...idx[k]));
       }
     }else{
-      const keys=(NAMEKEY[L.zone?"IDZ":u[0]]||{})[u[2]]||[u[2].toLowerCase()];
+      const keys=(NAMEKEY[L.zone?L.id:u[0]]||{})[u[2]]||[u[2].toLowerCase()];
       for(const k of keys){
         let c=feats.filter(f=>f._lc===k);
-        if(!c.length)c=feats.filter(f=>f._lc.startsWith(k));
-        if(!c.length)c=feats.filter(f=>f._lc.includes(k));
+        if(!c.length&&k.length>2)c=feats.filter(f=>f._lc.startsWith(k));
+        if(!c.length&&k.length>2)c=feats.filter(f=>f._lc.includes(k));
         hits.push(...c);
       }
     }
@@ -692,8 +745,8 @@ function showFeature(f,Lc,lyr){
 // ---------- other views ----------
 function buildStates(){document.getElementById("stateCards").innerHTML=Object.keys(STATE_INFO).map(k=>{const s=STATE_INFO[k];return `<article class="card"><h3>${SN[k]}</h3><p class="meta">${s.date}</p><p>${s.sys}</p><ul><li><b>NR share:</b> ${s.nr}</li><li><b>License:</b> ${s.lic}</li><li><b>Application:</b> ${s.app}</li><li><b>Point only:</b> ${s.pt}</li><li><b>Tags:</b> ${s.tags}</li><li><b>Payment:</b> ${s.pay}</li><li><b>OTC:</b> ${s.otc}</li></ul><a href="${s.url}" target="_blank" rel="noopener">Official page</a></article>`}).join("")}
 function buildCosts(){let t=0;document.getElementById("costRows").innerHTML=COSTS.map(r=>{t+=+r[2];return `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="num">$${r[2]}</td><td>${r[3]}</td></tr>`}).join("")+`<tr><td colspan="2"><b>Total</b></td><td class="num"><b>~$${t.toLocaleString()}</b></td><td>Before tags you draw</td></tr>`}
-function buildDates(){const now=new Date();now.setHours(0,0,0,0);document.getElementById("dates").innerHTML=DATES.map(d=>{const dt=new Date(d[0]+"T12:00:00");const days=(dt-now)/864e5;const lab=dt.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});return `<div class="dl${days>=0&&days<75?" soon":""}"><div class="d">${lab}${d[3]?`<div class="est">est.</div>`:""}</div><div><b>${SN[d[1]]}</b> · ${d[2]}</div></div>`}).join("")}
-const PT_SP={CO:"EDP",AZ:"EDCP",UT:"EDP",NV:"EDP",OR:"EDP",MT:"ED"};
+function buildDates(){const now=new Date();now.setHours(0,0,0,0);document.getElementById("dates").innerHTML=DATES.slice().sort((a,b)=>a[0].localeCompare(b[0])).map(d=>{const dt=new Date(d[0]+"T12:00:00");const days=(dt-now)/864e5;const lab=dt.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});return `<div class="dl${days>=0&&days<75?" soon":""}"><div class="d">${lab}${d[3]?`<div class="est">est.</div>`:""}</div><div><b>${SN[d[1]]}</b> · ${d[2]}</div></div>`}).join("")}
+const PT_SP={WY:"EDP",CO:"EDP",AZ:"EDCP",UT:"EDP",NV:"EDP",OR:"EDP",MT:"ED"};
 function buildPts(){document.getElementById("ptsGrid").innerHTML=Object.keys(PT_SP).map(st=>`<div class="card"><h3>${SN[st]}</h3>${[...PT_SP[st]].map(s=>`<label for="p-${st}${s}">${SPECIES[s]}<input type="number" min="0" max="30" inputmode="numeric" id="p-${st}${s}" value="${myPts(st,s)}"></label>`).join("")}</div>`).join("");
   document.querySelectorAll("#ptsGrid input").forEach(i=>i.oninput=()=>{PTS[i.id.slice(2)]=Math.max(0,+i.value||0);savePts();render()})}
 

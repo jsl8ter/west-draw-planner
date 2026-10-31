@@ -1,7 +1,12 @@
 AZ: OK 0 hunts, years []
-GET https://www.azgfd.com/hunting/hunt-draw-and-licenses/harvest-reporting/ -> 403 5881
-GET https://web.archive.org/web/2026/https://www.azgfd.com/hunting/hunt-draw-and-licenses/harvest-reporting/ -> 429 620
-GET https://www.azgfd.com/Hunting/surveydata/ -> 403 5748
-GET https://web.archive.org/web/2026/https://www.azgfd.com/Hunting/surveydata/ -> 429 620
-GET https://www.azgfd.com/hunting/hunt-draw-and-licenses/big-game-draw/bonus-point-process/ -> 403 5950
-GET https://web.archive.org/web/2026/https://www.azgfd.com/hunting/hunt-draw-and-licenses/big-game-draw/bonus-point-process/ -> 429 620
+GET https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/?list-type=2&max-keys=20&prefix=wp-content/uploads/ -> 200 5868
+  <?xml version="1.0" encoding="UTF-8"?> <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>azgfd-portal-wordpress-pantheon</Name><Prefix>wp-content/uploads/</Prefix><NextContinuationToken>17b6KzNBzVnutBNt5TN5N4usbSLelX8R5Xy50T84kwVQe8W173geojpsLeOLPRjD9h3fL8KaCzBTEqls79u1HDM4DsDEtKmhnXEnPzmQmdcx1o9vKaA1DNsqpvohCJ9T6ErQuezTMJB9t7Ue+nvHbRqOMG8PJtfA0</NextContinuationToken><KeyCou
+GET https://azgfd-live-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/?list-type=2&max-keys=20&prefix=wp-content/uploads/ -> 403 243
+  <?xml version="1.0" encoding="UTF-8"?> <Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>TMCV593EHV0YDX0E</RequestId><HostId>RaxGTOMmP76PA7sHzVyWxSSIVOH+csPxmB1vLfVhNF5yEFdppjrADMg23FbKdyeNUWA1zjK8wEI=</HostId></Error>
+GET https://s3.amazonaws.com/azgfd-portal-wordpress/?list-type=2&max-keys=20&prefix=wp-content/uploads/ -> 403 263
+  <?xml version="1.0" encoding="UTF-8"?> <Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>TMCQ3PA9Q36QEJ47</RequestId><HostId>smvPoM+syCyvAKvRWLbKbGjWFJHgUlHmcNxAqz3MdyAykp+h25/GBG9r+bSOOPSJg/njdBqPBllxZ4xb4WHaSaNrK0rfTbKZ</HostId></Error>
+GET https://web.archive.org/cdx/search/cdx -> 500 0
+GET https://web.archive.org/cdx/search/cdx -> 500 0
+GET https://web.archive.org/cdx/search/cdx -> 500 0
+GET https://web.archive.org/cdx/search/cdx -> 500 0
+GET https://web.archive.org/cdx/search/cdx -> 500 0

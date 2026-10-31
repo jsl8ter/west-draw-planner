@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>West Draw Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+/* Layout: field-map app — sticky tab bar, full-width map first, unit detail below; one column on phones */
+:root{
+  --bg:#eef0ea; --panel:#fbfcf8; --ink:#1c231f; --muted:#5d685f; --line:#d3d8cc;
+  --accent:#d9541a; --accent-ink:#fff;
+  --premier:#8e2c55; --mid:#c7860f; --easy:#3a8a4c; --otc:#2c6aa8;
+  --likely:#2f8a4a; --close:#d39a10; --long:#a8584a;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141916; --panel:#1c231f; --ink:#e7ebe3; --muted:#9aa69c; --line:#2f3832;
+  --accent:#f0702f; --accent-ink:#111;
+  --premier:#d0608e; --mid:#e4a531; --easy:#5bb36d; --otc:#5a9be0;
+  --likely:#5bb36d; --close:#e4a531; --long:#d07a6a; color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+header.top{position:sticky;top:0;z-index:1001;background:var(--ink);color:var(--bg)}
+header.top .wrap{padding-block:10px 0;display:flex;flex-direction:column;gap:6px}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.brand h1{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.02em;margin:0;text-transform:uppercase}
+.brand span{font-family:var(--mono);font-size:11px;opacity:.75}
+nav.tabs{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:none;border:0;color:inherit;opacity:.65;padding:6px 12px 8px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{opacity:1;border-bottom-color:var(--accent)}
+nav.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+h2{font-family:var(--display);font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:.02em;margin:22px 0 6px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:19px;margin:0;text-transform:uppercase;letter-spacing:.03em}
+p{margin:0}
+.lede{color:var(--muted);max-width:65ch}
+.controls{display:flex;flex-direction:column;gap:8px;margin:14px 0 10px}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.row .lbl{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);width:64px}
+.chip{font:600 13px var(--body);border:1.5px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:4px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.sq{width:12px;height:12px;border-radius:2px;display:inline-block;flex:none;opacity:.8}
+.mapbox{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;position:relative}
+#map{height:68vh;min-height:380px;width:100%;background:#cfd6c8}
+.basebar{position:absolute;top:10px;right:10px;z-index:1000;display:flex;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.basebar button{font:600 13px var(--body);border:0;background:none;color:var(--ink);padding:7px 11px;cursor:pointer;border-left:1px solid var(--line)}
+.basebar button:first-child{border-left:0}
+.basebar button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.basebar label{display:flex;align-items:center;gap:5px;font:600 13px var(--body);padding:0 10px;border-left:1px solid var(--line);cursor:pointer}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:8px 12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.status{display:flex;flex-wrap:wrap;gap:6px 14px;padding:8px 12px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.status .ok{color:var(--easy)} .status .bad{color:var(--long)} .status .wait{opacity:.7}
+.sheet{margin-top:12px;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.sheet .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px 16px}
+.sheet + .sheet{margin-top:8px}
+.kv div b{display:block;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.pill{font:600 12px var(--body);padding:2px 9px;border-radius:999px;color:#fff;display:inline-block}
+.list{margin-top:14px;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.li{display:grid;grid-template-columns:12px 52px 1fr auto;gap:10px;align-items:center;padding:9px 12px;border-top:1px solid var(--line);cursor:pointer;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;color:inherit;font:inherit;width:100%}
+.li:first-child{border-top:0}
+.li:hover{background:color-mix(in srgb,var(--panel) 90%,var(--accent))}
+.li .s{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.li .n{min-width:0}
+.li .n small{display:block;color:var(--muted);font-size:12.5px}
+.li .r{font-family:var(--mono);font-size:12px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.li .shape{font-family:var(--mono);font-size:10px;color:var(--muted);display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .meta{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.card ul{margin:0;padding-left:18px}
+.card li{margin:2px 0}
+.yr{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.yr:first-of-type{border-top:0}
+.yr .y{font-family:var(--display);font-size:30px;font-weight:700;line-height:1;color:var(--accent)}
+.yr .body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.tag{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;padding:1px 6px;border-radius:3px;border:1px solid currentColor;margin-right:6px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel);margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500;border-top:0}
+td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.dl{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:10px 12px;border-top:1px solid var(--line);align-items:start}
+.dl:first-child{border-top:0}
+.dl .d{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.dl.soon{background:color-mix(in srgb,var(--panel) 86%,var(--accent))}
+.est{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.pts .card label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px}
+.pts input{width:64px;font:500 15px var(--mono);padding:4px 6px;border:1.5px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);text-align:right}
+.note{font-size:13px;color:var(--muted);max-width:75ch}
+.callout{background:var(--ink);color:var(--bg);border-radius:6px;padding:14px 16px;margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.callout ol{margin:0;padding-left:20px}
+a{color:var(--accent)}
+.src{font-size:12.5px;color:var(--muted);word-break:break-word}
+.leaflet-tooltip.ulbl{font:600 12px var(--body);padding:2px 6px}
+@media (max-width:520px){.yr{grid-template-columns:1fr;gap:4px}.dl{grid-template-columns:1fr;gap:2px}.li{grid-template-columns:12px 40px 1fr auto}#map{height:60vh}.basebar button{padding:7px 8px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand"><h1>West Draw Planner</h1><span>TX nonresident · DIY · 2027 cycle</span></div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="t-map" aria-selected="true" data-v="map">Map</button>
+    <button role="tab" id="t-plan" aria-selected="false" data-v="plan">Plan</button>
+    <button role="tab" id="t-dates" aria-selected="false" data-v="dates">Deadlines</button>
+    <button role="tab" id="t-states" aria-selected="false" data-v="states">States</button>
+    <button role="tab" id="t-points" aria-selected="false" data-v="points">My Points</button>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+<!-- MAP -->
+<section id="v-map">
+  <div class="controls">
+    <div class="row" id="spRow"><span class="lbl">Species</span></div>
+    <div class="row"><span class="lbl">Color by</span>
+      <button class="chip" id="c-tier" aria-pressed="true" data-color="tier">Hunt quality</button>
+      <button class="chip" id="c-chance" aria-pressed="false" data-color="chance">My draw chance</button>
+    </div>
+    <div class="row" id="tierRow"><span class="lbl">Show</span></div>
+  </div>
+  <div class="mapbox">
+    <div id="map" role="region" aria-label="Hunt unit map"></div>
+    <div class="basebar" role="group" aria-label="Basemap">
+      <button id="b-street" data-base="street" aria-pressed="false">Map</button>
+      <button id="b-topo" data-base="topo" aria-pressed="true">Topo</button>
+      <button id="b-sat" data-base="sat" aria-pressed="false">Satellite</button>
+      <label for="b-labels"><input type="checkbox" id="b-labels" checked> Labels</label>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="status" id="status"></div>
+  </div>
+  <div id="sheet"></div>
+  <div class="list" id="list"></div>
+  <p class="note" style="margin-top:10px">Unit outlines load live from each state wildlife agency's public GIS service. Shaded units are the ones in this planner. Outlined-only units aren't rated yet; tap one to see its number. A dot means the unit's shape couldn't be matched, so it sits at the unit's rough center. Points and odds are for nonresidents from 2025–26 draws and are approximate; check each state's draw report before applying.</p>
+</section>
+
+<!-- PLAN -->
+<section id="v-plan" hidden>
+  <h2>Your strategy</h2>
+  <p class="lede">Goal: two hunts a year, plus a better-quality tag every couple of years. That means two buckets. The <b>hunt-now</b> bucket uses general tags, OTC tags and high-odds draws. The <b>point bank</b> buys points or lottery chances every year in the states where quality tags take time.</p>
+
+  <div class="callout">
+    <h3>Next 60 days</h3>
+    <ol>
+      <li><b>Arizona OTC archery deer tag (2027).</b> Usually goes on sale in early November at otcarchery.azgfd.com and sells out. $160 license + $300 tag. Good for Coues or mule deer in Aug or Dec–Jan.</li>
+      <li><b>Arizona hunter ed point.</b> Take the online "Ethically Hunting Arizona" course before the February draw. It's a permanent extra bonus point for every species.</li>
+      <li><b>Idaho general tag draw.</b> Buy the $185 license on Dec 1, apply Dec 5–15 ($18). Pick an uncapped elk zone (McCall, Weiser River, Panhandle).</li>
+      <li><b>Montana preference point.</b> $100 by Dec 31 for the general combo draw. Makes a 2028 combo very likely.</li>
+      <li>Make accounts on all 8 state portals now so the spring deadlines are just a few clicks.</li>
+    </ol>
+  </div>
+
+  <h2>Year by year</h2>
+  <div id="years">
+    <div class="yr"><div class="y">2027</div><div class="body">
+      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Idaho general elk</b>, uncapped zone (McCall or Weiser River). Random draw in December; leftover tags often sell OTC in late March as a backup.</p>
+      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>New Mexico Coues deer, archery</b> in Unit 23 or 24 (about 75% nonresident odds in 2025). Backup: the Arizona OTC archery tag.</p>
+      <p><span class="tag" style="color:var(--premier)">Bank</span>Apply or buy points in AZ (elk, pronghorn, deer), UT (LE elk, deer, pronghorn), NV (elk, deer, antelope) and CO (elk, deer, pronghorn; points are free in 2027). Each one is a small lottery ticket at a top unit.</p>
+    </div></div>
+    <div class="yr"><div class="y">2028</div><div class="body">
+      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Montana general combo</b> (elk + deer) with 2 preference points, about 85–95% odds. Hunt any general district, such as the Gravelly Range.</p>
+      <p><span class="tag" style="color:var(--mid)">Hunt</span><b>Colorado pronghorn or deer</b>, mid units (San Luis Valley 79/82 pronghorn, or 22/31 deer). Colorado moves to a 50/50 preference/random split in 2028, so 1–2 points plus the random half are enough.</p>
+    </div></div>
+    <div class="yr"><div class="y">2029</div><div class="body">
+      <p><span class="tag" style="color:var(--mid)">Trophy-ish</span><b>Arizona Coues rifle</b>, Units 31/32 or 36. By then you'll have 2 earned points + the hunter ed point.</p>
+      <p><span class="tag" style="color:var(--easy)">Hunt</span>Idaho general elk or deer again, or Utah OTC general archery elk.</p>
+    </div></div>
+    <div class="yr"><div class="y">2030</div><div class="body">
+      <p><span class="tag" style="color:var(--mid)">Trophy-ish</span><b>Colorado elk</b>, Units 66/67 (Lake City) or Unit 2 archery, using 3+ points.</p>
+      <p><span class="tag" style="color:var(--mid)">Hunt</span>Nevada antelope (mid units like 041/042 or 071–079) with 3–4 squared bonus points, or a Montana combo again.</p>
+    </div></div>
+    <div class="yr"><div class="y">2031+</div><div class="body">
+      <p><span class="tag" style="color:var(--premier)">Trophy</span>Utah LE elk on Manti or Wasatch (archery, about 5–10 points), and Arizona elk Unit 6A archery. Keep the long-shot applications going every year: AZ 1/9/23 elk, UT Beaver East, NV 231, MT Missouri Breaks.</p>
+    </div></div>
+  </div>
+
+  <h2>Yearly cost to stay in the game</h2>
+  <p class="lede">Licenses plus application or point fees, before any tag you actually draw. Tags are charged only if you draw, except New Mexico and Montana, which charge up front and refund.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>State</th><th>What to buy</th><th>Approx $/yr</th><th>Why</th></tr></thead>
+    <tbody id="costRows"></tbody>
+  </table></div>
+  <p class="note" style="margin-top:8px">Oregon is skipped for now. Nonresidents get at most 5% of deer and elk tags and 3% of pronghorn, so it's poor value. Its OTC archery elk and deer tags are still an option for a spur-of-the-moment hunt.</p>
+</section>
+
+<!-- DEADLINES -->
+<section id="v-dates" hidden>
+  <h2>Application calendar</h2>
+  <p class="lede">Rows marked <span class="est">est.</span> use last year's date because the 2027 date hasn't been posted yet. Confirm on the state site.</p>
+  <div class="list" id="dates" style="margin-top:12px"></div>
+</section>
+
+<!-- STATES -->
+<section id="v-states" hidden>
+  <h2>State rules at a glance</h2>
+  <p class="lede">Nonresident rules and 2026 prices. Most 2027 prices come out with each state's spring booklet.</p>
+  <div class="cards" id="stateCards"></div>
+</section>
+
+<!-- POINTS -->
+<section id="v-points" hidden>
+  <h2>My points</h2>
+  <p class="lede">Enter your current points. The map's "My draw chance" coloring uses them. They're saved in this browser only. New Mexico and Idaho have no points, so they aren't listed.</p>
+  <div class="pts" id="ptsGrid"></div>
+  <p class="note" style="margin-top:10px">Montana here means preference points for the general combo. Montana permit hunts (like the Missouri Breaks) use separate bonus points and are scored by draw odds instead.</p>
+</section>
+
+<h2 style="margin-top:34px">Sources</h2>
+<p class="src">Agency sites: cpw.state.co.us · wildlife.dgf.nm.gov · azgfd.com · otcarchery.azgfd.com · wildlife.utah.gov/fees · wildlife.utah.gov/bg-odds.html · eregulations.com (NV, OR, AZ official regs) · dfw.state.or.us 2027 big game proposals · idfg.idaho.gov 2027 supplemental proclamation &amp; hunt planner · fwp.mt.gov fees, bonus points and drawing dates. Secondary: goHUNT state profiles, onX application guides, Eastmans draw tables, Huntin' Fool. Unit boundaries: CPW, NMDGF (via NM Tech), AZGFD, Utah DWR, NDOW, ODFW, IDFG and Montana FWP public ArcGIS services. Basemaps: Esri, USGS The National Map. Researched Oct 30–31, 2026.</p>
+</main>
+<script>
+const U=[
+["CO","E","201","Maybell","premier",40.8,-108.6,20,null,"Hybrid draw (5+ pts, apply solo, 1st choice) is the realistic path."],
+["CO","E","10","Rangely","premier",40.0,-108.7,15,null,"Early rifle 15–20+ pts."],
+["CO","E","61","Nucla","premier",38.3,-108.3,12,null,"Archery 12–16 pts; 1st rifle 20+."],
+["CO","E","2","Maybell","mid",40.45,-108.75,3,null,"Archery 3–6 pts; rifle 6–10."],
+["CO","E","66/67","Lake City","mid",38.15,-107.2,4,null,"Rifle 4–8 pts."],
+["CO","E","54/55/551","Gunnison","easy",38.4,-106.9,0,null,"2nd/3rd rifle became limited draw in 2026; 0–2 pts."],
+["CO","E","12/23/24 OTC","Meeker","otc",40.05,-107.4,null,null,"2nd/3rd season OTC bull rifle tag. No points needed."],
+["CO","D","201","Maybell","premier",40.85,-108.5,25,null,"4th rifle 25+ pts."],
+["CO","D","44","Eagle","premier",39.6,-106.9,20,null,"Late rifle 20+."],
+["CO","D","61","Nucla","premier",38.38,-108.2,20,null,"Late rifle 20+."],
+["CO","D","54/55","Gunnison","mid",38.5,-106.8,4,null,"Early rifle 4–8; late rifle 15+."],
+["CO","D","22/31","De Beque","mid",39.6,-108.3,2,null,"2–5 pts."],
+["CO","D","140/851","Trinidad","mid",37.3,-104.0,3,null,"Plains deer, 3–6 pts."],
+["CO","D","11/211","Meeker","easy",40.15,-107.95,0,null,"Early rifle 0–2 pts."],
+["CO","P","2/10","Rangely","premier",40.25,-108.85,8,null,"Rifle buck 8–12+ pts."],
+["CO","P","1/201","Moffat Co.","mid",40.75,-108.3,3,null,"3–6 pts."],
+["CO","P","79/82","San Luis Valley","mid",37.8,-106.0,2,null,"2–5 pts."],
+["CO","P","87/98","Cheyenne Wells","easy",38.8,-102.4,0,null,"0–2 pts."],
+
+["NM","E","6B","Jemez Springs","premier",35.9,-106.5,null,1,"Valles Caldera. Under 1–2% odds."],
+["NM","E","16A/B/D","Reserve","premier",33.3,-108.55,null,3,"Gila. Rifle 1–4%; archery 3–8%."],
+["NM","E","17","Winston","premier",33.5,-107.8,null,3,"Black Range north. 2–5%."],
+["NM","E","13","Magdalena","mid",34.0,-107.45,null,4,"3–6%."],
+["NM","E","15","Quemado","mid",34.3,-108.4,null,6,"4–8%."],
+["NM","E","34","Cloudcroft","mid",32.9,-105.7,null,10,"8–15%."],
+["NM","E","36","Ruidoso","easy",33.4,-105.65,null,15,"10–20%."],
+["NM","E","10","Grants","easy",35.1,-108.2,null,15,"10–25%, smaller bulls."],
+["NM","D","2B","Aztec","premier",36.8,-107.6,null,2,"1–3%."],
+["NM","D","23 Burro Mtns","Silver City","premier",32.6,-108.45,null,1,"Quality hunt, 1% in 2025."],
+["NM","D","27","Rodeo","mid",31.85,-108.95,null,11,"Quality hunt, 11% in 2025."],
+["NM","D","16","Reserve","mid",33.45,-108.35,null,7,"5–10%."],
+["NM","D","23 Nov rifle","Silver City","mid",32.85,-108.35,null,12,"11–13% in 2025."],
+["NM","D","24","Mimbres","easy",32.95,-107.85,null,14,"14% in 2025."],
+["NM","P","13/15/16","Datil plains","premier",34.2,-108.0,null,2,"Only 1–3 NR tags per hunt."],
+["NM","P","28","Otero Mesa","mid",32.3,-105.6,null,3,"2–5%."],
+["NM","P","17/21","San Agustin","mid",33.9,-107.7,null,4,"3–6%."],
+["NM","C","27 rifle","Rodeo","premier",31.7,-108.85,null,1,"Quality rifle hunt. 1% in 2025."],
+["NM","C","23 rifle Dec","Silver City","premier",32.75,-108.4,null,1,"1% in 2025."],
+["NM","C","24 rifle Nov","Mimbres","mid",32.9,-107.95,null,5,"5% in 2025."],
+["NM","C","26 rifle Dec","Lordsburg","mid",31.95,-108.65,null,8,"8% in 2025."],
+["NM","C","23 muzzleloader","Silver City","easy",32.8,-108.3,null,43,"43% in 2025."],
+["NM","C","23 archery Sept","Silver City","easy",32.7,-108.25,null,78,"78% in 2025. Recommended 2027 hunt."],
+["NM","C","24 archery / ML","Mimbres","easy",33.0,-107.85,null,75,"75%+ in 2025."],
+["NM","C","27 archery / ML","Rodeo","easy",31.65,-108.95,null,61,"61–67% in 2025."],
+
+["AZ","E","1","Springerville","premier",33.95,-109.4,20,null,"Rifle 20+; archery 15–20."],
+["AZ","E","9","Tusayan","premier",35.85,-112.1,20,null,"South Rim. Rifle 20+; archery 15–18."],
+["AZ","E","10","Seligman","premier",35.5,-112.9,20,null,"Mostly checkerboard private land."],
+["AZ","E","23","Young","premier",34.1,-110.9,18,null,"Archery high teens; rifle 20+."],
+["AZ","E","3C","Heber","premier",34.4,-110.5,18,null,"18+ pts."],
+["AZ","E","27","Alpine","premier",33.6,-109.2,12,null,"Archery 12–16; late rifle ~10."],
+["AZ","E","6A","Flagstaff","mid",34.85,-111.5,5,null,"Archery 5–10; late rifle 4–8."],
+["AZ","E","5A/5B/7/8","Flagstaff","easy",35.2,-111.9,0,null,"Cow tags 0–2; some late bull rifle 3–6."],
+["AZ","D","13A","Fredonia","premier",36.6,-113.4,18,null,"Arizona Strip. Late rifle 18–22+."],
+["AZ","D","13B","Littlefield","premier",36.7,-113.8,15,null,"15–20+."],
+["AZ","D","12A","Jacob Lake","mid",36.6,-112.2,5,null,"Kaibab. Early rifle 5–8; late 15+."],
+["AZ","D","12B","Fredonia","mid",36.75,-112.7,8,null,"8–12."],
+["AZ","D","27","Alpine","mid",33.7,-109.1,8,null,"8–14."],
+["AZ","D","15/16/18","Kingman","easy",35.0,-113.9,0,null,"Rifle 0–5. Good OTC archery country."],
+["AZ","C","33","Oracle","premier",32.45,-110.4,10,null,"Best rifle hunts 10–14."],
+["AZ","C","35A/35B","Patagonia","premier",31.45,-110.8,8,null,"8–14; 35A late rifle hardest."],
+["AZ","C","36A/B/C","Arivaca","mid",31.75,-111.2,2,null,"2–8 depending on season."],
+["AZ","C","31/32","Willcox","mid",32.4,-109.8,2,null,"2–6."],
+["AZ","C","30A/30B","Portal","easy",31.9,-109.3,0,null,"Early rifle 0–3."],
+["AZ","C","22/23/24A","Payson","easy",33.9,-111.2,0,null,"Early rifle 0–2. Good OTC archery country."],
+["AZ","P","10","Seligman","premier",35.45,-113.0,20,null,"Max points; archery 10–15."],
+["AZ","P","3A/3C","Snowflake","premier",34.5,-110.3,20,null,"Max points."],
+["AZ","P","1","Springerville","premier",34.15,-109.3,15,null,"15–20."],
+["AZ","P","19A","Chino Valley","mid",34.85,-112.45,2,null,"Archery 2–5; rifle 8–12."],
+["AZ","P","5A/5B","Anderson Mesa","premier",34.9,-111.3,10,null,"About 10."],
+["AZ","P","13A/13B/15 archery","Fredonia","easy",36.3,-113.4,0,null,"Archery 0–5."],
+
+["UT","E","Beaver, East","Beaver","premier",38.3,-112.45,20,null,"Avg bull age 9.4. Rifle 20+."],
+["UT","E","Monroe","Richfield","premier",38.55,-112.05,20,null,"Avg age 8.7."],
+["UT","E","San Juan","Monticello","premier",37.8,-109.45,20,null,"Avg age 7.9."],
+["UT","E","Southwest Desert","Cedar City","premier",38.0,-113.5,15,null,"Archery mid-teens; rifle 20+."],
+["UT","E","Boulder","Escalante","premier",37.9,-111.6,10,null,"Archery 10–15."],
+["UT","E","Fillmore, Pahvant","Fillmore","premier",38.9,-112.2,15,null,"15–20."],
+["UT","E","Manti","Ephraim","mid",39.4,-111.4,5,null,"660 tags. Archery/ML 5–10."],
+["UT","E","Wasatch Mtns","Heber City","mid",40.3,-111.2,5,null,"Archery 5–10."],
+["UT","E","N & S Slope general","Vernal","otc",40.8,-110.3,null,null,"General archery elk is unlimited OTC from early July ($849)."],
+["UT","D","Henry Mtns","Hanksville","premier",38.0,-110.8,28,null,"Needed 28 pts in 2025."],
+["UT","D","Paunsaugunt","Tropic","premier",37.5,-112.2,26,null,"26–28 pts."],
+["UT","D","San Juan, Elk Ridge","Blanding","premier",37.7,-109.8,22,null,"22–27."],
+["UT","D","Fillmore, Oak Creek","Oak City","premier",39.3,-112.25,26,null,"Rifle 26."],
+["UT","D","Book Cliffs","Ouray","premier",39.6,-109.4,20,null,"20–24; random odds 1–2%."],
+["UT","D","Thousand Lakes","Loa","mid",38.4,-111.5,3,null,"Restricted weapon. 3–14; random odds 8–50%."],
+["UT","D","General (SW Desert)","Cedar City","easy",38.5,-113.2,0,null,"General archery 0–2 preference pts."],
+["UT","P","San Rafael N. A","Green River","premier",39.1,-110.6,20,null,""],
+["UT","P","West Desert, Riverbed","Delta","premier",39.8,-113.0,16,null,"Random odds 1.4%."],
+["UT","P","Book Cliffs, Bitter Cr.","Vernal","premier",39.8,-109.3,16,null,""],
+["UT","P","Diamond Mtn/Bonanza","Vernal","premier",40.4,-109.25,12,null,"Random odds 4.3%."],
+["UT","P","Box Elder, Promontory","Brigham City","premier",41.5,-112.5,9,null,"Easiest UT pronghorn by points."],
+["UT","P","Pine Valley","St. George","mid",37.4,-113.7,null,5,"Random-only tag, 4.8%."],
+
+["NV","E","221-223","Ely","premier",39.6,-114.8,null,1,"Late rifle bull ~1% NR odds."],
+["NV","E","231","Ely","premier",39.2,-114.6,null,1,"0.9% NR odds."],
+["NV","E","241-245","Pioche","premier",38.3,-114.4,null,1,"Under 1%."],
+["NV","E","071-072 Ruby Mtns","Elko","premier",40.5,-115.4,null,2,""],
+["NV","E","111-115","Ely","mid",39.15,-115.2,null,4,""],
+["NV","E","161-164","Austin","mid",38.9,-116.6,null,4,""],
+["NV","E","221-223 cow","Ely","easy",39.7,-114.7,null,40,"Antlerless; ML 67%, archery 40%."],
+["NV","D","231","Ely","premier",39.28,-114.5,null,4,""],
+["NV","D","241-242","Caliente","premier",38.0,-114.3,null,3,""],
+["NV","D","065","Fallon","premier",39.6,-117.9,null,1,"0.9% in 2025."],
+["NV","D","121","McGill","mid",39.9,-114.9,null,4,"Rifle 3.7%; archery 25%."],
+["NV","D","101-109","Wells","mid",40.8,-115.3,null,6,"3–10%."],
+["NV","D","203","Alamo","easy",37.6,-115.0,null,17,"Late rifle 17%; archery 17–29%."],
+["NV","P","011-015","Gerlach","premier",41.5,-119.4,10,null,"8–12 squared bonus pts."],
+["NV","P","031-034","Winnemucca","premier",41.5,-117.5,8,null,"6–10 pts."],
+["NV","P","041/042","Lovelock","mid",40.6,-118.4,4,null,"3–6 pts."],
+["NV","P","071-079","Wells","mid",41.0,-114.9,4,null,"3–6 pts."],
+["NV","P","151-156","Battle Mtn","mid",39.9,-117.0,4,null,"Rifle split into 2 seasons for 2026."],
+["NV","P","111-115/131-134","Ely","easy",38.95,-115.05,1,null,"Archery 0–3 pts."],
+
+["OR","E","Wenaha","Troy","premier",45.9,-117.6,10,null,"NR cap 5%; may get zero NR tags."],
+["OR","E","Sled Springs","Enterprise","premier",45.7,-117.2,10,null,""],
+["OR","E","Desolation/Ukiah","Ukiah","premier",45.0,-118.6,10,null,""],
+["OR","E","Mt Emily/Walla Walla","Elgin","mid",45.6,-118.0,4,null,""],
+["OR","E","Murderers Creek","John Day","mid",44.3,-119.2,4,null,""],
+["OR","E","Cascade rifle bull","Sisters","mid",44.2,-122.0,6,null,"5–12 pts."],
+["OR","E","Steens/Beulah/Silvies","Burns","easy",43.3,-118.6,1,null,"0–4 pts."],
+["OR","D","Steens Mtn","Frenchglen","premier",42.7,-118.6,10,null,"Units renamed in 2026; verify."],
+["OR","D","Hart Mtn/Beatys","Plush","premier",42.4,-119.7,10,null,""],
+["OR","D","Juniper/Whitehorse","Fields","premier",42.1,-118.3,10,null,""],
+["OR","D","Owyhee/Malheur R.","Jordan Valley","mid",43.0,-117.4,5,null,""],
+["OR","D","Wagontire/Silvies","Riley","mid",43.3,-119.8,4,null,""],
+["OR","P","468 Whitehorse","McDermitt","premier",42.15,-118.15,8,null,"3 NR tags."],
+["OR","P","471A Juniper","Fields","premier",42.3,-118.5,8,null,"1 NR tag."],
+["OR","P","470C Hart Mtn","Plush","premier",42.5,-119.75,5,null,"1 NR tag."],
+["OR","P","474A/B Warner","Lakeview","mid",42.35,-119.95,2,null,"1 NR tag each."],
+["OR","P","469A Steens","Frenchglen","mid",42.85,-118.75,2,null,"2 NR tags."],
+["OR","P","466A/467 Malheur/Owyhee","Juntura","easy",43.4,-117.8,1,null,"1–2 NR tags each."],
+["OR","P","476A Fort Rock","Christmas Valley","easy",43.2,-120.6,1,null,"1 NR tag."],
+
+["ID","E","44 bull","Fairfield","premier",43.55,-114.9,null,1,"Any weapon 1% (2026)."],
+["ID","E","54 archery bull","Oakley","premier",42.2,-114.3,null,0.4,"525 NR apps, 2 tags (2026)."],
+["ID","E","45 bull","Gooding","mid",43.15,-114.9,null,6,"Mostly private land."],
+["ID","E","54 antlerless","Twin Falls","mid",42.25,-114.2,null,20,""],
+["ID","E","66A/76 antlerless","Montpelier","easy",42.5,-111.3,null,100,"100% NR in 2026."],
+["ID","E","Panhandle zone","Coeur d'Alene","otc",47.7,-116.4,null,null,"General tag: Dec draw, leftovers OTC late March."],
+["ID","E","McCall / Weiser zones","McCall","otc",44.8,-116.3,null,null,"General tag. Recommended 2027 hunt."],
+["ID","D","40 archery","Murphy","premier",42.8,-116.4,null,9,"9% (2026)."],
+["ID","D","40/41/42 rifle","Grand View","premier",42.5,-116.55,null,10,"5–20%."],
+["ID","D","54 archery","Twin Falls","mid",42.15,-114.4,null,56,"59 NR tags."],
+["ID","D","39 general","Idaho City","otc",43.8,-115.8,null,null,"Largest NR general deer quota."],
+["ID","D","Clearwater/Salmon","Orofino","otc",45.5,-115.0,null,null,"General tag."],
+["ID","P","46","Bruneau","premier",42.6,-115.8,null,2,"5 tags, 275 apps."],
+["ID","P","40","Murphy","premier",42.9,-116.3,null,2,""],
+["ID","P","48/52","Carey","premier",43.2,-114.1,null,2,"0% in 2026, 4% in 2025."],
+["ID","P","63-1","Mud Lake","mid",43.6,-112.5,null,8,""],
+["ID","P","40/41/42 archery","Grand View","easy",42.4,-116.7,null,58,"58% (2026)."],
+
+["MT","E","410-20 Breaks","Winifred","premier",47.6,-109.2,null,0.5,"0 NR tags in 2025."],
+["MT","E","417-20 Breaks","Big Sandy","premier",47.8,-109.5,null,2,""],
+["MT","E","621-20","Malta","premier",47.95,-108.4,null,10,"2025 third-party figure; verify."],
+["MT","E","622-20","Zortman","premier",47.7,-107.9,null,4,""],
+["MT","E","700-20","Jordan","premier",47.3,-106.9,null,6,"19 tags, 316 apps (2025)."],
+["MT","E","270 brow-tined","Darby","mid",45.8,-114.1,null,5,""],
+["MT","E","General (e.g. 324 Gravelly)","Ennis","otc",44.9,-111.9,2,null,"Needs the general combo (preference pts). 2 pts ≈ 85–95%."],
+["MT","D","270-50","Darby","premier",45.88,-114.0,null,1,""],
+["MT","D","652-50","Glasgow","premier",47.9,-106.6,null,4,""],
+["MT","D","380-02 B","Townsend","mid",46.3,-111.8,null,5,""],
+["MT","D","Region 6/7 general","Miles City","otc",46.5,-105.5,2,null,"Deer combo; preference pts."],
+["MT","P","680/681","Broadus","premier",45.4,-105.4,null,30,""],
+["MT","P","700","Jordan","easy",47.2,-106.8,null,55,""],
+["MT","P","705/706","Terry","mid",46.6,-105.3,null,40,""],
+["MT","P","410/411","Big Sandy","easy",48.3,-110.2,null,45,""],
+["MT","P","420","Havre","mid",48.5,-109.7,null,35,""],
+["MT","P","650","Billings","mid",45.5,-108.0,null,40,""]
+];
+
+const STATE_INFO={
+CO:{sys:"Preference points (1st choice). 2027 is the last pure-preference year; 2028 splits tags 50/50 preference/random. Hybrid random draw for 5+ pt holders.",nr:"Up to 20–25% of tags",lic:"$117.62 (small game + habitat stamp)",app:"$11.49 / species",pt:"Free in 2027 for elk, deer, pronghorn ($30 from 2028)",tags:"Elk ~$845 · Deer ~$507 · Pronghorn $507",pay:"Tag charged only if drawn",date:"Mar 1 – Apr 7 (2026); results late May",otc:"2nd/3rd rifle bull elk OTC in many western units. Archery elk west of I-25 is draw-only, but leftovers are plentiful.",url:"https://cpw.state.co.us/hunting/big-game/primary-draw"},
+NM:{sys:"Pure random draw. No points.",nr:"6% unguided + 10% shared with outfitter clients",lic:"$104 (license + validation + habitat stamp)",app:"$13 / species",pt:"None",tags:"Elk $773 (quality $998) · Deer/Coues $398 (quality $623) · Pronghorn $423",pay:"Full tag fee up front; refunded if not drawn",date:"~Mar 18 (2026); results Apr 22",otc:"No public-land OTC elk, deer or pronghorn. Landowner tags only.",url:"https://wildlife.dgf.nm.gov/hunting/applications-and-draw-information"},
+AZ:{sys:"Bonus points. 20% of tags to max points, rest random. Plus loyalty point (5 yrs in a row) and permanent hunter ed point.",nr:"Up to 10% per hunt",lic:"$160",app:"$15 / species",pt:"$15 / species",tags:"Elk $665 · Deer/Coues $315 · Pronghorn $565",pay:"Tag charged only if drawn",date:"Elk/pronghorn ~early Feb; deer ~early June",otc:"Nonresident archery deer tag ($300), first come first served, ~2,800 tags, on sale ~early Nov.",url:"https://www.azgfd.com/hunting/hunt-draw-and-licenses/big-game-draw/bonus-point-process/"},
+UT:{sys:"Limited entry: 50% to top points, 50% random weighted by points. General deer: preference points.",nr:"Up to 10% per hunt",lic:"$144",app:"$21 / species (+2.2%)",pt:"$21 / species",tags:"LE bull elk $1,950 · General elk $849 · LE deer $1,070 · General deer $599 · LE pronghorn $571",pay:"Tag charged only if drawn",date:"~Mar 19 – Apr 23 (2026); results by May 31",otc:"General archery elk is unlimited OTC from early July. General any-bull and spike rifle tags also sold OTC.",url:"https://wildlife.utah.gov/fees"},
+NV:{sys:"Squared bonus points: (points² + 1) chances. Fully random, no reserved max-point tags.",nr:"~10%, often 1–7 tags per hunt",lic:"$155",app:"Elk $19 · others $14",pt:"$11",tags:"Bull elk $1,200 · Deer $240 · Antelope $300",pay:"Tag charged only if drawn",date:"~May 13 (2026); results May 29",otc:"None for deer, elk or antelope. Second draw, then first-come leftovers.",url:"https://www.eregulations.com/nevada/hunting/licenses-tag-fees"},
+OR:{sys:"Preference points: 75% by points, 25% random (1st choice).",nr:"Up to 5% deer/elk, 3% pronghorn",lic:"$193",app:"$10 / species",pt:"~$10 (Point Saver, Jul 1 – Nov 30)",tags:"Elk $660 · Deer $500 · Pronghorn $443",pay:"Tag optional if drawn; points reset either way",date:"May 15 (2026); results ~Jun 12",otc:"General archery deer and elk tags OTC. Cascade/Coast bull elk and western blacktail deer OTC.",url:"https://www.eregulations.com/oregon/hunting/controlled-hunt-applications-tags"},
+ID:{sys:"No points. General tags are a random draw (since 2026); controlled hunts are a random draw.",nr:"15,500 deer and 12,815 elk general tags; 10% of controlled",lic:"$185 (+$10 fee)",app:"$18",pt:"None",tags:"Elk $651.75 · Deer $351.75 · Pronghorn $342.75",pay:"License + app up front; tag after drawing",date:"General draw Dec 5–15, 2026; controlled ~May 1 – Jun 5",otc:"Leftover general elk (uncapped zones) and deer tags sell OTC in late March.",url:"https://idfg.idaho.gov/licenses/fees-nonresident"},
+MT:{sys:"General combo: preference points (75% by points, 25% random to 0-pt applicants, max 3). Permits: squared bonus points.",nr:"17,000 elk/big game combos; ~12,000 deer combos",lic:"Included in combo",app:"$5",pt:"$100 preference point (Jul 1 – Dec 31)",tags:"Big Game Combo $1,312 · Elk Combo $1,112 · Deer Combo $760 · Antelope $200",pay:"Full fee up front; refunded if not drawn",date:"~Apr 1 (2026) combos & permits; antelope ~Jun 1",otc:"None. The general combo is the ticket to hunt most of western Montana.",url:"https://fwp.mt.gov/buyandapply/hunting-licenses/nonresident-licenses/fees"}
+};
+
+const COSTS=[
+["AZ","License + elk, pronghorn, deer apps","205","Lottery chance at top units every year; builds bonus + loyalty points"],
+["UT","License + LE elk, deer, pronghorn","210","50% random half gives a shot every year; builds toward Manti/Wasatch elk"],
+["NV","License + elk, deer, antelope","202","Squared points make each year count more"],
+["CO","Qualifying license + 3 apps","152","Points free in 2027; best mid-tier elk/deer/pronghorn odds by points"],
+["NM","License + 3 apps (tags fronted, refunded)","143","Pure lottery; Coues archery odds are excellent"],
+["MT","Preference point","100","Sets up a near-sure general combo"],
+["ID","License + general draw app","223","Your most reliable yearly elk or deer hunt"],
+["OR","Skip for now","0","Very small nonresident share"]
+];
+
+const DATES=[
+["2026-11-03","AZ","OTC archery deer tags for 2027 go on sale (expected early Nov; 2026's sold Nov 3, 2025)",1],
+["2026-11-30","OR","Point Saver window closes (only if you want to start Oregon points)",0],
+["2026-12-01","ID","Nonresident licenses go on sale",0],
+["2026-12-15","ID","General deer/elk tag draw, round 1 closes (opens Dec 5)",0],
+["2026-12-31","MT","Last day to buy a $100 preference point for the 2027 combo draw",0],
+["2027-01-20","ID","Buy drawn round-1 tags by this date",0],
+["2027-02-03","AZ","Elk & pronghorn draw deadline",1],
+["2027-02-15","ID","Round 2 general draw closes (opens Feb 5)",0],
+["2027-03-18","NM","Big game draw deadline (pay tag fees up front)",1],
+["2027-04-01","MT","General combos & deer/elk permits deadline",1],
+["2027-04-07","CO","Primary draw deadline (opens Mar 1; buy qualifying license first)",1],
+["2027-04-23","UT","Bucks, bulls & once-in-a-lifetime deadline (opens ~Mar 19)",1],
+["2027-05-13","NV","Main draw deadline",1],
+["2027-05-15","OR","Controlled hunt deadline",1],
+["2027-06-01","MT","Antelope deadline",1],
+["2027-06-02","AZ","Deer (mule & Coues) draw deadline",1],
+["2027-06-05","ID","Controlled hunt deadline (opens ~May 1)",1],
+["2027-07-07","UT","OTC general archery elk on sale",1],
+["2027-08-04","CO","Leftover & OTC licenses on sale",1]
+];
+
+
+const SPECIES={E:"Elk",D:"Mule deer",C:"Coues deer",P:"Pronghorn"};
+const TIERS={premier:"Premier / hard to draw",mid:"Mid-tier",easy:"Easy draw",otc:"OTC / general"};
+const TIERV={premier:"--premier",mid:"--mid",easy:"--easy",otc:"--otc"};
+const CHV={likely:["Likely now","--likely"],close:["Close / 1–2 yrs","--close"],long:["Long shot","--long"],otc:["No draw needed","--otc"]};
+const SN={CO:"Colorado",UT:"Utah",NM:"New Mexico",AZ:"Arizona",NV:"Nevada",OR:"Oregon",ID:"Idaho",MT:"Montana"};
+const STATES=Object.fromEntries(Object.entries(SN).map(([k,n])=>[k,{n}]));
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const TIERC=Object.fromEntries(Object.entries(TIERV).map(([k,v])=>[k,`var(${v})`]));
+const CH=Object.fromEntries(Object.entries(CHV).map(([k,v])=>[k,[v[0],`var(${v[1]})`]]));
+
+// ---------- official boundary services ----------
+const LAYERS=[
+ {id:"CO",st:"CO",sp:"EDP",name:"Colorado GMUs",url:"https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/6",f:["GMUID"],kind:"num",src:"https://cpw.state.co.us/hunting/big-game"},
+ {id:"NM",st:"NM",sp:"EDCP",name:"New Mexico GMUs",url:"https://maps.nmt.edu/server/rest/services/Boundaries/Recreation_Resources/MapServer/0",alt:["https://gis.blm.gov/nmarcgis/rest/services/Recreation/NMDGF_NM_Game_Management_Units/MapServer/0"],f:["GMU"],kind:"num",src:"https://wildlife.dgf.nm.gov/hunting/maps/"},
+ {id:"AZ",st:"AZ",sp:"EDCP",name:"Arizona GMUs",url:"https://services2.arcgis.com/os1CphwIyxBDDUGn/ArcGIS/rest/services/HunterDonationInteractiveWebmap_1921/FeatureServer/0",f:["GMUNAME"],kind:"num",src:"https://www.azgfd.com/hunting/where-to-hunt/"},
+ {id:"UT",st:"UT",sp:"EDP",name:"Utah hunt boundaries",url:"https://dwrmapserv.utah.gov/dwrarcgis/rest/services/hunt/Boundaries_and_Tables_for_HuntP/FeatureServer/0",alt:["https://dwrmapserv.utah.gov/arcgis/rest/services/hunt/Boundaries_and_Tables/MapServer/0"],f:["Boundary_Name"],kind:"name",onlyMatched:true,utah:true,src:"https://dwrapps.utah.gov/huntboundary/hbstart"},
+ {id:"NV",st:"NV",sp:"EDP",name:"Nevada hunt units",items:["63f5d9da297f4422a646cd8bdf8cd9a5","8d73ddae778440a99101186fd214fbc9"],f:["HUNTUNIT","HUNT_UNIT","HuntUnit","UNIT","Unit","UNIT_NUM","UnitNumber","NAME"],kind:"num",src:"https://www.ndow.org/blog/hunt-unit-boundaries/"},
+ {id:"OR",st:"OR",sp:"EDP",name:"Oregon WMUs",url:"https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/MapServer/0",alt:["https://services.arcgis.com/uUvqNMGPm7axC2dD/ArcGIS/rest/services/Eastern_OR_Wildlife_Management_Units/FeatureServer/19"],f:["UNIT_NAME"],kind:"name",src:"https://myodfw.com/articles/wildlife-management-units"},
+ {id:"ID",st:"ID",sp:"EDP",name:"Idaho GMUs",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/GameManagementUnits/FeatureServer/0",f:["NAME"],kind:"num",src:"https://idfg.idaho.gov/data/gis"},
+ {id:"IDZ",st:"ID",sp:"E",name:"Idaho elk zones",url:"https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/ElkManagementZones/FeatureServer/0",f:["NAME"],kind:"name",zone:true,onlyMatched:true,src:"https://idfg.idaho.gov/data/gis"},
+ {id:"MT",st:"MT",sp:"ED",name:"Montana deer/elk districts",url:"https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/11",f:["DISTRICT"],kind:"num",src:"https://fwp.mt.gov/hunt/maps"},
+ {id:"MTP",st:"MT",sp:"P",name:"Montana antelope districts",url:"https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/3",f:["DISTRICT"],kind:"num",src:"https://fwp.mt.gov/hunt/maps"}
+];
+
+// name-matched units (Utah, Oregon, Idaho elk zones): lowercase text to find in the official unit name
+const NAMEKEY={
+ UT:{"Beaver, East":["beaver, east"],"Monroe":["monroe"],"San Juan":["san juan"],"Southwest Desert":["southwest desert"],"Boulder":["boulder"],"Fillmore, Pahvant":["pahvant"],"Manti":["manti"],"Wasatch Mtns":["wasatch mtns","wasatch mountains"],"N & S Slope general":["north slope","south slope"],"Henry Mtns":["henry mtns","henry mountains"],"Paunsaugunt":["paunsaugunt"],"San Juan, Elk Ridge":["elk ridge"],"Fillmore, Oak Creek":["oak creek"],"Book Cliffs":["book cliffs"],"Thousand Lakes":["thousand lakes"],"General (SW Desert)":["southwest desert"],"San Rafael N. A":["san rafael, north"],"West Desert, Riverbed":["riverbed"],"Book Cliffs, Bitter Cr.":["bitter creek"],"Diamond Mtn/Bonanza":["diamond mtn","bonanza"],"Box Elder, Promontory":["promontory"],"Pine Valley":["pine valley"]},
+ OR:{"Wenaha":["wenaha"],"Sled Springs":["sled springs"],"Desolation/Ukiah":["desolation","ukiah"],"Mt Emily/Walla Walla":["emily","walla walla"],"Murderers Creek":["murderers"],"Cascade rifle bull":["santiam","mckenzie"],"Steens/Beulah/Silvies":["steens","beulah","silvies"],"Steens Mtn":["steens"],"Hart Mtn/Beatys":["beatys"],"Juniper/Whitehorse":["juniper","whitehorse"],"Owyhee/Malheur R.":["owyhee","malheur river"],"Wagontire/Silvies":["wagontire","silvies"],"468 Whitehorse":["whitehorse"],"471A Juniper":["juniper"],"470C Hart Mtn":["hart mtn","hart mountain"],"474A/B Warner":["warner"],"469A Steens":["steens"],"466A/467 Malheur/Owyhee":["malheur river","owyhee"],"476A Fort Rock":["fort rock"]},
+ IDZ:{"Panhandle zone":["panhandle"],"McCall / Weiser zones":["mccall","weiser"]}
+};
+// numeric overrides where the label doesn't spell out the districts
+const TOKOVR={"MT|Region 6/7 general":["700","701","702","704"],"MT|General (e.g. 324 Gravelly)":["324"],"ID|Clearwater/Salmon":[]};
+
+const normId=v=>String(v==null?"":v).toUpperCase().replace(/UNIT|GMU|HD/g,"").replace(/[\s.]/g,"").replace(/^0+(?=\d)/,"");
+function tokens(st,label){
+  const o=TOKOVR[st+"|"+label]; if(o) return o;
+  const first=label.split(" ")[0];
+  const s=/\d/.test(first)?first:(label.match(/\d+[A-Z]?/g)||[]).join("/");
+  const out=[];let prev="";
+  for(const part of s.split("/")){
+    const m=part.match(/^(\d+)([A-Z]*)-(\d+)([A-Z]*)$/);
+    if(m){const a=+m[1],b=+m[3];if(b>a&&m[3].length===m[1].length&&b-a<40){for(let i=a;i<=b;i++)out.push(String(i))}else out.push(String(+m[1])+m[2]);prev=String(+m[1]);continue}
+    const n=part.match(/^(\d+)([A-Z]*)$/);if(n){out.push(String(+n[1])+n[2]);prev=String(+n[1]);continue}
+    if(/^[A-Z]$/.test(part)&&prev) out.push(prev+part);
+  }
+  return out;
+}
+const isZoneEntry=u=>u[0]==="ID"&&NAMEKEY.IDZ[u[2]];
+function layersForEntry(u){
+  return LAYERS.filter(L=>L.st===u[0]&&L.sp.includes(u[1])&&(L.zone?!!isZoneEntry(u):!isZoneEntry(u)));
+}
+
+// ---------- fetching ----------
+const LS={}; // id -> {state:'wait'|'ok'|'bad', n, fc, field, url}
+async function getJSON(url){const r=await fetch(url,{mode:"cors"});if(!r.ok)throw new Error("HTTP "+r.status);const j=await r.json();if(j.error)throw new Error(j.error.message||"service error");return j}
+async function resolveItem(id){const j=await getJSON(`https://www.arcgis.com/sharing/rest/content/items/${id}?f=json`);let u=j.url;if(!u)throw new Error("no url");if(/(Feature|Map)Server\/?$/.test(u))u=u.replace(/\/?$/,"/0");return u}
+function utahWhere(){
+  const keys=new Set();for(const k in NAMEKEY.UT)NAMEKEY.UT[k].forEach(x=>keys.add(x));
+  const ors=[...keys].map(k=>`UPPER(Boundary_Name) LIKE '%${k.toUpperCase().replace(/'/g,"''")}%'`).join(" OR ");
+  return `(${ors})`;
+}
+async function queryAll(base,where){
+  const feats=[];let off=0;
+  for(let page=0;page<15;page++){
+    const q=new URLSearchParams({where,outFields:"*",returnGeometry:"true",outSR:"4326",f:"geojson",geometryPrecision:"4",maxAllowableOffset:"0.003",resultOffset:String(off),resultRecordCount:"1000"});
+    const j=await getJSON(`${base}/query?${q}`);
+    const fs=j.features||[];feats.push(...fs);
+    const more=j.exceededTransferLimit||(j.properties&&j.properties.exceededTransferLimit);
+    if(!more||!fs.length)break;off+=fs.length;
+  }
+  return feats;
+}
+async function loadLayer(L){
+  LS[L.id]={state:"wait"};renderStatus();
+  let urls=[];
+  try{
+    if(L.items){for(const it of L.items){try{urls.push(await resolveItem(it))}catch(e){}}}
+    else urls=[L.url,...(L.alt||[])];
+    let lastErr;
+    for(const u of urls){
+      for(const where of (L.utah?[utahWhere()+" AND Status='Active'",utahWhere()]:["1=1"])){
+        try{const feats=await queryAll(u,where);if(!feats.length)throw new Error("no features");LS[L.id]={state:"ok",n:feats.length,url:u};attach(L,feats);renderStatus();return}
+        catch(e){lastErr=e}
+      }
+    }
+    throw lastErr||new Error("no service");
+  }catch(e){LS[L.id]={state:"bad",err:String(e.message||e)};renderStatus();renderDots()}
+}
+
+// ---------- matching + drawing ----------
+const POLY={};           // layer id -> L.geoJSON
+const ENTRY_SHAPES={};   // entry index -> [leaflet layers]
+function pickField(L,props){
+  const keys=Object.keys(props||{});
+  for(const f of L.f){const k=keys.find(x=>x.toLowerCase()===f.toLowerCase());if(k)return k}
+  return keys.find(k=>/unit|district|gmu|boundary_name|name/i.test(k))||keys[0];
+}
+function attach(L,feats){
+  const field=pickField(L,feats[0].properties);LS[L.id].field=field;
+  const entries=U.map((u,i)=>[u,i]).filter(([u])=>layersForEntry(u).includes(L));
+  const idx={};
+  feats.forEach(ft=>{ft._id=String(ft.properties[field]??"").trim();ft._n=normId(ft._id);ft._lc=ft._id.toLowerCase();ft._e=[];(idx[ft._n]=idx[ft._n]||[]).push(ft)});
+  for(const [u,i] of entries){
+    let hits=[];
+    if(L.kind==="num"){
+      for(const t of tokens(u[0],u[2])){
+        if(idx[t]) hits.push(...idx[t]);
+        else Object.keys(idx).filter(k=>new RegExp("^"+t+"[A-Z]+$").test(k)).forEach(k=>hits.push(...idx[k]));
+      }
+    }else{
+      const keys=(NAMEKEY[L.zone?"IDZ":u[0]]||{})[u[2]]||[u[2].toLowerCase()];
+      for(const k of keys){
+        let c=feats.filter(f=>f._lc===k);
+        if(!c.length)c=feats.filter(f=>f._lc.startsWith(k));
+        if(!c.length)c=feats.filter(f=>f._lc.includes(k));
+        hits.push(...c);
+      }
+    }
+    [...new Set(hits)].forEach(f=>f._e.push(i));
+  }
+  const keep=L.onlyMatched?feats.filter(f=>f._e.length):feats;
+  const gj=window.L.geoJSON({type:"FeatureCollection",features:keep},{
+    renderer:canvas,
+    style:f=>styleFor(f,L),
+    onEachFeature:(f,lyr)=>{
+      f._e.forEach(i=>(ENTRY_SHAPES[i]=ENTRY_SHAPES[i]||[]).push(lyr));
+      lyr.on("click",()=>showFeature(f,L,lyr));
+      lyr.bindTooltip(()=>`${L.st} ${f._id}`,{sticky:true,className:"ulbl",direction:"top"});
+    }
+  });
+  gj._cfg=L;POLY[L.id]=gj;
+  if(L.sp.includes(sp)) gj.addTo(map);
+  renderDots();renderList();
+}
+function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
+function styleFor(f,L){
+  const es=entriesFor(f);
+  const line=base==="sat"?"#ffffff":"#2b322d";
+  const isSel=sel!=null&&f._e.includes(sel);
+  if(!es.length) return {color:line,weight:.7,opacity:.55,fill:true,fillOpacity:0.01};
+  const u=U[es[0]];
+  return {color:isSel?css("--accent"):line,weight:isSel?3:1,opacity:.9,fill:true,fillColor:colorHex(u),fillOpacity:base==="sat"?.55:.45};
+}
+function chance(u){
+  const [st,s,,,tier,,,need,odds]=u;
+  if(tier==="otc"&&need==null) return "otc";
+  if(need!=null){const m=myPts(st,s);if(m>=need)return "likely";if(need-m<=2)return "close";return "long"}
+  if(odds!=null){if(odds>=40)return "likely";if(odds>=10)return "close";return "long"}
+  return "otc";
+}
+const colorHex=u=>colorMode==="tier"?css(TIERV[u[4]]):css(CHV[chance(u)][1]);
+const colorOf=u=>colorMode==="tier"?TIERC[u[4]]:CH[chance(u)][1];
+const reqText=u=>u[7]!=null?`${u[7]}${u[7]>=20?"+":""} pts`:(u[8]!=null?`${u[8]}% odds`:"no draw");
+
+// ---------- state ----------
+let colorMode="tier",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,base="topo";
+let PTS={};
+try{PTS=JSON.parse(localStorage.getItem("wdp-pts")||"{}")}catch(e){PTS={}}
+const savePts=()=>{try{localStorage.setItem("wdp-pts",JSON.stringify(PTS))}catch(e){}};
+const myPts=(st,s)=>+(PTS[st+s]||0);
+
+// ---------- map ----------
+const map=L.map("map",{zoomSnap:.5,preferCanvas:true}).setView([41.2,-112.5],5);
+const canvas=L.canvas({padding:.3,tolerance:4});
+map.createPane("labels");map.getPane("labels").style.zIndex=450;map.getPane("labels").style.pointerEvents="none";
+const ESRI="https://server.arcgisonline.com/ArcGIS/rest/services/";
+const BASE={
+  street:L.tileLayer(ESRI+"World_Street_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Tiles © Esri"}),
+  topo:L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",{maxNativeZoom:16,maxZoom:19,attribution:"USGS The National Map"}),
+  sat:L.tileLayer(ESRI+"World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Imagery © Esri, Maxar, Earthstar Geographics"})
+};
+const TOPO_FALLBACK=L.tileLayer(ESRI+"World_Topo_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Tiles © Esri"});
+let topoErrs=0;BASE.topo.on("tileerror",()=>{if(++topoErrs===6&&base==="topo"){map.removeLayer(BASE.topo);BASE.topo=TOPO_FALLBACK;BASE.topo.addTo(map)}});
+const LABELS=L.tileLayer(ESRI+"Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,pane:"labels"});
+BASE.topo.addTo(map);
+function setBase(b){
+  map.removeLayer(BASE[base]);base=b;BASE[b].addTo(map);
+  document.querySelectorAll("[data-base]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.base===b));
+  syncLabels();restyle();
+}
+function syncLabels(){const on=document.getElementById("b-labels").checked&&base==="sat";if(on)LABELS.addTo(map);else map.removeLayer(LABELS)}
+document.querySelectorAll("[data-base]").forEach(b=>b.onclick=()=>setBase(b.dataset.base));
+document.getElementById("b-labels").onchange=syncLabels;
+
+const dots=L.layerGroup().addTo(map);
+function renderDots(){
+  dots.clearLayers();
+  U.forEach((u,i)=>{
+    if(u[1]!==sp||!tierOn.has(u[4]))return;
+    if(ENTRY_SHAPES[i]&&ENTRY_SHAPES[i].length)return;
+    const m=L.circleMarker([u[5],u[6]],{renderer:canvas,radius:sel===i?9:6.5,color:sel===i?css("--ink"):"#fff",weight:sel===i?3:1.5,fillColor:colorHex(u),fillOpacity:1});
+    m.bindTooltip(`${u[0]} ${u[2]}`,{className:"ulbl",direction:"top"});
+    m.on("click",()=>pick(i));m.addTo(dots);
+  });
+}
+function restyle(){
+  for(const id in POLY){const g=POLY[id];const on=g._cfg.sp.includes(sp);if(on&&!map.hasLayer(g))g.addTo(map);if(!on&&map.hasLayer(g))map.removeLayer(g);if(on)g.setStyle(f=>styleFor(f,g._cfg))}
+  renderDots();renderLegend();
+}
+function render(){restyle();renderList()}
+
+// ---------- UI ----------
+const spRow=document.getElementById("spRow"),tierRow=document.getElementById("tierRow");
+for(const k in SPECIES){const b=document.createElement("button");b.className="chip";b.id="sp-"+k;b.dataset.sp=k;b.setAttribute("aria-pressed",k===sp);b.textContent=SPECIES[k];b.onclick=()=>{sp=k;sel=null;document.getElementById("sheet").innerHTML="";spRow.querySelectorAll("[data-sp]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sp===k));render()};spRow.appendChild(b)}
+for(const k in TIERS){const b=document.createElement("button");b.className="chip";b.id="ti-"+k;b.setAttribute("aria-pressed","true");b.innerHTML=`<i class="dot" style="background:${TIERC[k]}"></i>${TIERS[k].split(" /")[0]}`;b.onclick=()=>{tierOn.has(k)?tierOn.delete(k):tierOn.add(k);b.setAttribute("aria-pressed",tierOn.has(k));render()};tierRow.appendChild(b)}
+document.querySelectorAll("[data-color]").forEach(b=>b.onclick=()=>{colorMode=b.dataset.color;document.querySelectorAll("[data-color]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+
+function renderLegend(){
+  const L=document.getElementById("legend");
+  L.innerHTML=(colorMode==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span>`;
+}
+function renderStatus(){
+  document.getElementById("status").innerHTML="Boundaries: "+LAYERS.map(L=>{const s=LS[L.id]||{state:"wait"};
+    if(s.state==="ok")return `<span class="ok" title="${s.url}">${L.name} ✓ ${s.n}</span>`;
+    if(s.state==="bad")return `<span class="bad" title="${s.err}">${L.name} ✗ <a href="${L.src}" target="_blank" rel="noopener">official map</a></span>`;
+    return `<span class="wait">${L.name} …</span>`}).join("");
+}
+function renderList(){
+  const order={premier:0,mid:1,easy:2,otc:3};
+  const rows=U.map((u,i)=>[u,i]).filter(([u])=>u[1]===sp&&tierOn.has(u[4])).sort((a,b)=>a[0][0].localeCompare(b[0][0])||order[a[0][4]]-order[b[0][4]]);
+  const list=document.getElementById("list");
+  list.innerHTML=rows.length?rows.map(([u,i])=>`<button class="li" data-i="${i}"><i class="dot" style="background:${colorOf(u)}"></i><span class="s">${u[0]}</span><span class="n">${u[2]}<small>${u[3]}</small></span><span class="r">${reqText(u)}<span class="shape">${ENTRY_SHAPES[i]?"outline":"dot"}</span></span></button>`).join(""):`<p style="padding:14px" class="note">No ${SPECIES[sp].toLowerCase()} units match these filters.</p>`;
+  list.querySelectorAll(".li").forEach(b=>b.onclick=()=>{pick(+b.dataset.i,true);document.getElementById("v-map").scrollIntoView({behavior:"smooth"})});
+}
+function entrySheet(i){const u=U[i],c=chance(u);
+  return `<div class="sheet"><div class="row" style="justify-content:space-between"><h3>${SN[u[0]]} · ${SPECIES[u[1]]} · ${u[2]}</h3><span class="pill" style="background:${TIERC[u[4]]}">${TIERS[u[4]]}</span></div>
+  <div class="kv"><div><b>Near</b>${u[3]}</div><div><b>${u[7]!=null?"NR points needed":"NR draw odds"}</b>${u[7]!=null?`~${u[7]}${u[7]>=20?"+":""}`:(u[8]!=null?`~${u[8]}%`:"No draw")}</div><div><b>Your points</b>${u[7]!=null?myPts(u[0],u[1]):"n/a"}</div><div><b>Your chance</b><span class="pill" style="background:${CH[c][1]}">${CH[c][0]}</span></div></div>
+  ${u[9]?`<p>${u[9]}</p>`:""}<p class="note">${STATE_INFO[u[0]].sys}</p></div>`}
+function pick(i,zoom){sel=i;restyle();renderList();document.getElementById("sheet").innerHTML=entrySheet(i);
+  if(zoom){const sh=ENTRY_SHAPES[i];if(sh&&sh.length){const b=L.featureGroup(sh).getBounds();map.fitBounds(b,{maxZoom:9,padding:[30,30]})}else map.setView([U[i][5],U[i][6]],8)}}
+function showFeature(f,Lc,lyr){
+  const es=entriesFor(f);
+  if(es.length){sel=es[0];restyle();renderList();document.getElementById("sheet").innerHTML=es.map(entrySheet).join("");return}
+  sel=null;restyle();
+  const s=STATE_INFO[Lc.st];
+  document.getElementById("sheet").innerHTML=`<div class="sheet"><h3>${SN[Lc.st]} · Unit ${f._id}</h3><p>This unit isn't rated in the planner yet for ${SPECIES[sp].toLowerCase()}. Check the state's draw report for its odds.</p><div class="kv"><div><b>Deadline</b>${s.date}</div><div><b>Payment</b>${s.pay}</div></div><a href="${Lc.src}" target="_blank" rel="noopener">${SN[Lc.st]} official unit maps</a></div>`;
+}
+
+// ---------- other views ----------
+function buildStates(){document.getElementById("stateCards").innerHTML=Object.keys(STATE_INFO).map(k=>{const s=STATE_INFO[k];return `<article class="card"><h3>${SN[k]}</h3><p class="meta">${s.date}</p><p>${s.sys}</p><ul><li><b>NR share:</b> ${s.nr}</li><li><b>License:</b> ${s.lic}</li><li><b>Application:</b> ${s.app}</li><li><b>Point only:</b> ${s.pt}</li><li><b>Tags:</b> ${s.tags}</li><li><b>Payment:</b> ${s.pay}</li><li><b>OTC:</b> ${s.otc}</li></ul><a href="${s.url}" target="_blank" rel="noopener">Official page</a></article>`}).join("")}
+function buildCosts(){let t=0;document.getElementById("costRows").innerHTML=COSTS.map(r=>{t+=+r[2];return `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="num">$${r[2]}</td><td>${r[3]}</td></tr>`}).join("")+`<tr><td colspan="2"><b>Total</b></td><td class="num"><b>~$${t.toLocaleString()}</b></td><td>Before tags you draw</td></tr>`}
+function buildDates(){const now=new Date();now.setHours(0,0,0,0);document.getElementById("dates").innerHTML=DATES.map(d=>{const dt=new Date(d[0]+"T12:00:00");const days=(dt-now)/864e5;const lab=dt.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});return `<div class="dl${days>=0&&days<75?" soon":""}"><div class="d">${lab}${d[3]?`<div class="est">est.</div>`:""}</div><div><b>${SN[d[1]]}</b> · ${d[2]}</div></div>`}).join("")}
+const PT_SP={CO:"EDP",AZ:"EDCP",UT:"EDP",NV:"EDP",OR:"EDP",MT:"ED"};
+function buildPts(){document.getElementById("ptsGrid").innerHTML=Object.keys(PT_SP).map(st=>`<div class="card"><h3>${SN[st]}</h3>${[...PT_SP[st]].map(s=>`<label for="p-${st}${s}">${SPECIES[s]}<input type="number" min="0" max="30" inputmode="numeric" id="p-${st}${s}" value="${myPts(st,s)}"></label>`).join("")}</div>`).join("");
+  document.querySelectorAll("#ptsGrid input").forEach(i=>i.oninput=()=>{PTS[i.id.slice(2)]=Math.max(0,+i.value||0);savePts();render()})}
+
+// ---------- tabs ----------
+const views=["map","plan","dates","states","points"];
+function show(v){if(!views.includes(v))v="map";views.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v;document.getElementById("t-"+x).setAttribute("aria-selected",x===v)});if(v==="map")setTimeout(()=>map.invalidateSize(),0)}
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{show(b.dataset.v);try{history.replaceState(null,"","#"+b.dataset.v)}catch(e){}});
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",render);
+
+renderLegend();renderStatus();renderDots();renderList();buildStates();buildCosts();buildDates();buildPts();show(location.hash.slice(1));
+LAYERS.forEach(loadLayer);
+
+</script>
+</body>
+</html>

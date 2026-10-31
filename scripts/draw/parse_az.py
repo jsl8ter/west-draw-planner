@@ -55,8 +55,9 @@ def text_of(path):
                 if "Regulations" in path and re.search(r"(?m)[123]\d{3} [A-Z][a-z]{2} \d.* [123]\d{3} [A-Z][a-z]{2} \d", tx):
                     w = float(p.width)  # two-column table page: split where the second column's hunt numbers start
                     xs = sorted(wd["x0"] for wd in p.extract_words() if re.fullmatch(r"[123]\d{3}", wd["text"]) and wd["x0"] > w * 0.3)
-                    cut = (xs[0] - 2) if xs else w / 2
-                    tx = "\n".join((p.crop((x0, 0, x1, float(p.height))).extract_text() or "") for x0, x1 in ((0, cut), (cut, w)))
+                    bx0, by0, bx1, by1 = (float(v) for v in p.bbox)
+                    cut = min(max((xs[0] - 2) if xs else (bx0 + bx1) / 2, bx0 + 1), bx1 - 1)
+                    tx = "\n".join((p.crop((a, by0, b, by1)).extract_text() or "") for a, b in ((bx0, cut), (cut, bx1)))
                 out.append(tx)
         return path, out
     except Exception as e:

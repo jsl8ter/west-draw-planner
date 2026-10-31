@@ -1,0 +1,14 @@
+URL: https://myfwp.mt.gov/fwpPub/drawingStatistics
+FINAL: https://myfwp.mt.gov/fwpPub/drawingStatistics
+TYPE: text/html;charset=ISO-8859-1
+DISPOSITION: 
+BYTES: 16895
+
+HTML TEXT:
+ FWP :: Drawing Statistics Search &nbsp; MONTANA FISH, WILDLIFE & PARKS &nbsp; MONTANA FISH, WILDLIFE & PARKS Toggle navigation Hunt Fish State Parks Activities Conservation Education About FWP Buy &amp; Apply News MyFWP FWP Menu &nbsp;&nbsp; Hunting&nbsp; Montana Hunt Planner Drawing Statistics &nbsp;&nbsp; Quotas&nbsp; Bighorn Sheep Black Bear Bobcat Fisher Mountain Lion Otter Swift Fox Wolf Drawing Statistics LPT License/Permit Type. The first three digits most often represent the hunting district number. # Applicants Total number of resident and nonresident 1st choice applicants. # Successful Total number of 1st choice applicants that were successful. % Successful Percentage of 1st choice applicants that were successful. Animal: Antelope Elk Goat Moose Nonresident Combination Other Sheep White-tailed/Mule Deer Search &nbsp; &times; &nbsp; &nbsp;Email OK&nbsp; Related Websites &nbsp;&bull; Site Index &nbsp;&bull; Employment &nbsp;&bull; Contact FWP &nbsp;&bull; Privacy Policy 
+
+LINKS:
+ | /fwpPub/struts/themes/smoothness/jquery-ui.css?s2j=4.0.1-SNAPSHOT
+ | #
+ | #
+ | #

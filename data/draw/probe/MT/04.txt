@@ -1,0 +1,82 @@
+URL: https://fwp.mt.gov/buyandapply/hunting-licenses/drawing-statistics
+FINAL: https://fwp.mt.gov/buyandapply/hunting-licenses/drawing-statistics
+TYPE: text/html;charset=UTF-8
+DISPOSITION: 
+BYTES: 26006
+
+HTML TEXT:
+ Drawing Statistics | Montana FWP Skip to main content Buy and apply Contact FWP News &amp; Public Notices Restrictions &amp; Closures Event Calendar Maps MyFWP Login Go to search page HUNT FISH STATE PARKS ACTIVITIES CONSERVATION EDUCATION ABOUT FWP Buy and apply MENU MENU Buy &amp; Apply Home Hunting Licenses Fishing Licenses Conservation License State Parks Permits Register Boats &amp; OHVs Outfitter &amp; Commercial Buy & Apply > Hunt Drawing Statistics Search Drawing Statistics&nbsp; Bonus and Preference Points&nbsp; Hunting Regulations&nbsp; Drawing Statistic Reports FWP has 3 different types of drawing statistic reports that are available&nbsp;following a drawing: 1. Detailed Bonus Point Drawing Statistics Reports These reports are created for drawings utilizing the bonus point system. Not all drawings use bonus points, so these reports do not apply to every drawing. Each report demonstrates the proportion of applicants by residency given the respective amount of bonus points by license opportunity. The bonus point system is completely random by design. Drawing statistics vary each time a drawing is conducted. For more information on bonus points, please visit the bonus point section of our website: https://fwp.mt.gov/buyandapply/hunting-licenses/bonus-points. Infographic : Bonus Points Drawing Statistics &nbsp;(PDF) Search Drawing Statistics 2. Drawing Statistics Reports These statistical reports do not consider bonus points. These reports simply demonstrate final quotas drawn, applicants in each category (resident landowner, nonresident landowner, resident, nonresident), and the proportion of those applicants successful in drawing each opportunity. Infographic : Drawing Statistics&nbsp;Reports &nbsp;(PDF) Search Drawing Statistics 3. Nonresident Combination Preference Point Statistics Reports The information from these reports is taken during the primary drawing of the nonresident combination license to capture the proportion of those drawn with a certain amount of preference points. These reports do not consider licenses which are later refunded and reissued due to applicants who do not draw their elk permit, which takes place after the primary drawing. The Nonresident Big Game Combination and Elk Combination statistics are combined because they are a combined quota of 17,000. Fractional preference point amounts are the result of party applications. Preference points are averaged amongst party members and rounded to the third decimal point. For more information on preference points, please visit the preference point section of our website: https://fwp.mt.gov/buyandapply/hunting-licenses/bonus-points. Infographic : Nonresident Combination Preference Point&nbsp;Statistics Reports &nbsp;(PDF) FAQ :&nbsp; Questions after the Nonresident&nbsp;Combo &amp; Deer/Elk Permits (PDF) Search Drawing Statistics &nbsp; Quotas in Drawings Nonresidents All nonresidents are limited to, but not guaranteed, 10% of the overall drawing quota for an opportunity. Nonresident Moose, Sheep, and Goat hunting districts with a quota less than 10 are added together to a regional hunting district quota. Quotas opportunities are calculated based off the entire quota for that region and distributed on a rotating base. The number of nonresidents drawn (up to 10% of the quota) is determined entirely by the random drawing. The 10% cap includes both nonresident landowners and regular nonresidents; however, Landowner Preference is the first stage of the drawing. There is an exception to the 10% rule for nonresidents. If all residents who applied are successful in drawing, nonresidents may be allocated over 10% of the drawing quotas. Residents The only ‘cap’ for residents is the overall drawing quota. Resident landowners may be allocated up to 15% of the overall drawing quota. Landowner Preference is the first stage of the drawing. Quota adjustments Quotas which are printed in the regulations are subject to change prior to a drawing based on recommendations by FWP biologists. Quotas may only be adjusted within the quota range approved by the Montana Fish and Wildlife Commission. Buy and apply Report a violation MyFWP Login MyFWP Mobile App Montana Outdoors Magazine EMPLOYMENT VOLUNTEER OPPORTUNITIES Event Calendar CONTACT FWP Staff Directory Organizational Chart HUNT FISH STATE PARKS ACTIVITIES CONSERVATION EDUCATION About FWP Buy and apply Report a violation Stay Connected Facebook Instagram Youtube Twitter SUBSCRIBE TO OUR MAILING LIST Terms of use Privacy Policy Accessibility &amp; ADA Compliance Use of Cookies &amp; Google Analytics 
+
+LINKS:
+ | /webfiles/1617912827853/css/bootstrap.css
+ | /webfiles/1617912827853/css/site.min.css
+ | https://fonts.googleapis.com/css2?family=Sanchez&display=swap
+ | https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap
+ | https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+ | http://purl.org/dc/elements/1.1/
+ | http://purl.org/dc/terms/
+ | //code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css
+ | /images/fwp/favicon.gif
+Skip to main content | #main
+ | /
+ | /buyandapply
+ | /aboutfwp/contact-us
+ | /news
+ | /news/current-closures-restrictions
+ | https://montanafwpevents.com/
+ | https://gis-mtfwp.hub.arcgis.com/
+ | https://myfwp.mt.gov/fwpExtPortal/login/login.jsp
+ | /search
+ | /hunt
+ | /fish
+ | /stateparks
+ | /activities
+ | /conservation
+ | /education
+ | /aboutfwp
+ | /buyandapply
+ | /buyandapply/hunting-licenses
+ | /buyandapply/fishinglicenses
+ | /buyandapply/conservation-license
+ | /buyandapply/fees-and-general-information
+ | /buyandapply/registerboatsandvehicles
+ | /buyandapply/outfitter-licenses
+ | https://myfwp.mt.gov/fwpPub/drawingStatistics
+ | /buyandapply/hunting-licenses/bonus-points
+ | /hunt/regulations
+Bonus Points Drawing Statistics | /binaries/content/assets/fwp/buyandapply/hunting/misc/bonus-points-drawing-statistics.pdf
+Search Drawing Statistics | https://myfwp.mt.gov/fwpPub/drawingStatistics
+Drawing Statistics&nbsp;Reports | /binaries/content/assets/fwp/buyandapply/hunting/misc/drawing-statistics-reports.pdf
+Search Drawing Statistics | https://myfwp.mt.gov/fwpPub/drawingStatistics
+Nonresident Combination Preference Point&nbsp;Statistics Reports | /binaries/content/assets/fwp/buyandapply/hunting/misc/nonresident-combination-license-preference-points-statistics.pdf
+Questions after the Nonresident&nbsp;Combo &amp; Deer/Elk Permits | /binaries/content/assets/fwp/buyandapply/hunting/misc/questions-after-the-nr-combo-ec-v2.pdf
+Search Drawing Statistics | https://myfwp.mt.gov/fwpPub/drawingStatistics
+ | /buyandapply
+ | https://myfwp.mt.gov/fwpPub/tipmont
+ | https://myfwp.mt.gov/fwpExtPortal/login/login.jsp
+ | /myfwpapp
+ | /montana-outdoors
+ | /aboutfwp/employment
+ | /aboutfwp/employment
+ | https://montanafwpevents.com/
+ | /aboutfwp/contact-us
+ | https://directory.mt.gov/govt/state-dir/agency/fwp
+ | /aboutfwp/at-a-glance
+ | /hunt
+ | /fish
+ | /stateparks
+ | /activities
+ | /conservation
+ | /education
+ | /aboutfwp
+ | /buyandapply
+ | https://myfwp.mt.gov/fwpPub/tipmont
+ | https://www.facebook.com/MontanaFWP
+ | https://www.instagram.com/montanafwp/
+ | https://www.youtube.com/user/MontanaFWP
+ | https://twitter.com/MontanaFWP
+SUBSCRIBE TO OUR MAILING LIST | https://public.govdelivery.com/accounts/MTFWP/subscriber/new
+ | /terms-of-use
+ | https://mt.gov/1240-X06.pdf
+ | https://mt.gov/discover/disclaimer.aspx#accessibility
+ | /use-of-google-analytics

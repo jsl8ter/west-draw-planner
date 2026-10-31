@@ -1,0 +1,85 @@
+URL: https://myodfw.com/sites/default/files/2025-11/how_to_read_point_summary_report.pdf
+FINAL: https://myodfw.com/sites/default/files/2025-11/how_to_read_point_summary_report.pdf
+TYPE: application/pdf
+DISPOSITION: 
+BYTES: 152037
+
+PDF PAGES: 2
+
+
+----- PAGE 1 TEXT -----
+A B
+Total First Choice Applicants Applicants included in Preference Point Draw Phase (75%)
+Hunt Hunt Tags Resident Resident Non‐ Non‐ Total Total Total Total Total Points Applicants Resident Resident Non Non
+Number Name Authorized Apps Drawn Resident Resident Apps Drawn Points‐ Points Points Apps Drawn Resident Resident
+Apps Drawn Apps Drawn Drawn Apps Drawn
+P1 P2
+16 2 1 1 1 1
+5 2 2 2 0 0
+4 4 4 4 0 0
+Trask
+114M 220 404 219 2 1 406 220 237 227 5 3 3 3 3 0 0
+Unit
+2 20 20 20 0 0
+1 117 117 117 0 0
+0 258 257 0 1 0
+EXAMPLE: By looking at the red/bold numbers, you can see that two hunters with 16 points applied and both drew the tag. One was a non‐resident. We also see
+that 258 hunters with 0 points applied for this tag as their 1st choice. None were drawn in the 75% draw (Phase 1 or P1) because only applicants with preference
+points are drawn in that phase.
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
+Section A: 1st Choice Applicant Draw Stats (75% point draw and 25% equal chance draw).
+Section B: Preference Point Draw (75% of tags) Stats by point class
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
+Resident Drawn (A): Total number of resident 1st choice applicants drawn.
+Non‐Resident Drawn (A): Total number of non‐resident 1st choice applicants drawn.
+Total Applicants (A): Number of 1st choice applicants
+Total Drawn (A): Total number of 1st choice applicants drawn.
+Total Points‐Apps (A): Cumulative number of points for all 1st choice applicants for individual hunt.
+Total Points Drawn P1 (A): Cumulative number of points for 1st choice applicants drawn in Phase 1 (75% preference point draw).
+Total Points Drawn P2 (A): Cumulative number of points for 1st choice applicants drawn in Phase 2 (25% equal chance draw).
+Points (B): Preference point class (Only point classes represented by applicants for that hunt; some point classes are not represented).
+
+----- PAGE 2 TEXT -----
+Applicants (B): Number of 1st choice applicants within that preference point class.
+Resident Apps (B): Number of resident 1st choice applicants within that preference point class.
+Resident Drawn (B): Number of resident drawn within that preference point class.
+Non‐Resident Apps (B): Number of non‐resident 1st choice applicants within that preference point class.
+Non‐Resident Drawn (B): Number of non‐residents drawn within that preference point class.
+
+----- PAGE 1 TABLE -----
+Total First Choice Applicants | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | Applicants included in Preference Point Draw Phase (75%) | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None
+Hunt
+Number | Hunt
+Name | Tags
+Authorized | Resident
+Apps | Resident
+Drawn | Non‐
+Resident
+Apps | Non‐
+Resident
+Drawn | Total
+Apps | Total
+Drawn | Total
+Points‐
+Apps |  | Total |  |  | Total |  | Points | None | None | Applicants | None | None | Resident
+Apps | None | None | Resident
+Drawn | None | None | Non
+Resident
+Apps | None | None | Non
+Resident
+Drawn | None | None
+None | None | None | None | None | None | None | None | None | None | None | Points | None | None | Points | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None
+None | None | None | None | None | None | None | None | None | None | None | Drawn | None | None | Drawn | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None
+None | None | None | None | None | None | None | None | None | None | None | P1 | None | None | P2 | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None
+114M | Trask
+Unit | 220 | 404 | 219 | 2 | 1 | 406 | 220 | 237 | 227 | None | None | 5 | None | None | 16 | None | None | 2 | None | None | 1 | None | None | 1 | None | None | 1 | None | None | 1 | None | None
+None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |  | 5 |  |  | 2 |  |  | 2 |  |  | 2 |  |  | 0 |  |  | 0 | 
+None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | 4 | None | None | 4 | None | None | 4 | None | None | 4 | None | None | 0 | None | None | 0 | None | None
+None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 0 |  |  | 0 | 
+None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | 2 | None | None | 20 | None | None | 20 | None | None | 20 | None | None | 0 | None | None | 0 | None | None
+None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | 1 | None | None | 117 | None | None | 117 | None | None | 117 | None | None | 0 | None | None | 0 | None | None
+None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None | 0 | None | None | 258 | None | None | 257 | None | None | 0 | None | None | 1 | None | None | 0 | None | None
+
+----- PAGE 1 TABLE -----
+Hunt
+Name

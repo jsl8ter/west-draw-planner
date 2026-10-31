@@ -1,0 +1,49 @@
+URL: https://myodfw.com/sites/default/files/2025-09/2024%20Preference%20Point%20Draw%20Report%20Elk.xlsx
+FINAL: https://myodfw.com/sites/default/files/2025-09/2024%20Preference%20Point%20Draw%20Report%20Elk.xlsx
+TYPE: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+DISPOSITION: 
+BYTES: 300030
+
+
+----- SHEET PreferencePointsDrawReportStati (max_row=2354, max_col=18) -----
+ |  |  | Preference Points Draw Report |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Processed on:9/25/2024 12:51:36 PM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Total First Choice Applicants: 2024 Elk |  |  |  |  |  |  |  |  |  |  |  | Applicants included in Preference Point Draw Phase(75%) |  |  |  |  | 
+Hunt Number | Hunt Name | Tags Authorized | Resident Apps | Resident Drawn | Non-Resident Apps | Non-Resident Drawn | Total Apps | Total Drawn | Total 
+Points-Apps | Total Points Drawn P1 | Total Points Drawn P2 |  Points | Applicants | Resident Apps  | Resident Drawn  | Non Resident Apps  | Non Resident Drawn 
+200M | Cascade Muzzleloader | 990 | 350 | 350 | 4 | 4 | 354 | 354 | 241 | 225 | 16 | 12 | 1 | 1 | 1 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 6 | 1 | 1 | 1 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 5 | 3 | 3 | 3 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 4 | 4 | 4 | 4 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 3 | 7 | 7 | 7 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 2 | 28 | 28 | 28 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 1 | 98 | 95 | 95 | 3 | 3
+ |  |  |  |  |  |  |  |  |  |  |  | 0 | 212 | 211 | 0 | 1 | 0
+200R | Oregon Youth Bow | 315 | 125 | 125 | 14 | 14 | 139 | 139 | 81 | 81 | 0 | 5 | 2 | 2 | 2 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 3 | 6 | 6 | 6 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 2 | 12 | 10 | 10 | 2 | 2
+ |  |  |  |  |  |  |  |  |  |  |  | 1 | 29 | 22 | 22 | 7 | 7
+ |  |  |  |  |  |  |  |  |  |  |  | 0 | 90 | 85 | 0 | 5 | 0
+210 | Saddle Mtn Unit | 11 | 642 | 10 | 11 | 1 | 653 | 11 | 1962 | 116 | 3 | 19 | 1 | 1 | 1 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 18 | 1 | 1 | 1 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 14 | 1 | 1 | 1 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 13 | 7 | 6 | 4 | 1 | 1
+ |  |  |  |  |  |  |  |  |  |  |  | 12 | 9 | 9 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 11 | 13 | 13 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 10 | 10 | 10 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 9 | 23 | 23 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 8 | 16 | 16 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 7 | 18 | 18 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 6 | 19 | 18 | 0 | 1 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 5 | 47 | 47 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 4 | 47 | 46 | 0 | 1 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 3 | 50 | 50 | 0 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 2 | 80 | 79 | 0 | 1 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 1 | 145 | 139 | 0 | 6 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 0 | 166 | 165 | 0 | 1 | 0
+210A1 | W Saddle Mtn No. 1 | 41 | 287 | 39 | 6 | 1 | 293 | 40 | 621 | 193 | 15 | 12 | 1 | 1 | 1 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 9 | 2 | 2 | 2 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 8 | 1 | 0 | 0 | 1 | 1
+ |  |  |  |  |  |  |  |  |  |  |  | 7 | 5 | 5 | 5 | 0 | 0
+ |  |  |  |  |  |  |  |  |  |  |  | 6 | 15 | 14 | 14 | 1 | 0

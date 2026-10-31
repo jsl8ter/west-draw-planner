@@ -1,0 +1,48 @@
+URL: https://myodfw.com/sites/default/files/2026-07/2026%20Elk%20Preference%20Point%20Draw%20Report.xlsx
+FINAL: https://myodfw.com/sites/default/files/2026-07/2026%20Elk%20Preference%20Point%20Draw%20Report.xlsx
+TYPE: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+DISPOSITION: 
+BYTES: 189335
+
+
+----- SHEET 2026 Elk Preference Point Draw  (max_row=2364, max_col=18) -----
+Hunt Number | Hunt Name | Tags Authorized | Resident Apps | Resident Drawn | Non-Resident Apps | Non-Resident Drawn | Total Apps | Total Drawn | Total Points-Apps | Total Points Drawn P1 | Total Points Drawn P2 | Points | Applicants | Resident  Apps | Resident  Drawn | Non-Resident  Apps | Non-Resident  Drawn
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 0 | 159 | 155 | 0 | 4 | 0
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 1 | 80 | 80 | 80 | 0 | 0
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 2 | 18 | 18 | 18 | 0 | 0
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 3 | 4 | 4 | 4 | 0 | 0
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 4 | 5 | 5 | 5 | 0 | 0
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 5 | 3 | 3 | 3 | 0 | 0
+200M | Cascade Muzzleloader | 990 | 267 | 267 | 4 | 4 | 271 | 271 | 175 | 175 | 0 | 6 | 2 | 2 | 2 | 0 | 0
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 0 | 100 | 92 | 0 | 8 | 0
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 1 | 21 | 18 | 18 | 3 | 3
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 2 | 10 | 9 | 9 | 1 | 1
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 3 | 3 | 3 | 3 | 0 | 0
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 4 | 2 | 2 | 2 | 0 | 0
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 5 | 3 | 3 | 3 | 0 | 0
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 8 | 1 | 1 | 1 | 0 | 0
+200R | Oregon Youth Bow | 330 | 129 | 129 | 12 | 12 | 141 | 141 | 90 | 90 | 0 | 9 | 1 | 1 | 1 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 0 | 180 | 169 | 0 | 11 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 1 | 128 | 127 | 0 | 1 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 2 | 77 | 76 | 0 | 1 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 3 | 68 | 68 | 0 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 4 | 50 | 49 | 0 | 1 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 5 | 39 | 37 | 0 | 2 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 6 | 22 | 21 | 0 | 1 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 7 | 22 | 22 | 0 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 8 | 12 | 12 | 0 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 9 | 10 | 10 | 0 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 10 | 15 | 14 | 0 | 1 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 11 | 14 | 14 | 0 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 12 | 10 | 10 | 0 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 13 | 7 | 7 | 4 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 14 | 3 | 3 | 3 | 0 | 0
+210 | Saddle Mtn Unit | 11 | 640 | 11 | 18 | 0 | 658 | 11 | 1927 | 111 | 19 | 17 | 1 | 1 | 1 | 0 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 0 | 79 | 71 | 0 | 8 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 1 | 61 | 61 | 0 | 0 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 2 | 53 | 52 | 0 | 1 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 3 | 48 | 48 | 0 | 0 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 4 | 28 | 28 | 0 | 0 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 5 | 26 | 26 | 1 | 0 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 6 | 23 | 22 | 22 | 1 | 0
+210A1 | W Saddle Mtn No. 1 | 42 | 315 | 40 | 12 | 1 | 327 | 41 | 758 | 197 | 26 | 7 | 8 | 7 | 7 | 1 | 0

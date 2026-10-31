@@ -78,13 +78,13 @@ def _cell(c):
     return str(c).strip()
 
 
-def pdf_lines(data):
+def pdf_lines(data, ytol=3):
     """Text lines from a PDF, XLS or XLSX report (spreadsheet rows are joined with spaces, leading
     numeric cells such as usage dates / item type codes dropped)."""
     if data[:4] == b"%PDF":
         with pdfplumber.open(io.BytesIO(data)) as pdf:
             for p in pdf.pages:
-                for line in (p.extract_text() or "").splitlines():
+                for line in (p.extract_text(y_tolerance=ytol) or "").splitlines():
                     yield line.strip()
         return
     rows = []
@@ -134,26 +134,37 @@ def parse_stats(data, item):
     return rows, bad
 
 
-BON_RE = re.compile(r"^([A-Z][A-Z0-9 ]*?)\s+(\d{3}-\d{2})\b(.*?)\s(RESIDENT LANDOWNER|NONRESIDENT LANDOWNER|"
+BON_RE = re.compile(r"^([A-Z][A-Z0-9 \-]*?)\s+(\d{3}-\d{2})\b(.*?)\s(RESIDENT LANDOWNER|NONRESIDENT LANDOWNER|"
                     r"RESIDENT|NONRESIDENT)\s+(?:(\d+)\s+)?(\d+)\s+(\d+)\s+[\d.]+$")
 
 
 def parse_bonus(data):
-    out, bad, count = {}, [], 0
-    for line in pdf_lines(data):
-        m = BON_RE.match(line)
-        if not m:
-            if re.search(r"\d{3}-\d{2}", line) and " TOTAL " not in line and len(bad) < 50:
-                bad.append(line)
-            continue
-        item, code, res = re.sub(r"\s+LICENSE$", "", m.group(1).strip()), m.group(2), m.group(4)
+    """Rows keyed (item, code, residency, raw points). Some PDFs overlap a wrapped note with the residency
+    column (interleaved text); a second pass with a tight y tolerance recovers most of those rows."""
+    rows, bad = {}, {}
+    passes = [3, 1] if data[:4] == b"%PDF" else [3]
+    for ytol in passes:
+        for line in pdf_lines(data, ytol):
+            m = BON_RE.match(line)
+            if not m:
+                if re.search(r"\d{3}-\d{2}", line) and " TOTAL " not in line and "TOTAL " not in line[:20]:
+                    bad.setdefault(ytol, []).append(line)
+                continue
+            item = re.sub(r"\s+-\s+ARCHERY ONLY$", "", m.group(1).strip())
+            item = re.sub(r"\s+LICENSE$", "", item)
+            key = (item, m.group(2), m.group(4), m.group(5))
+            if key not in rows:
+                rows[key] = (int(m.group(6)), int(m.group(7)))
+    out = {}
+    for (item, code, res, pts), (apps, succ) in rows.items():
         # some years print the 0-point group with a blank points cell -> counted as 0 points
-        pts, apps, succ = int(m.group(5) or 0), int(m.group(6)), int(m.group(7))
-        d = out.setdefault((item, code), {}).setdefault(res, {})
-        q = d.setdefault(pts, [0, 0])
+        q = out.setdefault((item, code), {}).setdefault(res, {}).setdefault(int(pts or 0), [0, 0])
         q[0] += apps; q[1] += succ
-        count += 1
-    return out, bad, count
+    # report lines still unmatched after all passes (first pass list, filtered to codes never parsed)
+    got = {(k[0], k[1]) for k in rows}
+    left = [l for l in bad.get(3, []) if not any(c == re.search(r"\d{3}-\d{2}", l).group(0) for _, c in got)
+            or re.search(r"[a-z][A-Z]", l)]
+    return out, left[:50], len(rows)
 
 
 def parse_combo(data, url):

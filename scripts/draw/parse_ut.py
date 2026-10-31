@@ -5,8 +5,8 @@ Sources (per draw year YY):
   https://wildlife.utah.gov/pdf/bg/<year>/<YY>_deer_odds.pdf  general-season buck deer preference point draw, one page per hunt
 Each hunt page has, by point level and residency: eligible applicants, bonus-pass permits, regular (random) permits,
 total permits. DWR does not print the permit quota in these reports, so `tags` is omitted; `drawn` is total
-permits drawn. `apps` = eligible applicants as printed (Utah's bonus/preference points apply to the first choice;
-the report counts the applicants considered for that hunt).
+permits drawn. `apps` = eligible applicants as printed; per-hunt counts sum exactly to the species
+"All Applicants" totals, i.e. each applicant is counted once, under the first-choice hunt.
 """
 import io, re, collections
 import requests, pdfplumber
@@ -132,13 +132,15 @@ def parse():
                             "title": f"{year} {'general-season buck deer' if general else 'limited-entry & OIAL'} draw results"})
             for code, h in hs.items():
                 segs = split_label(h["label"])
-                unit = segs[0] if general and len(segs) <= 2 else (segs[-2] if len(segs) >= 2 else segs[0])
+                has_w = len(segs) >= 2 and re.search(r"archery|legal weapon|muzzle|h\.a\.m|rifle|shotgun", segs[-1], re.I)
+                unit = segs[-2] if has_w else segs[-1]
+                wtxt = segs[-1] if has_w else h["label"]
                 low = h["label"].lower()
                 kind = "general" if general else ("special" if "cwmu" in low else "limited")
                 rec = out.get(code)
                 if rec is None:
                     rec = out[code] = {"id": code, "species": SP[code[0]], "units": [unit], "label": h["label"],
-                                       "weapon": weapon_of(segs[-1] if segs else ""), "sex": "male", "kind": kind,
+                                       "weapon": weapon_of(wtxt), "sex": "male", "kind": kind,
                                        "years": {}}
                 y = {}
                 for r in ("R", "NR"):

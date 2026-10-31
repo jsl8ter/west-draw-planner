@@ -76,7 +76,8 @@ def units_for(name):
             out.append(w)
     if out:
         return out
-    c = re.sub(r"\b(Unit|Units|Muzzleloader|Bow|Archery|Youth|Late|Early|Whitetail|Traditional|No\.?\s*\d+|\d{1,2})\b", "", name, flags=re.I)
+    c = re.sub(r"\(.*?\)", "", name)
+    c = re.sub(r"\b(Private Lands|Private|Agri|Mule Deer|Unit|Units|Muzzleloader|Bow|Archery|Youth|Late|Early|Whitetail|Traditional|No\.?\s*\d+|\d{1,2})\b", "", c, flags=re.I)
     c = re.sub(r"\s+", " ", c).strip(" -,")
     return [c or name.strip()]
 

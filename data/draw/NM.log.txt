@@ -1,0 +1,10 @@
+NM: OK 1087 hunts, years ['2022', '2023', '2024', '2025', '2026']
+2026 https://wildlife.dgf.nm.gov/download/2026-big-game-drawing-odds-complete-report/?wpdmdl=56113 rows=812 hunts(E/D/C/P kept)=703
+2025 https://wildlife.dgf.nm.gov/download/2025-drawing-odds-complete-report/?wpdmdl=52046 rows=812 hunts(E/D/C/P kept)=703
+2024 https://wildlife.dgf.nm.gov/download/2024-drawing-odds-complete-report/?wpdmdl=48997 rows=817 hunts(E/D/C/P kept)=704
+2023 https://wildlife.dgf.nm.gov/download/2023-big-game-draw-odds-complete-report/?wpdmdl=48734 rows=816 hunts(E/D/C/P kept)=703
+2022 https://wildlife.dgf.nm.gov/download/2022-big-game-draw-odds-complete-report/?wpdmdl=48730 rows=800 hunts(E/D/C/P kept)=688
+apps = 1st-choice applicants; drawn = licenses drawn by 1st-choice applicants (report also has 2nd-4th choice).
+NR = non-resident (unguided) pool only; outfitter-pool applicants/drawn are reported separately under key 'O' (nonresidents applying through an outfitter). T = hunt total incl. all pools.
+Per-residency license quotas are not published in the odds report; only total Licenses (T.tags).
+DEBUG species/digit/bag counts: ANT-1 ES:125; ANT-1 F-IM:23; ANT-1 MB:451; ANT-2 MB:150; ANT-3 ES:10; ANT-3 MB:26; DER-1 A:10; DER-1 ESWTD:45; DER-1 FAD:706; DER-1 FAMD:35; DER-1 FAWTD:43; DER-2 FAD:452; DER-2 FAMD:34; DER-2 FAWTD:39; DER-3 A:5; DER-3 ES:5; DER-3 FAD:257; DER-3 FAMD:20; DER-3 FAWTD:20; ELK-1 A:395; ELK-1 ES:104; ELK-1 MB:341; ELK-1 MB/A:30; ELK-2 A:8; ELK-2 APRE/6:10; ELK-2 APRE/6/A:5; ELK-2 ES:448; ELK-2 MB:15; ELK-3 A:49; ELK-3 ES:40; ELK-3 MB:156

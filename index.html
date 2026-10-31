@@ -105,6 +105,24 @@ td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;
 .callout ol{margin:0;padding-left:20px}
 a{color:var(--accent)}
 .src{font-size:12.5px;color:var(--muted);word-break:break-word}
+.filter{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.fhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.fsum{font-size:13px;color:var(--muted)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px 12px}
+.fgrid label{display:flex;flex-direction:column;gap:3px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.fgrid select,.fgrid input{font:500 15px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:5px;padding:6px 8px;text-transform:none;letter-spacing:0;min-width:0}
+.factions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:700 14px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:5px;padding:8px 14px;cursor:pointer}
+.btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible,.fgrid select:focus-visible,.fgrid input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.results{margin-top:10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);max-height:340px;overflow:auto}
+.results .rh{padding:8px 12px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.rr{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);cursor:pointer;background:none;border-left:0;border-right:0;border-bottom:0;width:100%;text-align:left;color:inherit;font:inherit}
+.rr:first-of-type{border-top:0}
+.rr:hover{background:color-mix(in srgb,var(--panel) 90%,var(--accent))}
+.rr .s{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.rr .n{min-width:0}.rr .n small{display:block;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rr .r{font-family:var(--mono);font-size:12px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .hunt{border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:6px}
 .hunt .hh{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
 .hunt .code{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
@@ -137,12 +155,26 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
 
 <!-- MAP -->
 <section id="v-map">
+  <form class="filter" id="filter" autocomplete="off">
+    <div class="fhead"><h3>Find hunts</h3><span class="fsum" id="fsum">Filter the map by state, species, your points and the odds you want.</span></div>
+    <div class="fgrid">
+      <label for="f-st">State<select id="f-st"><option value="">All states</option></select></label>
+      <label for="f-sp">Species<select id="f-sp"></select></label>
+      <label for="f-pts">My points<input id="f-pts" type="number" min="0" max="30" inputmode="numeric" placeholder="from My Points"></label>
+      <label for="f-odds">Chance at least<select id="f-odds"><option value="0">Any</option><option value=".1">10%</option><option value=".25">25%</option><option value=".5" selected>50%</option><option value=".75">75%</option><option value=".95">Sure thing (95%)</option></select></label>
+      <label for="f-trophy">Trophy at least<select id="f-trophy"><option value="0">Any</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></label>
+      <label for="f-wpn">Weapon<select id="f-wpn"><option value="any">Any</option><option value="rifle">Rifle</option><option value="archery">Archery</option><option value="muzzleloader">Muzzleloader</option></select></label>
+      <label for="f-sex">Tag<select id="f-sex"><option value="antlered">Bull / buck</option><option value="antlerless">Cow / doe</option><option value="all">All</option></select></label>
+    </div>
+    <div class="factions"><button type="submit" class="btn" id="f-go">Show on map</button><button type="button" class="btn ghost" id="f-clear">Clear filter</button></div>
+  </form>
+  <div class="results" id="results" hidden></div>
   <div class="controls">
     <div class="row" id="spRow"><span class="lbl">Species</span></div>
     <div class="row"><span class="lbl">Color by</span>
-      <button class="chip" id="c-tier" aria-pressed="true" data-color="tier">Hunt quality</button>
+      <button class="chip" id="c-tier" aria-pressed="false" data-color="tier">Hunt quality</button>
       <button class="chip" id="c-chance" aria-pressed="false" data-color="chance">My draw chance</button>
-      <button class="chip" id="c-points" aria-pressed="false" data-color="points">Points needed</button>
+      <button class="chip" id="c-points" aria-pressed="true" data-color="points">Points needed</button>
       <button class="chip" id="c-odds" aria-pressed="false" data-color="odds">My odds (draw data)</button>
       <button class="chip" id="c-trophy" aria-pressed="false" data-color="trophy">Trophy potential</button>
     </div>
@@ -689,6 +721,7 @@ function styleFor(f,L){
   const es=entriesFor(f);
   const line=base==="sat"?"#ffffff":"#2b322d";
   const isSel=(sel!=null&&f._e.includes(sel))||selF===f;
+  if(FILTER.on&&!featurePasses(f,L)) return {color:line,weight:.5,opacity:.3,dashArray:null,fill:true,fillColor:"#000",fillOpacity:.04};
   if(colorMode==="points"||colorMode==="odds"||colorMode==="trophy"){
     const v=metric(f,L);
     if(v==null) return {color:line,weight:.7,opacity:.55,dashArray:L.zone?"7 5":null,fill:true,fillOpacity:0.01};
@@ -731,28 +764,42 @@ const isAntlerless=h=>h.sex==="female"||(h.sex!=="male"&&ANTLERLESS.test(h.label
 const huntOk=h=>h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&(sexF==="all"||(sexF==="antlerless")===isAntlerless(h));
 function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}
 function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
-function huntOdds(st,h){const s=Odds.summarize(sysOf(st),h,"NR",myPts(st,h.species));return s}
+function effPts(st,s){return FILTER.on&&FILTER.pts!=null&&(!FILTER.st||FILTER.st===st)?FILTER.pts:myPts(st,s)}
+function huntOdds(st,h){return Odds.summarize(sysOf(st),h,"NR",effPts(st,h.species))}
 function oddsVal(s){if(!s)return null;if(s.projected!=null)return s.projected;const h=s.historical;return h.length?h[h.length-1][1]:s.overall}
+// Montana general combos (units ["General"]) apply to general districts without a permit hunt
+function generalHunts(st){const d=DRAW[st];return d?d.hunts.filter(h=>h.species===sp&&(h.units||[]).some(u=>/^general$/i.test(u))&&!isAntlerless(h)):[]}
+// points needed for one hunt (NR, latest year) or null
+function huntPts(st,h){
+  const sys=sysOf(st),y=Odds.latestYear(h,"NR");if(!y)return null;const b=h.years[y].NR;
+  if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;
+  if(b.min_pts!=null&&!/^bonus|^az/.test(sys))return b.min_pts;
+  if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5);
+  return b.min_pts??null;
+}
+// nonresidents had a real shot in the latest year?
+function nrOpen(h){const y=Odds.latestYear(h,"NR");if(!y)return false;const b=h.years[y].NR;return !(b.tags===0||(b.apps>0&&b.drawn===0&&!(b.by_pts||[]).some(r=>r[2]>0)))}
 function metric(f,Lc){
   const st=Lc.st,hs=huntsOf(f,st);
   if(colorMode==="trophy"){const t=trophyOf(st,sp,f._id);return t?t.s:null}
-  if(colorMode==="points"){
-    if(hs.length){
-      if(sysOf(st)==="random")return "R";
-      const sys=sysOf(st);
-      const v=hs.map(h=>{const y=Odds.latestYear(h,"NR");if(!y)return null;const b=h.years[y].NR;
-        if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;
-        if(b.min_pts!=null&&!/^bonus|^az/.test(sys))return b.min_pts;
-        if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5);
-        return b.min_pts??null}).filter(x=>x!=null);
-      if(v.length)return Math.min(...v);
+  if(colorMode!=="points"&&colorMode!=="odds")return null;
+  const open=hs.filter(nrOpen);
+  if(!hs.length||!open.length){
+    if(!DRAW[st])return null;
+    const gen=st==="MT"&&!Lc.zone?generalHunts(st):[];
+    if(gen.length&&!hs.length){
+      if(colorMode==="points"){const v=gen.map(h=>huntPts(st,h)).filter(x=>x!=null);if(v.length)return Math.min(...v)}
+      else{const v=gen.map(h=>oddsVal(huntOdds(st,h))).filter(x=>x!=null);if(v.length)return Math.max(...v)}
     }
-    const es=entriesFor(f).map(i=>U[i]).filter(u=>u[7]!=null);return es.length?Math.min(...es.map(u=>u[7])):(entriesFor(f).some(i=>U[i][8]!=null)?"R":null);
+    return hs.length?"X":"G";
   }
-  if(colorMode==="odds"){
-    const v=hs.map(h=>oddsVal(huntOdds(st,h))).filter(x=>x!=null);return v.length?Math.max(...v):null;
+  if(colorMode==="points"){
+    if(sysOf(st)==="random")return "R";
+    const v=open.map(h=>huntPts(st,h)).filter(x=>x!=null);
+    if(v.length)return Math.min(...v);
+    return "X";
   }
-  return null;
+  const v=open.map(h=>oddsVal(huntOdds(st,h))).filter(x=>x!=null);return v.length?Math.max(...v):"X";
 }
 function trophyOf(st,s,id){
   const t=TROPHY&&TROPHY.units&&TROPHY.units[st]&&TROPHY.units[st][s];if(!t)return null;
@@ -763,12 +810,57 @@ const RAMP={
   odds:[[0,"#7a2a6e","<2%"],[.02,"#c8452c","2–10%"],[.10,"#e08a1e","10–25%"],[.25,"#e4c228","25–50%"],[.50,"#8bbf3f","50–75%"],[.75,"#2f8a4a","75%+"]],
   trophy:[[1,"#e8e1c8","1 · opportunity"],[2,"#e9c46a","2"],[3,"#e08a1e","3 · solid"],[4,"#c8452c","4"],[5,"#6e1b47","5 · top tier"]]
 };
-function rampColor(mode,v){if(v==="R")return "#4f8fd0";const r=RAMP[mode];let c=r[0][1];for(const [t,col] of r){if(v>=t)c=col}return c}
+function rampColor(mode,v){if(v==="R")return "#4f8fd0";if(v==="G")return "#b7c8d8";if(v==="X")return "#676d72";const r=RAMP[mode];let c=r[0][1];for(const [t,col] of r){if(v>=t)c=col}return c}
 const pct=x=>x==null?"–":x===0?"0%":x>=.995?"100%":x<.001&&x>0?"<0.1%":(x*100).toFixed(x<.1?1:0)+"%";
 const n0=x=>x==null?"–":Number(x).toLocaleString();
 
+// ---------- filter ----------
+const FILTER={on:false,st:"",pts:null,odds:.5,trophy:0};
+function huntPasses(st,h){
+  if(FILTER.st&&st!==FILTER.st)return false;
+  if(FILTER.odds>0){const v=oddsVal(huntOdds(st,h));if(v==null||v<FILTER.odds)return false}
+  return true;
+}
+function featurePasses(f,L){
+  if(!FILTER.on)return true;
+  if(FILTER.st&&L.st!==FILTER.st)return false;
+  if(FILTER.trophy>0){const t=trophyOf(L.st,sp,f._id);if(!t||t.s<FILTER.trophy)return false}
+  let hs=huntsOf(f,L.st);
+  if(!hs.length&&L.st==="MT"&&!L.zone)hs=generalHunts("MT");
+  if(FILTER.odds>0)return hs.some(h=>huntPasses(L.st,h));
+  return hs.length>0||FILTER.trophy>0;
+}
+function filterMatches(){
+  const out=[];const seen=new Set();
+  for(const id in POLY){const g=POLY[id];if(!g._cfg.sp.includes(sp))continue;
+    g.eachLayer(l=>{const f=l.feature;if(!featurePasses(f,g._cfg))return;
+      let hs=huntsOf(f,g._cfg.st);if(!hs.length&&g._cfg.st==="MT"&&!g._cfg.zone)hs=generalHunts("MT");
+      hs.filter(h=>huntPasses(g._cfg.st,h)).forEach(h=>{const k=g._cfg.st+"|"+h.id;if(seen.has(k))return;seen.add(k);out.push({st:g._cfg.st,h,f,l,L:g._cfg})});
+      if(!hs.length&&FILTER.trophy>0)out.push({st:g._cfg.st,h:null,f,l,L:g._cfg});
+    })}
+  return out;
+}
+function applyFilter(zoom){
+  restyle();
+  const res=document.getElementById("results"),sum=document.getElementById("fsum");
+  if(!FILTER.on){res.hidden=true;sum.textContent="Filter the map by state, species, your points and the odds you want.";return}
+  const m=filterMatches();
+  const units=new Set(m.map(x=>x.st+"|"+x.f._id));
+  const desc=[FILTER.st?SN[FILTER.st]:"All states",SPECIES[sp],FILTER.pts!=null?FILTER.pts+" pts":"My Points",FILTER.odds>0?"≥"+Math.round(FILTER.odds*100)+"% chance":"",FILTER.trophy?"trophy "+FILTER.trophy+"+":"",wpn!=="any"?WPN[wpn]:"",sexF==="antlered"?"bull/buck":sexF==="antlerless"?"cow/doe":""].filter(Boolean).join(" · ");
+  sum.textContent=`${desc}: ${units.size} unit${units.size===1?"":"s"}, ${m.filter(x=>x.h).length} hunt${m.length===1?"":"s"}`;
+  const byU=new Map();
+  for(const x of m){const k=x.st+"|"+x.f._id;let u=byU.get(k);if(!u){const t=trophyOf(x.st,sp,x.f._id);u={st:x.st,f:x.f,l:x.l,L:x.L,t:t?t.s:null,o:null,pts:null,n:0,best:null};byU.set(k,u)}
+    if(!x.h)continue;u.n++;const o=oddsVal(huntOdds(x.st,x.h)),p=huntPts(x.st,x.h);
+    if(o!=null&&(u.o==null||o>u.o)){u.o=o;u.best=x.h}if(p!=null&&(u.pts==null||p<u.pts))u.pts=p}
+  const rows=[...byU.values()].sort((a,b)=>(b.t??0)-(a.t??0)||(b.o??0)-(a.o??0)||(a.pts??99)-(b.pts??99));
+  res.hidden=false;
+  res.innerHTML=`<div class="rh">${rows.length?`${rows.length} units, best trophy first. Tap one to zoom and see its hunts.`:"No units match. Try fewer points, a lower chance, or all states."}</div>`+rows.map((x,i)=>`<button type="button" class="rr" data-i="${i}"><span class="s">${x.st}</span><span class="n">${x.f._id}${x.t?` · trophy ${x.t}`:""}<small>${x.best?(x.best.label||x.best.id):"General / no draw"}${x.n>1?` · ${x.n} hunts`:""}</small></span><span class="r">${x.o!=null?pct(x.o):"–"}${x.pts!=null&&sysOf(x.st)!=="random"?`<br>${x.pts} pts`:""}</span></button>`).join("");
+  res.querySelectorAll(".rr").forEach(b=>b.onclick=()=>{const x=rows[+b.dataset.i];try{map.fitBounds(x.l.getBounds(),{maxZoom:10,padding:[30,30]})}catch(e){}showFeature(x.f,x.L,x.l);document.getElementById("map").scrollIntoView({behavior:"smooth",block:"start"})});
+  if(zoom&&m.length){let b=null;for(const x of m){try{const lb=x.l.getBounds();b=b?b.extend(lb):L.latLngBounds(lb.getSouthWest(),lb.getNorthEast())}catch(e){}}if(b)map.fitBounds(b,{padding:[24,24],maxZoom:9})}
+}
+
 // ---------- state ----------
-let colorMode="tier",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,selF=null,base="topo";
+let colorMode="points",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,selF=null,base="topo";
 let PTS={};
 try{PTS=JSON.parse(localStorage.getItem("wdp-pts")||"{}")}catch(e){PTS={}}
 const savePts=()=>{try{localStorage.setItem("wdp-pts",JSON.stringify(PTS))}catch(e){}};
@@ -801,7 +893,7 @@ const dots=L.layerGroup().addTo(map);
 function renderDots(){
   dots.clearLayers();
   U.forEach((u,i)=>{
-    if(u[1]!==sp||!tierOn.has(u[4]))return;
+    if(u[1]!==sp||!tierOn.has(u[4])||FILTER.on)return;
     if(ENTRY_SHAPES[i]&&ENTRY_SHAPES[i].length)return;
     const fc=colorMode==="points"?(u[7]!=null?rampColor("points",u[7]):(u[8]!=null?rampColor("points","R"):"#9aa39a")):(colorMode==="odds"||colorMode==="trophy")?"#9aa39a":colorHex(u);
     const m=L.circleMarker([u[5],u[6]],{renderer:canvas,radius:sel===i?9:6.5,color:sel===i?css("--ink"):"#fff",weight:sel===i?3:1.5,fillColor:fc,fillOpacity:1});
@@ -818,7 +910,7 @@ function render(){restyle();renderList()}
 
 // ---------- UI ----------
 const spRow=document.getElementById("spRow"),tierRow=document.getElementById("tierRow");
-for(const k in SPECIES){const b=document.createElement("button");b.className="chip";b.id="sp-"+k;b.dataset.sp=k;b.setAttribute("aria-pressed",k===sp);b.textContent=SPECIES[k];b.onclick=()=>{sp=k;sel=null;document.getElementById("sheet").innerHTML="";spRow.querySelectorAll("[data-sp]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sp===k));render()};spRow.appendChild(b)}
+for(const k in SPECIES){const b=document.createElement("button");b.className="chip";b.id="sp-"+k;b.dataset.sp=k;b.setAttribute("aria-pressed",k===sp);b.textContent=SPECIES[k];b.onclick=()=>{sp=k;sel=null;document.getElementById("sheet").innerHTML="";spRow.querySelectorAll("[data-sp]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sp===k));render();document.getElementById("f-sp").value=k;if(FILTER.on)applyFilter(false)};spRow.appendChild(b)}
 for(const k in TIERS){const b=document.createElement("button");b.className="chip";b.id="ti-"+k;b.setAttribute("aria-pressed","true");b.innerHTML=`<i class="dot" style="background:${TIERC[k]}"></i>${TIERS[k].split(" /")[0]}`;b.onclick=()=>{tierOn.has(k)?tierOn.delete(k):tierOn.add(k);b.setAttribute("aria-pressed",tierOn.has(k));render()};tierRow.appendChild(b)}
 document.querySelectorAll("[data-sex]").forEach(b=>b.onclick=()=>{sexF=b.dataset.sex;document.querySelectorAll("[data-sex]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
 document.querySelectorAll("[data-wpn]").forEach(b=>b.onclick=()=>{wpn=b.dataset.wpn;document.querySelectorAll("[data-wpn]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
@@ -828,7 +920,7 @@ function renderLegend(){
   const L=document.getElementById("legend");
   if(RAMP[colorMode]){
     const title={points:"NR points needed (lowest that drew last year; weighted-draw states: points for a 50% chance)",odds:`Your best NR odds next year, using My Points for ${SPECIES[sp].toLowerCase()}`,trophy:"Trophy potential"}[colorMode];
-    L.innerHTML=`<span><b>${title}</b></span>`+RAMP[colorMode].map(([,c,l])=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`).join("")+(colorMode==="points"?`<span><i class="sq" style="background:#4f8fd0"></i>Random draw (no points)</span>`:"")+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>No data yet</span>`;
+    L.innerHTML=`<span><b>${title}</b></span>`+RAMP[colorMode].map(([,c,l])=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`).join("")+(colorMode==="points"?`<span><i class="sq" style="background:#4f8fd0"></i>Random draw (no points)</span>`:"")+(colorMode!=="trophy"?`<span><i class="sq" style="background:#b7c8d8"></i>No draw hunt here (general / OTC season, or none)</span><span><i class="sq" style="background:#676d72"></i>No nonresident tags drawn last year</span>`:"")+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>${colorMode==="trophy"?"Not rated":"No draw data for this state"}</span>`+(FILTER.on?`<span><b>Filtered:</b> faded units don't match</span>`:"");
     return;
   }
   L.innerHTML=(colorMode==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span><span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-tag region or zone</span>`;
@@ -859,7 +951,7 @@ let lastShown=null;
 const WPN={any:"Any legal weapon",rifle:"Rifle",archery:"Archery",muzzleloader:"Muzzleloader",other:"Other"};
 function blkCells(b){return b?`<td>${n0(b.apps)}</td><td>${n0(b.tags)}</td><td>${n0(b.drawn)}</td><td>${b.apps&&(b.drawn??b.tags)!=null?pct(Math.min(1,(b.drawn??b.tags)/b.apps)):"–"}</td><td>${b.min_pts??"–"}</td>`:`<td colspan="5">–</td>`}
 function huntCard(st,h){
-  const sys=sysOf(st),mp=myPts(st,h.species),s=huntOdds(st,h);
+  const sys=sysOf(st),mp=effPts(st,h.species),s=huntOdds(st,h);
   const y=s?s.year:Object.keys(h.years).sort().pop();const Y=h.years[y]||{};
   const nr=Y.NR||{},r=Y.R||{},t=Y.T||{};
   const tot={apps:t.apps??((nr.apps||0)+(r.apps||0)||null),tags:t.tags??((nr.tags||0)+(r.tags||0)||null),drawn:t.drawn??((nr.drawn||0)+(r.drawn||0)||null)};
@@ -905,6 +997,23 @@ function showFeature(f,Lc,lyr){
   const s=STATE_INFO[Lc.st];const hs=huntsSheet(f,Lc);
   document.getElementById("sheet").innerHTML=hs||`<div class="sheet"><h3>${SN[Lc.st]} · Unit ${f._id}</h3><p>This unit isn't rated in the planner yet for ${SPECIES[sp].toLowerCase()}.</p><div class="kv"><div><b>Deadline</b>${s.date}</div><div><b>Payment</b>${s.pay}</div></div><a href="${Lc.src}" target="_blank" rel="noopener">${SN[Lc.st]} official unit maps</a></div>`;
 }
+
+// ---------- filter controls ----------
+(function(){
+  const fst=document.getElementById("f-st"),fsp=document.getElementById("f-sp");
+  Object.keys(SN).forEach(k=>fst.insertAdjacentHTML("beforeend",`<option value="${k}">${SN[k]}</option>`));
+  Object.keys(SPECIES).forEach(k=>fsp.insertAdjacentHTML("beforeend",`<option value="${k}"${k===sp?" selected":""}>${SPECIES[k]}</option>`));
+  const setChip=(attr,val)=>document.querySelectorAll(`[data-${attr}]`).forEach(x=>x.setAttribute("aria-pressed",x.dataset[attr]===val));
+  document.getElementById("filter").addEventListener("submit",e=>{e.preventDefault();
+    FILTER.on=true;FILTER.st=fst.value;const pv=document.getElementById("f-pts").value;FILTER.pts=pv===""?null:Math.max(0,+pv);
+    FILTER.odds=+document.getElementById("f-odds").value;FILTER.trophy=+document.getElementById("f-trophy").value;
+    sp=fsp.value;wpn=document.getElementById("f-wpn").value;sexF=document.getElementById("f-sex").value;
+    setChip("sp",sp);setChip("wpn",wpn);setChip("sex",sexF);sel=null;selF=null;document.getElementById("sheet").innerHTML="";
+    if(colorMode==="tier"||colorMode==="chance"){colorMode=FILTER.trophy?"trophy":"odds";document.querySelectorAll("[data-color]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.color===colorMode))}
+    renderList();applyFilter(true);
+  });
+  document.getElementById("f-clear").onclick=()=>{FILTER.on=false;applyFilter(false);map.setView([41.2,-112.5],5)};
+})();
 
 // ---------- other views ----------
 function buildStates(){document.getElementById("stateCards").innerHTML=Object.keys(STATE_INFO).map(k=>{const s=STATE_INFO[k];return `<article class="card"><h3>${SN[k]}</h3><p class="meta">${s.date}</p><p>${s.sys}</p><ul><li><b>NR share:</b> ${s.nr}</li><li><b>License:</b> ${s.lic}</li><li><b>Application:</b> ${s.app}</li><li><b>Point only:</b> ${s.pt}</li><li><b>Tags:</b> ${s.tags}</li><li><b>Payment:</b> ${s.pay}</li><li><b>OTC:</b> ${s.otc}</li></ul><a href="${s.url}" target="_blank" rel="noopener">Official page</a></article>`}).join("")}

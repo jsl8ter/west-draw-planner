@@ -4,19 +4,14 @@ LOG = []
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 def parse():
     s = requests.Session(); s.headers.update(UA)
-    r = s.get("https://idfg.idaho.gov/ifwis/huntplanner/filter", timeout=60); t = r.text
-    LOG.append(f"filter {r.status_code} {len(t)}")
-    for m in re.finditer(r"<script[^>]*src=\"([^\"]+)\"", t): LOG.append("SRC " + m.group(1))
-    for m in re.finditer(r"<script(?![^>]*src)[^>]*>(.*?)</script>", t, re.S):
-        c = re.sub(r"\s+", " ", m.group(1))
-        if len(c) > 200 and "google-analytics" not in c: LOG.append("INLINE " + c[:8000])
-    for src in re.findall(r"<script[^>]*src=\"([^\"]+)\"", t):
-        if "huntplanner" in src or src.startswith(("js/", "../js", "scripts")) or "filter" in src:
-            u = requests.compat.urljoin("https://idfg.idaho.gov/ifwis/huntplanner/filter", src)
-            time.sleep(2); js = s.get(u, timeout=60).text
-            LOG.append(f"JS {u} {len(js)}: " + " | ".join(sorted(set(re.findall(r"api/[\w./-]+", js))))[:2000])
-    time.sleep(2)
-    r = s.get("https://idfg.idaho.gov/ifwis/huntplanner/hunt/82029", timeout=60); t = r.text
-    LOG.append(f"hunt {r.status_code} {len(t)}")
-    i = t.find("Antlered"); LOG.append("HUNT HTML: " + re.sub(r"\s+", " ", t[max(0,i-3000):i+3000]))
+    t = s.get("https://idfg.idaho.gov/ifwis/huntplanner/filter", timeout=60).text
+    for m in re.finditer(r'<input[^>]*class="check-(\w+)"[^>]*value="([^"]*)"[^>]*>([^<]{0,60})', t):
+        LOG.append(f"CHECK {m.group(1)}={m.group(2)} {m.group(3).strip()}")
+    for q in ("start=2025-1-1&end=2025-12-31&limit=3&offset=0",
+              "start=2025-1-1&end=2025-12-31&game=2&limit=3&offset=0&search=Controlled"):
+        time.sleep(3)
+        r = s.get("https://idfg.idaho.gov/ifwis/huntplanner/api/1.1/list/?" + q, timeout=60,
+                  headers={"X-Requested-With": "XMLHttpRequest"})
+        LOG.append(f"=== {q} {r.status_code} {len(r.text)}")
+        LOG.append(r.text[:3000])
     return {"state": "ID", "system": "random", "hunts": []}

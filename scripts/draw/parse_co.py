@@ -205,7 +205,7 @@ def parse_pages(pages, year, sp, bad):
 
 
 def pts_of(cell):
-    m = re.match(r"^(\d+) Pref Points$", cell or "")
+    m = re.match(r"^(\d+) Pref Points\b", cell or "")
     return int(m.group(1)) if m else None
 
 

@@ -284,12 +284,16 @@ def parse():
             bad.append(f"{b['year']} {hid} {b['res']}: by_pts drawn sum {sum(r[2] for r in by)} != total S1 {tot.get('S1', 0)}")
         y = h["years"].setdefault(str(b["year"]), {})
         if b["res"] in y:
-            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} season={b.get('season')} units={b['units_raw']} quota={b['quota']} weapon={b.get('weapon')} title={b['title']} (kept first)")
+            same = y[b["res"]] == rec
+            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} identical={same} season={b.get('season')} first={y[b['res']]['tags']}/{y[b['res']]['apps']}/{y[b['res']]['drawn']} second={rec['tags']}/{rec['apps']}/{rec['drawn']} src1={y[b['res']].get('_src','')} src2={b['url'].rsplit('/',1)[-1]}")
             continue
         y[b["res"]] = rec
+        rec["_src"] = b["url"].rsplit("/", 1)[-1]
     for h in hunts.values():
         h.pop("_ly")
         for y in h["years"].values():
+            for r in ("R", "NR"):
+                if r in y: y[r].pop("_src", None)
             parts = [y[r] for r in ("R", "NR") if r in y]
             y["T"] = {"tags": sum(p["tags"] for p in parts), "apps": sum(p["apps"] for p in parts),
                       "drawn": sum(p["drawn"] for p in parts)}

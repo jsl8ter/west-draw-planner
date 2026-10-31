@@ -1,0 +1,301 @@
+WY: OK 795 hunts, years ['2022', '2023', '2024', '2025', '2026']
+skip https://wgfd.wyo.gov/media/23938/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23939/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23942/download (Resident): Demand Report - Resident Wild Bison State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23943/download (Resident): Demand Report - Resident Mountain Goat State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23944/download (Resident): Demand Report - Resident Ewe/Lamb Sheep State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23947/download (Nonresident): Demand Report - Non-Resident Mountain Goat State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23948/download (Nonresident): Demand Report - Non-Resident Wild Bison State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23949/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23950/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/23951/download (Nonresident): Demand Report - Non-Resident Ewe/Lamb Sheep State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/24538/download (Nonresident): Demand Report - Non-Resident Fall Turkey State of Wyoming Date: 6/20/2023
+skip https://wgfd.wyo.gov/media/24539/download (Nonresident): Demand Report - Non-Resident Sandhill Crane State of Wyoming Date: 6/20/2023
+skip https://wgfd.wyo.gov/media/24540/download (Resident): Demand Report - Resident Fall Turkey State of Wyoming Date: 6/20/2023
+skip https://wgfd.wyo.gov/media/24541/download (Resident): Demand Report - Resident Sandhill Crane State of Wyoming Date: 6/20/2023
+skip https://wgfd.wyo.gov/media/28795/download (Nonresident): Demand Report - Non-Resident Spring Turkey State of Wyoming Date: 2/10/2023
+skip https://wgfd.wyo.gov/media/28796/download (Resident): Demand Report - Resident Spring Turkey State of Wyoming Date: 2/10/2023
+skip https://wgfd.wyo.gov/media/29210/download (Nonresident): Demand Report - Non-Resident SpringerPheasant State of Wyoming Date: 7/31/2023
+skip https://wgfd.wyo.gov/media/29211/download (Resident): Demand Report - Resident SpringerPheasant State of Wyoming Date: 7/31/2023
+skip https://wgfd.wyo.gov/media/30056/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/30057/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/30058/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/30059/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 4/26/2023
+skip https://wgfd.wyo.gov/media/30097/download (Resident): Demand Report - Resident Wild Bison State of Wyoming
+skip https://wgfd.wyo.gov/media/30098/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 5/7/2024
+skip https://wgfd.wyo.gov/media/30099/download (Resident): Resident Random Wyoming Game and Fish Time: 12:28:20 PM
+skip https://wgfd.wyo.gov/media/30100/download (Resident): Demand Report - Resident Ewe/Lamb Sheep State of Wyoming
+skip https://wgfd.wyo.gov/media/30101/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 5/7/2024
+skip https://wgfd.wyo.gov/media/30102/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 5/7/2024
+skip https://wgfd.wyo.gov/media/30103/download (Nonresident): Demand Report - Non-Resident Wild Bison State of Wyoming
+skip https://wgfd.wyo.gov/media/30104/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 5/7/2024
+skip https://wgfd.wyo.gov/media/30105/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 5/7/2024
+skip https://wgfd.wyo.gov/media/30106/download (Nonresident): Demand Report - Non-Resident Mountain Goat State of Wyoming
+skip https://wgfd.wyo.gov/media/30107/download (Nonresident): Demand Report - Non-Resident Ewe/Lamb Sheep State of Wyoming
+skip https://wgfd.wyo.gov/media/30108/download (Resident): Demand Report - Resident Mountain Goat State of Wyoming
+skip https://wgfd.wyo.gov/media/30109/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming
+skip https://wgfd.wyo.gov/media/30110/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming
+skip https://wgfd.wyo.gov/media/30137/download (Nonresident Preference Point): Demand Report - Non-Resident Elk State of Wyoming Date: 5/15/2024
+skip https://wgfd.wyo.gov/media/30138/download (Nonresident Random): Demand Report - Non-Resident Elk State of Wyoming Date: 5/15/2024
+skip https://wgfd.wyo.gov/media/30447/download (Resident): Demand Report - Resident Elk State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30451/download (Nonresident Preference Point): Demand Report - Non-Resident Antelope State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30454/download (Nonresident Random): Demand Report - Non-Resident Antelope State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30455/download (Resident): Demand Report - Resident Antelope State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30457/download (Nonresident Preference Point): Demand Report - Non-Resident Deer State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30458/download (Nonresident Random): Demand Report - Non-Resident Deer State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30459/download (Resident): Demand Report - Resident Deer State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30466/download (Resident Doe/Fawn): Demand Report - Resident Doe/Fawn Antelope State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30467/download (Nonresident Doe/Fawn): Demand Report - Non-Resident Doe/Fawn Antelope State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30468/download (Nonresident Doe/Fawn): Demand Report - Non-Resident Doe/Fawn Deer State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30469/download (Resident Doe/Fawn): Demand Report - Resident Doe/Fawn Deer State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30470/download (Resident Cow/Calf): Demand Report - Resident Cow/Calf Elk State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/30471/download (Nonresident Cow/Calf): Demand Report - Non-Resident Cow/Calf Elk State of Wyoming Date: 5/15/2024
+skip https://wgfd.wyo.gov/media/31035/download (Nonresident): Demand Report - Non-Resident Leftover Reduced Ante State of Wyoming Date: 7/5/20
+skip https://wgfd.wyo.gov/media/31073/download (Resident): Demand Report - Resident Sandhill Crane State of Wyoming Date: 7/12/2024
+skip https://wgfd.wyo.gov/media/31074/download (Nonresident): Demand Report - Non-Resident Sandhill Crane State of Wyoming Date: 7/12/2024
+skip https://wgfd.wyo.gov/media/31075/download (Resident): Demand Report - Resident Spring Turkey State of Wyoming Date: 2/7/2024
+skip https://wgfd.wyo.gov/media/31076/download (Nonresident): Demand Report - Non-Resident Spring Turkey State of Wyoming Date: 2/7/2024
+skip https://wgfd.wyo.gov/media/31083/download (Nonresident): Demand Report - Non-Resident Fall Turkey State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/31084/download (Resident): Demand Report - Resident Fall Turkey State of Wyoming Date: 6/14/2024
+skip https://wgfd.wyo.gov/media/31172/download (Resident): Demand Report - Resident SpringerPheasant State of Wyoming Date: 8/5/2024
+skip https://wgfd.wyo.gov/media/31174/download (Nonresident): Demand Report - Non-Resident SpringerPheasant State of Wyoming Date: 8/5/2024
+skip https://wgfd.wyo.gov/media/31975/download (Nonresident): Demand Report - Non-Resident Spring Turkey State of Wyoming Date: 2/5/2025
+skip https://wgfd.wyo.gov/media/31976/download (Resident): Demand Report - Resident Spring Turkey State of Wyoming Date: 2/5/2025
+skip https://wgfd.wyo.gov/media/32411/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32412/download (Nonresident): Demand Report - Non-Resident Ewe/Lamb Sheep State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32413/download (Nonresident): Demand Report - Non-Resident Mountain Goat State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32414/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32415/download (Nonresident): Demand Report - Non-Resident Wild Bison State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32416/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32417/download (Resident): Demand Report - Resident Ewe/Lamb Sheep State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32418/download (Resident): Demand Report - Resident Mountain Goat State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32419/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32420/download (Resident): Demand Report - Resident Wild Bison State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32421/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32422/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32423/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32424/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 5/6/2025
+skip https://wgfd.wyo.gov/media/32454/download (Nonresident Cow/Calf): Demand Report - Non-Resident Cow/Calf Elk State of Wyoming Date: 5/13/2025
+skip https://wgfd.wyo.gov/media/32455/download (Nonresident Preference Point): Demand Report - Non-Resident Elk State of Wyoming Date: 5/13/2025
+skip https://wgfd.wyo.gov/media/32456/download (Nonresident Random): Demand Report - Non-Resident Elk State of Wyoming Date: 5/13/2025
+skip https://wgfd.wyo.gov/media/32682/download (Nonresident Preference Point): Demand Report - Non-Resident Antelope State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32683/download (Nonresident Random): Demand Report - Non-Resident Antelope State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32684/download (Nonresident Doe/Fawn): Demand Report - Non-Resident Doe/Fawn Antelope State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32685/download (Resident): Demand Report - Resident Antelope State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32686/download (Resident Cow/Calf): Demand Report - Resident Cow/Calf Elk State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32687/download (Resident Doe/Fawn): Demand Report - Resident Doe/Fawn Antelope State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32688/download (Resident): Demand Report - Resident Elk State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32703/download (Nonresident Preference Point): Demand Report - Non-Resident Deer State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32704/download (Nonresident Random): Demand Report - Non-Resident Deer State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32705/download (Nonresident Doe/Fawn): Demand Report - Non-Resident Doe/Fawn Deer State of Wyoming Date: 6/18/2025
+skip https://wgfd.wyo.gov/media/32708/download (Resident): Demand Report - Resident Deer State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32709/download (Resident Doe/Fawn): Demand Report - Resident Doe/Fawn Deer State of Wyoming Date: 6/18/2025
+skip https://wgfd.wyo.gov/media/32710/download (Nonresident): Demand Report - Non-Resident Fall Turkey State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32711/download (Resident): Demand Report - Resident Fall Turkey State of Wyoming Date: 6/10/2025
+skip https://wgfd.wyo.gov/media/32774/download (Nonresident): Demand Report - Non-Resident Leftover Reduced Ante State of Wyoming Date: 7/8/20
+skip https://wgfd.wyo.gov/media/32837/download (Resident): Demand Report - Resident Sandhill Crane State of Wyoming Date: 7/7/2025
+skip https://wgfd.wyo.gov/media/32839/download (Nonresident): Demand Report - Non-Resident Sandhill Crane State of Wyoming Date: 7/7/2025
+skip https://wgfd.wyo.gov/media/32916/download (Resident): Demand Report - Resident SpringerPheasant State of Wyoming Date: 7/2/2025
+skip https://wgfd.wyo.gov/media/32917/download (Nonresident): Demand Report - Non-Resident SpringerPheasant State of Wyoming Date: 7/2/2025
+skip https://wgfd.wyo.gov/media/33449/download (Resident): Demand Report - Resident Spring Turkey State of Wyoming Date: 2/10/2026
+skip https://wgfd.wyo.gov/media/33450/download (Nonresident): Demand Report - Non-Resident Spring Turkey State of Wyoming Date: 2/10/2026
+skip https://wgfd.wyo.gov/media/33773/download (Nonresident Cow/Calf): Demand Report - Non-Resident Cow/Calf Elk State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33774/download (Nonresident Preference Point): Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+skip https://wgfd.wyo.gov/media/33775/download (Nonresident Random): Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+skip https://wgfd.wyo.gov/media/33780/download (Resident): Demand Report - Resident Ewe/Lamb Sheep State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33781/download (Nonresident): Demand Report - Non-Resident Ewe/Lamb Sheep State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33782/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33783/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33784/download (Nonresident): Demand Report - Non-Resident Bighorn Sheep State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33785/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33786/download (Nonresident): Demand Report - Non-Resident Mountain Goat State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33787/download (Resident): Demand Report - Resident Mountain Goat State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33788/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33789/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33790/download (Nonresident): Demand Report - Non-Resident Moose State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33791/download (Resident): Demand Report - Resident Moose State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33792/download (Nonresident): Demand Report - Non-Resident Wild Female Bison State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33793/download (Resident): Demand Report - Resident Wild Female Bison State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33794/download (Nonresident): Demand Report - Non-Resident Wild Bison State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33795/download (Resident): Demand Report - Resident Wild Bison State of Wyoming Date: 5/13/2026
+skip https://wgfd.wyo.gov/media/33863/download (Nonresident Doe/Fawn): Demand Report - Non-Resident Doe/Fawn Antelope State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33865/download (Resident Doe/Fawn): Demand Report - Resident Doe/Fawn Antelope State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33867/download (Nonresident Preference Point): Demand Report - Non-Resident Antelope State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33868/download (Nonresident Random): Demand Report - Non-Resident Antelope State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33873/download (Resident): Demand Report - Resident Antelope State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33875/download (Resident): Demand Report - Resident Deer State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33876/download (Nonresident Doe/Fawn): Demand Report - Non-Resident Doe/Fawn Deer State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33878/download (Resident Doe/Fawn): Demand Report - Resident Doe/Fawn Deer State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33880/download (Nonresident Preference Point): Demand Report - Non-Resident Deer State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33881/download (Nonresident Random): Demand Report - Non-Resident Deer State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33887/download (Nonresident Landowner): Demand Report - Non-Resident Fall Turkey State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33888/download (Nonresident): Demand Report - Non-Resident Fall Turkey State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33889/download (Resident Landowner): Demand Report - Resident Fall Turkey State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33890/download (Resident): Demand Report - Resident Fall Turkey State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33891/download (Resident Cow/Calf): Demand Report - Resident Cow/Calf Elk State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33893/download (Resident): Demand Report - Resident Elk State of Wyoming Date: 6/15/2026
+skip https://wgfd.wyo.gov/media/33963/download (Nonresident): Demand Report - Non-Resident Leftover Reduced Ante State of Wyoming Date: 7/6/20
+skip https://wgfd.wyo.gov/media/33974/download (Resident): Demand Report - Resident Leftover State of Wyoming Date: 07/07/2026
+skip https://wgfd.wyo.gov/media/33985/download (Nonresident): Demand Report - Non-Resident Sandhill Crane State of Wyoming Date: 7/13/2026
+skip https://wgfd.wyo.gov/media/33986/download (Resident): Demand Report - Resident Sandhill Crane State of Wyoming Date: 7/13/2026
+skip https://wgfd.wyo.gov/media/33987/download (Nonresident): Demand Report - Non-Resident SpringerPheasant State of Wyoming Date: 7/13/2026
+skip https://wgfd.wyo.gov/media/33988/download (Resident): Demand Report - Resident SpringerPheasant State of Wyoming Date: 7/13/2026
+years found [2021, 2022, 2023, 2024, 2025, 2026], using [2022, 2023, 2024, 2025, 2026]
+https://wgfd.wyo.gov/media/22329/download | 2022 D Non-Resident Deer NR PP DRAW | pages 21 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/22326/download | 2022 D Non-Resident Deer NR RANDOM DRAW | pages 3 hunts 52 unparsed 1
+https://wgfd.wyo.gov/media/22331/download | 2022 D Non-Resident Doe/Fawn Deer Nonresident Draw | pages 3 hunts 33 unparsed 0
+https://wgfd.wyo.gov/media/22330/download | 2022 D Non-Resident Deer NR SPECIAL PP DRAW | pages 10 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/22327/download | 2022 D Non-Resident Deer NR SPECIAL RANDOM DRAW | pages 3 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/22328/download | 2022 D Resident Deer Resident Draw | pages 2 hunts 36 unparsed 0
+https://wgfd.wyo.gov/media/22332/download | 2022 D Resident Doe/Fawn Deer Resident Draw | pages 3 hunts 33 unparsed 0
+duplicate report (2022, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/22809/download skipped
+duplicate report (2022, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/22810/download skipped
+https://wgfd.wyo.gov/media/22215/download | 2022 E Non-Resident Elk NR Reg PP Draw | pages 23 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/22216/download | 2022 E Non-Resident Elk NR Reg Random Draw | pages 4 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/22217/download | 2022 E Non-Resident Cow/Calf Elk Nonresident Draw | pages 3 hunts 98 unparsed 0
+https://wgfd.wyo.gov/media/22213/download | 2022 E Non-Resident Elk NR Special PP Draw | pages 15 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/22218/download | 2022 E Non-Resident Elk NR Special Random Draw | pages 4 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/22333/download | 2022 E Resident Cow/Calf Elk Resident Draw | pages 3 hunts 98 unparsed 0
+https://wgfd.wyo.gov/media/22334/download | 2022 E Resident Elk Res Elk Draw | pages 4 hunts 148 unparsed 1
+duplicate report (2022, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/22811/download skipped
+duplicate report (2022, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/22812/download skipped
+https://wgfd.wyo.gov/media/22316/download | 2022 P Non-Resident Antelope NR PP Regular Draw | pages 26 hunts 124 unparsed 0
+https://wgfd.wyo.gov/media/22314/download | 2022 P Non-Resident Doe/Fawn Antelope Nonresident Draw | pages 3 hunts 100 unparsed 0
+https://wgfd.wyo.gov/media/22319/download | 2022 P Non-Resident Antelope NR Random Draw | pages 4 hunts 124 unparsed 1
+https://wgfd.wyo.gov/media/22315/download | 2022 P Non-Resident Antelope NR Special PP Draw | pages 17 hunts 124 unparsed 0
+https://wgfd.wyo.gov/media/22318/download | 2022 P Non-Resident Antelope NR Special Random Draw | pages 4 hunts 124 unparsed 0
+https://wgfd.wyo.gov/media/22313/download | 2022 P Resident Doe/Fawn Antelope Resident Draw | pages 3 hunts 100 unparsed 0
+https://wgfd.wyo.gov/media/22317/download | 2022 P Resident Antelope Resident Draw | pages 4 hunts 124 unparsed 0
+duplicate report (2022, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/22807/download skipped
+duplicate report (2022, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/22808/download skipped
+https://wgfd.wyo.gov/media/24491/download | 2023 D Non-Resident Deer Nonresident Preference Point | pages 20 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/24489/download | 2023 D Non-Resident Deer Nonresident Random | pages 3 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/27417/download | 2023 D Non-Resident Doe/Fawn Deer Nonresident | pages 2 hunts 47 unparsed 0
+https://wgfd.wyo.gov/media/27416/download | 2023 D Non-Resident Deer Nonresident Special Preference Point | pages 13 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/24490/download | 2023 D Non-Resident Deer Nonresident Special Random | pages 3 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/24482/download | 2023 D Resident Deer Resident | pages 2 hunts 35 unparsed 0
+https://wgfd.wyo.gov/media/24483/download | 2023 D Resident Doe/Fawn Deer Resident | pages 2 hunts 47 unparsed 0
+duplicate report (2023, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/24646/download skipped
+duplicate report (2023, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/24647/download skipped
+https://wgfd.wyo.gov/media/23996/download | 2023 E Non-Resident Elk Nonresident Preference Point | pages 25 hunts 149 unparsed 0
+https://wgfd.wyo.gov/media/23994/download | 2023 E Non-Resident Elk Nonresident Random | pages 4 hunts 149 unparsed 0
+https://wgfd.wyo.gov/media/23998/download | 2023 E Non-Resident Cow/Calf Elk Nonresident | pages 3 hunts 101 unparsed 0
+https://wgfd.wyo.gov/media/23997/download | 2023 E Non-Resident Elk Nonresident Special Preference Point | pages 16 hunts 149 unparsed 0
+https://wgfd.wyo.gov/media/23995/download | 2023 E Non-Resident Elk Nonresident Special Random | pages 4 hunts 149 unparsed 0
+https://wgfd.wyo.gov/media/24480/download | 2023 E Resident Elk Resident | pages 4 hunts 149 unparsed 0
+https://wgfd.wyo.gov/media/24481/download | 2023 E Resident Cow/Calf Elk Resident | pages 3 hunts 101 unparsed 0
+duplicate report (2023, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/24648/download skipped
+duplicate report (2023, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/24649/download skipped
+https://wgfd.wyo.gov/media/24486/download | 2023 P Non-Resident Antelope Nonresident Preference Point | pages 26 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/24478/download | 2023 P Non-Resident Doe/Fawn Antelope Nonresident | pages 2 hunts 56 unparsed 0
+https://wgfd.wyo.gov/media/24487/download | 2023 P Non-Resident Antelope Nonresident Random | pages 3 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/24488/download | 2023 P Non-Resident Antelope Nonresident Special Preference Point | pages 16 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/27415/download | 2023 P Non-Resident Antelope Nonresident Special Random | pages 3 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/24477/download | 2023 P Resident Doe/Fawn Antelope Resident | pages 2 hunts 56 unparsed 0
+https://wgfd.wyo.gov/media/24479/download | 2023 P Resident Antelope Resident | pages 4 hunts 120 unparsed 0
+duplicate report (2023, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/24644/download skipped
+duplicate report (2023, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/24645/download skipped
+https://wgfd.wyo.gov/media/30442/download | 2024 D Non-Resident Deer Nonresident Preference Point | pages 22 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/30443/download | 2024 D Non-Resident Deer Nonresident Random | pages 3 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/30444/download | 2024 D Non-Resident Doe/Fawn Deer Nonresident | pages 2 hunts 22 unparsed 0
+duplicate report (2024, 'D', 'NR', False, False, False) https://wgfd.wyo.gov/media/31037/download skipped
+duplicate report (2024, 'D', 'NR', False, False, False) https://wgfd.wyo.gov/media/31038/download skipped
+https://wgfd.wyo.gov/media/30438/download | 2024 D Non-Resident Deer Nonresident Special Preference Point | pages 12 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/30439/download | 2024 D Non-Resident Deer Nonresident Special Random | pages 3 hunts 52 unparsed 0
+https://wgfd.wyo.gov/media/30445/download | 2024 D Resident Deer Resident | pages 2 hunts 36 unparsed 0
+https://wgfd.wyo.gov/media/30449/download | 2024 D Resident Doe/Fawn Deer Resident | pages 2 hunts 22 unparsed 0
+duplicate report (2024, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/31039/download skipped
+duplicate report (2024, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/31040/download skipped
+https://wgfd.wyo.gov/media/30130/download | 2024 E Non-Resident Elk Nonresident Preference Point | pages 28 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/30129/download | 2024 E Non-Resident Elk Nonresident Random | pages 4 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/30131/download | 2024 E Non-Resident Cow/Calf Elk Nonresident | pages 3 hunts 106 unparsed 0
+duplicate report (2024, 'E', 'NR', False, False, False) https://wgfd.wyo.gov/media/31041/download skipped
+duplicate report (2024, 'E', 'NR', False, False, False) https://wgfd.wyo.gov/media/31042/download skipped
+https://wgfd.wyo.gov/media/30128/download | 2024 E Non-Resident Elk Nonresident Special Preference Point | pages 17 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/30127/download | 2024 E Non-Resident Elk Nonresident Special Random | pages 4 hunts 148 unparsed 0
+https://wgfd.wyo.gov/media/30446/download | 2024 E Resident Cow/Calf Elk Resident | pages 4 hunts 27 unparsed 0
+https://wgfd.wyo.gov/media/30448/download | 2024 E Resident Elk Resident | pages 4 hunts 146 unparsed 0
+duplicate report (2024, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/31043/download skipped
+duplicate report (2024, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/31044/download skipped
+https://wgfd.wyo.gov/media/30433/download | 2024 P Non-Resident Antelope Nonresident Preference Point | pages 22 hunts 120 unparsed 2
+https://wgfd.wyo.gov/media/30432/download | 2024 P Non-Resident Antelope Nonresident Random | pages 3 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/30434/download | 2024 P Non-Resident Doe/Fawn Antelope Nonresident | pages 2 hunts 58 unparsed 0
+duplicate report (2024, 'P', 'NR', False, False, False) https://wgfd.wyo.gov/media/31036/download skipped
+https://wgfd.wyo.gov/media/30437/download | 2024 P Non-Resident Antelope Nonresident Special Preference Point | pages 18 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/30431/download | 2024 P Non-Resident Antelope Nonresident Special Random | pages 3 hunts 120 unparsed 0
+https://wgfd.wyo.gov/media/30435/download | 2024 P Resident Doe/Fawn Antelope Resident | pages 2 hunts 58 unparsed 0
+https://wgfd.wyo.gov/media/30436/download | 2024 P Resident Antelope Resident | pages 3 hunts 120 unparsed 0
+duplicate report (2024, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/31033/download skipped
+duplicate report (2024, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/31034/download skipped
+https://wgfd.wyo.gov/media/32698/download | 2025 D Non-Resident Deer Nonresident Preference Point | pages 23 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/32699/download | 2025 D Non-Resident Deer Nonresident Random | pages 3 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/32702/download | 2025 D Non-Resident Doe/Fawn Deer Nonresident | pages 2 hunts 24 unparsed 0
+duplicate report (2025, 'D', 'NR', False, False, False) https://wgfd.wyo.gov/media/32772/download skipped
+duplicate report (2025, 'D', 'NR', False, False, False) https://wgfd.wyo.gov/media/32773/download skipped
+https://wgfd.wyo.gov/media/32700/download | 2025 D Non-Resident Deer Nonresident Special Preference Point | pages 12 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/32701/download | 2025 D Non-Resident Deer Nonresident Special Random | pages 3 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/32706/download | 2025 D Resident Deer Resident | pages 2 hunts 35 unparsed 0
+https://wgfd.wyo.gov/media/32707/download | 2025 D Resident Doe/Fawn Deer Resident | pages 2 hunts 24 unparsed 0
+duplicate report (2025, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/32766/download skipped
+duplicate report (2025, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/32767/download skipped
+https://wgfd.wyo.gov/media/32451/download | 2025 E Non-Resident Elk Nonresident Preference Point | pages 32 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/32449/download | 2025 E Non-Resident Elk Nonresident Random | pages 4 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/32453/download | 2025 E Non-Resident Cow/Calf Elk Nonresident | pages 3 hunts 111 unparsed 0
+duplicate report (2025, 'E', 'NR', False, False, False) https://wgfd.wyo.gov/media/32771/download skipped
+duplicate report (2025, 'E', 'NR', False, False, False) https://wgfd.wyo.gov/media/32775/download skipped
+https://wgfd.wyo.gov/media/32452/download | 2025 E Non-Resident Elk Nonresident Special Preference Point | pages 19 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/32450/download | 2025 E Non-Resident Elk Nonresident Special Random | pages 4 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/32695/download | 2025 E Resident Cow/Calf Elk Resident | pages 3 hunts 111 unparsed 0
+https://wgfd.wyo.gov/media/32697/download | 2025 E Resident Elk Resident | pages 4 hunts 150 unparsed 0
+duplicate report (2025, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/32765/download skipped
+duplicate report (2025, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/32769/download skipped
+https://wgfd.wyo.gov/media/32689/download | 2025 P Non-Resident Antelope Nonresident Preference Point | pages 26 hunts 121 unparsed 0
+https://wgfd.wyo.gov/media/32690/download | 2025 P Non-Resident Antelope Nonresident Random | pages 4 hunts 121 unparsed 0
+https://wgfd.wyo.gov/media/32693/download | 2025 P Non-Resident Doe/Fawn Antelope Nonresident | pages 2 hunts 66 unparsed 0
+duplicate report (2025, 'P', 'NR', False, False, False) https://wgfd.wyo.gov/media/32776/download skipped
+https://wgfd.wyo.gov/media/32691/download | 2025 P Non-Resident Antelope Nonresident Special Preference Point | pages 18 hunts 121 unparsed 0
+https://wgfd.wyo.gov/media/32692/download | 2025 P Non-Resident Antelope Nonresident Special Random | pages 4 hunts 121 unparsed 0
+https://wgfd.wyo.gov/media/32694/download | 2025 P Resident Antelope Resident | pages 4 hunts 121 unparsed 0
+https://wgfd.wyo.gov/media/32696/download | 2025 P Resident Doe/Fawn Antelope Resident | pages 2 hunts 66 unparsed 0
+duplicate report (2025, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/32768/download skipped
+duplicate report (2025, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/32770/download skipped
+https://wgfd.wyo.gov/media/33882/download | 2026 D Non-Resident Deer Nonresident Preference Point | pages 22 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/33877/download | 2026 D Non-Resident Doe/Fawn Deer Nonresident | pages 2 hunts 23 unparsed 0
+https://wgfd.wyo.gov/media/33883/download | 2026 D Non-Resident Deer Nonresident Random | pages 3 hunts 51 unparsed 0
+duplicate report (2026, 'D', 'NR', False, False, False) https://wgfd.wyo.gov/media/33966/download skipped
+duplicate report (2026, 'D', 'NR', False, False, False) https://wgfd.wyo.gov/media/33967/download skipped
+https://wgfd.wyo.gov/media/33884/download | 2026 D Non-Resident Deer Nonresident Special Preference Point | pages 12 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/33885/download | 2026 D Non-Resident Deer Nonresident Special Random | pages 3 hunts 51 unparsed 0
+https://wgfd.wyo.gov/media/33879/download | 2026 D Resident Doe/Fawn Deer Resident | pages 2 hunts 23 unparsed 0
+https://wgfd.wyo.gov/media/33886/download | 2026 D Resident Deer Resident | pages 2 hunts 35 unparsed 0
+duplicate report (2026, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/33968/download skipped
+duplicate report (2026, 'D', 'R', False, False, False) https://wgfd.wyo.gov/media/33969/download skipped
+https://wgfd.wyo.gov/media/33777/download | 2026 E Non-Resident Elk Nonresident Preference Point | pages 31 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/33772/download | 2026 E Non-Resident Cow/Calf Elk Nonresident | pages 3 hunts 111 unparsed 0
+https://wgfd.wyo.gov/media/33779/download | 2026 E Non-Resident Elk Nonresident Random | pages 4 hunts 152 unparsed 0
+duplicate report (2026, 'E', 'NR', False, False, False) https://wgfd.wyo.gov/media/33970/download skipped
+duplicate report (2026, 'E', 'NR', False, False, False) https://wgfd.wyo.gov/media/33971/download skipped
+https://wgfd.wyo.gov/media/33776/download | 2026 E Non-Resident Elk Nonresident Special Preference Point | pages 18 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/33778/download | 2026 E Non-Resident Elk Nonresident Special Random | pages 4 hunts 152 unparsed 0
+https://wgfd.wyo.gov/media/33892/download | 2026 E Resident Cow/Calf Elk Resident | pages 3 hunts 111 unparsed 0
+https://wgfd.wyo.gov/media/33894/download | 2026 E Resident Elk Resident | pages 4 hunts 150 unparsed 0
+duplicate report (2026, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/33972/download skipped
+duplicate report (2026, 'E', 'R', False, False, False) https://wgfd.wyo.gov/media/33973/download skipped
+https://wgfd.wyo.gov/media/33869/download | 2026 P Non-Resident Antelope Nonresident Preference Point | pages 26 hunts 125 unparsed 0
+https://wgfd.wyo.gov/media/33864/download | 2026 P Non-Resident Doe/Fawn Antelope Nonresident | pages 2 hunts 79 unparsed 0
+https://wgfd.wyo.gov/media/33870/download | 2026 P Non-Resident Antelope Nonresident Random | pages 4 hunts 125 unparsed 0
+duplicate report (2026, 'P', 'NR', False, False, False) https://wgfd.wyo.gov/media/33962/download skipped
+https://wgfd.wyo.gov/media/33871/download | 2026 P Non-Resident Antelope Nonresident Special Preference Point | pages 21 hunts 125 unparsed 0
+https://wgfd.wyo.gov/media/33872/download | 2026 P Non-Resident Antelope Nonresident Special Random | pages 4 hunts 125 unparsed 0
+https://wgfd.wyo.gov/media/33866/download | 2026 P Resident Doe/Fawn Antelope Resident | pages 2 hunts 79 unparsed 0
+https://wgfd.wyo.gov/media/33874/download | 2026 P Resident Antelope Resident | pages 4 hunts 125 unparsed 0
+duplicate report (2026, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/33964/download skipped
+duplicate report (2026, 'P', 'R', False, False, False) https://wgfd.wyo.gov/media/33965/download skipped
+unparsed rows total 5 (first 50):
+  2022 D NR: (cid:0)
+  2022 E R: 4
+  2022 P NR: (cid:0)
+  2024 P NR: .
+  2024 P NR: Y
+hunts: E 408 D 181 P 206
+apps = 1st-choice applicants (NR: preference-point report; R: resident report). NR random-pool and resident drawn = min(quota, 1st-choice applicants).

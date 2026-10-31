@@ -70,7 +70,7 @@
   function historical(system, blk, pts) {
     if (!blk) return null;
     if (blk.apps && blk.drawn != null && blk.drawn >= blk.apps) return 1; // undersubscribed
-    if (blk.by_pts && blk.by_pts.length) {
+    if (blk.by_pts && blk.by_pts.length && sortRows(blk.by_pts).length) {
       const rows = sortRows(blk.by_pts);
       const rs = system === "pref75" ? randomShare(blk) : 0;
       const row = rows.find(r => r[0] === pts);
@@ -100,6 +100,7 @@
     if (system === "random") return blk.apps ? Math.min(1, (tags || 0) / blk.apps) : null;
     if (!blk.by_pts || !blk.by_pts.length || !tags) return null;
     const rows = sortRows(blk.by_pts);
+    if (!rows.length) return null;
     const m = new Map();
     for (const [p, a, d] of rows) { const stay = Math.max(0, a - d); m.set(p + 1, (m.get(p + 1) || 0) + stay); }
     const zero = rows.find(r => r[0] === 0);
@@ -152,6 +153,13 @@
     };
   }
 
-  const api = { drawProb, historical, project, creep, yearsToDraw, summarize, latestYear, weightedOdds };
+  // Lowest point level giving at least `target` chance next year (weighted systems)
+  function pointsFor(system, blk, target) {
+    if (!blk || !blk.by_pts || !sortRows(blk.by_pts).length) return null;
+    for (let p = 0; p <= 30; p++) { const v = project(system, blk, p); if (v != null && v >= target) return p; }
+    return 31;
+  }
+
+  const api = { pointsFor, drawProb, historical, project, creep, yearsToDraw, summarize, latestYear, weightedOdds };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.Odds = api;
 })(typeof window !== "undefined" ? window : globalThis);

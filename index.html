@@ -152,6 +152,11 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
       <button class="chip" data-wpn="archery" aria-pressed="false">Archery</button>
       <button class="chip" data-wpn="muzzleloader" aria-pressed="false">Muzzleloader</button>
     </div>
+    <div class="row" id="sexRow"><span class="lbl">Tag</span>
+      <button class="chip" data-sex="antlered" aria-pressed="true">Bull / buck</button>
+      <button class="chip" data-sex="antlerless" aria-pressed="false">Cow / doe</button>
+      <button class="chip" data-sex="all" aria-pressed="false">All</button>
+    </div>
     <div class="row" id="tierRow"><span class="lbl">Show</span></div>
   </div>
   <div class="mapbox">
@@ -720,8 +725,10 @@ function renderDStatus(){
     const ys=[...new Set(d.hunts.flatMap(h=>Object.keys(h.years||{})))].sort();return `<span class="ok">${st} ✓ ${d.hunts.length} hunts ${ys.length?ys[0]+"–"+ys[ys.length-1]:""}</span>`});
   document.getElementById("dstatus").innerHTML="Draw data: "+parts.join("")+(TROPHY?` <span class="ok">Trophy ✓</span>`:` <span class="wait">Trophy pending</span>`);
 }
-let wpn="any";
-const huntOk=h=>h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"));
+let wpn="any",sexF="antlered";
+const ANTLERLESS=/antlerless|\bcow\b|\bdoe\b|\bewe\b|cow\/calf|doe\/fawn|\b(elk|deer|antelope) b\b|\btype [4678]\b|\b(female|ewes?)\b|horns shorter/i;
+const isAntlerless=h=>h.sex==="female"||(h.sex!=="male"&&ANTLERLESS.test(h.label||""));
+const huntOk=h=>h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&(sexF==="all"||(sexF==="antlerless")===isAntlerless(h));
 function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}
 function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
 function huntOdds(st,h){const s=Odds.summarize(sysOf(st),h,"NR",myPts(st,h.species));return s}
@@ -732,7 +739,12 @@ function metric(f,Lc){
   if(colorMode==="points"){
     if(hs.length){
       if(sysOf(st)==="random")return "R";
-      const v=hs.map(h=>{const y=Odds.latestYear(h,"NR");return y?h.years[y].NR.min_pts:null}).filter(x=>x!=null);
+      const sys=sysOf(st);
+      const v=hs.map(h=>{const y=Odds.latestYear(h,"NR");if(!y)return null;const b=h.years[y].NR;
+        if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;
+        if(b.min_pts!=null&&!/^bonus|^az/.test(sys))return b.min_pts;
+        if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5);
+        return b.min_pts??null}).filter(x=>x!=null);
       if(v.length)return Math.min(...v);
     }
     const es=entriesFor(f).map(i=>U[i]).filter(u=>u[7]!=null);return es.length?Math.min(...es.map(u=>u[7])):(entriesFor(f).some(i=>U[i][8]!=null)?"R":null);
@@ -808,13 +820,14 @@ function render(){restyle();renderList()}
 const spRow=document.getElementById("spRow"),tierRow=document.getElementById("tierRow");
 for(const k in SPECIES){const b=document.createElement("button");b.className="chip";b.id="sp-"+k;b.dataset.sp=k;b.setAttribute("aria-pressed",k===sp);b.textContent=SPECIES[k];b.onclick=()=>{sp=k;sel=null;document.getElementById("sheet").innerHTML="";spRow.querySelectorAll("[data-sp]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sp===k));render()};spRow.appendChild(b)}
 for(const k in TIERS){const b=document.createElement("button");b.className="chip";b.id="ti-"+k;b.setAttribute("aria-pressed","true");b.innerHTML=`<i class="dot" style="background:${TIERC[k]}"></i>${TIERS[k].split(" /")[0]}`;b.onclick=()=>{tierOn.has(k)?tierOn.delete(k):tierOn.add(k);b.setAttribute("aria-pressed",tierOn.has(k));render()};tierRow.appendChild(b)}
+document.querySelectorAll("[data-sex]").forEach(b=>b.onclick=()=>{sexF=b.dataset.sex;document.querySelectorAll("[data-sex]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
 document.querySelectorAll("[data-wpn]").forEach(b=>b.onclick=()=>{wpn=b.dataset.wpn;document.querySelectorAll("[data-wpn]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
 document.querySelectorAll("[data-color]").forEach(b=>b.onclick=()=>{colorMode=b.dataset.color;document.querySelectorAll("[data-color]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
 
 function renderLegend(){
   const L=document.getElementById("legend");
   if(RAMP[colorMode]){
-    const title={points:"NR points needed to draw (latest year, easiest hunt in unit)",odds:`Your best NR odds next year, using My Points for ${SPECIES[sp].toLowerCase()}`,trophy:"Trophy potential"}[colorMode];
+    const title={points:"NR points needed (lowest that drew last year; weighted-draw states: points for a 50% chance)",odds:`Your best NR odds next year, using My Points for ${SPECIES[sp].toLowerCase()}`,trophy:"Trophy potential"}[colorMode];
     L.innerHTML=`<span><b>${title}</b></span>`+RAMP[colorMode].map(([,c,l])=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`).join("")+(colorMode==="points"?`<span><i class="sq" style="background:#4f8fd0"></i>Random draw (no points)</span>`:"")+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>No data yet</span>`;
     return;
   }
@@ -878,10 +891,10 @@ function huntsSheet(f,Lc){
   const hs=huntsOf(f,Lc.st);const d=DRAW[Lc.st];const tr=trophyOf(Lc.st,sp,f._id);
   const trophy=tr?`<p><b>Trophy potential ${tr.s}/5.</b> ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
   if(!d)return trophy?`<div class="sheet">${trophy}<p class="note">${SN[Lc.st]} draw results are still being added.</p></div>`:"";
-  if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
-  const order=h=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99};
+  if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?"bull/buck ":sexF==="antlerless"?"cow/doe ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
+  const order=h=>(isAntlerless(h)?1000:0)+(()=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99})();
   return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} · ${SPECIES[sp]} draw results</h3>${trophy}
-  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. Odds use your ${SN[Lc.st]} ${SPECIES[sp].toLowerCase()} points from My Points and ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. Next-year odds assume everyone who missed gains a point and tags stay the same.</p>
+  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. Odds use your ${SN[Lc.st]} ${SPECIES[sp].toLowerCase()} points from My Points and ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. ${sysOf(Lc.st)==="random"?"Next-year odds use last year's applicants and tags.":"Next-year odds assume everyone who missed gains a point and tags stay the same."}</p>
   ${hs.slice().sort((a,b)=>order(a)-order(b)).map(h=>huntCard(Lc.st,h)).join("")}</div>`;
 }
 function showFeature(f,Lc,lyr){

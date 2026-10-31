@@ -104,7 +104,7 @@ def parse_book(year, url, title, hunts, sources):
             if sp3 == "DER" and ("WTD" in bag.upper() or re.search(r"white-?tail|coues", desc, re.I)):
                 sp = "C"
             units = re.findall(r"\b\d{1,2}[A-Z]?\b", re.sub(r"^units?\s*", "", desc.split(":")[0], flags=re.I)) or [desc]
-            key = (c0, norm(desc), bag.upper())
+            key = (c0, bag.upper(), tuple(units) if units != [desc] else norm(desc))
             h = hunts.get(key)
             if h is None:
                 same = [k for k in hunts if k[0] == c0]

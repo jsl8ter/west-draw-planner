@@ -1,0 +1,95 @@
+MT: OK 0 hunts, years []
+status 200 len 16895
+UB",$(this).attr("id"))' href='speciesHuntingGuide?wmrSpeciesCd=BC' title='Bobcat Quotas' style="display:block"><span class='nav-side-menu-li-left'><i class="fa fa-angle-right"></i></span><span class='nav-side-menu-li-right'>Bobcat</span></a></li><li class='nav-item'><a id='Quota_sub7left' onClick='pubMenuNavClick("V","Quota_sub","FWPPUB",$(this).attr("id"))' href='speciesHuntingGuide?wmrSpeciesCd=FR' title='Fisher Quotas' style="display:block"><span class='nav-side-menu-li-left'><i class="fa fa-angle-right"></i></span><span class='nav-side-menu-li-right'>Fisher</span></a></li><li class='nav-item'><a id='Quota_sub8left' onClick='pubMenuNavClick("V","Quota_sub","FWPPUB",$(this).attr("id"))' href='speciesHuntingGuide?wmrSpeciesCd=ML' title='Mountain Lion Quotas' style="display:block"><span class='nav-side-menu-li-left'><i class="fa fa-angle-right"></i></span><span class='nav-side-menu-li-right'>Mountain Lion</span></a></li><li class='nav-item'><a id='Quota_sub9left' onClick='pubMenuNavClick("V","Quota_sub","FWPPUB",$(this).attr("id"))' href='speciesHuntingGuide?wmrSpeciesCd=OT' title='Otter Quotas' style="display:block"><span class='nav-side-menu-li-left'><i class="fa fa-angle-right"></i></span><span class='nav-side-menu-li-right'>Otter</span></a></li><li class='nav-item'><a id='Quota_sub10left' onClick='pubMenuNavClick("V","Quota_sub","FWPPUB",$(this).attr("id"))' href='speciesHuntingGuide?wmrSpeciesCd=SF' title='Swift Fox Quotas' style="display:block"><span class='nav-side-menu-li-left'><i class="fa fa-angle-right"></i></span><span class='nav-side-menu-li-right'>Swift Fox</span></a></li><li class='nav-item'><a id='Quota_sub11left' onClick='pubMenuNavClick("V","Quota_sub","FWPPUB",$(this).attr("id"))' href='speciesHuntingGuide?wmrSpeciesCd=GW' title='Wolf Quotas' style="display:block"><span class='nav-side-menu-li-left'><i class="fa fa-angle-right"></i></span><span class='nav-side-menu-li-right'>Wolf</span></a></li></ul></ul></div></div></aside></nav></div><div id='fwp-pub-content' class='col-lg-10 col-xl-9' role='main'>
+    
+    
+    <div class="row">
+        <div class="col-lg-12">
+
+            <form id="recordsForm" name="recordsForm" action="/fwpPub/drawingStatistics.action" method="post">
+             	<legend>Drawing Statistics</legend>
+				<fieldset>
+					<table class="table table-responsive-sm table-hover dataTable">
+						<tr>
+							<td>LPT</td>
+							<td>License/Permit Type. The first three digits most often represent the hunting district number.</td>
+						</tr>
+						<tr>
+							<td># Applicants</td>
+							<td>Total number of resident and nonresident 1st choice applicants.</td>
+						</tr>
+						<tr>
+							<td># Successful</td>
+							<td>Total number of 1st choice applicants that were successful.</td>
+						</tr>
+						<tr>
+							<td>% Successful </td>
+							<td> Percentage of 1st choice applicants that were successful.</td>
+						</tr>
+					</table>
+				</fieldset>
+                <label for="animalList" class="col-form-label">Animal:</label>
+                <select name="repositoryObjectId" id="repositoryObjectId" class="form-control" title="Animal">
+    <option value="28561">Antelope </option>
+    <option value="28562">Elk </option>
+    <option value="28563">Goat </option>
+    <option value="28564">Moose </option>
+    <option value="94776">Nonresident Combination </option>
+    <option value="94777">Other </option>
+    <option value="28565">Sheep </option>
+    <option value="28566">White-tailed/Mule Deer </option>
+
+
+</select>
+
+                                                 
+            </form>
+
+
+
+            
+            <div id="statusMessage"></div>
+            <div class="row">
+             	<div class="col-lg-12" id="formButtonDiv">
+                		<button id="reportSearchBtn" 
+                			type="button"
+                    		class="btn btn-primary"
+                    		onclick="callReload('reloadReportResultsDiv')">Search <span class="fas fa fa-search"></span></button>
+             	</div>
+		    </div><!-- end button row -->
+
+		</div> <!-- end .fwpPubForm -->
+	</div> <!-- end row -->
+		
+	
+	<div id="reportResultsSJDiv"
+ name="reportResultsSJDiv"
+
+
+
+></div>
+<script type='text/javascript'>
+jQuery(document).ready(function () { 
+	var options_reportResultsSJDiv = {};
+	options_reportResultsSJDiv.jqueryaction = "container";
+	options_reportResultsSJDiv.id = "reportResultsSJDiv";
+	options_reportResultsSJDiv.name = "reportResultsSJDiv";
+	options_reportResultsSJDiv.href = "repositoryList_input.action";
+	options_reportResultsSJDiv.formids = "recordsForm";
+	options_reportResultsSJDiv.reloadtopics = "reloadReportResultsDiv";
+	options_reportResultsSJDiv.deferredloading = true;
+  
+
+jQuery.struts2_jquery.bind(jQuery('#reportResultsSJDiv'),options_reportResultsSJDiv);
+
+ });  
+</script>
+
+</div></div><div class='row'><div class='col-md-12'>&nbsp;</div></div><div id='fwpSupportModal' class='modal fade' role='dialog' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'><div class='modal-header-fwp'><button type='button' class='close' data-dismiss='modal' aria-label='Close'>&times;</button><h1 class='modal-title'><span class='fa fa-question-circle-o fa-lg'></span>&nbsp;</h1></div><div class='modal-body'><div class='card-body panel-fwp-grey'><p></p><div class='text-center'><p><a href="#" aria-label="Email"><span class="fa fa-envelope"></span>&nbsp;Email</a></div></div><div class='modal-footer'><button type='button' class='btn btn-primary' data-dismiss='modal' aria-label='OK'>OK&nbsp;<span class='fas fa fa-check'></span></button></div></div></div></div></div><div class='container-full'>			<footer>				<div class='footer-content fixed-bottom'>					<ul class='list-inline'>						<li class='list-inline-item'><a href='http://mt.gov/govt/agencylisting.aspx' target='_blank'><small>Related Websites</small></a>&nbsp;&bull;</li>						<li class='list-inline-item'><a href='https://fwp.mt.gov/search' ><small>Site Index</small></a>&nbsp;&bull;</li>						<li class='list-inline-item'><a href='https://fwp.mt.gov/aboutfwp/employment/' ><small>Employment</small></a>&nbsp;&bull;</li>						<li class='list-inline-item'><a href='https://fwp.mt.gov/aboutfwp/contact-us/' ><small>Contact FWP</small></a>&nbsp;&bull;</li>						<li class='list-inline-item'><a href='http://mt.gov/1240-X06.pdf' target='_blank'  ><small>Privacy Policy</small></a></li> 				</ul>				</div>			</footer></div><script src='/fwpPubCommon/js/jquery/jquery.smartmenus.js' type='text/javascript'></script><script src='/fwpPubCommon/scripts/blockUI.js' type='text/javascript'></script><script src='/fwpPubCommon/css/fwppub/scripts/pubMenuNav.js' type='text/javascript'></script><script src='/fwpPubCommon/css/fwppub/bootstrap//js/bootstrap.bundle.min.js' type='text/javascript'></script><script src='/fwpPubCommon/css/fwppub/datatables/datatables.min.js' type='text/javascript'></script><script>$.struts2_jquery.require('/fwpPubCommon/struts/js/base/jquery-ui.min.js');	$.struts2_jquery.require('/fwpPubCommon/struts/js/plugins/jquery.form.min.js');</script><script src='/fwpPubCommon/css/fwppub/bootstrap/js/bootstrap-notify.min.js' type='text/javascript'></script><script src='/fwpPubCommon/css/fwppub/bootstrap/js/bootbox.min.js' type='text/javascript'></script><script src='/fwpPubCommon/js/jquery/jquery.mask.min.js' type='text/javascript'></script><script src='/fwpPubCommon/css/fwppub/scripts/fwp-captcha.js' type='text/javascript'></script><script type='text/javascript'>$(document).ready(function(){$('#fwpSupportModal .modal-dialog').draggable();$('[data-toggle="popover"]').popover();$('a[href="#"]').click(function(e){e.preventDefault();});});</script></body></html>
+
+<script type="text/javascript" src="/fwpPub/struts/js/base/jquery-2.2.4.min.js"
+<script type="text/javascript" src="/fwpPub/struts/js/base/jquery-ui.min.js?s2j=4.0.1-SNAPSHOT"
+<script type="text/javascript" src="/fwpPub/struts/js/plugins/jquery.form.min.js?s2j=4.0.1-SNAPSHOT"
+<script type="text/javascript" src="/fwpPub/struts/js/plugins/jquery.subscribe.min.js?s2j=4.0.1-SNAPSHOT"
+<script type="text/javascript" src="/fwpPub/struts/js/struts2/jquery.struts2.min.js?s2j=4.0.1-SNAPSHOT"
+<script type="text/javascript" src="/fwpPub/forms/scripts/forms.js"

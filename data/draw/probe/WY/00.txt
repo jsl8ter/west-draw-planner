@@ -1,410 +1,192 @@
-URL: https://wgfd.wyo.gov/licenses-applications/draw-results-odds
-FINAL: https://wgfd.wyo.gov/licenses-applications/draw-results-odds
-TYPE: text/html; charset=UTF-8
-DISPOSITION: 
-BYTES: 361165
+URL: https://wgfd.wyo.gov/media/33779/download
+FINAL: https://wgfd.wyo.gov/media/33779/download
+TYPE: application/pdf
+DISPOSITION: attachment; filename=2026_DrawingOdds_Elk_Random_NR.pdf
+BYTES: 92014
 
-HTML TEXT:
- Draw Results &amp; Odds | Wyoming Game &amp; Fish Department Skip to main content { container.style.height = height; console.log('height:' + height); console.log(parentContainer); console.log(parentContainer.classList); console.log(grandParentContainer); console.log(grandParentContainer.classList); if (parentContainer.classList.contains('active')) { console.log('parent is active'); parentContainer.style.height = 'auto'; setTimeout(() => { var parentHeight = parentContainer.children[0].offsetHeight + 'px'; parentContainer.style.height = parentHeight; console.log('parentHeight:' + parentHeight); }, 500); } if (grandParentContainer.classList.contains('active')) { grandParentContainer.style.height = 'auto'; setTimeout(() => { var grandParentHeight = grandParentContainer.children[0].offsetHeight + 'px'; grandParentContainer.style.height = grandParentHeight; console.log('grandParentContainer:' + grandParentHeight); }, 800); } }, 0) /** Slide up. */ } else { /** Set the height as 0px to trigger the slide up animation. */ container.style.height = '0px' if (parentContainer.classList.contains('active')) { parentContainer.style.height = 'auto'; setTimeout(() => { var parentHeight = parentContainer.children[0].offsetHeight + 'px'; parentContainer.style.height = parentHeight; }, 500); } if (grandParentContainer.classList.contains('active')) { grandParentContainer.style.height = 'auto'; setTimeout(() => { var grandParentHeight = grandParentContainer.children[0].offsetHeight + 'px'; grandParentContainer.style.height = grandParentHeight; }, 800); } /** Remove the `active` class when the animation ends. */ container.addEventListener('transitionend', () => { container.classList.remove('active') }, {once: true}) } } }"> Sign In Apply or Buy Apply or Buy News &amp; Events Regional Information Casper Region Cody Region Green River Region Jackson Region Lander Region Laramie Region Pinedale Region Sheridan Region Regulations Get Involved Public Input Commission Season Setting Volunteer Public Working Groups Contests &amp; Awards Conservation Stamp Art Show Hall of Fame Landowner of the Year Photo Contests Raffles Gov Wild Bison Raffle Super Tag Raffle Sign In Search Filter by Content Type All Page Directors Column Event Hunt Forecast News Public Access: HMA Public Access: Public Access Areas Public Access: Wildlife Habitat Management Area Public Access: Walk in Fishing Public Access: Walk in Hunting Species Profiles Wyoming Wildlife Story Licenses &amp; Applications Application Dates &amp; Deadlines Application Process Draw Results &amp; Odds License Fee List Leftover Licenses User Account Information Governor and Commissioner Licenses Shooting Range Grant Application Licensing for Veterans Landowner Licenses License Selling Agents Am I a Wyoming Resident Super Tag Permits Falconry Permits Permit Form &amp; Applications Possessing Wildlife Roadkill Collection FAQs Hunting &amp; Trapping What do I Need to Hunt? Carcass Disposal Sites Hunt Planner Trapping Recreationists Trappers Harvest Reports &amp; Surveys Job Completion Reports Preference Points Trophy Game Harvest Limits Wild Bison Hunting Information FAQs Tooth Aging Fishing &amp; Boating Purchase a Fishing License Fishing Regulations Places to Fish in Wyoming Fish Stocking Report Fishing Challenges Wyoming Cutt-Slam XStream Angler Master Angler Youth Fishing Challenges Boating &amp; Watercraft Aquatic Invasive Species Prevention AIS Boating &amp; Decal Information Purchase an AIS Decal AIS Inspection Locations Fish Hatcheries Fish of Wyoming Fish Consumption Advice State Record Fish Fishing in the Heat Fishing News Private Fish Stocking Fishing Contests Live Baitfish Stream Categorization Fishing Outfitters and Guides FAQs Public Access Wildlife Habitat Management Areas Public Access Areas Fire Bans on Game and Fish Land Hunter Landowner Assistance Program Walk-In Area Rules Walk-In Fishing Walk-In Hunting Hunter Management Areas National Elk Refuge Hunting Access Yes Reports Access Summary Donate to Access Yes Wyoming Wildlife Large Carnivore Bear Wise Wyoming How to React in an Encounter Camping in Bear Country Hunting &amp; Fishing in Bear Country Living in Bear Country Black Bears in Wyoming Grizzly Bears in Wyoming Mountain Lions in Wyoming Wolves in Wyoming Nongame Wildlife Wildlife Disease and Health Brucellosis Chronic Wasting Disease Carcass Disposal Chronic Wasting Disease Testing Movement Matters Big Game Migration Wildlife Crossings Fish Passage Urban &amp; Nuisance Wildlife Species in Wyoming Wyoming State Wildlife Action Plan Wyoming Wildlife Magazine Sage-Grouse Management Gov. Gordon&#039;s Sage-Grouse Executive Order Sage-Grouse Data Sage-Grouse Lek Viewing Guide Handbook of Biological Techniques FAQs Education &amp; Camps Hunter Education Hunter Education Courses Hunter Education Exemptions Replacement Hunter Education Card Become a Hunter Education Instructor FAQs Bowhunter Education Conservation Education Inspire a Kid Conservation Education in Schools Conservation Crates Hunter Education in Schools Program Trout in the Classroom Project Wild National Archery in the Schools Program Request a Program or Event Camps Becoming an Outdoors-Woman Family Camps Youth Camps Collegiate Programs Wyoming Collegiate Conservation Academy Wyoming Wildlife Fellowship WY Hunt Fish WY Hunt Fish Programs main Search Filter by Content Type All Page Directors Column Event Hunt Forecast News Public Access: HMA Public Access: Public Access Areas Public Access: Wildlife Habitat Management Area Public Access: Walk in Fishing Public Access: Walk in Hunting Species Profiles Wyoming Wildlife Story Licenses &amp; Applications Licenses &amp; Applications Overview Application Dates &amp; Deadlines Application Process Draw Results &amp; Odds License Fee List Leftover Licenses User Account Information Governor and Commissioner Licenses Shooting Range Grant Application Licensing for Veterans Landowner Licenses License Selling Agents Am I a Wyoming Resident Super Tag Permits Permits Overview Falconry Permits Permit Form &amp; Applications Possessing Wildlife Roadkill Collection FAQs Hunting &amp; Trapping Hunting &amp; Trapping Overview What do I Need to Hunt? Carcass Disposal Sites Hunt Planner Trapping Trapping Overview Recreationists Trappers Harvest Reports &amp; Surveys Job Completion Reports Preference Points Trophy Game Harvest Limits Wild Bison Hunting Information FAQs Tooth Aging Fishing &amp; Boating Fishing &amp; Boating Overview Purchase a Fishing License Fishing Regulations Places to Fish in Wyoming Fish Stocking Report Fishing Challenges Fishing Challenges Overview Wyoming Cutt-Slam XStream Angler Master Angler Youth Fishing Challenges Boating &amp; Watercraft Aquatic Invasive Species Prevention Aquatic Invasive Species Prevention Overview AIS Boating &amp; Decal Information Purchase an AIS Decal AIS Inspection Locations Fish Hatcheries Fish of Wyoming Fish Consumption Advice State Record Fish Fishing in the Heat Fishing News Private Fish Stocking Fishing Contests Live Baitfish Stream Categorization Fishing Outfitters and Guides FAQs Public Access Public Access Overview Wildlife Habitat Management Areas Public Access Areas Fire Bans on Game and Fish Land Hunter Landowner Assistance Program Walk-In Area Rules Walk-In Fishing Walk-In Hunting Hunter Management Areas National Elk Refuge Hunting Access Yes Reports Access Summary Donate to Access Yes Wyoming Wildlife Wyoming Wildlife Overview Large Carnivore Large Carnivore Overview Bear Wise Wyoming Bear Wise Wyoming Overview How to React in an Encounter Camping in Bear Country Hunting &amp; Fishing in Bear Country Living in Bear Country Black Bears in Wyoming Grizzly Bears in Wyoming Mountain Lions in Wyoming Wolves in Wyoming Nongame Wildlife Wildlife Disease and Health Wildlife Disease and Health Overview Brucellosis Chronic Wasting Disease Chronic Wasting Disease Overview Carcass Disposal Chronic Wasting Disease Testing Movement Matters Movement Matters Overview Big Game Migration Wildlife Crossings Fish Passage Urban &amp; Nuisance Wildlife Species in Wyoming Wyoming State Wildlife Action Plan Wyoming Wildlife Magazine Sage-Grouse Management Sage-Grouse Management Overview Gov. Gordon&#039;s Sage-Grouse Executive Order Sage-Grouse Data Sage-Grouse Lek Viewing Guide Handbook of Biological Techniques FAQs Education &amp; Camps Education &amp; Camps Overview Hunter Education Hunter Education Overview Hunter Education Courses Hunter Education Exemptions Replacement Hunter Education Card Become a Hunter Education Instructor FAQs Bowhunter Education Conservation Education Conservation Education Overview Inspire a Kid Conservation Education in Schools Conservation Education in Schools Overview Conservation Crates Hunter Education in Schools Program Trout in the Classroom Project Wild National Archery in the Schools Program Request a Program or Event Camps Camps Overview Becoming an Outdoors-Woman Family Camps Youth Camps Collegiate Programs Collegiate Programs Overview Wyoming Collegiate Conservation Academy Wyoming Wildlife Fellowship WY Hunt Fish WY Hunt Fish Overview WY Hunt Fish Programs main News &amp; Events Regional Information Regional Information Overview Casper Region Cody Region Green River Region Jackson Region Lander Region Laramie Region Pinedale Region Sheridan Region Regulations Get Involved Get Involved Overview Public Input Public Input Overview Commission Season Setting Volunteer Public Working Groups Contests &amp; Awards Contests &amp; Awards Overview Conservation Stamp Art Show Hall of Fame Landowner of the Year Photo Contests Raffles Raffles Overview Gov Wild Bison Raffle Super Tag Raffle Draw Results &amp; Odds View draw results and leftover drawing odds from the current and previous years. Home Licenses &amp; Applications Draw Results &amp; Odds = this.breakpoints.fallback && screenWidth = this.breakpoints.small && screenWidth = this.breakpoints.med && screenWidth = this.breakpoints.large && screenWidth Image Draw results Click the link below to look up your draw result information. Draw results are updated as more drawings are conducted and information becomes available. View draw results = this.breakpoints.fallback && screenWidth = this.breakpoints.small && screenWidth = this.breakpoints.med && screenWidth = this.breakpoints.large && screenWidth Drawing odds The following are drawing odds and results for each species drawn. These reports are in PDF format. 2026 Answer Antelope Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Landowner Nonresident Preference Point Nonresident Doe/Fawn Nonresident Random Resident Doe/Fawn Resident Deer Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Landowner Nonresident Preference Point Nonresident Doe/Fawn Nonresident Random Resident Doe/Fawn Resident Elk Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Cow/Calf Nonresident Resident Landowner Nonresident Preference Point Nonresident Cow/Calf Nonresident Random Resident Cow/Calf Resident Bighorn sheep Random Draw Nonresident Resident Preference Points Nonresident Resident Ewe/Lamb Nonresident Resident Moose Random Draw Nonresident Resident Preference Points Nonresident Resident Mountain goat Nonresident Resident Wild bison Bison Nonresident Resident Cow Bison Nonresident Resident Early crane Nonresident Resident Wild turkey Spring Nonresident Resident Fall Nonresident Resident Nonresident Landowner Resident Landowner &nbsp; Beaver All Pheasant Glendo Nonresident Resident Springer Nonresident Resident &nbsp; 2025 Answer Antelope Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Landowner Nonresident Preference Point Nonresident Doe/Fawn Nonresident Random Resident Doe/Fawn Resident Deer Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Landowner Nonresident Preference Point Nonresident Doe/Fawn Nonresident Random Resident Doe/Fawn Resident Elk Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Cow/Calf Nonresident Resident Landowner Nonresident Preference Point Nonresident Cow/Calf Nonresident Random Resident Cow/Calf Resident Bighorn sheep Random Draw Nonresident Resident Preference Points Nonresident Resident Ewe/Lamb Nonresident Resident Moose Random Draw Nonresident Resident Preference Points Nonresident Resident Mountain goat Nonresident Resident Wild bison Bull Bison Nonresident Resident Early crane Nonresident Resident Wild turkey Spring Nonresident Resident Fall Nonresident Resident Beaver All Pheasant Springer Nonresident Resident &nbsp; &nbsp; 2024 Answer Antelope Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Landowner Nonresident Preference Point Nonresident Doe/Fawn Nonresident Random Resident Doe/Fawn Resident Deer Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Landowner Nonresident Preference Point Nonresident Doe/Fawn Nonresident Random Resident Doe/Fawn Resident Elk Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Cow/Calf Nonresident Resident Landowner Nonresident Preference Point Nonresident Cow/Calf Nonresident Random Resident Cow/Calf Resident Bighorn sheep Random Draw Nonresident Resident Preference Points Nonresident Resident Ewe/Lamb Nonresident Resident Moose Random Draw Nonresident Resident Preference Points Nonresident Resident Mountain goat Nonresident Resident Wild bison Bull Bison Nonresident Resident Early crane Nonresident Resident Wild turkey Spring Nonresident Resident Fall Nonresident Resident Beaver All Pheasant Springer Nonresident Resident &nbsp; &nbsp; 2023 Answer Antelope Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Deer Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Doe/Fawn Nonresident Resident Elk Random Draw Nonresident Nonresident Special Resident Preference Points Nonresident Nonresident Special Cow/Calf Nonresident Resident Bighorn sheep Random Draw Nonresident Resident Preference Points Nonresident Resident Ewe/Lamb Nonresident Resident Moose Random Draw Nonresident Resident Preference Points Nonresident Resident Mountain goat Nonresident Resident Wild bison Bull Bison Nonresident Resident Early crane Nonresident Resident Wild turkey Spring Nonresident Resident Fall Nonresident Resident Beaver All Pheasant Springer Nonresident Resident &nbsp; &nbsp; 2022 Answer Antelope Random Draw No
+PDF PAGES: 4
 
-LINKS:
- | https://wgfd.wyo.gov/licenses-applications/draw-results-odds
- | /sites/default/files/css/css_culffO6a2Xo_JeAMgGYTapfVZeWZSHNPWxctAUjiR2c.css?delta=0&amp;language=en&amp;theme=wgfd&amp;include=eJxNjGuSwyAMgy_kxUdiDDgJrYMZG9rk9n1Mu7t_NJ80kqiUodROpA-ExbQNoAsdUZQKG_7jMDbTlNgg8RhskY-uziUuVZ7WceXGRgJZ950tc8xkA18Sk2i-Ah9DartisdlJwseC0KlzxFI9643tRG2cVaCT0WrUN_8u_pIwW59Jqm9coKvIb-XJP69bBz998I6JnOFW-e741rBrmcJwX5eCq2gieQCvOWhv
- | https://cdn.jsdelivr.net/npm/glidejs@2.1.0/dist/css/glide.core.min.css
- | /sites/default/files/css/css_qUKWQNWN0kfAKuB1CxNGxZdFNFV8TPoKd_0jihAIspo.css?delta=2&amp;language=en&amp;theme=wgfd&amp;include=eJxNjGuSwyAMgy_kxUdiDDgJrYMZG9rk9n1Mu7t_NJ80kqiUodROpA-ExbQNoAsdUZQKG_7jMDbTlNgg8RhskY-uziUuVZ7WceXGRgJZ950tc8xkA18Sk2i-Ah9DartisdlJwseC0KlzxFI9643tRG2cVaCT0WrUN_8u_pIwW59Jqm9coKvIb-XJP69bBz998I6JnOFW-e741rBrmcJwX5eCq2gieQCvOWhv
- | https://use.typekit.net/kzp8ste.css
-Skip to main content | #main-content
- | /
- | https://wgfapps.wyo.gov/LoginPortal/Login1.aspx?return=http://wgfd.wyo.gov/login-callback
-Apply or Buy | /licenses-applications
-Apply or Buy | /licenses-applications
-News &amp; Events | /news-events
-Regional Information | /regional-information
-Casper Region | /regional-information/casper
-Cody Region | /regional-information/cody
-Green River Region | /regional-information/green-river
-Jackson Region | /regional-information/jackson
-Lander Region | /regional-information/lander
-Laramie Region | /regional-information/laramie
-Pinedale Region | /regional-information/pinedale
-Sheridan Region | /regional-information/sheridan
-Regulations | /regulations
-Get Involved | /get-involved
-Public Input | /get-involved/public-input
-Commission | /wyoming-game-and-fish-commission
-Season Setting | /get-involved/public-input/season-setting
-Volunteer | /get-involved/volunteer
-Public Working Groups | /get-involved/public-working-groups
-Contests &amp; Awards | /get-involved/contests-and-awards
-Conservation Stamp Art Show | /get-involved/contests-awards/conservation-stamp-art-show-winners
-Hall of Fame | /get-involved/contests-awards/wyoming-outdoor-hall-fame
-Landowner of the Year | /get-involved/contests-awards/landowner-year
-Photo Contests | /wyoming-wildlife/wyoming-wildlife-magazine/photo-contests
-Raffles | /get-involved/raffles
-Gov Wild Bison Raffle | /get-involved/raffles/gov-wild-bison-license-raffle
-Super Tag Raffle | /licenses-applications/wyoming-super-tag-raffle
- | https://wgfapps.wyo.gov/LoginPortal/Login1.aspx?return=http://wgfd.wyo.gov/login-callback
-Licenses &amp; Applications | /licenses-applications
-Application Dates &amp; Deadlines | /licenses-applications/application-dates-deadlines
-Application Process | /licenses-applications/application-process
-Draw Results &amp; Odds | /licenses-applications/draw-results-odds
-License Fee List | /licenses-applications/license-fee-list
-Leftover Licenses | /licenses-applications/leftover-licenses
-User Account Information | /licenses-applications/user-account-information
-Governor and Commissioner Licenses | /licenses-applications/commissioner-and-governor-licenses
-Shooting Range Grant Application | /licenses-applications/shooting-range-grants
-Licensing for Veterans | /licenses-applications/licensing-veterans
-Landowner Licenses | /licenses-applications/landowner-licenses
-License Selling Agents | /licenses-applications/license-selling-agents
-Am I a Wyoming Resident | /licenses-applications/am-i-wyoming-resident
-Super Tag | /licenses-applications/wyoming-super-tag-raffle
-Permits | /licenses-applications/permits
-Falconry Permits | /licenses-applications/permits/falconry-permits
-Permit Form &amp; Applications | /licenses-applications/permits/permit-forms-applications
-Possessing Wildlife | /licenses-applications/permits/possessing-wildlife
-Roadkill Collection | /licenses-applications/permits/roadkill-collection
-FAQs | /licenses-applications/licensing-and-applications-faqs
-Hunting &amp; Trapping | /hunting-trapping
-What do I Need to Hunt? | /hunting-trapping/what-do-i-need-hunt
-Carcass Disposal Sites | /hunting-trapping/carcass-disposal-sites
-Hunt Planner | /HuntPlanner
-Trapping | /hunting-trapping/trapping
-Recreationists | /hunting-trapping/trapping/recreationists
-Trappers | /hunting-trapping/trapping/trappers
-Harvest Reports &amp; Surveys | /hunting-trapping/harvest-reports-surveys
-Job Completion Reports | /hunting-trapping/job-completion-reports
-Preference Points | /hunting-trapping/preference-points
-Trophy Game Harvest Limits | /hunting-trapping/trophy-game-harvest-limits
-Wild Bison Hunting Information | /hunting-trapping/wild-bison-hunting-information
-FAQs | /hunting-trapping/hunting-trapping-frequently-asked-questions
-Tooth Aging | /hunting-trapping/tooth-aging
-Fishing &amp; Boating | /fishing-boating
-Purchase a Fishing License | https://wgfapps.wyo.gov/elso/ELSOWelcome.aspx
-Fishing Regulations | /media/33248/download?inline=
-Places to Fish in Wyoming | /fishing-boating/places-fish-wyoming
-Fish Stocking Report | https://wgfapps.wyo.gov/FishStock/FishStock
-Fishing Challenges | /fishing-boating/fishing-challenges
-Wyoming Cutt-Slam | /fishing-boating/fishing-challenges/wyoming-cutt-slam
-XStream Angler | /fishing-boating/fishing-challenges/xstream-angler
-Master Angler | /fishing-boating/fishing-challenges/master-angler
-Youth Fishing Challenges | /fishing-boating/fishing-challenges/youth-fishing-challenges
-Boating &amp; Watercraft | /fishing-boating/boating-watercraft
-Aquatic Invasive Species Prevention | /fishing-boating/aquatic-invasive-species-prevention
-AIS Boating &amp; Decal Information | /fishing-boating/aquatic-invasive-species-prevention/ais-decal-information
-Purchase an AIS Decal | https://wgfapps.wyo.gov/elso/elsoaiswelcome.aspx
-AIS Inspection Locations | /fishing-boating/aquatic-invasive-species-prevention/ais-inspection-locations
-Fish Hatcheries | /fishing-boating/fish-hatcheries
-Fish of Wyoming | /fishing-boating/fish-wyoming
-Fish Consumption Advice | /fishing-boating/fish-consumption-advice
-State Record Fish | /fishing-boating/wyomings-record-fish
-Fishing in the Heat | /fishing-boating/fishing-heat
-Fishing News | /fishing-boating/fishing-news
-Private Fish Stocking | /fishing-boating/private-fish-stocking
-Fishing Contests | /fishing-boating/fishing-contests
-Live Baitfish | /fishing-boating/live-baitfish
-Stream Categorization | /aquatic-habitat/stream-categorization
-Fishing Outfitters and Guides | /fishing-boating/fishing-outfitters-and-guides
-FAQs | /fishing-boating/fishing-frequently-asked-questions
-Public Access | /public-access
-Wildlife Habitat Management Areas | /Public-Access/WHMA
-Public Access Areas | /public-access/public-access-areas
-Fire Bans on Game and Fish Land | /public-access/fire-bans-game-and-fish-land
-Hunter Landowner Assistance Program | /public-access/landowner-assistance
-Walk-In Area Rules | /public-access/walk-area-rules
-Walk-In Fishing | /Public-Access/Walk-In-Fishing
-Walk-In Hunting | /Public-Access/Walk-In-Hunting
-Hunter Management Areas | /Public-Access/Hunter-Management-Areas
-National Elk Refuge Hunting | /Public-Access/Hunter-Management-Areas/National-Elk-Refuge
-Access Yes Reports | /public-access/access-yes-reports
-Access Summary | /public-access/access-summary
-Donate to Access Yes | /public-access/donate-access-yes
-Wyoming Wildlife | /wyoming-wildlife
-Large Carnivore | /wyoming-wildlife/large-carnivore
-Bear Wise Wyoming | /wyoming-wildlife/large-carnivore/bear-wise-wyoming
-How to React in an Encounter | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/how-react-encounter
-Camping in Bear Country | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/camping-bear-country
-Hunting &amp; Fishing in Bear Country | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/hunting-fishing-bear-country
-Living in Bear Country | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/living-bear-country
-Black Bears in Wyoming | /wyoming-wildlife/large-carnivore/black-bears-wyoming
-Grizzly Bears in Wyoming | /wyoming-wildlife/large-carnivore/grizzly-bears-wyoming
-Mountain Lions in Wyoming | /wyoming-wildlife/large-carnivore/mountain-lions-wyoming
-Wolves in Wyoming | /wyoming-wildlife/large-carnivore/wolves-wyoming
-Nongame Wildlife | /wyoming-wildlife/nongame-wildlife
-Wildlife Disease and Health | /wyoming-wildlife/wildlife-disease-and-health
-Brucellosis | /wyoming-wildlife/wildlife-disease-and-health/brucellosis
-Chronic Wasting Disease | /wyoming-wildlife/wildlife-disease-and-health/chronic-wasting-disease
-Carcass Disposal | /wyoming-wildlife/wildlife-disease-and-health/chronic-wasting-disease/carcass-disposal
-Chronic Wasting Disease Testing | /wyoming-wildlife/wildlife-disease-and-health/chronic-wasting-disease/chronic-wasting-disease
-Movement Matters | /wyoming-wildlife/movement-matters
-Big Game Migration | /wyoming-wildlife/movement-matters/big-game-migration
-Wildlife Crossings | /wyoming-wildlife/movement-matters/wildlife-crossings
-Fish Passage | /wyoming-wildlife/movement-matters/fish-passage
-Urban &amp; Nuisance Wildlife | /wyoming-wildlife/urban-nuisance-wildlife
-Species in Wyoming | /wyoming-wildlife/species-profiles
-Wyoming State Wildlife Action Plan | /wyoming-wildlife/wyoming-state-wildlife-action-plan
-Wyoming Wildlife Magazine | /wyoming-wildlife/wyoming-wildlife-magazine
-Sage-Grouse Management | /wyoming-wildlife/sage-grouse-management
-Gov. Gordon&#039;s Sage-Grouse Executive Order | /wyoming-wildlife/sage-grouse-management/sage-grouse-executive-order
-Sage-Grouse Data | /wyoming-wildlife/sage-grouse-management/sage-grouse-data
-Sage-Grouse Lek Viewing Guide | /wyoming-wildlife/sage-grouse-management/sage-grouse-lek-viewing-guide
-Handbook of Biological Techniques | /wyoming-wildlife/handbook-biological-techniques
-FAQs | /wyoming-wildlife/wyoming-wildlife-faqs
-Education &amp; Camps | /education-camps
-Hunter Education | /education-camps/hunter-education
-Hunter Education Courses | /education-camps/hunter-education/hunter-education-courses
-Hunter Education Exemptions | /education-camps/hunter-education/hunter-education-exemption
-Replacement Hunter Education Card | /education-camps/hunter-education/hunter-education-cards
-Become a Hunter Education Instructor | /education-camps/hunter-education/become-hunter-education-instructor
-FAQs | /education-camps/hunter-education/hunter-education-frequently-asked-questions
-Bowhunter Education | /education-camps/bowhunter-education
-Conservation Education | /education-camps/conservation-education
-Inspire a Kid | /education-camps/conservation-education/inspire-kid
-Conservation Education in Schools | /education-camps/conservation-education/conservation-education-schools
-Conservation Crates | /education-camps/conservation-education/conservation-education-schools/conservation-crates
-Hunter Education in Schools Program | /education-camps/conservation-education/conservation-education-schools/hunter-education-schools
-Trout in the Classroom | /education-camps/conservation-education/conservation-education-schools/trout-classroom
-Project Wild | /education-camps/conservation-education/conservation-education-schools/project-wild
-National Archery in the Schools Program | /education-camps/conservation-education/conservation-education-schools/national-archery-schools
-Request a Program or Event | https://forms.monday.com/forms/4b50884227bf0076bdceaa3e82faa860?r=use1
-Camps | /education-camps/camps
-Becoming an Outdoors-Woman | /education-camps/camps/becoming-outdoors-woman
-Family Camps | /education-camps/camps/family-camp
-Youth Camps | /education-camps/camps/youth-camps
-Collegiate Programs | /education-camps/collegiate-programs
-Wyoming Collegiate Conservation Academy | /education-camps/collegiate-programs/wyoming-collegiate-conservation-academy
-Wyoming Wildlife Fellowship | /education-camps/collegiate-programs/wyoming-wildlife-fellowship
-WY Hunt Fish | /education-camps/wy-hunt-fish
-WY Hunt Fish Programs | /education-camps/wy-hunt-fish/wy-hunt-fish-programs
-Licenses &amp; Applications Overview | /licenses-applications
-Application Dates &amp; Deadlines | /licenses-applications/application-dates-deadlines
-Application Process | /licenses-applications/application-process
-Draw Results &amp; Odds | /licenses-applications/draw-results-odds
-License Fee List | /licenses-applications/license-fee-list
-Leftover Licenses | /licenses-applications/leftover-licenses
-User Account Information | /licenses-applications/user-account-information
-Governor and Commissioner Licenses | /licenses-applications/commissioner-and-governor-licenses
-Shooting Range Grant Application | /licenses-applications/shooting-range-grants
-Licensing for Veterans | /licenses-applications/licensing-veterans
-Landowner Licenses | /licenses-applications/landowner-licenses
-License Selling Agents | /licenses-applications/license-selling-agents
-Am I a Wyoming Resident | /licenses-applications/am-i-wyoming-resident
-Super Tag | /licenses-applications/wyoming-super-tag-raffle
-Permits Overview | /licenses-applications/permits
-Falconry Permits | /licenses-applications/permits/falconry-permits
-Permit Form &amp; Applications | /licenses-applications/permits/permit-forms-applications
-Possessing Wildlife | /licenses-applications/permits/possessing-wildlife
-Roadkill Collection | /licenses-applications/permits/roadkill-collection
-FAQs | /licenses-applications/licensing-and-applications-faqs
-Hunting &amp; Trapping Overview | /hunting-trapping
-What do I Need to Hunt? | /hunting-trapping/what-do-i-need-hunt
-Carcass Disposal Sites | /hunting-trapping/carcass-disposal-sites
-Hunt Planner | /HuntPlanner
-Trapping Overview | /hunting-trapping/trapping
-Recreationists | /hunting-trapping/trapping/recreationists
-Trappers | /hunting-trapping/trapping/trappers
-Harvest Reports &amp; Surveys | /hunting-trapping/harvest-reports-surveys
-Job Completion Reports | /hunting-trapping/job-completion-reports
-Preference Points | /hunting-trapping/preference-points
-Trophy Game Harvest Limits | /hunting-trapping/trophy-game-harvest-limits
-Wild Bison Hunting Information | /hunting-trapping/wild-bison-hunting-information
-FAQs | /hunting-trapping/hunting-trapping-frequently-asked-questions
-Tooth Aging | /hunting-trapping/tooth-aging
-Fishing &amp; Boating Overview | /fishing-boating
-Purchase a Fishing License | https://wgfapps.wyo.gov/elso/ELSOWelcome.aspx
-Fishing Regulations | /media/33248/download?inline=
-Places to Fish in Wyoming | /fishing-boating/places-fish-wyoming
-Fish Stocking Report | https://wgfapps.wyo.gov/FishStock/FishStock
-Fishing Challenges Overview | /fishing-boating/fishing-challenges
-Wyoming Cutt-Slam | /fishing-boating/fishing-challenges/wyoming-cutt-slam
-XStream Angler | /fishing-boating/fishing-challenges/xstream-angler
-Master Angler | /fishing-boating/fishing-challenges/master-angler
-Youth Fishing Challenges | /fishing-boating/fishing-challenges/youth-fishing-challenges
-Boating &amp; Watercraft | /fishing-boating/boating-watercraft
-Aquatic Invasive Species Prevention Overview | /fishing-boating/aquatic-invasive-species-prevention
-AIS Boating &amp; Decal Information | /fishing-boating/aquatic-invasive-species-prevention/ais-decal-information
-Purchase an AIS Decal | https://wgfapps.wyo.gov/elso/elsoaiswelcome.aspx
-AIS Inspection Locations | /fishing-boating/aquatic-invasive-species-prevention/ais-inspection-locations
-Fish Hatcheries | /fishing-boating/fish-hatcheries
-Fish of Wyoming | /fishing-boating/fish-wyoming
-Fish Consumption Advice | /fishing-boating/fish-consumption-advice
-State Record Fish | /fishing-boating/wyomings-record-fish
-Fishing in the Heat | /fishing-boating/fishing-heat
-Fishing News | /fishing-boating/fishing-news
-Private Fish Stocking | /fishing-boating/private-fish-stocking
-Fishing Contests | /fishing-boating/fishing-contests
-Live Baitfish | /fishing-boating/live-baitfish
-Stream Categorization | /aquatic-habitat/stream-categorization
-Fishing Outfitters and Guides | /fishing-boating/fishing-outfitters-and-guides
-FAQs | /fishing-boating/fishing-frequently-asked-questions
-Public Access Overview | /public-access
-Wildlife Habitat Management Areas | /Public-Access/WHMA
-Public Access Areas | /public-access/public-access-areas
-Fire Bans on Game and Fish Land | /public-access/fire-bans-game-and-fish-land
-Hunter Landowner Assistance Program | /public-access/landowner-assistance
-Walk-In Area Rules | /public-access/walk-area-rules
-Walk-In Fishing | /Public-Access/Walk-In-Fishing
-Walk-In Hunting | /Public-Access/Walk-In-Hunting
-Hunter Management Areas | /Public-Access/Hunter-Management-Areas
-National Elk Refuge Hunting | /Public-Access/Hunter-Management-Areas/National-Elk-Refuge
-Access Yes Reports | /public-access/access-yes-reports
-Access Summary | /public-access/access-summary
-Donate to Access Yes | /public-access/donate-access-yes
-Wyoming Wildlife Overview | /wyoming-wildlife
-Large Carnivore Overview | /wyoming-wildlife/large-carnivore
-Bear Wise Wyoming Overview | /wyoming-wildlife/large-carnivore/bear-wise-wyoming
-How to React in an Encounter | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/how-react-encounter
-Camping in Bear Country | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/camping-bear-country
-Hunting &amp; Fishing in Bear Country | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/hunting-fishing-bear-country
-Living in Bear Country | /wyoming-wildlife/large-carnivore/bear-wise-wyoming/living-bear-country
-Black Bears in Wyoming | /wyoming-wildlife/large-carnivore/black-bears-wyoming
-Grizzly Bears in Wyoming | /wyoming-wildlife/large-carnivore/grizzly-bears-wyoming
-Mountain Lions in Wyoming | /wyoming-wildlife/large-carnivore/mountain-lions-wyoming
-Wolves in Wyoming | /wyoming-wildlife/large-carnivore/wolves-wyoming
-Nongame Wildlife | /wyoming-wildlife/nongame-wildlife
-Wildlife Disease and Health Overview | /wyoming-wildlife/wildlife-disease-and-health
-Brucellosis | /wyoming-wildlife/wildlife-disease-and-health/brucellosis
-Chronic Wasting Disease Overview | /wyoming-wildlife/wildlife-disease-and-health/chronic-wasting-disease
-Carcass Disposal | /wyoming-wildlife/wildlife-disease-and-health/chronic-wasting-disease/carcass-disposal
-Chronic Wasting Disease Testing | /wyoming-wildlife/wildlife-disease-and-health/chronic-wasting-disease/chronic-wasting-disease
-Movement Matters Overview | /wyoming-wildlife/movement-matters
-Big Game Migration | /wyoming-wildlife/movement-matters/big-game-migration
-Wildlife Crossings | /wyoming-wildlife/movement-matters/wildlife-crossings
-Fish Passage | /wyoming-wildlife/movement-matters/fish-passage
-Urban &amp; Nuisance Wildlife | /wyoming-wildlife/urban-nuisance-wildlife
-Species in Wyoming | /wyoming-wildlife/species-profiles
-Wyoming State Wildlife Action Plan | /wyoming-wildlife/wyoming-state-wildlife-action-plan
-Wyoming Wildlife Magazine | /wyoming-wildlife/wyoming-wildlife-magazine
-Sage-Grouse Management Overview | /wyoming-wildlife/sage-grouse-management
-Gov. Gordon&#039;s Sage-Grouse Executive Order | /wyoming-wildlife/sage-grouse-management/sage-grouse-executive-order
-Sage-Grouse Data | /wyoming-wildlife/sage-grouse-management/sage-grouse-data
-Sage-Grouse Lek Viewing Guide | /wyoming-wildlife/sage-grouse-management/sage-grouse-lek-viewing-guide
-Handbook of Biological Techniques | /wyoming-wildlife/handbook-biological-techniques
-FAQs | /wyoming-wildlife/wyoming-wildlife-faqs
-Education &amp; Camps Overview | /education-camps
-Hunter Education Overview | /education-camps/hunter-education
-Hunter Education Courses | /education-camps/hunter-education/hunter-education-courses
-Hunter Education Exemptions | /education-camps/hunter-education/hunter-education-exemption
-Replacement Hunter Education Card | /education-camps/hunter-education/hunter-education-cards
-Become a Hunter Education Instructor | /education-camps/hunter-education/become-hunter-education-instructor
-FAQs | /education-camps/hunter-education/hunter-education-frequently-asked-questions
-Bowhunter Education | /education-camps/bowhunter-education
-Conservation Education Overview | /education-camps/conservation-education
-Inspire a Kid | /education-camps/conservation-education/inspire-kid
-Conservation Education in Schools Overview | /education-camps/conservation-education/conservation-education-schools
-Conservation Crates | /education-camps/conservation-education/conservation-education-schools/conservation-crates
-Hunter Education in Schools Program | /education-camps/conservation-education/conservation-education-schools/hunter-education-schools
-Trout in the Classroom | /education-camps/conservation-education/conservation-education-schools/trout-classroom
-Project Wild | /education-camps/conservation-education/conservation-education-schools/project-wild
-National Archery in the Schools Program | /education-camps/conservation-education/conservation-education-schools/national-archery-schools
-Request a Program or Event | https://forms.monday.com/forms/4b50884227bf0076bdceaa3e82faa860?r=use1
-Camps Overview | /education-camps/camps
-Becoming an Outdoors-Woman | /education-camps/camps/becoming-outdoors-woman
-Family Camps | /education-camps/camps/family-camp
-Youth Camps | /education-camps/camps/youth-camps
-Collegiate Programs Overview | /education-camps/collegiate-programs
-Wyoming Collegiate Conservation Academy | /education-camps/collegiate-programs/wyoming-collegiate-conservation-academy
-Wyoming Wildlife Fellowship | /education-camps/collegiate-programs/wyoming-wildlife-fellowship
-WY Hunt Fish Overview | /education-camps/wy-hunt-fish
-WY Hunt Fish Programs | /education-camps/wy-hunt-fish/wy-hunt-fish-programs
-News &amp; Events | /news-events
-Regional Information Overview | /regional-information
-Casper Region | /regional-information/casper
-Cody Region | /regional-information/cody
-Green River Region | /regional-information/green-river
-Jackson Region | /regional-information/jackson
-Lander Region | /regional-information/lander
-Laramie Region | /regional-information/laramie
-Pinedale Region | /regional-information/pinedale
-Sheridan Region | /regional-information/sheridan
-Regulations | /regulations
-Get Involved Overview | /get-involved
-Public Input Overview | /get-involved/public-input
-Commission | /wyoming-game-and-fish-commission
-Season Setting | /get-involved/public-input/season-setting
-Volunteer | /get-involved/volunteer
-Public Working Groups | /get-involved/public-working-groups
-Contests &amp; Awards Overview | /get-involved/contests-and-awards
-Conservation Stamp Art Show | /get-involved/contests-awards/conservation-stamp-art-show-winners
-Hall of Fame | /get-involved/contests-awards/wyoming-outdoor-hall-fame
-Landowner of the Year | /get-involved/contests-awards/landowner-year
-Photo Contests | /wyoming-wildlife/wyoming-wildlife-magazine/photo-contests
-Raffles Overview | /get-involved/raffles
-Gov Wild Bison Raffle | /get-involved/raffles/gov-wild-bison-license-raffle
-Super Tag Raffle | /licenses-applications/wyoming-super-tag-raffle
-Home | /
-Licenses &amp; Applications | /licenses-applications
-View draw results | https://gfdrawresults.wyo.gov/frmSearch.aspx
-Nonresident | /media/33870/download?inline
-Nonresident Special | /media/33872/download?inline
-Resident | /media/33874/download?inline
-Nonresident | /media/33869/download?inline
-Nonresident Special | /media/33871/download?inline
-Nonresident | /media/33864/download?inline
-Resident | /media/33866/download?inline
-Nonresident Preference Point | /media/33867/download?inline
-Nonresident Doe/Fawn | /media/33863/download?inline
-Nonresident Random | /media/33868/download?inline
-Resident Doe/Fawn | /media/33865/download?inline
-Resident | /media/33873/download?inline
-Nonresident | /media/33883/download?inline
-Nonresident Special | /media/33885/download?inline
-Resident | /media/33886/download?inline
-Nonresident | /media/33882/download?inline
-Nonresident Special | /media/33884/download?inline
-Nonresident | /media/33877/download?inline
-Resident | /media/33879/download?inline
-Nonresident Preference Point | /media/33880/download?inline
-Nonresident Doe/Fawn | /media/33876/download?inline
-Nonresident Random | /media/33881/download?inline
-Resident Doe/Fawn | /media/33878/download?inline
-Resident | /media/33875/download?inline
-Nonresident | /media/33779/download?inline
-Nonresident Special | /media/33778/download?inline
-Resident | /media/33894/download?inline
-Nonresident | /media/33777/download?inline
-Nonresident Special | /media/33776/download?inline
-Nonresident | /media/33772/download?inline
-Resident | /media/33892/download?inline
-Nonresident Preference Point | /media/33774/download?inline
-Nonresident Cow/Calf | /media/33773/download?inline
-Nonresident Random | /media/33775/download?inline
-Resident Cow/Calf | /media/33891/download?inline
-Resident | /media/33893/download?inline
-Nonresident | /media/33784/download?inline
-Resident | /media/33785/download?inline
-Nonresident | /media/33782/download?inline
-Resident | /media/33783/download?inline
-Nonresident | /media/33781/download?inline
-Resident | /media/33780/download?inline
-Nonresident | /media/33790/download?inline
-Resident | /media/33791/download?inline
-Nonresident | /media/33788/download?inline
-Resident | /media/33789/download?inline
-Nonresident | /media/33786/download?inline
-Resident | /media/33787/download?inline
-Nonresident | /media/33794/download?inline
-Resident | /media/33795/download?inline
-Nonresident | /media/33792/download?inline
-Resident | /media/33793/download?inline
-Nonresident | /media/33985/download?inline
-Resident | /media/33986/download?inline
-Nonresident | /media/33450/download?inline
-Resident | /media/33449/download?inline
-Nonresident | /media/33888/download?inline
-Resident | /media/33890/download?inline
-Nonresident Landowner | /media/33887/download?inline
-Resident Landowner | /media/33889/download?inline
-All | /media/33984/download?inline
-Nonresident | /media/33987/download?inline
-Resident | /media/33988/download?inline
-Nonresident | /media/32690/download?inline
-Nonresident Special | /media/32692/download?inline
-Resident | /media/32694/download?inline
-Nonresident | /media/32689/download?inline
-Nonresident Special | /media/32691/download?inline
-Nonresident | /media/32693/download?inline
-Resident | /media/32696/download?inline
-Nonresident Preference Point | /media/32682/download?inline
-Nonresident Doe/Fawn | /media/32684/download?inline
-Nonresident Random | /media/32683/download?inline
-Resident Doe/Fawn | /media/32687/download?inline
+
+----- PAGE 1 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Random Wyoming Game and Fish Time: 3:32:07 PM
+Fiscal Division Page: 69
+Hunt Hunt Total First Choice Second Choice Third Choice
+Area Type Description Quota Applicants Applicants Applicants
+---- ---- ----------------------- ----- ------------- ------------- -------------
+001 1 ANY ELK 1 375 61 21
+001 4 ANTLERLESS ELK 2 13 28 6
+006 1 ANY ELK 0 48 18 30
+006 4 ANTLERLESS ELK 1 0 3 1
+007 1 ANY ELK 23 1006 171 76
+007 2 ANY ELK 11 73 88 17
+008 1 ANY ELK 3 23 7 13
+011 1 ANY ELK 2 124 46 25
+011 2 LIMITED QUOTA, ANY E 2 41 8 10
+011 4 ANTLERLESS ELK 3 16 26 11
+011 9 ANY ELK, ARCHERY ONL 1 52 14 19
+016 1 ANY ELK 3 591 151 75
+016 2 ANY ELK 3 421 77 24
+016 4 ANTLERLESS ELK 10 26 19 4
+019 1 ANY ELK 2 114 49 42
+019 2 ANY ELK 4 64 13 10
+019 4 ANTLERLESS ELK 5 0 9 5
+019 5 ANTLERLESS ELK 5 0 13 3
+022 1 ANY ELK; 1 190 63 36
+022 2 ANTLERED ELK 0 15 13 4
+023 1 ANY ELK; 3 143 21 22
+023 4 ANTLERLESS ELK; 8 0 24 4
+023 9 ANY ELK ARCHERY 1 18 7 4
+024 1 ANY ELK 2 169 46 53
+024 4 ANTLERLESS ELK; 2 22 14 0
+024 5 ANTLERLESS ELK; 6 9 11 5
+025 1 ANY ELK 4 189 39 21
+025 4 ANTLERLESS ELK 4 8 10 6
+025 5 ANTLERLESS ELK 2 0 22 3
+027 4 ANTLERLESS ELK 3 10 2 4
+028 4 ANTLERLESS ELK 6 0 18 11
+030 1 ANY ELK 0 69 54 47
+030 4 ANTLERLESS ELK 2 25 18 4
+031 1 ANY ELK 0 44 59 32
+031 4 ANTLERLESS ELK 1 24 11 4
+032 1 ANY ELK 0 72 54 47
+032 4 ANTLERLESS ELK 3 41 29 12
+033 1 ANY ELK 4 56 16 19
+033 4 ANTLERLESS ELK 4 0 9 1
+034 1 ANY ELK 17 166 40 20
+
+----- PAGE 2 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Random Wyoming Game and Fish Time: 3:32:09 PM
+Fiscal Division Page: 70
+Hunt Hunt Total First Choice Second Choice Third Choice
+Area Type Description Quota Applicants Applicants Applicants
+---- ---- ----------------------- ----- ------------- ------------- -------------
+035 1 ANY ELK 3 66 46 25
+035 4 ANTLERLESS ELK 6 0 19 9
+035 9 ANY ELK, ARCHERY ONL 1 48 26 22
+036 4 ANTLERLESS ELK 11 0 18 8
+036 9 ANY ELK, ARCHERY ONL 1 14 28 29
+037 9 ANY ELK, ARCHERY ONL 3 87 56 38
+038 1 ANY ELK 9 360 130 66
+038 4 ANTLERLESS ELK 19 53 54 12
+038 9 ANY ELK, ARCHERY ONL 6 413 103 53
+039 1 ANY ELK 4 158 74 35
+039 4 ANTLERLESS ELK 5 20 23 14
+039 9 ANY ELK, ARCHERY ONL 2 82 51 28
+040 1 ANY ELK 3 131 51 36
+040 4 ANTLERLESS ELK 5 0 36 17
+040 9 ANY ELK, ARCHERY ONL 1 34 20 31
+041 1 ANY ELK 5 122 65 37
+041 2 ANY ELK 1 38 7 11
+041 3 ANY ELK 0 7 3 5
+041 4 ANTLERLESS ELK 14 0 30 9
+041 9 ANY ELK, ARCHERY ONL 2 68 16 18
+045 1 ANY ELK 7 203 66 55
+045 4 ANTLERLESS ELK 9 17 19 7
+045 5 ANTLERLESS ELK 7 22 8 3
+045 9 ANY ELK, ARCHERY ONL 4 103 46 29
+047 1 ANY ELK 2 30 3 7
+048 1 ANY ELK 9 66 25 11
+048 4 ANTLERLESS ELK 5 0 7 2
+049 1 ANY ELK 5 87 14 7
+049 4 ANTLERLESS ELK 4 0 5 1
+051 1 ANY ELK SOUTH AND WE 2 328 68 23
+051 2 ANY ELK NORTH AND EA 0 22 10 6
+051 4 ANTLERLESS ELK 1 27 1 2
+051 9 ANY ELK, ARCHERY ONL 1 32 12 5
+054 1 ANY ELK 0 67 37 24
+054 2 ANY ELK 0 15 6 3
+054 3 ANY ELK 0 20 10 5
+054 9 ANY ELK, ARCHERY ONL 0 28 16 16
+055 1 ANY ELK 1 61 21 18
+055 9 ANY ELK, ARCHERY ONL 0 5 4 3
+056 1 ANY ELK; 0 41 24 30
+
+----- PAGE 3 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Random Wyoming Game and Fish Time: 3:32:11 PM
+Fiscal Division Page: 71
+Hunt Hunt Total First Choice Second Choice Third Choice
+Area Type Description Quota Applicants Applicants Applicants
+---- ---- ----------------------- ----- ------------- ------------- -------------
+056 9 ANY ELK, ARCHERY ONL 0 7 7 7
+058 1 ANY ELK 0 39 21 12
+059 1 ANY ELK 0 32 23 16
+059 9 ANY ELK, ARCHERY ONL 0 4 12 7
+060 9 ANY ELK, ARCHERY ONL 0 22 12 12
+061 1 ANY ELK 3 96 25 36
+061 2 ANY ELK 0 28 5 8
+061 4 ANTLERLESS ELK 4 0 16 2
+061 9 ANY ELK, ARCHERY ONL 0 10 5 3
+062 1 ANY ELK 2 167 44 19
+062 4 ANTLERLESS ELK 3 3 7 0
+062 5 ANTLERLESS ELK 6 7 1 6
+063 1 ANY ELK 2 215 32 29
+063 2 ANY ELK 0 10 7 2
+063 3 ANY ELK 1 102 10 22
+063 4 ANTLERLESS ELK 3 3 7 4
+065 1 ANY ELK 0 8 15 11
+065 4 ANTLERLESS ELK 3 0 3 0
+067 4 ANTLERLESS ELK 18 0 29 14
+067 9 ANY ELK, ARCHERY ONL 3 78 48 31
+075 4 ANTLERLESS ELK; THE 0 2 0 4
+078 1 ANY ELK 1 16 7 9
+078 2 ANY ELK 1 4 1 0
+082 4 ANTLERLESS ELK 1 0 2 9
+084 1 ANY ELK 2 39 40 18
+087 1 ANTLERED ELK 0 19 33 15
+088 1 ANY ELK 0 19 9 15
+091 1 ANY ELK 1 42 33 25
+093 1 ANY ELK 4 72 26 20
+095 1 ANY ELK 5 128 37 22
+095 2 ANY ELK 0 11 12 3
+095 4 ANTLERLESS ELK 5 0 35 4
+095 5 ANTLERLESS ELK 1 0 2 5
+096 1 ANY ELK 8 50 24 25
+096 4 ANTLERLESS ELK 6 0 10 1
+097 1 ANY ELK 6 37 37 20
+098 1 ANY ELK 8 109 40 32
+098 4 ANTLERLESS ELK 5 0 7 10
+099 1 ANY ELK 3 71 35 22
+099 4 ANTLERLESS ELK 6 3 16 3
+
+----- PAGE 4 TEXT -----
+Demand Report - Non-Resident Elk State of Wyoming Date: 5/19/2026
+Nonresident Random Wyoming Game and Fish Time: 3:32:13 PM
+Fiscal Division Page: 72
+Hunt Hunt Total First Choice Second Choice Third Choice
+Area Type Description Quota Applicants Applicants Applicants
+---- ---- ----------------------- ----- ------------- ------------- -------------
+100 1 ANY ELK 3 910 248 95
+100 2 ANY ELK 2 51 30 11
+100 4 ANTLERLESS ELK 1 39 24 29
+100 5 ANTLERLESS ELK 2 39 11 6
+106 1 ANY ELK 1 34 10 9
+106 4 ANTLERLESS ELK 6 0 8 2
+107 4 ANTLERLESS ELK 7 0 19 10
+108 1 ANY ELK 2 49 17 7
+108 4 ANTLERLESS ELK 3 0 8 0
+111 1 ANY ELK 0 62 28 29
+111 2 ANTELERED ELK FIVE 0 26 25 14
+111 4 ANTLERLESS ELK 5 0 22 4
+113 1 ANY ELK 0 144 23 18
+113 3 SPIKE OR ANTLERLESS 4 24 16 3
+116 1 ANY ELK 2 99 41 27
+117 1 ANY ELK 8 219 80 39
+117 3 SPIKE OR ANTLERLESS 13 0 42 19
+118 1 ANTLERED ELK 1 16 12 12
+118 4 ANTLERLESS ELK 2 0 5 2
+120 1 ANY ELK 3 126 57 21
+120 4 ANTLERLESS ELK 3 2 26 5
+122 1 ANY ELK 3 44 6 9
+122 2 ANTLERED ELK FIVE (5 5 38 21 2
+123 1 ANY ELK 2 102 26 15
+123 4 ANTLERLESS ELK 4 0 11 1
+124 1 ANY ELK 0 443 126 63
+124 2 ANTLERED ELK 1 22 4 0
+124 4 ANTLERLESS ELK 7 37 27 14
+125 1 ANY ELK 5 58 21 14
+E REGION E GENERAL 161 528 266 347
+S REGION S GENERAL 152 2221 643 254
+W REGION W GENERAL 402 4444 543 275

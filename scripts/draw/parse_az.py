@@ -174,8 +174,10 @@ def year_rec(y, num, m, dr12, drbp, bpr, bad):
 
 def parse():
     paths = [p for d in FILES.values() for ps in d.values() for p in ps]
+    import importlib  # parse_all loads this file without registering it; workers need an importable function
+    worker = importlib.import_module("parse_az").text_of
     with ProcessPoolExecutor(max_workers=4) as ex:
-        texts = dict(ex.map(text_of, paths))
+        texts = dict(ex.map(worker, paths))
     bad, sources, per_year = [], [], {}
     for y, d in FILES.items():
         meta, dr12, drbp, bpr = {}, {}, {}, {}

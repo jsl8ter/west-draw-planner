@@ -113,7 +113,10 @@ def fetch_layer(cfg):
                 v = p.get(field)
                 if isinstance(v, float) and v.is_integer():
                     v = int(v)
-                out.append({"type": "Feature", "properties": {"unit": "" if v is None else str(v).strip()},
+                props = {"unit": "" if v is None else str(v).strip()}
+                if cfg.get("alt_field") and p.get(cfg["alt_field"]) is not None:
+                    props["alt"] = str(p.get(cfg["alt_field"])).strip()
+                out.append({"type": "Feature", "properties": props,
                             "geometry": {"type": g["type"], "coordinates": round_coords(g["coordinates"])}})
             fc = {"type": "FeatureCollection", "features": out}
             path = os.path.join(OUT, f"{cfg['id']}.geojson")

@@ -170,7 +170,8 @@
    "urls": [
     "https://nrimp.dfw.state.or.us/arcgis/rest/services/ORHAM/ODFW_Eastern_Oregon_Deer_Hunt_Areas/FeatureServer/0",
     "https://nrimp.dfw.state.or.us/arcgis/rest/services/ORHAM/ODFW_Eastern_Oregon_Deer_Hunt_Areas/MapServer/0"
-   ]
+   ],
+   "alt_field": "HerdRange"
   }
  ],
  "discover": [

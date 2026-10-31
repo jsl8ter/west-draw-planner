@@ -1,17 +1,332 @@
-URL: https://cpw.widen.net/s/tjxqdksqj8/postdrawnoutreport_prong-26_05211026_1011
-FINAL: https://cpw.widen.net/s/tjxqdksqj8/postdrawnoutreport_prong-26_05211026_1011
-TYPE: text/html
-DISPOSITION: 
-BYTES: 24683
+URL: https://cpw.widen.net/content/nbfyuz6lzj/original/PostDrawnOutReport_PRONG-26_05212026_1011.pdf?u=qdpcdt&download=true
+FINAL: https://cf-store.widencdn.net/cpw/2/4/e/24e7b109-7e0d-4074-8a84-94d3e5b9bd65.pdf?response-content-disposition=attachment%3B%20filename%3D%22PostDrawnOutReport_PRONG-26_05212026_1011.pdf%22&response-content-type=application%2Fpdf&Expires=1793479557&Signature=BpKv9q2C-ZZMH-dJ6k0JcK~rNgza1lK4oren6z9UJoVW98apT~zxcbNg~472XwS8vOB9wVp4YJ4OAz1h2MklIbl4MIrZgfvOjunCxXV1s11gtQ8LMzPR-DHc-eSIZaTqTGWPMg1bw5XJvpGB~9FKw-yiihkcV~SLGr7zS7DTy5KzB4dQMtZ~HFY7dZ9Ylgwn8ED8Z4qnCkD5Di-TfGcGPB-RpUDZv5pKvtAHtteoHEYQBzM-HbZAKj7fK3mq~undaYSPiuSUJikE42hmRSLfXep9eSet9R4vf6Jb0suTw3zq0Utd2K31xtzlUGBr8p5-opxsx0qstF7rqR~x~XCyCQ__&Key-Pair-Id=APKAJD5XONOBVWWOA65A
+TYPE: application/pdf
+DISPOSITION: attachment; filename="PostDrawnOutReport_PRONG-26_05212026_1011.pdf"
+BYTES: 701613
 
-HTML TEXT:
- PostDrawnOutReport_PRONG-26_05212026_1011.pdf Thumbnails Document Outline Attachments Layers Current Outline Item Previous Next Highlight All Match Case Match Diacritics Whole Words Presentation Mode Open Print Download Current View Go to First Page Go to Last Page Rotate Clockwise Rotate Counterclockwise Text Selection Tool Hand Tool Page Scrolling Vertical Scrolling Horizontal Scrolling Wrapped Scrolling No Spreads Odd Spreads Even Spreads Document Properties… Toggle Sidebar Find Previous Next Presentation Mode Open Print Download Download Current View Tools Zoom Out Zoom In Automatic Zoom Actual Size Page Fit Page Width 50% 75% 100% 125% 150% 200% 300% 400% More Information Less Information Close Enter the password to open this PDF file: Cancel OK File name: - File size: - Title: - Author: - Subject: - Keywords: - Creation Date: - Modification Date: - Creator: - PDF Producer: - PDF Version: - Page Count: - Page Size: - Fast Web View: - Close Preparing document for printing… 0% Cancel 
+PDF PAGES: 26
 
-LINKS:
- | /favicon.ico?customer=cpw
- | /vendor/pdfjs2/web/viewer.css?v=73dc5ccb
- | /css/pdf-pdfjs2.css?v=73dc5ccb
- | /vendor/pdfjs2/web/locale/locale.properties?v=73dc5ccb
- | #
- | /content/nbfyuz6lzj/original/PostDrawnOutReport_PRONG-26_05212026_1011.pdf?u=qdpcdt&amp;download=true
- | #
+
+----- PAGE 1 TEXT -----
+The State of Colorado is committed to providing equitable access to our services to all. Please contact our Colorado Parks and Wildlife Accessibility
+Specialist (accessdnr@state.co.us or Digital Accommodation Request Form) for personalized accessibility assistance using this PDF. We will
+contact you directly within two business days. Visit our accessibility webpage for more information and services, including AIRA, our free service for
+blind and low-vision users.
+Colorado Parks and Wildlife Drawn Out
+Drawn Out At Report 5/21/2026 10:11:46 AM
+2026 Primary PRONGHORN
+Page 1 of 26
+Adult Youth Landowner
+Hunt Code List Res NonRes Res NonRes Unrestricted Restricted
+30 Pref None
+Drawn Out At No Apps No Apps N/A N/A
+Points Drawn
+A
+AE006W1R
+# Drawn at Final Level 1 of 1 N/A N/A N/A N/A N/A
+7 Pref None
+Drawn Out At No Apps No Apps No Apps No Apps
+Points Drawn
+A
+AE030O1A
+# Drawn at Final Level 4 of 4 N/A N/A N/A N/A N/A
+27 Pref None
+Drawn Out At No Apps No Apps N/A N/A
+Points Drawn
+A
+AE104W1R
+# Drawn at Final Level 1 of 2 N/A N/A N/A N/A N/A
+24 Pref None
+Drawn Out At No Apps No Apps N/A N/A
+Points Drawn
+A
+AE211W1R
+# Drawn at Final Level 1 of 2 N/A N/A N/A N/A N/A
+1 Pref None
+Drawn Out At Choice 2 No Apps Choice 3 None Drawn
+Points Drawn
+A
+AF001O1M
+# Drawn at Final Level 1 of 2 N/A 1 of 2 N/A 1 of 1 N/A
+None Leftover
+Drawn Out At Choice 2 Choice 2 No Apps Choice 2
+Drawn Choice 3
+A
+AF006O1A
+# Drawn at Final Level 8 of 83 N/A 2 of 3 N/A 3 of 4 1 of 2
+0 Pref 0 Pref Leftover Leftover
+Drawn Out At Choice 2 No Apps
+Points Points Choice 3 Choice 3
+A
+AF006O1M
+# Drawn at Final Level 13 of 49 1 of 2 2 of 11 N/A 1 of 7 4 of 5
+3 Pref None 3 Pref
+Drawn Out At No Apps Choice 2 None Drawn
+Points Drawn Points
+A
+AF006O1R
+# Drawn at Final Level 3 of 23 N/A 3 of 5 N/A 1 of 2 N/A
+3 Pref 4 Pref 1 Pref 2 Pref Leftover
+Drawn Out At Choice 2
+Points Points Points Points Choice 2
+A
+AF006O2R
+# Drawn at Final Level 3 of 40 1 of 1 1 of 6 1 of 1 6 of 17 1 of 5
+7 Pref None
+Drawn Out At No Apps No Apps N/A N/A
+Points Drawn
+A
+AF006W1R
+# Drawn at Final Level 4 of 4 N/A N/A N/A N/A N/A
+0 Pref None
+Drawn Out At Choice 2 No Apps No Apps No Apps
+Points Drawn
+A
+AF007O1M
+# Drawn at Final Level 2 of 17 N/A 1 of 1 N/A N/A N/A
+1 Pref None
+Drawn Out At Choice 2 No Apps 5 Pref Points None Drawn
+Points Drawn
+A
+AF007O1R
+# Drawn at Final Level 3 of 4 N/A 1 of 5 N/A 1 of 1 N/A
+* Hunts shaded gray and all bighorn sheep, mountain goat and moose hunts will initially be manually reissued for the year of the report.
+For more information, see 'License Refund, Reissue and Exchange' at http://cpw.state.co.us
+
+----- PAGE 2 TEXT -----
+Colorado Parks and Wildlife Drawn Out
+Drawn Out At Report 5/21/2026 10:11:46 AM
+2026 Primary PRONGHORN
+Page 2 of 26
+Adult Youth Landowner
+Hunt Code List Res NonRes Res NonRes Unrestricted Restricted
+Drawn Out At Leftover Leftover Leftover Leftover Choice 2 None Drawn
+B
+AF007P1R
+# Drawn at Final Level N/A N/A N/A N/A 1 of 1 N/A
+0 Pref 1 Pref
+Drawn Out At No Apps No Apps 3 Pref Points None Drawn
+Points Points
+A
+AF008O1R
+# Drawn at Final Level 5 of 12 N/A 1 of 1 N/A 1 of 1 N/A
+0 Pref
+Drawn Out At Choice 2 No Apps No Apps 0 Pref Points None Drawn
+Points
+B
+AF008P1R
+# Drawn at Final Level 5 of 20 N/A 3 of 3 N/A 1 of 1 N/A
+0 Pref None 0 Pref Leftover
+Drawn Out At No Apps Choice 2
+Points Drawn Points Choice 1
+A
+AF009L1R
+# Drawn at Final Level 17 of 64 N/A 14 of 17 N/A 7 of 25 4 of 5
+Drawn Out At Leftover Leftover Leftover Leftover None Drawn No Apps
+A
+AF009O1M
+# Drawn at Final Level N/A N/A N/A N/A N/A N/A
+0 Pref None
+Drawn Out At Choice 2 No Apps 0 Pref Points 0 Pref Points
+Points Drawn
+B
+AF009P1R
+# Drawn at Final Level 14 of 24 N/A 3 of 12 N/A 2 of 5 3 of 5
+2 Pref None
+Drawn Out At No Apps No Apps None Drawn None Drawn
+Points Drawn
+A
+AF011O1A
+# Drawn at Final Level 5 of 6 N/A N/A N/A N/A N/A
+2 Pref 3 Pref
+Drawn Out At No Apps No Apps None Drawn None Drawn
+Points Points
+A
+AF011O1M
+# Drawn at Final Level 3 of 3 N/A 1 of 1 N/A N/A N/A
+6 Pref None 3 Pref
+Drawn Out At No Apps 2 Pref Points 1 Pref Points
+Points Drawn Points
+A
+AF011O1R
+# Drawn at Final Level 1 of 6 N/A 1 of 2 N/A 1 of 1 1 of 1
+6 Pref None
+Drawn Out At No Apps No Apps N/A N/A
+Points Drawn
+A
+AF011W2R
+# Drawn at Final Level 1 of 2 N/A N/A N/A N/A N/A
+Drawn Out At Leftover Leftover Leftover Leftover No Apps No Apps
+A
+AF012O1A
+# Drawn at Final Level N/A N/A N/A N/A N/A N/A
+0 Pref
+Drawn Out At No Apps Choice 2 No Apps No Apps No Apps
+Points
+A
+AF012O1M
+# Drawn at Final Level 4 of 4 N/A 1 of 1 N/A N/A N/A
+* Hunts shaded gray and all bighorn sheep, mountain goat and moose hunts will initially be manually reissued for the year of the report.
+For more information, see 'License Refund, Reissue and Exchange' at http://cpw.state.co.us
+
+----- PAGE 3 TEXT -----
+Colorado Parks and Wildlife Drawn Out
+Drawn Out At Report 5/21/2026 10:11:46 AM
+2026 Primary PRONGHORN
+Page 3 of 26
+Adult Youth Landowner
+Hunt Code List Res NonRes Res NonRes Unrestricted Restricted
+4 Pref None 0 Pref
+Drawn Out At No Apps 3 Pref Points 0 Pref Points
+Points Drawn Points
+A
+AF012O1R
+# Drawn at Final Level 4 of 5 N/A 1 of 8 N/A 1 of 1 1 of 2
+Drawn Out At Leftover Leftover Leftover Leftover Choice 2 Choice 2
+B
+AF012P5R
+# Drawn at Final Level N/A N/A N/A N/A 2 of 8 2 of 8
+Leftover
+Drawn Out At Choice 4 Choice 4 No Apps No Apps None Drawn
+Choice 1
+A
+AF015O1M
+# Drawn at Final Level 1 of 1 1 of 1 N/A N/A 1 of 1 N/A
+0 Pref None
+Drawn Out At Choice 2 No Apps 0 Pref Points 0 Pref Points
+Points Drawn
+A
+AF015O1R
+# Drawn at Final Level 3 of 8 N/A 1 of 7 N/A 1 of 2 1 of 2
+0 Pref
+Drawn Out At Choice 3 No Apps No Apps 1 Pref Points 1 Pref Points
+Points
+B
+AF015P5R
+# Drawn at Final Level 1 of 6 N/A 1 of 1 N/A 1 of 2 1 of 2
+3 Pref 3 Pref 2 Pref
+Drawn Out At No Apps 1 Pref Points Choice 2
+Points Points Points
+A
+AF016O1R
+# Drawn at Final Level 13 of 22 1 of 1 3 of 4 N/A 1 of 1 2 of 5
+Leftover
+Drawn Out At Leftover Leftover Leftover Leftover Choice 4
+Choice 3
+A
+AF018O1A
+# Drawn at Final Level N/A N/A N/A N/A 3 of 4 2 of 5
+None Leftover Leftover
+Drawn Out At Choice 3 No Apps Choice 3
+Drawn Choice 2 Choice 3
+A
+AF018O1M
+# Drawn at Final Level 2 of 18 N/A 1 of 2 N/A 1 of 2 3 of 3
+1 Pref 2 Pref Leftover
+Drawn Out At Choice 2 No Apps Choice 2
+Points Points Choice 1
+A
+AF018O1R
+# Drawn at Final Level 50 of 53 1 of 1 5 of 19 N/A 7 of 10 6 of 8
+Drawn Out At Leftover Leftover Leftover Leftover Choice 2 Choice 4
+B
+AF018P5R
+# Drawn at Final Level N/A N/A N/A N/A 4 of 7 1 of 7
+Drawn Out At Choice 4 No Apps Choice 3 No Apps 1 Pref Points None Drawn
+A
+AF048O1A
+# Drawn at Final Level 1 of 6 N/A 1 of 1 N/A 1 of 1 N/A
+3 Pref Leftover
+Drawn Out At Choice 2 No Apps No Apps No Apps
+Points Choice 1
+A
+AF048O1M
+# Drawn at Final Level 10 of 15 N/A 1 of 1 N/A 1 of 1 N/A
+* Hunts shaded gray and all bighorn sheep, mountain goat and moose hunts will initially be manually reissued for the year of the report.
+For more information, see 'License Refund, Reissue and Exchange' at http://cpw.state.co.us
+
+----- PAGE 26 TEXT -----
+Colorado Parks and Wildlife Drawn Out
+Drawn Out At Report 5/21/2026 10:11:46 AM
+2026 Primary PRONGHORN
+Page 26 of 26
+Adult Youth Landowner
+Hunt Code List Res NonRes Res NonRes Unrestricted Restricted
+20 Pref None None None
+Drawn Out At None Drawn None Drawn
+Points Drawn Drawn Drawn
+A
+AM551O1R
+# Drawn at Final Level 1 of 1 N/A N/A N/A N/A N/A
+3 Pref 3 Pref None None
+Drawn Out At 4 Pref Points 3 Pref Points
+Points Points Drawn Drawn
+A
+AM951O1R
+# Drawn at Final Level 5 of 23 2 of 2 N/A N/A 1 of 12 2 of 10
+None None None None
+Drawn Out At None Drawn None Drawn
+Drawn Drawn Drawn Drawn
+A
+AP99999P
+# Drawn at Final Level N/A N/A N/A N/A N/A N/A
+* Hunts shaded gray and all bighorn sheep, mountain goat and moose hunts will initially be manually reissued for the year of the report.
+For more information, see 'License Refund, Reissue and Exchange' at http://cpw.state.co.us
+
+----- PAGE 1 TABLE -----
+None | None | None | Adult | None | Youth | None | Landowner | None
+Hunt Code | List |  | Res | NonRes | Res | NonRes | Unrestricted | Restricted
+AE006W1R | A | Drawn Out At | 30 Pref
+Points | No Apps | None
+Drawn | No Apps | N/A | N/A
+None | None | # Drawn at Final Level | 1 of 1 | N/A | N/A | N/A | N/A | N/A
+AE030O1A | A | Drawn Out At | 7 Pref
+Points | No Apps | None
+Drawn | No Apps | No Apps | No Apps
+None | None | # Drawn at Final Level | 4 of 4 | N/A | N/A | N/A | N/A | N/A
+AE104W1R | A | Drawn Out At | 27 Pref
+Points | No Apps | None
+Drawn | No Apps | N/A | N/A
+None | None | # Drawn at Final Level | 1 of 2 | N/A | N/A | N/A | N/A | N/A
+AE211W1R | A | Drawn Out At | 24 Pref
+Points | No Apps | None
+Drawn | No Apps | N/A | N/A
+None | None | # Drawn at Final Level | 1 of 2 | N/A | N/A | N/A | N/A | N/A
+AF001O1M | A | Drawn Out At | 1 Pref
+Points | None
+Drawn | Choice 2 | No Apps | Choice 3 | None Drawn
+None | None | # Drawn at Final Level | 1 of 2 | N/A | 1 of 2 | N/A | 1 of 1 | N/A
+AF006O1A | A | Drawn Out At | Choice 2 | None
+Drawn | Choice 2 | No Apps | Choice 2 | Leftover
+Choice 3
+None | None | # Drawn at Final Level | 8 of 83 | N/A | 2 of 3 | N/A | 3 of 4 | 1 of 2
+AF006O1M | A | Drawn Out At | 0 Pref
+Points | 0 Pref
+Points | Choice 2 | No Apps | Leftover
+Choice 3 | Leftover
+Choice 3
+None | None | # Drawn at Final Level | 13 of 49 | 1 of 2 | 2 of 11 | N/A | 1 of 7 | 4 of 5
+AF006O1R | A | Drawn Out At | 3 Pref
+Points | None
+Drawn | 3 Pref
+Points | No Apps | Choice 2 | None Drawn
+None | None | # Drawn at Final Level | 3 of 23 | N/A | 3 of 5 | N/A | 1 of 2 | N/A
+AF006O2R | A | Drawn Out At | 3 Pref
+Points | 4 Pref
+Points | 1 Pref
+Points | 2 Pref
+Points | Choice 2 | Leftover
+Choice 2
+None | None | # Drawn at Final Level | 3 of 40 | 1 of 1 | 1 of 6 | 1 of 1 | 6 of 17 | 1 of 5
+AF006W1R | A | Drawn Out At | 7 Pref
+Points | No Apps | None
+Drawn | No Apps | N/A | N/A
+None | None | # Drawn at Final Level | 4 of 4 | N/A | N/A | N/A | N/A | N/A
+AF007O1M | A | Drawn Out At | Choice 2 | No Apps | 0 Pref
+Points | None
+Drawn | No Apps | No Apps
+None | None | # Drawn at Final Level | 2 of 17 | N/A | 1 of 1 | N/A | N/A | N/A
+AF007O1R | A | Drawn Out At | 1 Pref
+Points | None
+Drawn | Choice 2 | No Apps | 5 Pref Points | None Drawn
+None | None | # Drawn at Final Level | 3 of 4 | N/A | 1 of 5 | N/A | 1 of 1 | N/A

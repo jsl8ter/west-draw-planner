@@ -1,82 +1,69 @@
-URL: https://fwp.mt.gov/buyandapply/hunting-licenses/drawing-statistics
-FINAL: https://fwp.mt.gov/buyandapply/hunting-licenses/drawing-statistics
-TYPE: text/html;charset=UTF-8
-DISPOSITION: 
-BYTES: 26006
+URL: https://myfwp.mt.gov/getRepositoryFile?objectID=116131
+FINAL: https://myfwp.mt.gov/getRepositoryFile?objectID=116131
+TYPE: application/pdf
+DISPOSITION: attachment; filename="2026 Elk Permit Drawing Statistics Report.pdf"
+BYTES: 67563
 
-HTML TEXT:
- Drawing Statistics | Montana FWP Skip to main content Buy and apply Contact FWP News &amp; Public Notices Restrictions &amp; Closures Event Calendar Maps MyFWP Login Go to search page HUNT FISH STATE PARKS ACTIVITIES CONSERVATION EDUCATION ABOUT FWP Buy and apply MENU MENU Buy &amp; Apply Home Hunting Licenses Fishing Licenses Conservation License State Parks Permits Register Boats &amp; OHVs Outfitter &amp; Commercial Buy & Apply > Hunt Drawing Statistics Search Drawing Statistics&nbsp; Bonus and Preference Points&nbsp; Hunting Regulations&nbsp; Drawing Statistic Reports FWP has 3 different types of drawing statistic reports that are available&nbsp;following a drawing: 1. Detailed Bonus Point Drawing Statistics Reports These reports are created for drawings utilizing the bonus point system. Not all drawings use bonus points, so these reports do not apply to every drawing. Each report demonstrates the proportion of applicants by residency given the respective amount of bonus points by license opportunity. The bonus point system is completely random by design. Drawing statistics vary each time a drawing is conducted. For more information on bonus points, please visit the bonus point section of our website: https://fwp.mt.gov/buyandapply/hunting-licenses/bonus-points. Infographic : Bonus Points Drawing Statistics &nbsp;(PDF) Search Drawing Statistics 2. Drawing Statistics Reports These statistical reports do not consider bonus points. These reports simply demonstrate final quotas drawn, applicants in each category (resident landowner, nonresident landowner, resident, nonresident), and the proportion of those applicants successful in drawing each opportunity. Infographic : Drawing Statistics&nbsp;Reports &nbsp;(PDF) Search Drawing Statistics 3. Nonresident Combination Preference Point Statistics Reports The information from these reports is taken during the primary drawing of the nonresident combination license to capture the proportion of those drawn with a certain amount of preference points. These reports do not consider licenses which are later refunded and reissued due to applicants who do not draw their elk permit, which takes place after the primary drawing. The Nonresident Big Game Combination and Elk Combination statistics are combined because they are a combined quota of 17,000. Fractional preference point amounts are the result of party applications. Preference points are averaged amongst party members and rounded to the third decimal point. For more information on preference points, please visit the preference point section of our website: https://fwp.mt.gov/buyandapply/hunting-licenses/bonus-points. Infographic : Nonresident Combination Preference Point&nbsp;Statistics Reports &nbsp;(PDF) FAQ :&nbsp; Questions after the Nonresident&nbsp;Combo &amp; Deer/Elk Permits (PDF) Search Drawing Statistics &nbsp; Quotas in Drawings Nonresidents All nonresidents are limited to, but not guaranteed, 10% of the overall drawing quota for an opportunity. Nonresident Moose, Sheep, and Goat hunting districts with a quota less than 10 are added together to a regional hunting district quota. Quotas opportunities are calculated based off the entire quota for that region and distributed on a rotating base. The number of nonresidents drawn (up to 10% of the quota) is determined entirely by the random drawing. The 10% cap includes both nonresident landowners and regular nonresidents; however, Landowner Preference is the first stage of the drawing. There is an exception to the 10% rule for nonresidents. If all residents who applied are successful in drawing, nonresidents may be allocated over 10% of the drawing quotas. Residents The only ‘cap’ for residents is the overall drawing quota. Resident landowners may be allocated up to 15% of the overall drawing quota. Landowner Preference is the first stage of the drawing. Quota adjustments Quotas which are printed in the regulations are subject to change prior to a drawing based on recommendations by FWP biologists. Quotas may only be adjusted within the quota range approved by the Montana Fish and Wildlife Commission. Buy and apply Report a violation MyFWP Login MyFWP Mobile App Montana Outdoors Magazine EMPLOYMENT VOLUNTEER OPPORTUNITIES Event Calendar CONTACT FWP Staff Directory Organizational Chart HUNT FISH STATE PARKS ACTIVITIES CONSERVATION EDUCATION About FWP Buy and apply Report a violation Stay Connected Facebook Instagram Youtube Twitter SUBSCRIBE TO OUR MAILING LIST Terms of use Privacy Policy Accessibility &amp; ADA Compliance Use of Cookies &amp; Google Analytics 
+PDF PAGES: 1
 
-LINKS:
- | /webfiles/1617912827853/css/bootstrap.css
- | /webfiles/1617912827853/css/site.min.css
- | https://fonts.googleapis.com/css2?family=Sanchez&display=swap
- | https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap
- | https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
- | http://purl.org/dc/elements/1.1/
- | http://purl.org/dc/terms/
- | //code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css
- | /images/fwp/favicon.gif
-Skip to main content | #main
- | /
- | /buyandapply
- | /aboutfwp/contact-us
- | /news
- | /news/current-closures-restrictions
- | https://montanafwpevents.com/
- | https://gis-mtfwp.hub.arcgis.com/
- | https://myfwp.mt.gov/fwpExtPortal/login/login.jsp
- | /search
- | /hunt
- | /fish
- | /stateparks
- | /activities
- | /conservation
- | /education
- | /aboutfwp
- | /buyandapply
- | /buyandapply/hunting-licenses
- | /buyandapply/fishinglicenses
- | /buyandapply/conservation-license
- | /buyandapply/fees-and-general-information
- | /buyandapply/registerboatsandvehicles
- | /buyandapply/outfitter-licenses
- | https://myfwp.mt.gov/fwpPub/drawingStatistics
- | /buyandapply/hunting-licenses/bonus-points
- | /hunt/regulations
-Bonus Points Drawing Statistics | /binaries/content/assets/fwp/buyandapply/hunting/misc/bonus-points-drawing-statistics.pdf
-Search Drawing Statistics | https://myfwp.mt.gov/fwpPub/drawingStatistics
-Drawing Statistics&nbsp;Reports | /binaries/content/assets/fwp/buyandapply/hunting/misc/drawing-statistics-reports.pdf
-Search Drawing Statistics | https://myfwp.mt.gov/fwpPub/drawingStatistics
-Nonresident Combination Preference Point&nbsp;Statistics Reports | /binaries/content/assets/fwp/buyandapply/hunting/misc/nonresident-combination-license-preference-points-statistics.pdf
-Questions after the Nonresident&nbsp;Combo &amp; Deer/Elk Permits | /binaries/content/assets/fwp/buyandapply/hunting/misc/questions-after-the-nr-combo-ec-v2.pdf
-Search Drawing Statistics | https://myfwp.mt.gov/fwpPub/drawingStatistics
- | /buyandapply
- | https://myfwp.mt.gov/fwpPub/tipmont
- | https://myfwp.mt.gov/fwpExtPortal/login/login.jsp
- | /myfwpapp
- | /montana-outdoors
- | /aboutfwp/employment
- | /aboutfwp/employment
- | https://montanafwpevents.com/
- | /aboutfwp/contact-us
- | https://directory.mt.gov/govt/state-dir/agency/fwp
- | /aboutfwp/at-a-glance
- | /hunt
- | /fish
- | /stateparks
- | /activities
- | /conservation
- | /education
- | /aboutfwp
- | /buyandapply
- | https://myfwp.mt.gov/fwpPub/tipmont
- | https://www.facebook.com/MontanaFWP
- | https://www.instagram.com/montanafwp/
- | https://www.youtube.com/user/MontanaFWP
- | https://twitter.com/MontanaFWP
-SUBSCRIBE TO OUR MAILING LIST | https://public.govdelivery.com/accounts/MTFWP/subscriber/new
- | /terms-of-use
- | https://mt.gov/1240-X06.pdf
- | https://mt.gov/discover/disclaimer.aspx#accessibility
- | /use-of-google-analytics
+
+----- PAGE 1 TEXT -----
+Drawing Statistics Report (ALS30401) - ELK PERMIT
+;
+; Landowner Regular
+; Resident Non_Resident Resident Non_Resident
+; Apps Succ Apps Succ Applicants Successful Applicants Successful Total Sur-
+District Quota QTA 1st 1st QTA 1st 1st QTA 1st 2nd 3rd 1st 2nd 3rd QTA 1st 2nd 3rd 1st 2nd 3rd Succ plus
+101-50 UNL UNL 0 0 UNL 0 0 UNL 282 49 60 282 49 60 UNL 14 4 3 14 4 3 412 0
+217-10 175 27 5 5 17 0 0 175 649 205 148 159 0 0 17 40 6 7 11 0 0 175 0
+217-11 25 4 0 0 2 0 0 25 55 14 3 24 0 0 2 2 0 0 1 0 0 25 0
+250-45 45 7 0 0 4 0 0 45 1513 320 145 43 0 0 4 69 26 10 2 0 0 45 0
+250-46 45 7 0 0 4 0 0 45 490 309 106 42 0 0 4 27 23 5 3 0 0 45 0
+262-45 20 3 0 0 2 0 0 20 62 57 99 18 0 0 2 4 2 8 2 0 0 20 0
+270-45 (First Choice Only) UNL UNL 1 1 UNL 0 0 UNL 3305 0 0 3305 0 0 UNL 528 0 0 528 0 0 3834 0
+282-10 1 1 0 0 0 0 0 1 196 5 2 1 0 0 0 0 0 0 0 0 0 1 0
+310-46 5 1 0 0 0 0 0 5 1216 510 337 5 0 0 0 0 0 0 0 0 0 5 0
+313-45 50 8 2 2 5 0 0 50 788 411 379 43 0 0 5 80 43 28 5 0 0 50 0
+339-20 40 6 6 5 4 1 1 40 1172 800 346 33 0 0 4 38 36 19 1 0 0 40 0
+380-20 100 15 38 15 10 2 0 100 11328 1631 629 84 0 0 10 615 99 58 1 0 0 100 0
+401-20 50 8 10 8 5 0 0 50 436 172 120 41 0 0 5 26 0 10 1 0 0 50 0
+410-20 75 12 22 7 7 7 5 75 4108 1538 782 61 0 0 7 233 104 62 2 0 0 75 0
+410-21 ARCHERY ONLY 1000 150 15 15 100 2 2 1000 1196 321 0 885 0 0 100 341 72 0 98 0 0 1000 0
+411-20 First and Only 350 53 77 45 35 12 8 350 3005 0 0 273 0 0 35 220 0 0 24 0 0 350 0
+411-21 (First and Only) ARCHERY ONLY 1000 150 7 7 100 9 9 1000 726 0 0 726 0 0 100 182 0 0 182 0 0 924 0
+412-20 120 18 19 16 12 2 2 120 489 216 198 92 0 0 12 51 12 12 10 0 0 120 0
+417-20 (First and Only) 225 34 20 20 22 3 3 225 919 0 0 183 0 0 22 140 0 0 19 0 0 225 0
+417-21 (First and Only) ARCHERY ONLY 300 45 3 3 30 2 2 300 350 0 0 267 0 0 30 121 0 0 28 0 0 300 0
+420-20 80 12 6 6 8 1 1 80 517 220 187 66 0 0 8 41 8 10 7 0 0 80 0
+425-20 5 1 6 1 0 0 0 5 1091 273 196 4 0 0 0 0 0 0 0 0 0 5 0
+426-20 (First and Only) 60 9 15 8 6 3 1 60 396 0 0 46 0 0 6 51 0 0 5 0 0 60 0
+441-20 35 6 11 5 3 1 1 35 514 159 91 28 0 0 3 12 3 8 1 0 0 35 0
+445-20 35 6 6 5 3 1 1 35 710 190 154 28 0 0 3 28 12 13 1 0 0 35 0
+447-20 100 15 23 12 10 5 3 100 1264 346 189 81 0 0 10 72 10 16 4 0 0 100 0
+447-21 (First and Only) ARCHERY ONLY 400 60 2 2 40 0 0 400 262 0 0 262 0 0 40 71 0 0 71 0 0 335 0
+455-20 55 9 0 0 5 0 0 55 829 310 276 50 0 0 5 44 21 16 5 0 0 55 0
+455-21 ARCHERY ONLY 100 15 0 0 10 0 0 100 64 85 97 64 26 0 10 21 11 23 10 0 0 100 0
+502-20 5 1 1 1 0 0 0 5 194 90 61 4 0 0 0 0 0 0 0 0 0 5 0
+555-20 25 4 2 2 2 0 0 25 425 96 68 21 0 0 2 25 3 4 2 0 0 25 0
+590-20 380 57 70 42 38 21 15 380 1398 228 139 300 0 0 38 120 13 5 23 0 0 380 0
+595-21 (First and Only) ARCHERY ONLY 1800 270 6 6 180 5 5 1800 974 0 0 974 0 0 180 274 0 0 274 0 0 1259 0
+620-20 70 11 17 11 7 0 0 70 705 469 333 55 0 0 7 51 43 42 4 0 0 70 0
+620-21 ARCHERY ONLY 1000 150 2 2 100 0 0 1000 815 276 0 814 86 0 100 190 51 0 98 0 0 1000 0
+621-20 50 8 3 3 5 1 1 50 986 578 418 45 0 0 5 77 44 47 1 0 0 50 0
+622-20 60 9 4 4 6 0 0 60 919 500 472 55 0 0 6 86 56 54 1 0 0 60 0
+630-20 25 4 7 4 2 1 0 25 403 248 270 21 0 0 2 31 37 32 0 0 0 25 0
+630-21 ARCHERY ONLY 100 15 1 1 10 0 0 100 173 27 75 89 0 0 10 39 16 28 10 0 0 100 0
+690-20 50 8 25 8 5 1 0 50 1568 369 219 37 0 0 5 178 39 12 5 0 0 50 0
+690-21 50 8 20 6 5 2 2 50 721 147 74 39 0 0 5 119 19 20 3 0 0 50 0
+700-20 250 38 31 31 25 5 5 250 2407 721 457 194 0 0 25 279 77 62 20 0 0 250 0
+700-21 ARCHERY ONLY 800 120 3 3 80 1 1 800 613 227 0 612 107 0 80 286 55 0 77 0 0 800 0
+702-20 150 23 16 16 15 3 3 150 261 86 99 119 0 0 15 46 9 15 12 0 0 150 0
+799-20 (First and Only) 325 49 114 44 32 16 5 325 3553 0 0 249 0 0 32 523 0 0 27 0 0 325 0
+799-21 (First and Only) ARCHERY ONLY 1000 150 26 26 100 20 20 1000 1569 0 0 875 0 0 100 562 0 0 79 0 0 1000 0
+;
+; Totals;
+; Landowner Totals Regular Totals
+; Resident Non_Resident Resident Non_Resident
+; Apps Succ Apps Succ Applicants Successful Applicants Successful Total Sur-
+; Quota QTA 1st 1st QTA 1st 1st QTA 1st 2nd 3rd 1st 2nd 3rd QTA 1st 2nd 3rd 1st 2nd 3rd Succ plus
+10636 1607 642 398 1056 127 96 10636 55616 12203 7229 11699 268 60 1056 5957 954 629 1672 4 3 14200 0

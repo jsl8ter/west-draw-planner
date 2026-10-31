@@ -52,7 +52,7 @@ WMUS = ["Alsea", "Applegate", "Beatys Butte", "Beulah", "Biggs", "Catherine Cree
 def norm(s):
     s = " " + re.sub(r"[^a-z0-9]+", " ", s.lower()) + " "
     for a, b in ((" cr ", " creek "), (" crk ", " creek "), (" mt emily ", " mount emily "),
-                 (" mtn ", " mtn "), (" mountain ", " mtn "), (" r ", " river "),
+                 (" mtn ", " mtn "), (" mountain ", " mtn "), (" r ", " river "), (" rvr ", " river "),
                  (" steens mt ", " steens mtn "), (" upr ", " upper "), (" mckenzie ", " mckenzie ")):
         s = s.replace(a, b)
     return re.sub(r"\s+", " ", s)
@@ -76,7 +76,7 @@ def units_for(name):
             out.append(w)
     if out:
         return out
-    c = re.sub(r"\b(Unit|Units|Muzzleloader|Bow|Archery|Youth|No\.?\s*\d+)\b", "", name, flags=re.I)
+    c = re.sub(r"\b(Unit|Units|Muzzleloader|Bow|Archery|Youth|Late|Early|Whitetail|Traditional|No\.?\s*\d+|\d{1,2})\b", "", name, flags=re.I)
     c = re.sub(r"\s+", " ", c).strip(" -,")
     return [c or name.strip()]
 
@@ -92,7 +92,7 @@ def num(v):
     return None
 
 
-HUNT_RE = re.compile(r"^\d{3}[A-Z0-9]*$")
+HUNT_RE = re.compile(r"^[A-Z]{0,3}\d{3}[A-Z0-9-]*$")  # 2026 deer uses new codes like AD101, HX601-1
 
 
 def fetch(url):

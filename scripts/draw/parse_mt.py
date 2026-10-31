@@ -5,9 +5,11 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 def parse():
     s = requests.Session(); s.headers.update(UA)
     r = s.get("https://myfwp.mt.gov/fwpPub/drawingStatistics", timeout=60)
-    t = r.text
-    LOG.append(f"status {r.status_code} len {len(t)}")
-    i = t.find("Drawing Statistics LPT") if "Drawing Statistics LPT" in t else t.find("Animal")
-    LOG.append(t[max(0,i-3000):i+9000])
-    for m in re.finditer(r"<script[^>]*src=\"[^\"]*\"", t): LOG.append(m.group(0))
+    for oid in ("28562", "94776"):
+        r = s.post("https://myfwp.mt.gov/fwpPub/repositoryList_input.action", data={"repositoryObjectId": oid},
+                   headers={"X-Requested-With": "XMLHttpRequest", "Referer": "https://myfwp.mt.gov/fwpPub/drawingStatistics"}, timeout=60)
+        t = r.text
+        LOG.append(f"=== {oid} status {r.status_code} {r.headers.get('content-type')} len {len(t)}")
+        LOG.append(re.sub(r"\s+", " ", t)[:20000])
+        time.sleep(2)
     return {"state": "MT", "system": "bonus_sq", "hunts": []}

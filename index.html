@@ -521,7 +521,7 @@ const NAMEKEY={
  UT:{"Beaver, East":["beaver, east"],"Monroe":["monroe"],"San Juan":["san juan"],"Southwest Desert":["southwest desert"],"Boulder":["boulder"],"Fillmore, Pahvant":["fillmore, pahvant"],"Manti":["manti"],"Wasatch Mtns":["wasatch mtns","wasatch mountains"],"N & S Slope general":["north slope","south slope"],"Henry Mtns":["henry mtns","henry mountains"],"Paunsaugunt":["paunsaugunt"],"San Juan, Elk Ridge":["san juan, elk ridge"],"Fillmore, Oak Creek":["fillmore, oak creek le"],"Book Cliffs":["book cliffs"],"Thousand Lakes":["thousand lakes"],"General (SW Desert)":["southwest desert"],"San Rafael N. A":["san rafael, north"],"West Desert, Riverbed":["riverbed"],"Book Cliffs, Bitter Cr.":["book cliffs, bitter creek (pronghorn)"],"Diamond Mtn/Bonanza":["diamond mtn/bonanza"],"Box Elder, Promontory":["promontory"],"Pine Valley":["pine valley"]},
  OR:{"Wenaha":["wenaha"],"Sled Springs":["sled springs"],"Desolation/Ukiah":["desolation","ukiah"],"Mt Emily/Walla Walla":["emily","walla walla"],"Murderers Creek":["murderers"],"Cascade rifle bull":["santiam","mckenzie"],"Steens/Beulah/Silvies":["steens","beulah","silvies"],"Steens Mtn":["steens"],"Hart Mtn/Beatys":["beatys"],"Juniper/Whitehorse":["juniper","whitehorse"],"Owyhee/Malheur R.":["owyhee","malheur river"],"Wagontire/Silvies":["wagontire","silvies"],"468 Whitehorse":["whitehorse"],"471A Juniper":["juniper"],"470C Hart Mtn":["hart mtn","hart mountain"],"474A/B Warner":["warner"],"469A Steens":["steens"],"466A/467 Malheur/Owyhee":["malheur river","owyhee"],"476A Fort Rock":["fort rock"]},
  IDZ:{"Panhandle zone":["panhandle"],"McCall / Weiser zones":["mccall","weiser"]},
- WYER:{"General Region E":["e"],"General Region S":["s"],"General Region W":["w"]},
+ WYER:{"General Region E":["eastern"],"General Region S":["southern"],"General Region W":["western"]},
  WYDR:{"General Region G":["g"],"General Region H":["h"],"General Region W":["w"],"General Region B":["b"],"General Region C":["c"]}
 };
 // numeric overrides where the label doesn't spell out the districts
@@ -636,6 +636,7 @@ function attach(L,feats,forced){
   });
   gj._cfg=L;POLY[L.id]=gj;
   if(L.sp.includes(sp)) gj.addTo(map);
+  for(const id in POLY){if(POLY[id]._cfg.zone&&map.hasLayer(POLY[id]))POLY[id].bringToBack()}
   renderDots();renderList();
 }
 function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
@@ -645,6 +646,7 @@ function styleFor(f,L){
   const isSel=sel!=null&&f._e.includes(sel);
   if(!es.length) return {color:line,weight:.7,opacity:.55,fill:true,fillOpacity:0.01};
   const u=U[es[0]];
+  if(L.zone) return {color:isSel?css("--accent"):colorHex(u),weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:colorHex(u),fillOpacity:.14};
   return {color:isSel?css("--accent"):line,weight:isSel?3:1,opacity:.9,fill:true,fillColor:colorHex(u),fillOpacity:base==="sat"?.55:.45};
 }
 function chance(u){
@@ -701,6 +703,7 @@ function renderDots(){
 }
 function restyle(){
   for(const id in POLY){const g=POLY[id];const on=g._cfg.sp.includes(sp);if(on&&!map.hasLayer(g))g.addTo(map);if(!on&&map.hasLayer(g))map.removeLayer(g);if(on)g.setStyle(f=>styleFor(f,g._cfg))}
+  for(const id in POLY){if(POLY[id]._cfg.zone&&map.hasLayer(POLY[id]))POLY[id].bringToBack()}
   renderDots();renderLegend();
 }
 function render(){restyle();renderList()}
@@ -713,7 +716,7 @@ document.querySelectorAll("[data-color]").forEach(b=>b.onclick=()=>{colorMode=b.
 
 function renderLegend(){
   const L=document.getElementById("legend");
-  L.innerHTML=(colorMode==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span>`;
+  L.innerHTML=(colorMode==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span><span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-tag region or zone</span>`;
 }
 function renderStatus(){
   document.getElementById("status").innerHTML="Boundaries: "+LAYERS.map(L=>{const s=LS[L.id]||{state:"wait"};

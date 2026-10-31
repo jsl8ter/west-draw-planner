@@ -1,2 +1,141 @@
-URL: https://wildlife.utah.gov/pdf/bg/2026/26_deer_odds.pdf
-ERROR: HTTP Error 404: Not Found
+URL: https://wildlife.utah.gov/pdf/bg/2022/22_deer_odds.pdf
+FINAL: https://wildlife.utah.gov/pdf/bg/2022/22_deer_odds.pdf
+TYPE: application/pdf
+DISPOSITION: 
+BYTES: 1500660
+
+PDF PAGES: 98
+
+
+----- PAGE 1 TEXT -----
+2022 Draw 5, Big Game Preference Point Purchase Results 06/02/2022
+Species: DEER Page 9
+Preference Resident Nonresident
+Points Applicants Applicants
+29
+28
+27
+26
+25
+24
+23
+22 2
+21 18
+20 2 16
+19 3 14
+18 2 31
+17 3 54
+16 4 40
+15 7 49
+14 11 51
+13 24 107
+12 31 167
+11 52 508
+10 97 457
+9 94 414
+8 125 406
+7 175 482
+6 253 682
+5 407 1,007
+4 714 1,450
+3 1,266 1,846
+2 2,504 2,472
+1 4,068 2,787
+0 4,684 3,318
+Totals 14,526 16,378
+
+----- PAGE 2 TEXT -----
+2022 Draw 5, Big Game Draw Results 06/02/2022
+Species: GENERAL SEASON DEER Page 1
+Resident Applicants Noresident Applicants
+Total Total
+Preference Eligible Bonus Regular Total Success Preference Eligible Bonus Regular Total Success
+Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
+22 0 0 0 0 N/A 22 0 0 0 0 N/A
+21 0 0 0 0 N/A 21 0 0 0 0 N/A
+20 0 0 0 0 N/A 20 0 0 0 0 N/A
+19 0 0 0 0 N/A 19 0 0 0 0 N/A
+18 0 0 0 0 N/A 18 0 0 0 0 N/A
+17 0 0 0 0 N/A 17 0 0 0 0 N/A
+16 0 0 0 0 N/A 16 0 0 0 0 N/A
+15 0 0 0 0 N/A 15 1 0 1 1 1 in 1.0
+14 0 0 0 0 N/A 14 1 0 1 1 1 in 1.0
+13 1 0 1 1 1 in 1.0 13 1 0 1 1 1 in 1.0
+12 1 0 1 1 1 in 1.0 12 3 0 3 3 1 in 1.0
+11 3 0 3 3 1 in 1.0 11 14 0 14 14 1 in 1.0
+10 4 0 4 4 1 in 1.0 10 7 0 7 7 1 in 1.0
+9 5 0 5 5 1 in 1.0 9 19 0 17 17 1 in 1.1
+8 8 0 8 8 1 in 1.0 8 16 0 16 16 1 in 1.0
+7 10 0 10 10 1 in 1.0 7 34 0 33 33 1 in 1.0
+6 64 0 61 61 1 in 1.0 6 119 0 60 60 1 in 2.0
+5 127 0 109 109 1 in 1.2 5 392 0 136 136 1 in 2.9
+4 671 0 620 620 1 in 1.1 4 712 0 274 274 1 in 2.6
+3 4178 0 3117 3117 1 in 1.3 3 1138 0 283 283 1 in 4.0
+2 14375 0 7815 7815 1 in 1.8 2 1516 0 316 316 1 in 4.8
+1 35363 0 16006 16006 1 in 2.2 1 2130 0 535 535 1 in 4.0
+0 56008 0 17800 17800 1 in 3.1 0 4229 0 1874 1874 1 in 2.3
+Totals 110818 0 45560 45560 1 in 2.4 Totals 10332 0 3571 3571 1 in 2.9
+
+----- PAGE 3 TEXT -----
+2022 Draw 5, Big Game Bonus Point Draw Results 05/19/2022
+Hunt: DB1500 Beaver - Archery Page 1
+Resident Applicants Nonresident Applicants
+Total Total
+Preference Eligible Bonus Regular Total Success Preference Eligible Bonus Regular Total Success
+Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
+22 0 0 0 0 N/A 22 0 0 0 0 N/A
+21 0 0 0 0 N/A 21 0 0 0 0 N/A
+20 0 0 0 0 N/A 20 0 0 0 0 N/A
+19 0 0 0 0 N/A 19 0 0 0 0 N/A
+18 0 0 0 0 N/A 18 0 0 0 0 N/A
+17 0 0 0 0 N/A 17 0 0 0 0 N/A
+16 0 0 0 0 N/A 16 0 0 0 0 N/A
+15 0 0 0 0 N/A 15 0 0 0 0 N/A
+14 0 0 0 0 N/A 14 0 0 0 0 N/A
+13 0 0 0 0 N/A 13 0 0 0 0 N/A
+12 0 0 0 0 N/A 12 0 0 0 0 N/A
+11 0 0 0 0 N/A 11 0 0 0 0 N/A
+10 0 0 0 0 N/A 10 0 0 0 0 N/A
+9 0 0 0 0 N/A 9 0 0 0 0 N/A
+8 0 0 0 0 N/A 8 0 0 0 0 N/A
+7 0 0 0 0 N/A 7 0 0 0 0 N/A
+6 0 0 0 0 N/A 6 0 0 0 0 N/A
+5 0 0 0 0 N/A 5 0 0 0 0 N/A
+4 0 0 0 0 N/A 4 3 0 3 3 1 in 1.0
+3 10 0 10 10 1 in 1.0 3 24 0 18 18 1 in 1.3
+2 53 0 52 52 1 in 1.0 2 21 0 0 0 N/A
+1 237 0 92 92 1 in 2.6 1 25 0 0 0 N/A
+0 192 0 0 0 N/A 0 22 0 0 0 N/A
+Totals 492 0 154 154 1 in 3.2 Totals 95 0 21 21 1 in 4.5
+
+----- PAGE 98 TEXT -----
+2022 Draw 5, Big Game Bonus Point Draw Results 05/19/2022
+Hunt: DB1598 North Slope -Any Legal Weapon Page 96
+Resident Applicants Nonresident Applicants
+Total Total
+Preference Eligible Bonus Regular Total Success Preference Eligible Bonus Regular Total Success
+Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
+22 0 0 0 0 N/A 22 0 0 0 0 N/A
+21 0 0 0 0 N/A 21 0 0 0 0 N/A
+20 0 0 0 0 N/A 20 0 0 0 0 N/A
+19 0 0 0 0 N/A 19 0 0 0 0 N/A
+18 0 0 0 0 N/A 18 0 0 0 0 N/A
+17 0 0 0 0 N/A 17 0 0 0 0 N/A
+16 0 0 0 0 N/A 16 0 0 0 0 N/A
+15 0 0 0 0 N/A 15 0 0 0 0 N/A
+14 0 0 0 0 N/A 14 0 0 0 0 N/A
+13 0 0 0 0 N/A 13 0 0 0 0 N/A
+12 0 0 0 0 N/A 12 0 0 0 0 N/A
+11 0 0 0 0 N/A 11 0 0 0 0 N/A
+10 0 0 0 0 N/A 10 0 0 0 0 N/A
+9 0 0 0 0 N/A 9 0 0 0 0 N/A
+8 0 0 0 0 N/A 8 0 0 0 0 N/A
+7 0 0 0 0 N/A 7 0 0 0 0 N/A
+6 0 0 0 0 N/A 6 0 0 0 0 N/A
+5 1 0 1 1 1 in 1.0 5 0 0 0 0 N/A
+4 4 0 4 4 1 in 1.0 4 0 0 0 0 N/A
+3 13 0 12 12 1 in 1.1 3 0 0 0 0 N/A
+2 41 0 37 37 1 in 1.1 2 5 0 5 5 1 in 1.0
+1 254 0 247 247 1 in 1.0 1 4 0 4 4 1 in 1.0
+0 451 0 9 9 1 in 50.1 0 40 0 31 31 1 in 1.3
+Totals 764 0 310 310 1 in 2.5 Totals 49 0 40 40 1 in 1.2

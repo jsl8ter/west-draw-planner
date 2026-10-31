@@ -1,208 +1,141 @@
-URL: https://wildlife.utah.gov/pdf/bg/2025/25_bg-odds.pdf
-FINAL: https://wildlife.utah.gov/pdf/bg/2025/25_bg-odds.pdf
+URL: https://wildlife.utah.gov/guidebooks/biggameapp.pdf
+FINAL: https://wildlife.utah.gov/guidebooks/biggameapp.pdf
 TYPE: application/pdf
 DISPOSITION: 
-BYTES: 12732089
+BYTES: 3167332
 
-PDF PAGES: 602
+PDF PAGES: 82
 
 
 ----- PAGE 1 TEXT -----
-2025 Draw 5, Big Game Draw Results
-Species: LIMITED ENTRY DEER - All Applicants
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-32 0 0 0 0 N/A 32 0 0 0 0 N/A
-31 0 0 0 0 N/A 31 0 0 0 0 N/A
-30 0 0 0 0 N/A 30 0 0 0 0 N/A
-29 2 0 0 0 N/A 29 2 1 0 1 1 in 2.0
-28 6 1 0 1 1 in 6.0 28 16 5 0 5 1 in 3.2
-27 13 5 0 5 1 in 2.6 27 26 2 0 2 1 in 13.0
-26 29 5 0 5 1 in 5.8 26 55 6 0 6 1 in 9.2
-25 84 19 0 19 1 in 4.4 25 69 2 1 3 1 in 23.0
-24 139 31 2 33 1 in 4.2 24 105 2 0 2 1 in 52.5
-23 204 27 3 30 1 in 6.8 23 115 4 0 4 1 in 28.8
-22 308 20 1 21 1 in 14.7 22 151 12 0 12 1 in 12.6
-21 358 23 2 25 1 in 14.3 21 151 3 1 4 1 in 37.8
-20 457 45 2 47 1 in 9.7 20 218 7 3 10 1 in 21.8
-19 504 17 11 28 1 in 18.0 19 243 3 1 4 1 in 60.8
-18 596 27 9 36 1 in 16.6 18 257 3 3 6 1 in 42.8
-17 640 32 11 43 1 in 14.9 17 307 0 0 0 N/A
-16 826 84 11 95 1 in 8.7 16 1511 6 6 12 1 in 125.9
-15 1028 98 20 118 1 in 8.7 15 776 1 6 7 1 in 110.9
-14 1136 62 29 91 1 in 12.5 14 655 2 5 7 1 in 93.6
-13 1311 42 27 69 1 in 19.0 13 622 0 5 5 1 in 124.4
-12 1312 40 41 81 1 in 16.2 12 586 2 4 6 1 in 97.7
-11 1405 31 35 66 1 in 21.3 11 674 0 9 9 1 in 74.9
-10 1413 44 50 94 1 in 15.0 10 718 0 6 6 1 in 119.7
-9 1664 24 52 76 1 in 21.9 9 716 0 4 4 1 in 179.0
-8 1925 27 65 92 1 in 20.9 8 897 1 6 7 1 in 128.1
-7 1897 14 62 76 1 in 25.0 7 858 0 3 3 1 in 286.0
-6 1942 12 55 67 1 in 29.0 6 977 0 5 5 1 in 195.4
-5 2248 18 65 83 1 in 27.1 5 888 1 7 8 1 in 111.0
-4 2301 7 54 61 1 in 37.7 4 933 0 2 2 1 in 466.5
-3 2486 10 51 61 1 in 40.8 3 923 1 5 6 1 in 153.8
-2 2543 1 55 56 1 in 45.4 2 1026 0 4 4 1 in 256.5
-1 2718 2 40 42 1 in 64.7 1 1181 0 2 2 1 in 590.5
-0 3359 0 39 39 1 in 86.1 0 1311 0 2 2 1 in 655.5
-Totals 34854 768 792 1560 1 in 22.3 Totals 16967 64 90 154 1 in 110.2
+UTAH DIVISION OF WILDLIFE RESOURCES
+BIG GAME
+APPLICATION
+GUIDEBOOK
+2026
+BUCK DEER • BULL ELK • BUCK PRONGHORN • BULL MOOSE
+BISON • BIGHORN SHEEP • MOUNTAIN GOAT
 
 ----- PAGE 2 TEXT -----
-2025 Draw 5, Big Game Bonus Point Draw Results 06/04/2025
-Hunt: DB1000 Premium Le Archery Buck Deer - Henry Mtns - Archery Page 17
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-32 0 0 0 0 N/A 32 0 0 0 0 N/A
-31 0 0 0 0 N/A 31 0 0 0 0 N/A
-30 0 0 0 0 N/A 30 0 0 0 0 N/A
-29 0 0 0 0 N/A 29 0 0 0 0 N/A
-28 0 0 0 0 N/A 28 0 0 0 0 N/A
-27 0 0 0 0 N/A 27 0 0 0 0 N/A
-26 0 0 0 0 N/A 26 0 0 0 0 N/A
-25 0 0 0 0 N/A 25 1 0 0 0 N/A
-24 1 1 0 1 1 in 1.0 24 1 0 0 0 N/A
-23 1 1 0 1 1 in 1.0 23 2 0 0 0 N/A
-22 7 2 0 2 1 in 3.5 22 2 0 0 0 N/A
-21 14 0 0 0 N/A 21 8 0 0 0 N/A
-20 6 0 0 0 N/A 20 7 0 0 0 N/A
-19 14 0 0 0 N/A 19 7 0 0 0 N/A
-18 16 0 0 0 N/A 18 10 0 0 0 N/A
-17 13 0 0 0 N/A 17 9 0 0 0 N/A
-16 14 0 2 2 1 in 7.0 16 72 0 0 0 N/A
-15 14 0 0 0 N/A 15 36 0 0 0 N/A
-14 19 0 0 0 N/A 14 23 0 0 0 N/A
-13 26 0 0 0 N/A 13 28 0 0 0 N/A
-12 19 0 1 1 1 in 19.0 12 28 0 0 0 N/A
-11 21 0 0 0 N/A 11 29 0 0 0 N/A
-10 21 0 0 0 N/A 10 34 0 0 0 N/A
-9 22 0 0 0 N/A 9 25 0 0 0 N/A
-8 34 0 0 0 N/A 8 49 0 0 0 N/A
-7 29 0 0 0 N/A 7 39 0 0 0 N/A
-6 29 0 0 0 N/A 6 38 0 0 0 N/A
-5 31 0 0 0 N/A 5 42 0 1 1 1 in 42.0
-4 28 0 1 1 1 in 28.0 4 33 0 0 0 N/A
-3 38 0 0 0 N/A 3 35 0 0 0 N/A
-2 30 0 0 0 N/A 2 42 0 0 0 N/A
-1 23 0 0 0 N/A 1 49 0 0 0 N/A
-0 38 0 0 0 N/A 0 43 0 0 0 N/A
-Totals 508 4 4 8 1 in 63.5 Totals 692 0 1 1 1 in 692.0
+KNOW THE LAWS CONTACT US
+Turn in a poacher
+This guidebook—along with the 2026 Utah
+Big Game Field Regulations Guidebook (avail- Phone: 800-662-3337
+able in June 2026)—summarizes the rules Text: 847411
+and laws that regulate big game hunting in Online: wildlife.utah.gov/utip
+Utah. Although these books are convenient Division offices
+quick-reference documents for Utah big game
+Offices are open 8 a.m.–5 p.m.,
+regulations, they are not all-encompassing
+Monday through Friday.
+resources.
+Salt Lake City
+For an in-depth look at the state’s
+1594 W North Temple
+big game hunting laws and rules, visit
+Box 146301
+wildlife.utah.gov/rules.
+Salt Lake City, UT 84114-6301
+You can use the references in this guide-
+801-538-4700
+book—such as Utah Admin. Rule R657-5-24
+and Utah Code § 23A-5-207—to search the Central Region
+division’s website for the detailed statute or 1115 N Main Street
+rule that underpins the guidebook summary. Springville, UT 84663
+If you have questions about a particular 801-491-5678
+rule, call or visit the nearest division office.
+Northeastern Region
+Who makes the rules? 318 N Vernal Avenue
+The Utah Wildlife Board passes the rules Vernal, UT 84078
+and laws summarized in this guidebook. 435-781-9453
+There are seven board members, and each
+Northern Region
+serves a six-year term. Appointed by the gover-
+515 E 5300 S
+nor, board members are not division employees.
+Ogden, UT 84405
+The division’s director serves as the board’s
+801-476-2740
+executive secretary but does not have a vote
+on wildlife policies. Southeastern Region
+Before board members make changes to 319 N Carbonville Road, Ste A
+wildlife rules, they listen to recommendations Price, UT 84501
+from division biologists. They also receive input 435-613-3700
+from the public and various interest groups via
+Southern Region
+the regional advisory council (RAC) process.
+1470 N Airport Road
+If you have feedback or suggestions for
+Cedar City, UT 84721
+board members, you can find their contact
+435-865-6100
+information online at wildlife.utah.gov.
+Washington County Field Office
+Wildlife Board members
+451 N SR-318
+Bob Christensen Gary Nielson, Chair Hurricane, UT 84737
+Ryan Foutz Paula Richmond, 435-879-8694
+Kent Johnson Vice Chair
+Justin Oliver Riley Peck,
+Chris Robinson Division Director &
+Executive Secretary
+On the cover: A mule deer in northern Utah surveys the landscape. Photo by Jim Shuler.
 
 ----- PAGE 3 TEXT -----
-2025 Draw 5, Big Game Bonus Point Draw Results 06/04/2025
-Hunt: DB1001 Premium Le Archery Buck Deer - Paunsaugunt - Archery Page 18
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-32 0 0 0 0 N/A 32 0 0 0 0 N/A
-31 0 0 0 0 N/A 31 0 0 0 0 N/A
-30 0 0 0 0 N/A 30 0 0 0 0 N/A
-29 0 0 0 0 N/A 29 0 0 0 0 N/A
-28 0 0 0 0 N/A 28 0 0 0 0 N/A
-27 0 0 0 0 N/A 27 0 0 0 0 N/A
-26 0 0 0 0 N/A 26 2 2 0 2 1 in 1.0
-25 0 0 0 0 N/A 25 6 0 0 0 N/A
-24 0 0 0 0 N/A 24 5 0 0 0 N/A
-23 0 0 0 0 N/A 23 7 0 0 0 N/A
-22 2 2 0 2 1 in 1.0 22 5 0 0 0 N/A
-21 4 4 0 4 1 in 1.0 21 10 0 0 0 N/A
-20 21 7 0 7 1 in 3.0 20 5 0 0 0 N/A
-19 19 0 1 1 1 in 19.0 19 11 0 0 0 N/A
-18 23 0 1 1 1 in 23.0 18 14 0 0 0 N/A
-17 30 0 1 1 1 in 30.0 17 18 0 0 0 N/A
-16 32 0 1 1 1 in 32.0 16 68 0 0 0 N/A
-15 32 0 0 0 N/A 15 35 0 1 1 1 in 35.0
-14 33 0 0 0 N/A 14 38 0 0 0 N/A
-13 38 0 0 0 N/A 13 25 0 0 0 N/A
-12 40 0 2 2 1 in 20.0 12 33 0 0 0 N/A
-11 28 0 0 0 N/A 11 51 0 0 0 N/A
-10 40 0 0 0 N/A 10 38 0 0 0 N/A
-9 32 0 0 0 N/A 9 55 0 0 0 N/A
-8 47 0 4 4 1 in 11.8 8 48 0 0 0 N/A
-7 44 0 1 1 1 in 44.0 7 48 0 0 0 N/A
-6 31 0 0 0 N/A 6 58 0 0 0 N/A
-5 36 0 0 0 N/A 5 47 0 0 0 N/A
-4 47 0 0 0 N/A 4 64 0 0 0 N/A
-3 46 0 1 1 1 in 46.0 3 64 0 0 0 N/A
-2 46 0 0 0 N/A 2 49 0 0 0 N/A
-1 37 0 0 0 N/A 1 58 0 0 0 N/A
-0 52 0 0 0 N/A 0 48 0 0 0 N/A
-Totals 760 13 12 25 1 in 30.4 Totals 910 2 1 3 1 in 303.3
+CONTENTS
+3 What’s new 21 Hunter Mentoring Program
+5 Antlerless big game hunting 23 Why bonus points matter
+8 2026 season dates 24 Why preference points matter
+10 2027 sportsman permits 26 Multiseason hunts for deer and elk
+12 Gathering shed antlers or horns 27 Mandatory reporting
+13 2026 permit sales dates 27 Hunts with special circumstances
+14 License, permit and program fees 28 Obtain up to three elk permits
+17 Basic requirements 31 Apply for big game permits
+18 Utah’s Trial Hunting Program 33 After you apply
+19 Carry your permit 37 Dedicated Hunter Program
+20 Prepare to apply 38 Opportunities for young hunters
+21 Review the hunt tables 40 Hunt reference maps
+21 See maps and boundaries online 43 Hunt tables
+21 Obtain permission to hunt 69 CWMU hunt tables
+private property 79 Definitions
+WHAT’S NEW
+Apply for hunts with the NEW online draw system: The division distributes permits for
+many big game hunts through a drawing, and the application period is March 19 to April
+23, 2026. Apply online at utahdraws.com (the new URL starting this year), or call the new
+draw hotline at 855-883-7297. If you are successful in drawing a permit, you will be noti-
+fied via email by May 31. For more information, see page 31.
+Permit sales dates in July: Any permits remaining after the big game drawing will go on sale
+during different days in July. For all of the permit sales dates, see the table on page 13.
+Digital-only guidebook: As of Sept. 1, 2025, this guidebook (and several others) will be avail-
+able as a digital edition only, accessible on the DWR website (wildlife.utah.gov/guidebooks)
+and downloadable in the Utah Hunting and Fishing mobile app. This shift will significantly
+reduce the state’s increasing costs for printing, shipping, labor and storage, and reduce over-
+ages and paper waste. Our staff at DWR offices will be available to assist customers who need
+digital guidebook information in print form. The Utah Big Game Field Regulations Guidebook
+and Utah Fishing Guidebook will be available in print and digital formats.
+Research antlerless hunts online: In late May 2026, visit wildlife.utah.gov/guidebooks
+to find all of the information you’ll need to research Utah’s antlerless hunts. The Utah
+Antlerless Guidebook includes application dates, rules, hunt tables, boundaries and maps.
+Beginning this year, the antlerless hunt application information will be formatted similarly
+to our standard guidebooks (instead of being several webpages) and will also be avail-
+able on the Utah Hunting and Fishing mobile app. The antlerless application period runs
+from June 9–23, 2026.
+3 | WHAT’S NEW
 
------ PAGE 602 TEXT -----
-2025 Draw 5, Big Game Bonus Point Draw Results 06/04/2025
-Hunt: RS6727 Rocky Mountain Bighorn Sheep Archery -Fillmore, Oak Creek - Archery Page 602
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-32 0 0 0 0 N/A 32 0 0 0 0 N/A
-31 0 0 0 0 N/A 31 0 0 0 0 N/A
-30 0 0 0 0 N/A 30 0 0 0 0 N/A
-29 0 0 0 0 N/A 29 0 0 0 0 N/A
-28 0 0 0 0 N/A 28 0 0 0 0 N/A
-27 0 0 0 0 N/A 27 0 0 0 0 N/A
-26 0 0 0 0 N/A 26 0 0 0 0 N/A
-25 0 0 0 0 N/A 25 0 0 0 0 N/A
-24 0 0 0 0 N/A 24 0 0 0 0 N/A
-23 0 0 0 0 N/A 23 0 0 0 0 N/A
-22 0 0 0 0 N/A 22 0 0 0 0 N/A
-21 0 0 0 0 N/A 21 0 0 0 0 N/A
-20 1 1 0 1 1 in 1.0 20 0 0 0 0 N/A
-19 3 0 0 0 N/A 19 0 0 0 0 N/A
-18 2 0 0 0 N/A 18 0 0 0 0 N/A
-17 3 0 0 0 N/A 17 0 0 0 0 N/A
-16 4 0 0 0 N/A 16 0 0 0 0 N/A
-15 3 0 0 0 N/A 15 0 0 0 0 N/A
-14 5 0 0 0 N/A 14 0 0 0 0 N/A
-13 6 0 0 0 N/A 13 0 0 0 0 N/A
-12 4 0 0 0 N/A 12 0 0 0 0 N/A
-11 10 0 0 0 N/A 11 0 0 0 0 N/A
-10 9 0 0 0 N/A 10 0 0 0 0 N/A
-9 5 0 0 0 N/A 9 0 0 0 0 N/A
-8 9 0 0 0 N/A 8 0 0 0 0 N/A
-7 9 0 0 0 N/A 7 0 0 0 0 N/A
-6 9 0 0 0 N/A 6 0 0 0 0 N/A
-5 12 0 1 1 1 in 12.0 5 0 0 0 0 N/A
-4 15 0 0 0 N/A 4 0 0 0 0 N/A
-3 27 0 0 0 N/A 3 0 0 0 0 N/A
-2 21 0 0 0 N/A 2 0 0 0 0 N/A
-1 15 0 0 0 N/A 1 0 0 0 0 N/A
-0 18 0 0 0 N/A 0 0 0 0 0 N/A
-Totals 190 1 1 2 1 in 95.0 Totals 0 0 0 0 N/A
-
------ PAGE 1 TABLE -----
-32 | 0 | 0 | 0 | 0 | N/A | None | None | 32 | 0 | 0 | 0 | 0 | N/A | None | None
-31 | 0 | 0 | 0 | 0 | N/A | None | None | 31 | 0 | 0 | 0 | 0 | N/A | None | None
-30 | 0 | 0 | 0 | 0 |  | N/A |  | 30 | 0 | 0 | 0 | 0 |  | N/A | 
-29 | 2 | 0 | 0 | 0 |  | N/A |  | 29 | 2 | 1 | 0 | 1 |  | 1 in 2.0 | 
-28 | 6 | 1 | 0 | 1 |  | 1 in 6.0 |  | 28 | 16 | 5 | 0 | 5 | 1 in 3.2 | None | None
-27 | 13 | 5 | 0 | 5 | 1 in 2.6 | None | None | 27 | 26 | 2 | 0 | 2 | 1 in 13.0 | None | None
-26 | 29 | 5 | 0 | 5 | 1 in 5.8 | None | None | 26 | 55 | 6 | 0 | 6 | 1 in 9.2 | None | None
-25 | 84 | 19 | 0 | 19 | 1 in 4.4 | None | None | 25 | 69 | 2 | 1 | 3 | 1 in 23.0 | None | None
-24 | 139 | 31 | 2 | 33 | 1 in 4.2 | None | None | 24 | 105 | 2 | 0 | 2 | 1 in 52.5 | None | None
-23 | 204 | 27 | 3 | 30 | 1 in 6.8 | None | None | 23 | 115 | 4 | 0 | 4 | 1 in 28.8 | None | None
-22 | 308 | 20 | 1 | 21 | 1 in 14.7 | None | None | 22 | 151 | 12 | 0 | 12 | 1 in 12.6 | None | None
-21 | 358 | 23 | 2 | 25 | 1 in 14.3 | None | None | 21 | 151 | 3 | 1 | 4 | 1 in 37.8 | None | None
-20 | 457 | 45 | 2 | 47 | 1 in 9.7 | None | None | 20 | 218 | 7 | 3 | 10 | 1 in 21.8 | None | None
-19 | 504 | 17 | 11 | 28 | 1 in 18.0 | None | None | 19 | 243 | 3 | 1 | 4 | 1 in 60.8 | None | None
-18 | 596 | 27 | 9 | 36 | 1 in 16.6 | None | None | 18 | 257 | 3 | 3 | 6 | 1 in 42.8 | None | None
-17 | 640 | 32 | 11 | 43 | 1 in 14.9 | None | None | 17 | 307 | 0 | 0 | 0 | N/A | None | None
-16 | 826 | 84 | 11 | 95 | 1 in 8.7 | None | None | 16 | 1511 | 6 | 6 | 12 | 1 in 125.9 | None | None
-15 | 1028 | 98 | 20 | 118 | 1 in 8.7 | None | None | 15 | 776 | 1 | 6 | 7 | 1 in 110.9 | None | None
-14 | 1136 | 62 | 29 | 91 | 1 in 12.5 | None | None | 14 | 655 | 2 | 5 | 7 | 1 in 93.6 | None | None
-13 | 1311 | 42 | 27 | 69 | 1 in 19.0 | None | None | 13 | 622 | 0 | 5 | 5 | 1 in 124.4 | None | None
-12 | 1312 | 40 | 41 | 81 | 1 in 16.2 | None | None | 12 | 586 | 2 | 4 | 6 | 1 in 97.7 | None | None
-11 | 1405 | 31 | 35 | 66 | 1 in 21.3 | None | None | 11 | 674 | 0 | 9 | 9 | 1 in 74.9 | None | None
-10 | 1413 | 44 | 50 | 94 | 1 in 15.0 | None | None | 10 | 718 | 0 | 6 | 6 | 1 in 119.7 | None | None
-9 | 1664 | 24 | 52 | 76 | 1 in 21.9 | None | None | 9 | 716 | 0 | 4 | 4 | 1 in 179.0 | None | None
-8 | 1925 | 27 | 65 | 92 | 1 in 20.9 | None | None | 8 | 897 | 1 | 6 | 7 | 1 in 128.1 | None | None
-7 | 1897 | 14 | 62 | 76 | 1 in 25.0 | None | None | 7 | 858 | 0 | 3 | 3 | 1 in 286.0 | None | None
-6 | 1942 | 12 | 55 | 67 | 1 in 29.0 | None | None | 6 | 977 | 0 | 5 | 5 | 1 in 195.4 | None | None
-5 | 2248 | 18 | 65 | 83 | 1 in 27.1 | None | None | 5 | 888 | 1 | 7 | 8 | 1 in 111.0 | None | None
-4 | 2301 | 7 | 54 | 61 | 1 in 37.7 | None | None | 4 | 933 | 0 | 2 | 2 | 1 in 466.5 | None | None
-3 | 2486 | 10 | 51 | 61 | 1 in 40.8 | None | None | 3 | 923 | 1 | 5 | 6 | 1 in 153.8 | None | None
+----- PAGE 82 TEXT -----
+1. Check the DWR wildlife calendar
+for upcoming meeting dates and
+agenda topics.
+2. Review proposals on the division
+website or our YouTube channel.
+3. Attend a public meeting in your
+region to share comments or
+submit feedback online during
+the public comment period.
+The Utah Wildlife Board creates wildlife-related rules for the state. The board
+considers recommendations from The Division of Wildlife Resources and
+the five Regional Advisory Councils. Each RAC depends on public feedback
+for guidance on agenda items and their recommendations for the board.
+Visit wildlife.utah.gov/getting-involved to learn more.
+The Utah Wildlife Board meets throughout the year at the Eccles Wildlife Education Center at Farmington Bay.
+82 | 2026 UTAH BIG GAME APPLICATION GUIDEBOOK

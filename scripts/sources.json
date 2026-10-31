@@ -1,0 +1,27 @@
+{
+  "layers": [
+    {"id": "CO", "fields": ["GMUID"], "urls": ["https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/ArcGIS/rest/services/CPWAdminData/FeatureServer/6"]},
+    {"id": "NM", "fields": ["GMU"], "urls": ["https://maps.nmt.edu/server/rest/services/Boundaries/Recreation_Resources/MapServer/0", "https://gis.blm.gov/nmarcgis/rest/services/Recreation/NMDGF_NM_Game_Management_Units/MapServer/0"]},
+    {"id": "AZ", "fields": ["GMUNAME"], "urls": ["https://services2.arcgis.com/os1CphwIyxBDDUGn/ArcGIS/rest/services/HunterDonationInteractiveWebmap_1921/FeatureServer/0"]},
+    {"id": "UT", "fields": ["Boundary_Name"], "where": "Status='Active'", "urls": ["https://dwrmapserv.utah.gov/dwrarcgis/rest/services/hunt/Boundaries_and_Tables_for_HuntP/FeatureServer/0", "https://dwrmapserv.utah.gov/arcgis/rest/services/hunt/Boundaries_and_Tables/MapServer/0"]},
+    {"id": "NV", "fields": ["HUNTUNIT", "HUNT_UNIT", "HuntUnit", "UNIT", "Unit", "UNIT_NUM", "UnitNumber", "NAME"], "items": ["63f5d9da297f4422a646cd8bdf8cd9a5", "8d73ddae778440a99101186fd214fbc9"], "urls": []},
+    {"id": "OR", "fields": ["UNIT_NAME"], "statewide_check": {"min_features": 60}, "urls": [
+      "https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/FeatureServer/0",
+      "https://nrimp.dfw.state.or.us/arcgis/rest/services/ODFW_Admin/WildlifeManagementUnits/MapServer/0",
+      "https://nrimp.dfw.state.or.us/arcgis/rest/services/Compass/ODFW_WildlifeManagementUnits/MapServer/0",
+      "https://services1.arcgis.com/CD5mKowwN6nIaqd8/ArcGIS/rest/services/OR_wildlife_mgmt_units/FeatureServer/0"]},
+    {"id": "ID", "fields": ["NAME"], "urls": ["https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/GameManagementUnits/FeatureServer/0"]},
+    {"id": "IDZ", "fields": ["NAME"], "urls": ["https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/ElkManagementZones/FeatureServer/0"]},
+    {"id": "MT", "fields": ["DISTRICT"], "urls": ["https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/11"]},
+    {"id": "MTP", "fields": ["DISTRICT"], "urls": ["https://fwp-gis.mt.gov/arcgis/rest/services/admbnd/huntingDistricts/MapServer/3"]}
+  ],
+  "discover": [
+    "Oregon wildlife management units",
+    "ODFW wildlife management units",
+    "Wyoming elk hunt areas",
+    "Wyoming deer hunt areas",
+    "Wyoming antelope hunt areas",
+    "WGFD hunt areas",
+    "NDOW hunt units"
+  ]
+}

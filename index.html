@@ -526,6 +526,7 @@ async function loadLayer(L){
   LS[L.id]={state:"wait"};renderStatus();
   let urls=[];
   try{
+    try{const r=await fetch(`data/${L.id}.geojson`,{cache:"no-cache"});if(r.ok){const fc=await r.json();if(fc.features&&fc.features.length){LS[L.id]={state:"ok",n:fc.features.length,url:"saved copy"};attach(L,fc.features,"unit");renderStatus();return}}}catch(e){}
     if(L.items){for(const it of L.items){try{urls.push(await resolveItem(it))}catch(e){}}}
     else urls=[L.url,...(L.alt||[])];
     let lastErr;
@@ -547,8 +548,8 @@ function pickField(L,props){
   for(const f of L.f){const k=keys.find(x=>x.toLowerCase()===f.toLowerCase());if(k)return k}
   return keys.find(k=>/unit|district|gmu|boundary_name|name/i.test(k))||keys[0];
 }
-function attach(L,feats){
-  const field=pickField(L,feats[0].properties);LS[L.id].field=field;
+function attach(L,feats,forced){
+  const field=forced||pickField(L,feats[0].properties);LS[L.id].field=field;
   const entries=U.map((u,i)=>[u,i]).filter(([u])=>layersForEntry(u).includes(L));
   const idx={};
   feats.forEach(ft=>{ft._id=String(ft.properties[field]??"").trim();ft._n=normId(ft._id);ft._lc=ft._id.toLowerCase();ft._e=[];(idx[ft._n]=idx[ft._n]||[]).push(ft)});

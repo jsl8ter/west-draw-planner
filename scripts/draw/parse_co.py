@@ -136,7 +136,7 @@ def work(args):
             res.append((k, txt, do))
             if hasattr(p, "close"):
                 p.close()
-    return res
+    return res, DIAG[:]
 
 
 def tok(x):
@@ -288,8 +288,11 @@ def parse():
         import importlib
         fn = importlib.import_module(__name__).work  # picklable reference
         with cf.ProcessPoolExecutor(ncpu) as ex:
-            for r in ex.map(fn, chunks):
+            for r, dg in ex.map(fn, chunks):
                 pages.extend(r)
+                for x in dg:
+                    if x not in DIAG and len(DIAG) < 12:
+                        DIAG.append(x)
         os.unlink(tmp.name)
         pages.sort()
         bad = []

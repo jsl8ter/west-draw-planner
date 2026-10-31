@@ -35,77 +35,21 @@ repository: 231 reports listed
 2023 2023 Antelope 900-20 Archery Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=109807 -> 16 rows, 1 LPTs
 2024 2024 Deer Permit Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=110883 -> 874 rows, 36 LPTs
 2024 2024 Elk Permit Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=110885 -> 1287 rows, 43 LPTs
-2024 2024 Antelope 900-20 Archery Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=111141 -> 0 rows, 0 LPTs
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 1 5 5 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 2 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 0 4 4 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 1 2862 2795 97.66
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 2 102 102 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 3 10 10 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 0 2439 2124 87.08
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT LANDOWNER 1 7 7 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT LANDOWNER 0 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 1 648 203 31.33
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 2 317 186 58.68
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 3 103 89 86.41
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 4 28 26 92.86
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 5 2 2 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 6 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 0 255 44 17.25
+2024 2024 Antelope 900-20 Archery Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=111141 -> 16 rows, 1 LPTs
 2024 2024 Deer B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=111143 -> 856 rows, 94 LPTs
 2024 2024 Elk B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=111145 -> 1042 rows, 82 LPTs
 2024 2024 Antelope Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=111317 -> 909 rows, 55 LPTs
 2024 2024 Antelope B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=111319 -> 466 rows, 36 LPTs
 2025 2025 Deer Permit Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=112968 -> 897 rows, 36 LPTs
 2025 2025 Elk Permit Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=112970 -> 1315 rows, 43 LPTs
-2025 2025 Antelope 900-20 Archery Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=113232 -> 0 rows, 0 LPTs
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 1 8 8 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 0 7 7 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 1 3103 2985 96.2
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 2 126 126 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 3 16 16 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 4 3 3 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 5 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 6 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 0 2363 1897 80.28
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT LANDOWNER 1 10 10 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT LANDOWNER 2 3 3 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT LANDOWNER 3 2 2 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT LANDOWNER 0 2 2 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 1 605 190 31.4
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 2 309 179 57.93
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 3 128 105 82.03
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 4 23 21 91.3
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 5 10 9 90
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 6 2 2 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 NONRESIDENT 0 226 33 14.6
+2025 2025 Antelope 900-20 Archery Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=113232 -> 20 rows, 1 LPTs
 2025 2025 Deer B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=113234 -> 895 rows, 94 LPTs
 2025 2025 Elk B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=113236 -> 1078 rows, 82 LPTs
 2025 2025 Antelope B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=113583 -> 491 rows, 35 LPTs
 2025 2025 Antelope Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=113585 -> 964 rows, 55 LPTs
 2026 2026 Deer Permit Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=116128 -> 975 rows, 39 LPTs
 2026 2026 Elk Permit Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=116130 -> 1394 rows, 46 LPTs
-2026 2026 Antelope Archery Only Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=116773 -> 0 rows, 0 LPTs
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT LANDOWNER 1 2 2 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT LANDOWNER 2 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT 1 614 308 50.16
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT 2 46 37 80.43
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT 3 4 4 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT 4 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT 5 2 2 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 RESIDENT 0 237 95 40.08
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 NONRESIDENT 1 48 29 60.42
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 NONRESIDENT 2 21 15 71.43
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 NONRESIDENT 3 4 4 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 NONRESIDENT 5 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 399-20 NONRESIDENT 0 11 1 9.09
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 1 7 7 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT LANDOWNER 0 7 7 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 1 2606 2605 99.96
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 2 125 125 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 3 8 8 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 7 1 1 100
-  unparsed: ANTELOPE LICENSE - ARCHERY ONLY 900-20 RESIDENT 0 1871 1871 100
+2026 2026 Antelope Archery Only Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=116773 -> 31 rows, 2 LPTs
 2026 2026 Deer B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=116774 -> 954 rows, 98 LPTs
 2026 2026 Elk B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=116776 -> 1144 rows, 83 LPTs
 2026 2026 Antelope B Detailed Bonus Point Drawing Statistics: https://myfwp.mt.gov/getRepositoryFile?objectID=117232 -> 515 rows, 37 LPTs

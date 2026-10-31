@@ -1,4 +1,4 @@
-WY: OK 795 hunts, years ['2022', '2023', '2024', '2025', '2026']
+WY: OK 1021 hunts, years ['2022', '2023', '2024', '2025', '2026']
 skip https://wgfd.wyo.gov/media/23938/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 4/26/2023
 skip https://wgfd.wyo.gov/media/23939/download (Resident): Demand Report - Resident Bighorn Sheep State of Wyoming Date: 4/26/2023
 skip https://wgfd.wyo.gov/media/23942/download (Resident): Demand Report - Resident Wild Bison State of Wyoming Date: 4/26/2023
@@ -297,5 +297,5 @@ unparsed rows total 5 (first 50):
   2022 P NR: (cid:0)
   2024 P NR: .
   2024 P NR: Y
-hunts: E 408 D 181 P 206
+hunts: E 459 D 189 P 373
 apps = 1st-choice applicants (NR: preference-point report; R: resident report). NR random-pool and resident drawn = min(quota, 1st-choice applicants).

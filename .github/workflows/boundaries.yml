@@ -33,5 +33,4 @@ jobs:
           git add data
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Update unit boundaries"
-          git pull --rebase origin main
-          git push
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push && break; sleep $((RANDOM % 10 + 3)); done

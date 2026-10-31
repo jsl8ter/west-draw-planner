@@ -1,50 +1,50 @@
-NM: OK 1367 hunts, years ['2022', '2023', '2024', '2025', '2026']
+NM: OK 1290 hunts, years ['2022', '2023', '2024', '2025', '2026']
 2026 https://wildlife.dgf.nm.gov/download/2026-big-game-drawing-odds-complete-report/?wpdmdl=56113 rows=812 hunts(E/D/C/P kept)=703
 2025 https://wildlife.dgf.nm.gov/download/2025-drawing-odds-complete-report/?wpdmdl=52046 rows=812 hunts(E/D/C/P kept)=703
 2024 https://wildlife.dgf.nm.gov/download/2024-drawing-odds-complete-report/?wpdmdl=48997 rows=817 hunts(E/D/C/P kept)=704
 2023 https://wildlife.dgf.nm.gov/download/2023-big-game-draw-odds-complete-report/?wpdmdl=48734 rows=816 hunts(E/D/C/P kept)=703
 2022 https://wildlife.dgf.nm.gov/download/2022-big-game-draw-odds-complete-report/?wpdmdl=48730 rows=800 hunts(E/D/C/P kept)=688
-hunt codes reused for a different hunt (desc/bag changed): 280; first 40:
-2025 DER-1-415 'Unit 57 (excluding Sugarite Canyon S.P.)' FAD differs from 'Unit 57 (excluding Sugarite Canyon State Park) (FAD)' -> separate entry
-2025 DER-1-416 'Unit 57 (excluding Sugarite Canyon S.P.)' FAD differs from 'Unit 57 (excluding Sugarite Canyon State Park) (FAD)' -> separate entry
-2025 DER-1-418 'Unit 57 (excluding Sugarite Canyon S.P.)' ESWTD differs from 'Unit 57 (excluding Sugarite Canyon State Park) (ESWTD)' -> separate entry
-2025 DER-2-214 'Unit 19: except WSMR and Ft. Bliss' FAD differs from 'Unit 19: except the White Sands missile range portion and Ft. Bliss (FAD)' -> separate entry
-2025 DER-2-239 'Unit 23: except Burro mountains hunt area.' FAMD differs from 'Unit 23: except the Burro mountains hunt area. (FAMD)' -> separate entry
-2025 DER-2-240 'Unit 23: except Burro mountains hunt area.' FAMD differs from 'Unit 23: except the Burro mountains hunt area. (FAMD)' -> separate entry
-2025 DER-2-241 'Unit 23: except Burro mountains hunt area.' FAWTD differs from 'Unit 23: except the Burro mountains hunt area. (FAWTD)' -> separate entry
-2025 DER-2-242 'Unit 23: except Burro mountains hunt area.' FAWTD differs from 'Unit 23: except the Burro mountains hunt area. (FAWTD)' -> separate entry
-2025 DER-2-259 'Unit 24: excluding Fort Bayard.' FAMD differs from 'Unit 24: excluding Fort Bayard management area. (FAMD)' -> separate entry
-2025 DER-2-260 'Unit 24: excluding Fort Bayard.' FAMD differs from 'Unit 24: excluding Fort Bayard management area. (FAMD)' -> separate entry
-2025 DER-2-261 'Unit 24: excluding Fort Bayard.' FAWTD differs from 'Unit 24: excluding Fort Bayard management area. (FAWTD)' -> separate entry
-2025 DER-2-262 'Unit 24: excluding Fort Bayard.' FAWTD differs from 'Unit 24: excluding Fort Bayard management area. (FAWTD)' -> separate entry
-2025 DER-2-419 'Unit 57 (excluding Sugarite Canyon S.P.)' FAD differs from 'Unit 57 (excluding Sugarite Canyon State Park) (FAD)' -> separate entry
-2025 DER-2-420 'Unit 57: Sugarite Canyon S.P. only' FAD differs from 'Unit 57: Sugarite canyon state park only (FAD)' -> separate entry
-2025 DER-3-169 'Unit 9, including Water Canyon WMA: restricted muzzleloader' FAD differs from 'Unit 9, including Water Canyon WMA: restricted muzzleloader only (FAD)' -> separate entry
-2025 DER-3-215 'Unit 19: except WSMR and Ft. Bliss' FAD differs from 'Unit 19: except the White Sands missile range portion and Ft. Bliss (FAD)' -> separate entry
-2025 DER-3-244 'Unit 23: except Burro mountains hunt area' FAWTD differs from 'Unit 23: except the Burro mountains hunt area (FAWTD)' -> separate entry
-2025 DER-3-263 'Unit 24: excluding Fort Bayard' FAMD differs from 'Unit 24: excluding Fort Bayard management area (FAMD)' -> separate entry
-2025 DER-3-264 'Unit 24: excluding Fort Bayard' FAWTD differs from 'Unit 24: excluding Fort Bayard management area (FAWTD)' -> separate entry
-2025 DER-3-421 'Unit 57 (excluding Sugarite Canyon S.P.)' FAD differs from 'Unit 57 (excluding Sugarite Canyon State Park) (FAD)' -> separate entry
-2025 ELK-1-342 'Unit 24: excluding Ft. Bayard' MB differs from 'Unit 24: excluding Ft. Bayard management area (MB)' -> separate entry
-2025 ELK-1-422 'Units 57 (excluding Sugarite Canyon S.P.), 58' MB differs from 'Units 57 (excluding Sugarite Canyon State Park), 58 (MB)' -> separate entry
-2025 ELK-1-423 'Units 57 (excluding Sugarite Canyon S.P.), 58' MB differs from 'Units 57 (excluding Sugarite Canyon State Park), 58 (MB)' -> separate entry
-2025 ELK-1-424 'Units 57 (excluding Sugarite Canyon S.P.), 58' A differs from 'Units 57 (excluding Sugarite Canyon State Park), 58 (A)' -> separate entry
-2025 ELK-2-339 'Unit 24: excluding Ft. Bayard' ES differs from 'Unit 24: excluding Ft. Bayard management area (ES)' -> separate entry
-2025 ELK-2-340 'Unit 24: excluding Ft. Bayard' ES differs from 'Unit 24: excluding Ft. Bayard management area (ES)' -> separate entry
-2025 ELK-2-418 'Unit 57: Sugarite Canyon S.P. only' ES differs from 'Unit 57: Sugarite canyon state park only (ES)' -> separate entry
-2025 ELK-2-419 'Unit 57: Sugarite Canyon S.P. only' ES differs from 'Unit 57: Sugarite canyon state park only (ES)' -> separate entry
-2025 ELK-2-420 'Units 57 (excluding Sugarite Canyon S.P.), 58' ES differs from 'Units 57 (excluding Sugarite Canyon State Park), 58 (ES)' -> separate entry
-2025 ELK-2-421 'Units 57 (excluding Sugarite Canyon S.P.), 58' ES differs from 'Units 57 (excluding Sugarite Canyon State Park), 58 (ES)' -> separate entry
-2025 ELK-3-341 'Unit 24: excluding Ft. Bayard' MB differs from 'Unit 24: excluding Ft. Bayard management area (MB)' -> separate entry
-2024 DER-1-212 'Unit 19: White Sands missile range only' FAD differs from 'Unit 19: White Sands missile range only, mandatory check-in/check-out (FAD)' -> separate entry
-2024 DER-1-213 'Unit 19: White Sands missile range only' FAD differs from 'Unit 19: White Sands missile range only, mandatory check-in/check-out (FAD)' -> separate entry
-2024 DER-1-234 'Unit 23: except Burro mountains hunt area' FAMD differs from 'Unit 23: except the Burro mountains hunt area (FAMD)' -> separate entry
-2024 DER-1-235 'Unit 23: except Burro mountains hunt area' FAMD differs from 'Unit 23: except the Burro mountains hunt area (FAMD)' -> separate entry
-2024 DER-1-236 'Unit 23: except Burro mountains hunt area' FAWTD differs from 'Unit 23: except the Burro mountains hunt area (FAWTD)' -> separate entry
-2024 DER-1-237 'Unit 23: except Burro mountains hunt area' FAWTD differs from 'Unit 23: except the Burro mountains hunt area (FAWTD)' -> separate entry
-2024 DER-1-254 'Unit 24: excluding Fort Bayard' FAMD differs from 'Unit 24: excluding Fort Bayard management area (FAMD)' -> separate entry
-2024 DER-1-255 'Unit 24: excluding Fort Bayard' FAMD differs from 'Unit 24: excluding Fort Bayard management area (FAMD)' -> separate entry
-2024 DER-1-256 'Unit 24: excluding Fort Bayard' FAWTD differs from 'Unit 24: excluding Fort Bayard management area (FAWTD)' -> separate entry
+hunt codes reused for a different hunt (desc/bag changed): 203; first 40:
+2024 ELK-2-425 'Unit 54: Colin Neblett WMA only' ES differs from 'Unit 54/55A: Colin Neblett WMA only (ES)' -> separate entry
+2024 ELK-2-426 'Unit 54: Colin Neblett WMA only' ES differs from 'Unit 54/55A: Colin Neblett WMA only (ES)' -> separate entry
+2024 ELK-3-427 'Unit 54: Colin Neblett WMA only' MB differs from 'Unit 54/55A: Colin Neblett WMA only (MB)' -> separate entry
+2023 DER-2-239 'Unit 23: except the Burro mountains Hunt area.' FAD differs from 'Unit 23: except the Burro mountains hunt area. (FAMD)' -> separate entry
+2023 DER-2-241 'Unit 23: except the Burro mountains Hunt area.' FAMD differs from 'Unit 23: except the Burro mountains hunt area. (FAWTD)' -> separate entry
+2023 DER-2-248 'Unit 23: Burro mountains Hunt area only.' FAWTD differs from 'Unit 23: Burro mountains hunt area only. (FAMD)' -> separate entry
+2023 DER-2-249 'Unit 23: Burro mountains Hunt area only.' FAMD differs from 'Unit 23: Burro mountains hunt area only. (FAWTD)' -> separate entry
+2023 DER-2-259 'Unit 24: excluding Fort Bayard management area.' FAWTD differs from 'Unit 24: excluding Fort Bayard management area. (FAMD)' -> separate entry
+2023 DER-2-261 'Unit 24: excluding Fort Bayard management area.' FAMD differs from 'Unit 24: excluding Fort Bayard management area. (FAWTD)' -> separate entry
+2023 DER-2-267 'Unit 25' FAWTD differs from 'Unit 25 (FAD)' -> separate entry
+2023 DER-2-281 'Unit 27' FAD differs from 'Unit 27 (FAMD)' -> separate entry
+2023 DER-2-282 'Unit 27' FAMD differs from 'Unit 27 (FAWTD)' -> separate entry
+2023 DER-2-283 'Unit 27' FAWTD differs from 'Unit 27 (FAMD)' -> separate entry
+2023 DER-2-284 'Unit 27' FAMD differs from 'Unit 27 (FAWTD)' -> separate entry
+2023 DER-2-291 'Unit 29' FAWTD differs from 'Unit 29 (FAD)' -> separate entry
+2023 DER-2-408 'Unit 55: Valle Vidal only' FAD differs from 'Unit 55A: Valle Vidal only (FAD)' -> separate entry
+2023 DER-3-243 'Unit 23: except the Burro mountains Hunt area' FAD differs from 'Unit 23: except the Burro mountains hunt area (FAMD)' -> separate entry
+2023 DER-3-244 'Unit 23: except the Burro mountains Hunt area' FAD differs from 'Unit 23: except the Burro mountains hunt area (FAWTD)' -> separate entry
+2023 DER-3-269 'Unit 25' FAMD differs from 'Unit 25 (FAD)' -> separate entry
+2023 DER-3-274 'Unit 26' FAWTD differs from 'Unit 26 (FAD)' -> separate entry
+2023 DER-3-285 'Unit 27' FAD differs from 'Unit 27 (FAMD)' -> separate entry
+2023 DER-3-286 'Unit 27' FAD differs from 'Unit 27 (FAWTD)' -> separate entry
+2023 DER-3-293 'Unit 29' FAMD differs from 'Unit 29 (FAD)' -> separate entry
+2023 DER-3-299 'Unit 30' FAWTD differs from 'Unit 30 (FAD)' -> separate entry
+2023 DER-3-325 'Unit 34' ES differs from 'Unit 34 (FAD)' -> separate entry
+2023 DER-3-331 'Unit 36' A differs from 'Unit 36 (FAD)' -> separate entry
+2023 ELK-1-428 'Unit 54: Colin Neblett WMA only' MB differs from 'Unit 54/55: Colin Neblett WMA only (MB)' -> separate entry
+2023 ELK-1-429 'Unit 54: Colin Neblett WMA only' MB differs from 'Unit 54/55: Colin Neblett WMA only (MB)' -> separate entry
+2023 ELK-1-430 'Unit 54: Colin Neblett WMA only' A differs from 'Unit 54/55: Colin Neblett WMA only (A)' -> separate entry
+2022 DER-1-165 'Unit 10 mobility impaired' FAD differs from 'Unit 9: Marquez/LBar WMAs only (FAD)' -> separate entry
+2022 DER-1-172 'Unit 12' FAD differs from 'Unit 10 (FAD)' -> separate entry
+2022 DER-1-181 'Unit 14' FAD differs from 'Unit 13 (FAD)' -> separate entry
+2022 DER-1-196 'Unit 17' FAD differs from 'Unit 16 (FAD)' -> separate entry
+2022 DER-1-202 'Unit 18' FAD differs from 'Unit 17 (FAD)' -> separate entry
+2022 DER-1-207 'Unit 19 White Sands missile range only' FAD differs from 'Unit 18 (FAD)' -> separate entry
+2022 DER-1-216 'Unit 21' FAD differs from 'Unit 20 (FAD)' -> separate entry
+2022 DER-1-221 'Unit 22' FAD differs from 'Unit 21 (FAD)' -> separate entry
+2022 DER-1-222 'Unit 22' FAD differs from 'Unit 21 (FAD)' -> separate entry
+2022 DER-1-227 'Unit 23 except the Burro mountains hunt area' FAMD differs from 'Unit 21 (FAWTD)' -> separate entry
+2022 DER-1-228 'Unit 23 except the Burro mountains hunt area' FAMD differs from 'Unit 22 (FAD)' -> separate entry
 apps = 1st-choice applicants; drawn = licenses drawn by 1st-choice applicants (report also has 2nd-4th choice); T.drawn = R+NR+O first-choice drawn.
 weapon from hunt-code digit: 1 any legal sporting arm, 2 bow, 3 muzzleloader. Species C = DER hunts with whitetail bag (FAWTD/ESWTD).
 NR = non-resident (unguided) pool only; outfitter-pool applicants/drawn are reported separately under key 'O' (nonresidents applying through an outfitter). T = hunt total incl. all pools.

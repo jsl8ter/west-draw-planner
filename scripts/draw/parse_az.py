@@ -32,6 +32,7 @@ FILES = {  # year -> kind -> paths
            "dr12": ["2025/05/15151926/2025-Elk-Pronghorn-Draw-Report-1-2-Pass.pdf"],
            "drbp": ["2025/05/15151934/2025-Elk-Pronghorn-Draw-Report-Bonus-Pass.pdf"]},
     2026: {"odds": [],
+           "regs": ["2025/12/23143704/2026-Pronghorn-and-Elk-Regulations_251223.pdf", "2026/05/04081122/2026-27-Arizona-Hunting-Regulations.pdf"],
            "bpr": ["2026/03/27091508/2026-M-Bonus-Point-Report.pdf", "2026/08/16185459/2026-F-Bonus-Point-Report.pdf"],
            "dr12": ["2026/03/27091608/2026-M-Draw-Report-1-2-Pass.pdf", "2026/08/05153607/2026-F-Draw-Report-1-2-Pass.pdf"],
            "drbp": ["2026/03/27091637/2026-M-Draw-Report-Bonus-Pass.pdf", "2026/08/05153620/2026-F-Draw-Report-Bonus-Point-Pass.pdf"]},
@@ -47,8 +48,15 @@ def text_of(path):
     import pdfplumber
     try:
         r = requests.get(B + path, headers=UA, timeout=180); r.raise_for_status()
+        out = []
         with pdfplumber.open(io.BytesIO(r.content)) as pdf:
-            return path, [(p.extract_text() or "") for p in pdf.pages]
+            for p in pdf.pages:
+                tx = p.extract_text() or ""
+                if "Regulations" in path and re.search(r"(?m)[123]\d{3} [A-Z][a-z]{2} \d.* [123]\d{3} [A-Z][a-z]{2} \d", tx):
+                    w = float(p.width)  # two-column table page: read each column separately
+                    tx = "\n".join((p.crop((x0, 0, x1, float(p.height))).extract_text() or "") for x0, x1 in ((0, w / 2), (w / 2, w)))
+                out.append(tx)
+        return path, out
     except Exception as e:
         return path, f"ERROR {e!r}"
 
@@ -160,12 +168,13 @@ def year_rec(y, num, m, dr12, drbp, bpr, bpr_ok, bad):
     if have_dr:
         rec["T"]["tags"] = dr12["All"][0]
         rec["NR"]["tags"] = dr12["NonRes"][0]
-        for g, k, _ in G: rec[k]["apps"] = dr12[g][2]
+        src = drbp if drbp and all(g in drbp for g, _, _ in G) else dr12   # bonus-pass report counts all applicants
+        for g, k, _ in G: rec[k]["apps"] = src[g][2]
     else:
         rec["T"]["tags"] = m["issued"]
         if bpr:
             for _, k, gi in G: rec[k]["apps"] = sum(v[gi] for v in bpr.values())
-        else:
+        elif m["apps1"] is not None:
             rec["T"]["apps"] = m["apps1"]
     if bpr and bpr_ok:
         for _, k, gi in G[1:]:
@@ -176,7 +185,7 @@ def year_rec(y, num, m, dr12, drbp, bpr, bpr_ok, bad):
         for g, k, _ in G: rec[k]["drawn"] = dr12[g][5] + drbp[g][5]
     elif bpr:
         for _, k, gi in G: rec[k]["drawn"] = sum(v[12 + gi] for v in bpr.values())
-    if abs(rec["T"].get("apps", 0) - m["apps1"]) > max(10, 0.05 * m["apps1"]) and len(bad) < 50:
+    if m["apps1"] is not None and abs(rec["T"].get("apps", 0) - m["apps1"]) > max(10, 0.05 * m["apps1"]) and len(bad) < 50:
         bad.append(f"{y} {num}: first-choice apps {rec['T'].get('apps')} (draw report) vs {m['apps1']} (draw odds)")
     return {k: v for k, v in rec.items() if v}
 
@@ -195,20 +204,53 @@ def bpr_consistent(y, dr12, bpr):
     return ok
 
 
-def dump_regs():  # TEMP: write regulation booklet text for layout inspection
-    d = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "draw", "probe", "AZ")
-    os.makedirs(d, exist_ok=True)
-    for name, path in (("regs_pe2026", "2025/12/23143704/2026-Pronghorn-and-Elk-Regulations_251223.pdf"),
-                       ("regs_deer2026", "2026/05/04081122/2026-27-Arizona-Hunting-Regulations.pdf")):
-        _, pages = text_of(path)
-        if isinstance(pages, str): LOG.append(f"regs {path} {pages}"); continue
-        with open(os.path.join(d, name + ".txt"), "w") as f:
-            for i, pg in enumerate(pages):
-                if re.search(r"\b[123]\d{3}\b", pg): f.write(f"\n===== PAGE {i+1}\n{pg}")
+MON = {m: i + 1 for i, m in enumerate("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split())}
+REG_HDR = re.compile(r"((?:GENERAL|ARCHERY|MUZZLELOADER|LIMITED|YOUTH|CHAMP|HAM)[A-Z()\- ]*?) (ELK|PRONGHORN|DEER)\b")
+REG_ROW = re.compile(r"^([123]\d{3}) ([A-Z][a-z]{2}) (\d{1,2})(?:, (\d{4}))? - ([A-Z][a-z]{2}) (\d{1,2}), (\d{4}) (.*?)"
+                     r"((?:Any|Antlered|Antlerless|Buck|Doe|Bull|Spike|Cow|Early|Branch|Juvenile|Mature)[A-Za-z ]*? (?:deer|pronghorn|elk)) (\d+)\b")
+
+
+def reg_units(area):
+    a = re.sub(r"\([^)]*\)", " ", area)
+    a = re.sub(r"\b(\d{1,2}[A-Z]?) (East|West|North|South)\b", lambda m: m.group(1) + m.group(2)[0], a)
+    toks = re.findall(r"\b\d{1,2}[A-Z]{0,2}\b", a)
+    if not toks and "camp navajo" in area.lower(): toks = ["CN"]
+    return toks
+
+
+def parse_regs(year, path, pages, meta, bad):
+    """Hunt tables in the regulation booklets: 'NNNN Mon d - Mon d, yyyy (notes) Open Areas Legal Wildlife Permits'."""
+    method, n = None, 0
+    for pg in pages:
+        for line in pg.splitlines():
+            line = line.strip()
+            if not re.match(r"^[123]\d{3} ", line):
+                hs = [h for h in REG_HDR.finditer(line) if h.start() == 0 or line[h.start() - 1] == " "]
+                if hs and line.isupper() == line.upper().isupper() and hs[0].start() == 0:
+                    h = hs[-1]
+                    mt = re.sub(r" HUNT PERMIT-TAG REQUIRED| NONPERMIT-TAG.*", "", h.group(1)).strip()
+                    method = None if "NONPERMIT" in line[h.start():h.end() + 30] else mt.title().replace("Champ", "CHAMP").replace("(Ham)", "(HAM)")
+                    line = line[h.end():].strip()
+                    if not re.match(r"^[123]\d{3} ", line): continue
+                else:
+                    continue
+            m = REG_ROW.match(line)
+            if not m:
+                if re.match(r"^[123]\d{3} [A-Z][a-z]{2} \d", line) and len(bad) < 50: bad.append(f"{year} regs unparsed: {line}")
+                continue
+            if method is None: continue
+            num, m1, d1, y1, m2, d2, y2, area, legal, permits = m.groups()
+            units = reg_units(area)
+            if not units:
+                if len(bad) < 50: bad.append(f"{year} regs no unit: {line}")
+                continue
+            meta[num] = {"unit": "/".join(units), "method": method, "open": f"{MON[m1]}/{d1}/{y1 or y2}", "close": f"{MON[m2]}/{d2}/{y2}",
+                         "type": legal, "apps1": None, "issued": int(permits), "area": area.strip()}
+            n += 1
+    LOG.append(f"{year} regulations {B + path}: {n} hunts")
 
 
 def parse():
-    dump_regs()
     paths = [p for d in FILES.values() for ps in d.values() for p in ps]
     import importlib  # parse_all loads this file without registering it; workers need an importable function
     worker = importlib.import_module("parse_az").text_of
@@ -223,51 +265,59 @@ def parse():
                 if isinstance(t, str):
                     LOG.append(f"{y} {k} {B + p}: {t}"); continue
                 if k == "odds": parse_odds(y, p, t, meta, bad)
+                elif k == "regs": parse_regs(y, p, t, meta, bad)
                 elif k == "dr12": parse_dr(y, p, t, dr12)
                 elif k == "drbp": parse_dr(y, p, t, drbp)
                 else: parse_bpr(y, p, t, bpr)
                 fall = re.search(r"Fall|-F-", p) is not None
-                sp = {"odds": "E" if "Elk" in p else "P" if "Pronghorn" in p else "D,C"}.get(k, "D,C" if fall else "E,P")
+                sp = {"odds": "E" if "Elk" in p else "P" if "Pronghorn" in p else "D,C", "regs": "E,P" if "Elk" in p else "D,C"}.get(k, "D,C" if fall else "E,P")
                 sources.append({"year": y, "species": sp, "url": B + p, "title": os.path.basename(p)})
-        per_year[y] = (meta, dr12, drbp, bpr, bpr_consistent(y, dr12, bpr))
+        per_year[y] = (meta, dr12, drbp, bpr, bpr_consistent(y, drbp or dr12, bpr))
 
-    # Hunt identity: (species, units, method, hunt type) + ordinal by season open date.
-    hunts, by_key = {}, {}
+    # Hunt identity: AZ renumbers hunts yearly, so match by (species, units, method, sex) and nearest season-open date (<= 14 days).
+    hunts, groups = {}, {}
     for y in sorted(per_year, reverse=True):
         meta, dr12, drbp, bpr, bpr_ok = per_year[y]
         if not meta:
-            if bpr: LOG.append(f"{y}: no Draw Odds hunt list published; {len(bpr)} hunts in the bonus point reports NOT included (no unit/type metadata)")
+            if bpr: LOG.append(f"{y}: no hunt list (draw odds/regulations); {len(bpr)} bonus-point-report hunts NOT included")
             continue
-        groups = {}
-        for num, m in meta.items():
+        used, nskip = set(), 0
+        for num in sorted(meta):
+            m = meta[num]
             sp = species_of(num, m["type"])
             if sp is None or re.search(r"youth", m["method"] + m["type"], re.I): continue
-            base = (sp, tuple(sorted(unit_list(m["unit"]))), norm_method(m["method"]), norm_type(m["type"]))
-            groups.setdefault(base, []).append(num)
-        for base, nums in groups.items():
-            nums.sort(key=lambda n: (date_key(meta[n]["open"]), n))
-            for i, num in enumerate(nums):
-                m = meta[num]
-                h = by_key.get(base + (i,))
-                if h is None:
-                    hid = num if num not in hunts else f"{num} ({y})"
-                    h = {"id": hid, "species": base[0], "units": unit_list(m["unit"]),
-                         "label": f"{m['unit']} {m['type']} - {m['method']} {m['open']}-{m['close']}",
-                         "weapon": weapon_of(m["method"]),
-                         "kind": "special" if re.search(r"limited opp|champ", m["method"], re.I) else "limited",
-                         "years": {}}
-                    s = sex_of(m["type"])
-                    if s: h["sex"] = s
-                    hunts[hid] = h; by_key[base + (i,)] = h
-                h["years"][str(y)] = year_rec(y, num, m, dr12.get(num), drbp.get(num), bpr.get(num), bpr_ok, bad)
+            if not (dr12.get(num) or bpr.get(num) or m["apps1"] is not None):
+                nskip += 1; continue
+            gk = (sp, tuple(sorted(unit_list(m["unit"]))), norm_method(m["method"]), sex_of(m["type"]))
+            mo, dy, _ = (int(x) for x in m["open"].split("/"))
+            doy = mo * 31 + dy
+            best = None
+            for h in groups.get(gk, []):
+                if id(h) in used: continue
+                dd = abs(h["_doy"] - doy)
+                if dd <= 14 and (best is None or dd < best[0]): best = (dd, h)
+            if best: h = best[1]
+            else:
+                hid = num if num not in hunts else f"{num} ({y})"
+                h = {"id": hid, "species": sp, "units": unit_list(m["unit"]),
+                     "label": f"{m.get('area') or m['unit']} {m['type']} - {m['method']} {m['open']}-{m['close']}",
+                     "weapon": weapon_of(m["method"]),
+                     "kind": "special" if re.search(r"limited opp|champ", m["method"], re.I) else "limited", "years": {}}
+                s = sex_of(m["type"])
+                if s: h["sex"] = s
+                hunts[hid] = h; groups.setdefault(gk, []).append(h)
+            h["_doy"] = doy; used.add(id(h))
+            h["years"][str(y)] = year_rec(y, num, m, dr12.get(num), drbp.get(num), bpr.get(num), bpr_ok, bad)
+        if nskip: LOG.append(f"{y}: {nskip} listed hunts had no draw data (not in draw/bonus reports) - skipped")
+    for h in hunts.values(): h.pop("_doy", None)
     LOG.extend(bad[:50])
-    LOG.append("apps = first-choice applicants from the 1-2 Pass Draw Report (Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass "
+    LOG.append("apps = first-choice applicants from the Bonus Pass Draw Report (1-2 Pass report excludes bonus-pass winners; Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass "
                "(Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.")
     LOG.append("by_pts = [points, first-choice applicants, permits issued in bonus + 1-2 pass at that level (includes 2nd-choice draws)]. "
                "min_pts = lowest point level that drew in the bonus (max-point) pass.")
     LOG.append("T.tags = authorized permits (Draw Report); NR.tags = nonresident cap (Draw Report NonRes 'Authorized Permits'). "
                "Residents may fill all permits, so R.tags is omitted. Without a Draw Report (2025 fall), T.tags = permits issued from Draw Odds.")
     LOG.append("Species: deer hunt types containing 'whitetail' -> C; other deer (incl. 'Any antlered deer') -> D. Youth-only hunts skipped. "
-               "AZ reuses hunt numbers for different hunts, so hunts are matched across years by units+method+hunt type+season order; id = most recent number.")
+               "AZ reuses hunt numbers for different hunts, so hunts are matched across years by species+units+method+sex and nearest season-open date (<=14 days); id = most recent number. 2026 hunt metadata comes from the 2026 regulation booklets (2026 draw odds not yet published).")
     out = sorted(hunts.values(), key=lambda h: h["id"])
     return {"state": "AZ", "system": "az", "point_label": "bonus points", "sources": sources, "hunts": out}

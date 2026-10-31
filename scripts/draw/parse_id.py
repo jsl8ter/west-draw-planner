@@ -114,7 +114,7 @@ def sex_of(orn):
     return None
 
 
-SKIP = re.compile(r"youth|landowner|disab|mentor|super hunt|depredation", re.I)
+SKIP = re.compile(r"youth|landowner|outfitter|disab|mentor|super hunt|depredation", re.I)
 
 
 def parse():
@@ -184,7 +184,7 @@ def parse():
                 NR = {"apps": int(r.get("NonResApp") or 0), "drawn": int(r.get("NonResPermit") or 0)}
                 h["years"][str(y)] = {"hunt": num, "R": R, "NR": NR, "T": T}
                 kept += 1
-            LOG.append(f"{y} {gname}: {url} -> {len(rows)} rows, {kept} kept, {skipped} youth/landowner/etc skipped, "
+            LOG.append(f"{y} {gname}: {url} -> {len(rows)} rows, {kept} kept, {skipped} youth/landowner/outfitter-allocated skipped, "
                        f"{len(meta)} hunts in list; no list metadata for {len(nometa)}: {nometa[:30]}")
     hunts = list(groups.values())
     for h in hunts:

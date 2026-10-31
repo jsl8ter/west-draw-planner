@@ -1,4 +1,4 @@
-AZ: OK 818 hunts, years ['2022', '2023', '2024', '2025']
+AZ: OK 796 hunts, years ['2022', '2023', '2024', '2025', '2026']
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Deer-Draw-Odds.pdf: 210 hunts
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Elk-Draw-Odds.pdf: 262 hunts
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Pronghorn-Antelope-Draw-Odds.pdf: 66 hunts
@@ -18,7 +18,7 @@ AZ: OK 818 hunts, years ['2022', '2023', '2024', '2025']
 2023 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/05/30093736/2023-Fall-Draw-Report-1-2-Pass.pdf: 333 hunts
 2023 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/05/05093917/2023_Mid_Draw-Report_Bonus-Pass.pdf: 325 hunts
 2023 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/08/17094622/2023-Fall-Draw-Report-Bonus-Pass.pdf: 333 hunts
-2023: bonus point report vs draw report resident 1st-choice apps: 213/642 hunts differ >5% -> by_pts DROPPED
+2023: bonus point report vs draw report resident 1st-choice apps: 7/642 hunts differ >5% -> by_pts kept
 2024 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/12/02085502/2024-AZ-Deer-Draw-Odds.pdf: 205 hunts
 2024 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/12/02085505/2024-AZ-Elk-Draw-Odds.pdf: 189 hunts
 2024 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/12/02085516/2024-AZ-Pronghorn-Draw-Odds.pdf: 59 hunts
@@ -28,7 +28,7 @@ AZ: OK 818 hunts, years ['2022', '2023', '2024', '2025']
 2024 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/07/17132550/2024-Fall-Draw-Report-1-2-Pass.pdf: 339 hunts
 2024 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/03/28135136/2024-Elk-Pronghorn-Draw-Report-Bonus-Pass.pdf: 315 hunts
 2024 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/07/17132558/2024-Fall-Draw-Report-Bonus-Pass.pdf: 339 hunts
-2024: bonus point report vs draw report resident 1st-choice apps: 269/641 hunts differ >5% -> by_pts DROPPED
+2024: bonus point report vs draw report resident 1st-choice apps: 1/641 hunts differ >5% -> by_pts kept
 2025 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/22144535/2025-AZ-Deer-Draw-Odds.pdf: 217 hunts
 2025 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/22144539/2025-AZ-Elk-Draw-Odds.pdf: 248 hunts
 2025 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/22144552/2025-AZ-Pronghorn-Draw-Odds.pdf: 68 hunts
@@ -36,66 +36,66 @@ AZ: OK 818 hunts, years ['2022', '2023', '2024', '2025']
 2025 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/07/17111316/2025-Fall-Bonus-Point-Report.pdf: 4953 rows
 2025 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/05/15151926/2025-Elk-Pronghorn-Draw-Report-1-2-Pass.pdf: 318 hunts
 2025 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/05/15151934/2025-Elk-Pronghorn-Draw-Report-Bonus-Pass.pdf: 318 hunts
-2025: bonus point report vs draw report resident 1st-choice apps: 62/312 hunts differ >5% -> by_pts kept
+2025: bonus point report vs draw report resident 1st-choice apps: 2/312 hunts differ >5% -> by_pts kept
+2026 regulations https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/12/23143704/2026-Pronghorn-and-Elk-Regulations_251223.pdf: 209 hunts
+2026 regulations https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/05/04081122/2026-27-Arizona-Hunting-Regulations.pdf: 206 hunts
 2026 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/03/27091508/2026-M-Bonus-Point-Report.pdf: 4401 rows
 2026 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/08/16185459/2026-F-Bonus-Point-Report.pdf: 5358 rows
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/03/27091608/2026-M-Draw-Report-1-2-Pass.pdf: 322 hunts
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/08/05153607/2026-F-Draw-Report-1-2-Pass.pdf: 355 hunts
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/03/27091637/2026-M-Draw-Report-Bonus-Pass.pdf: 322 hunts
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/08/05153620/2026-F-Draw-Report-Bonus-Point-Pass.pdf: 355 hunts
-2026: bonus point report vs draw report resident 1st-choice apps: 270/667 hunts differ >5% -> by_pts DROPPED
-2026: no Draw Odds hunt list published; 667 hunts in the bonus point reports NOT included (no unit/type metadata)
+2026: bonus point report vs draw report resident 1st-choice apps: 3/666 hunts differ >5% -> by_pts kept
 2024 odds unparsed: 1 3115 2024 Limited Opportunity (HAM) 11/15/2024 11/28/2024 Antlerless elk 2 15 #DIV/0!
 2024 odds unparsed: 1 3116 2024 Limited Opportunity (HAM) 11/29/2024 12/12/2024 Antlerless elk 3 15 #DIV/0!
-2025 3803: first-choice apps 36 (draw report) vs 49 (draw odds)
-2025 3018: first-choice apps 704 (draw report) vs 748 (draw odds)
-2025 3021: first-choice apps 1494 (draw report) vs 1575 (draw odds)
-2025 3024: first-choice apps 194 (draw report) vs 217 (draw odds)
-2025 3033: first-choice apps 151 (draw report) vs 163 (draw odds)
-2025 3043: first-choice apps 395 (draw report) vs 422 (draw odds)
-2025 3044: first-choice apps 375 (draw report) vs 403 (draw odds)
-2025 3045: first-choice apps 146 (draw report) vs 157 (draw odds)
-2025 3047: first-choice apps 1441 (draw report) vs 1524 (draw odds)
-2025 3048: first-choice apps 450 (draw report) vs 487 (draw odds)
-2025 3049: first-choice apps 1016 (draw report) vs 1090 (draw odds)
-2025 3050: first-choice apps 852 (draw report) vs 916 (draw odds)
-2025 3051: first-choice apps 307 (draw report) vs 332 (draw odds)
-2025 3052: first-choice apps 983 (draw report) vs 1089 (draw odds)
-2025 3053: first-choice apps 440 (draw report) vs 504 (draw odds)
-2025 3054: first-choice apps 109 (draw report) vs 122 (draw odds)
-2025 3073: first-choice apps 347 (draw report) vs 366 (draw odds)
-2025 3085: first-choice apps 57 (draw report) vs 69 (draw odds)
-2025 3086: first-choice apps 40 (draw report) vs 53 (draw odds)
-2025 3092: first-choice apps 347 (draw report) vs 401 (draw odds)
-2025 3104: first-choice apps 239 (draw report) vs 265 (draw odds)
-2025 3105: first-choice apps 1233 (draw report) vs 1304 (draw odds)
-2025 3108: first-choice apps 243 (draw report) vs 256 (draw odds)
-2025 3109: first-choice apps 328 (draw report) vs 346 (draw odds)
-2025 3142: first-choice apps 338 (draw report) vs 361 (draw odds)
-2025 3147: first-choice apps 421 (draw report) vs 444 (draw odds)
-2025 3156: first-choice apps 73 (draw report) vs 84 (draw odds)
-2025 3166: first-choice apps 241 (draw report) vs 254 (draw odds)
-2025 3190: first-choice apps 146 (draw report) vs 157 (draw odds)
-2024 1006: first-choice apps 2125 (draw report) vs 2240 (draw odds)
-2024 1007: first-choice apps 2075 (draw report) vs 2194 (draw odds)
-2024 1009: first-choice apps 348 (draw report) vs 373 (draw odds)
-2024 1010: first-choice apps 2597 (draw report) vs 2746 (draw odds)
-2024 1012: first-choice apps 813 (draw report) vs 893 (draw odds)
-2024 1015: first-choice apps 3338 (draw report) vs 3515 (draw odds)
-2024 1019: first-choice apps 307 (draw report) vs 328 (draw odds)
-2024 1023: first-choice apps 487 (draw report) vs 523 (draw odds)
-2024 1024: first-choice apps 497 (draw report) vs 537 (draw odds)
-2024 1025: first-choice apps 707 (draw report) vs 764 (draw odds)
-2024 1026: first-choice apps 422 (draw report) vs 479 (draw odds)
-2024 1027: first-choice apps 361 (draw report) vs 394 (draw odds)
-2024 1029: first-choice apps 209 (draw report) vs 226 (draw odds)
-2024 1030: first-choice apps 1168 (draw report) vs 1252 (draw odds)
-2024 1031: first-choice apps 453 (draw report) vs 478 (draw odds)
-2024 1032: first-choice apps 220 (draw report) vs 256 (draw odds)
-2024 1033: first-choice apps 353 (draw report) vs 372 (draw odds)
-2024 1034: first-choice apps 214 (draw report) vs 236 (draw odds)
-2024 1035: first-choice apps 595 (draw report) vs 632 (draw odds)
-apps = first-choice applicants from the 1-2 Pass Draw Report (Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass (Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.
+2026 regs no unit: 2023 Sep 4 - Sep 10, 2026 (39,128) Buck pronghorn 20
+2026 regs no unit: 2036 Aug 28 - Sep 3, 2026 (39,128) Buck pronghorn 5
+2026 regs no unit: 3033 Dec 4 - Dec 10, 2026 (46,60) Antlerless elk 75
+2026 regs no unit: 3046 Oct 16 - Oct 22, 2026 (48) Antlerless elk 30
+2026 regs unparsed: 3063 Oct 9 - Oct 15, 2026 (60) 1 and 2C
+2026 regs unparsed: 3064 Oct 9 - Oct 15, 2026 (166) 3A and 3C
+2026 regs unparsed: 3065 Oct 9 - Oct 15, 2026 (30,31,32) 4A
+2026 regs unparsed: 3066 Oct 9 - Oct 15, 2026 (29,30,31,32) 5A
+2026 regs unparsed: 3067 Oct 9 - Oct 15, 2026 (52) 5B South and 6A
+2026 regs unparsed: 3068 Oct 9 - Oct 15, 2026 (54) 7 West
+2026 regs unparsed: 3069 Oct 9 - Oct 15, 2026 (157) 9
+2026 regs unparsed: 3070 Oct 2 - Oct 11, 2026 (43,44) 10
+2026 regs unparsed: 3071 Oct 9 - Oct 15, 2026 22
+2026 regs unparsed: 3072 Oct 9 - Oct 15, 2026 23
+2026 regs unparsed: 3073 Oct 2 - Oct 15, 2026 (42,59) 17A, 17B, 18B, 1
+2026 regs unparsed: 3074 Oct 16 - Oct 29, 2026 (59,67)
+2026 regs unparsed: 3075 Oct 30 - Nov 12, 2026 (59,67)
+2026 regs unparsed: 3076 Nov 13 - Nov 26, 2026 (59,67)
+2026 regs unparsed: 3077 Sep 11 - Sep 20, 2026 (59,166) 2A and 2B
+2026 regs unparsed: 3078 Sep 25 - Oct 4, 2026 (59,166) 2A and 2B
+2026 regs unparsed: 3079 Oct 9 - Oct 18, 2026 (59,166) 2A and 2B
+2026 regs unparsed: 3080 Dec 4 - Dec 13, 2026 (30,31,32,59,70) 4A North
+2026 regs unparsed: 3081 Oct 16 - Oct 22, 2026 (29,30,31,32,49,59)
+2026 regs unparsed: 3082 Oct 23 - Oct 29, 2026 (29,30,31,32,49,59)
+2026 regs no unit: 3083 Oct 9 - Oct 15, 2026 (29,30,31,32,51,59) Twin Arrows Hunt Area (Special Restrictions Apply - See Note 51) Antlerless elk 25
+2026 regs no unit: 3084 Oct 16 - Oct 22, 2026 (29,30,31,32,51,59) Twin Arrows Hunt Area (Special Restrictions Apply - See Note 51) Antlerless elk 25
+2026 regs no unit: 3087 Aug 7 - Aug 20, 2026 (59,61) Antlerless elk 25
+2026 regs no unit: 3091 Dec 11 - Dec 24, 2026 (59,156,158,167) Any elk 50
+2026 regs no unit: 3103 Oct 2 - Oct 8, 2026 (48) Bull elk 5
+2026 regs no unit: 3113 Oct 2 - Oct 15, 2026 (59,68,69) Antlerless elk 5
+2026 regs no unit: 3114 Oct 16 - Oct 29, 2026 (59,68,69) Antlerless elk 5
+2026 regs no unit: 3115 Oct 30 - Nov 12, 2026 (59,68,69) Antlerless elk 10
+2026 regs no unit: 3116 Nov 13 - Nov 26, 2026 (59,68,69) Antlerless elk 15
+2026 regs no unit: 3117 Nov 27 - Dec 10, 2026 (59,68,69) Antlerless elk 15
+2026 regs no unit: 3118 Dec 11 - Dec 31, 2026 (59,68,69) Antlerless elk 15
+2026 regs no unit: 3119 Jul 31 - Aug 6, 2026 (59,71) Antlerless elk 10
+2026 regs no unit: 3120 Aug 7 - Aug 13, 2026 (59,71) Antlerless elk 10
+2026 regs no unit: 3121 Aug 14 - Aug 20, 2026 (59,71) Antlerless elk 10
+2026 regs no unit: 3122 Aug 21 - Aug 27, 2026 (59,71) Antlerless elk 10
+2026 regs no unit: 3123 Aug 28 - Sep 3, 2026 (59,71) Antlerless elk 10
+2026 regs no unit: 3124 Oct 2 - Oct 8, 2026 (59,71) Antlerless elk 10
+2026 regs no unit: 3137 Sep 11 - Sep 24, 2026 (48) Bull elk 25
+2026 regs no unit: 3169 Jul 31 - Aug 6, 2026 (4,163) Alpine Hunt Area (Special Restrictions Apply - See Note 163) Antlerless elk 25
+2026 regs no unit: 3170 Aug 7 - Aug 13, 2026 (4,163) Alpine Hunt Area (Special Restrictions Apply - See Note 163) Antlerless elk 25
+2026 regs no unit: 1068 Nov 6 - Nov 15, 2026 (3,6,26) Any antlered deer 450
+2026 regs no unit: 1192 Dec 11 - Dec 31, 2026 (3,6,7,34) Mountain and White Tank Mountain Regional Parks) (Special Any antlered deer 50
+2022 1906: first-choice apps 119834 (draw report) vs 16 (draw odds)
+apps = first-choice applicants from the Bonus Pass Draw Report (1-2 Pass report excludes bonus-pass winners; Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass (Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.
 by_pts = [points, first-choice applicants, permits issued in bonus + 1-2 pass at that level (includes 2nd-choice draws)]. min_pts = lowest point level that drew in the bonus (max-point) pass.
 T.tags = authorized permits (Draw Report); NR.tags = nonresident cap (Draw Report NonRes 'Authorized Permits'). Residents may fill all permits, so R.tags is omitted. Without a Draw Report (2025 fall), T.tags = permits issued from Draw Odds.
-Species: deer hunt types containing 'whitetail' -> C; other deer (incl. 'Any antlered deer') -> D. Youth-only hunts skipped. AZ reuses hunt numbers for different hunts, so hunts are matched across years by units+method+hunt type+season order; id = most recent number.
+Species: deer hunt types containing 'whitetail' -> C; other deer (incl. 'Any antlered deer') -> D. Youth-only hunts skipped. AZ reuses hunt numbers for different hunts, so hunts are matched across years by species+units+method+sex and nearest season-open date (<=14 days); id = most recent number. 2026 hunt metadata comes from the 2026 regulation booklets (2026 draw odds not yet published).

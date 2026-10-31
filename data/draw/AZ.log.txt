@@ -1,0 +1,7 @@
+AZ: OK 0 hunts, years []
+GET https://www.azgfd.com/hunting/hunt-draw-and-licenses/harvest-reporting/ -> 403 5881
+GET https://web.archive.org/web/2026/https://www.azgfd.com/hunting/hunt-draw-and-licenses/harvest-reporting/ -> 429 620
+GET https://www.azgfd.com/Hunting/surveydata/ -> 403 5748
+GET https://web.archive.org/web/2026/https://www.azgfd.com/Hunting/surveydata/ -> 429 620
+GET https://www.azgfd.com/hunting/hunt-draw-and-licenses/big-game-draw/bonus-point-process/ -> 403 5950
+GET https://web.archive.org/web/2026/https://www.azgfd.com/hunting/hunt-draw-and-licenses/big-game-draw/bonus-point-process/ -> 429 620

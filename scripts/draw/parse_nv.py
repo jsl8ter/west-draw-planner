@@ -109,11 +109,9 @@ def expand_units(s):
             if a <= b and b - a < 30:
                 units += [f"{i:03d}" for i in range(a, b + 1)]
                 continue
-        nums = re.findall(r"\b\d{3}\b", part)
-        if nums:
-            units += nums; continue
-        if part:
-            units.append(part)
+        if re.fullmatch(r"\d{1,3}", part):
+            units.append(f"{int(part):03d}"); continue
+        units.append(re.sub(r"\s+", " ", part))  # e.g. "231 Wilderness", "North portion of 108"
     return sorted(set(units))
 
 
@@ -127,13 +125,15 @@ def parse_pdf(data, url, year, bad):
     cur = None
     cols = None  # list of (name, xcenter)
     title_prev = None
+    hist = []
     with pdfplumber.open(io.BytesIO(data)) as pdf:
         for page in pdf.pages:
             for ws in lines_of(page):
                 texts = [w["text"] for w in ws]
                 line = " ".join(texts)
                 if line.startswith("Units:"):
-                    cur = {"title": title_prev or "", "units_raw": line[6:].strip(), "rows": {}, "total": None}
+                    cur = {"title": title_prev or "", "units_raw": line[6:].strip(), "rows": {}, "total": None,
+                           "ctx": " | ".join(hist[-3:])}
                     blocks.append(cur)
                     continue
                 if cur is not None and line.startswith("Season:"):
@@ -176,6 +176,9 @@ def parse_pdf(data, url, year, bad):
                     continue
                 # remember a possible block title (line right before "Units:")
                 title_prev = line
+                hist.append(line)
+                if cur is not None and not cur["rows"]:
+                    cur.setdefault("extra", []).append(line)
     return blocks
 
 
@@ -285,7 +288,7 @@ def parse():
         y = h["years"].setdefault(str(b["year"]), {})
         if b["res"] in y:
             same = y[b["res"]] == rec
-            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} identical={same} season={b.get('season')} first={y[b['res']]['tags']}/{y[b['res']]['apps']}/{y[b['res']]['drawn']} second={rec['tags']}/{rec['apps']}/{rec['drawn']} raw2={b['units_raw']!r} title2={b['title']!r} weapon2={b.get('weapon')!r} src2={b['url'].rsplit('/',1)[-1]}")
+            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} identical={same} season={b.get('season')} first={y[b['res']]['tags']}/{y[b['res']]['apps']}/{y[b['res']]['drawn']} second={rec['tags']}/{rec['apps']}/{rec['drawn']} ctx2={b['ctx']!r} extra2={b.get('extra')!r} src2={b['url'].rsplit('/',1)[-1]}")
             continue
         y[b["res"]] = rec
         rec["_src"] = b["url"].rsplit("/", 1)[-1]

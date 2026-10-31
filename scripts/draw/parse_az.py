@@ -38,7 +38,7 @@ FILES = {  # year -> kind -> paths
 }
 DATE = r"\d{1,2}/\d{1,2}/\d{4}|4\d{4}"
 ODDS = re.compile(rf"^(\S+) (\d{{4}}) (20\d\d) (.+?) ({DATE}) ({DATE}) (.+?) (\d+) (\d+) (\d+) (\S+)$")
-BPR = re.compile(r"^(\d{4}) (\d{1,2})((?: \d+){15})$")
+BPR = re.compile(r"^0?(\d{4}) (\d{1,2})((?: \d+){15})$")
 NUMS = re.compile(r"^(All|Res|NonRes) ([\d. ]+)$")
 
 
@@ -119,7 +119,7 @@ def parse_dr(year, path, pages, out):
     for pg in pages:
         for line in pg.splitlines():
             line = line.strip()
-            m = re.match(r"^(\d{4})(?: \d+)*$", line)
+            m = re.match(r"^0?(\d{4})(?: \d+)*$", line)
             if m: cur = m.group(1); continue
             m = NUMS.match(line)
             if m and cur:
@@ -153,51 +153,62 @@ def norm_method(mth):
     return re.sub(r"[^a-z]+", " ", mth.lower().replace("-only", "")).strip()
 
 
-def year_rec(y, num, m, dr12, drbp, bpr, bad):
+def year_rec(y, num, m, dr12, drbp, bpr, bpr_ok, bad):
     rec = {"T": {}, "R": {}, "NR": {}}
-    if dr12 and "All" in dr12:
+    G = (("All", "T", 0), ("Res", "R", 1), ("NonRes", "NR", 2))
+    have_dr = bool(dr12) and all(g in dr12 for g, _, _ in G)
+    if have_dr:
         rec["T"]["tags"] = dr12["All"][0]
-        if "NonRes" in dr12: rec["NR"]["tags"] = dr12["NonRes"][0]
+        rec["NR"]["tags"] = dr12["NonRes"][0]
+        for g, k, _ in G: rec[k]["apps"] = dr12[g][2]
     else:
         rec["T"]["tags"] = m["issued"]
-    if bpr:
-        for gi, g in ((0, "T"), (1, "R"), (2, "NR")):
-            rec[g]["apps"] = sum(v[gi] for v in bpr.values())
-            if g != "T":
-                rec[g]["by_pts"] = [[p, v[gi], v[12 + gi]] for p, v in sorted(bpr.items(), reverse=True) if v[gi] or v[12 + gi]]
-                bp = [p for p, v in bpr.items() if v[9 + gi] > 0]
-                if bp: rec[g]["min_pts"] = min(bp)
-        if abs(rec["T"]["apps"] - m["apps1"]) > max(10, 0.05 * m["apps1"]) and len(bad) < 50:
-            bad.append(f"{y} {num}: Bonus Point Report 1st-choice apps {rec['T']['apps']} != Draw Odds {m['apps1']}")
-    else:
-        rec["T"]["apps"] = m["apps1"]
-    if dr12 and drbp and all(g in dr12 and g in drbp for g in ("All", "Res", "NonRes")):
-        for g, k in (("All", "T"), ("Res", "R"), ("NonRes", "NR")):
-            rec[k]["drawn"] = dr12[g][5] + drbp[g][5]
+        if bpr:
+            for _, k, gi in G: rec[k]["apps"] = sum(v[gi] for v in bpr.values())
+        else:
+            rec["T"]["apps"] = m["apps1"]
+    if bpr and bpr_ok:
+        for _, k, gi in G[1:]:
+            rec[k]["by_pts"] = [[p, v[gi], v[12 + gi]] for p, v in sorted(bpr.items(), reverse=True) if v[gi] or v[12 + gi]]
+            bp = [p for p, v in bpr.items() if v[9 + gi] > 0]
+            if bp: rec[k]["min_pts"] = min(bp)
+    if have_dr and drbp and all(g in drbp for g, _, _ in G):
+        for g, k, _ in G: rec[k]["drawn"] = dr12[g][5] + drbp[g][5]
     elif bpr:
-        for gi, g in ((0, "T"), (1, "R"), (2, "NR")):
-            rec[g]["drawn"] = sum(v[12 + gi] for v in bpr.values())
+        for _, k, gi in G: rec[k]["drawn"] = sum(v[12 + gi] for v in bpr.values())
+    if abs(rec["T"].get("apps", 0) - m["apps1"]) > max(10, 0.05 * m["apps1"]) and len(bad) < 50:
+        bad.append(f"{y} {num}: first-choice apps {rec['T'].get('apps')} (draw report) vs {m['apps1']} (draw odds)")
     return {k: v for k, v in rec.items() if v}
 
 
-def discover():  # TEMP: list regulation booklets in the bucket
-    import xml.etree.ElementTree as ET
-    NS = "{http://s3.amazonaws.com/doc/2006-03-01/}"; tok = None
-    while True:
-        prm = {"list-type": "2", "prefix": "wp-content/uploads/202"}
-        if tok: prm["continuation-token"] = tok
-        root = ET.fromstring(requests.get(B.split("/wp-content")[0] + "/", params=prm, headers=UA, timeout=90).content)
-        for c in root.iter(NS + "Contents"):
-            k = c.find(NS + "Key").text
-            if re.search(r"(?i)regulation|draw-information|hunt-draw|hunt-table|pronghorn-and-elk|elk-and-pronghorn", k) and re.search(r"202[56]", k) and k.endswith(".pdf"):
-                LOG.append("REGS " + k)
-        t = root.find(NS + "NextContinuationToken")
-        if t is None: break
-        tok = t.text
+def bpr_consistent(y, dr12, bpr):
+    """Bonus point report must reconcile with the draw report (resident 1st-choice apps) for most hunts."""
+    n = badn = 0
+    for num, rows in bpr.items():
+        d = dr12.get(num, {}).get("Res")
+        if not d: continue
+        n += 1
+        s = sum(v[1] for v in rows.values())
+        if abs(s - d[2]) > max(3, 0.05 * d[2]): badn += 1
+    ok = n == 0 or badn <= 0.2 * n
+    LOG.append(f"{y}: bonus point report vs draw report resident 1st-choice apps: {badn}/{n} hunts differ >5% -> by_pts {'kept' if ok else 'DROPPED'}")
+    return ok
+
+
+def dump_regs():  # TEMP: write regulation booklet text for layout inspection
+    d = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "draw", "probe", "AZ")
+    os.makedirs(d, exist_ok=True)
+    for name, path in (("regs_pe2026", "2025/12/23143704/2026-Pronghorn-and-Elk-Regulations_251223.pdf"),
+                       ("regs_deer2026", "2026/05/04081122/2026-27-Arizona-Hunting-Regulations.pdf")):
+        _, pages = text_of(path)
+        if isinstance(pages, str): LOG.append(f"regs {path} {pages}"); continue
+        with open(os.path.join(d, name + ".txt"), "w") as f:
+            for i, pg in enumerate(pages):
+                if re.search(r"\b[123]\d{3}\b", pg): f.write(f"\n===== PAGE {i+1}\n{pg}")
 
 
 def parse():
-    discover()
+    dump_regs()
     paths = [p for d in FILES.values() for ps in d.values() for p in ps]
     import importlib  # parse_all loads this file without registering it; workers need an importable function
     worker = importlib.import_module("parse_az").text_of
@@ -218,12 +229,12 @@ def parse():
                 fall = re.search(r"Fall|-F-", p) is not None
                 sp = {"odds": "E" if "Elk" in p else "P" if "Pronghorn" in p else "D,C"}.get(k, "D,C" if fall else "E,P")
                 sources.append({"year": y, "species": sp, "url": B + p, "title": os.path.basename(p)})
-        per_year[y] = (meta, dr12, drbp, bpr)
+        per_year[y] = (meta, dr12, drbp, bpr, bpr_consistent(y, dr12, bpr))
 
     # Hunt identity: (species, units, method, hunt type) + ordinal by season open date.
     hunts, by_key = {}, {}
     for y in sorted(per_year, reverse=True):
-        meta, dr12, drbp, bpr = per_year[y]
+        meta, dr12, drbp, bpr, bpr_ok = per_year[y]
         if not meta:
             if bpr: LOG.append(f"{y}: no Draw Odds hunt list published; {len(bpr)} hunts in the bonus point reports NOT included (no unit/type metadata)")
             continue
@@ -248,9 +259,9 @@ def parse():
                     s = sex_of(m["type"])
                     if s: h["sex"] = s
                     hunts[hid] = h; by_key[base + (i,)] = h
-                h["years"][str(y)] = year_rec(y, num, m, dr12.get(num), drbp.get(num), bpr.get(num), bad)
+                h["years"][str(y)] = year_rec(y, num, m, dr12.get(num), drbp.get(num), bpr.get(num), bpr_ok, bad)
     LOG.extend(bad[:50])
-    LOG.append("apps = first-choice applicants (Bonus Point Report sums; Draw Odds if missing). drawn = first-choice drawn in bonus pass + 1-2 pass "
+    LOG.append("apps = first-choice applicants from the 1-2 Pass Draw Report (Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass "
                "(Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.")
     LOG.append("by_pts = [points, first-choice applicants, permits issued in bonus + 1-2 pass at that level (includes 2nd-choice draws)]. "
                "min_pts = lowest point level that drew in the bonus (max-point) pass.")

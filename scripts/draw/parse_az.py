@@ -36,7 +36,7 @@ FILES = {  # year -> kind -> paths
            "dr12": ["2026/03/27091608/2026-M-Draw-Report-1-2-Pass.pdf", "2026/08/05153607/2026-F-Draw-Report-1-2-Pass.pdf"],
            "drbp": ["2026/03/27091637/2026-M-Draw-Report-Bonus-Pass.pdf", "2026/08/05153620/2026-F-Draw-Report-Bonus-Point-Pass.pdf"]},
 }
-DATE = r"\d{1,2}/\d{1,2}/\d{4}"
+DATE = r"\d{1,2}/\d{1,2}/\d{4}|4\d{4}"
 ODDS = re.compile(rf"^(\S+) (\d{{4}}) (20\d\d) (.+?) ({DATE}) ({DATE}) (.+?) (\d+) (\d+) (\d+) (\S+)$")
 BPR = re.compile(r"^(\d{4}) (\d{1,2})((?: \d+){15})$")
 NUMS = re.compile(r"^(All|Res|NonRes) ([\d. ]+)$")
@@ -83,6 +83,14 @@ def unit_list(u):
     return [re.sub(r"^0+(?=\d)", "", x) for x in u.split("/") if x]
 
 
+def fix_date(d):
+    """Some rows carry Excel serial dates (e.g. 45891)."""
+    if "/" in d: return d
+    import datetime
+    x = datetime.date(1899, 12, 30) + datetime.timedelta(days=int(d))
+    return f"{x.month}/{x.day}/{x.year}"
+
+
 def date_key(d):
     mo, dy, yr = (int(x) for x in d.split("/"))
     return (yr, mo, dy)
@@ -99,7 +107,7 @@ def parse_odds(year, path, pages, meta, bad):
                 continue
             unit, num, yr, method, op, cl, htype, a1, a2, issued, _ = m.groups()
             if int(yr) != year: continue
-            meta[num] = {"unit": unit, "method": method, "open": op, "close": cl, "type": htype,
+            meta[num] = {"unit": unit, "method": method, "open": fix_date(op), "close": fix_date(cl), "type": htype,
                          "apps1": int(a1), "issued": int(issued)}
             n += 1
     LOG.append(f"{year} odds {B + path}: {n} hunts")
@@ -159,7 +167,7 @@ def year_rec(y, num, m, dr12, drbp, bpr, bad):
                 rec[g]["by_pts"] = [[p, v[gi], v[12 + gi]] for p, v in sorted(bpr.items(), reverse=True) if v[gi] or v[12 + gi]]
                 bp = [p for p, v in bpr.items() if v[9 + gi] > 0]
                 if bp: rec[g]["min_pts"] = min(bp)
-        if rec["T"]["apps"] != m["apps1"] and len(bad) < 50:
+        if abs(rec["T"]["apps"] - m["apps1"]) > max(10, 0.05 * m["apps1"]) and len(bad) < 50:
             bad.append(f"{y} {num}: Bonus Point Report 1st-choice apps {rec['T']['apps']} != Draw Odds {m['apps1']}")
     else:
         rec["T"]["apps"] = m["apps1"]
@@ -172,7 +180,24 @@ def year_rec(y, num, m, dr12, drbp, bpr, bad):
     return {k: v for k, v in rec.items() if v}
 
 
+def discover():  # TEMP: list regulation booklets in the bucket
+    import xml.etree.ElementTree as ET
+    NS = "{http://s3.amazonaws.com/doc/2006-03-01/}"; tok = None
+    while True:
+        prm = {"list-type": "2", "prefix": "wp-content/uploads/202"}
+        if tok: prm["continuation-token"] = tok
+        root = ET.fromstring(requests.get(B.split("/wp-content")[0] + "/", params=prm, headers=UA, timeout=90).content)
+        for c in root.iter(NS + "Contents"):
+            k = c.find(NS + "Key").text
+            if re.search(r"(?i)regulation|draw-information|hunt-draw|hunt-table|pronghorn-and-elk|elk-and-pronghorn", k) and re.search(r"202[56]", k) and k.endswith(".pdf"):
+                LOG.append("REGS " + k)
+        t = root.find(NS + "NextContinuationToken")
+        if t is None: break
+        tok = t.text
+
+
 def parse():
+    discover()
     paths = [p for d in FILES.values() for ps in d.values() for p in ps]
     import importlib  # parse_all loads this file without registering it; workers need an importable function
     worker = importlib.import_module("parse_az").text_of

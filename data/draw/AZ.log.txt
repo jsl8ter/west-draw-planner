@@ -1,77 +1,14 @@
 AZ: OK 818 hunts, years ['2022', '2023', '2024', '2025']
-REGS wp-content/uploads/2023/05/19120253/2023-24-Trapping-Regulations_230428.pdf
-REGS wp-content/uploads/2023/05/19120256/2023-24-Waterfowl-and-Snipe-Regulations_web.pdf
-REGS wp-content/uploads/2024/09/03112617/2025-Spring-Regulations_2408303.pdf
-REGS wp-content/uploads/2024/10/04094101/2025-Spring-Regulations_240930.pdf
-REGS wp-content/uploads/2025/01/06115757/2025-Pronghorn-and-Elk-Regulations_250106.pdf
-REGS wp-content/uploads/2025/03/31111037/2025-26-Fishing-Regulations_250331.pdf
-REGS wp-content/uploads/2025/05/06110218/2025-26-Arizona-Hunting-Regulations_250506.pdf
-REGS wp-content/uploads/2025/05/06160214/2025-26-Trapping-Regulations_web.pdf
-REGS wp-content/uploads/2025/05/06160842/2025-26-Dove-and-Pigeon-Regulations_250418.pdf
-REGS wp-content/uploads/2025/05/06160846/2025-26-Waterfowl-and-Snipe-Regulations_web.pdf
-REGS wp-content/uploads/2025/05/15150829/2025-26-Arizona-Hunting-Regulations_250515.pdf
-REGS wp-content/uploads/2025/08/21110548/2025-Pronghorn-and-Elk-Regulations_250820.pdf
-REGS wp-content/uploads/2025/08/21110555/2025-26-Arizona-Hunting-Regulations_250820.pdf
-REGS wp-content/uploads/2025/08/22093847/2025-Pronghorn-and-Elk-Regulations_250821.pdf
-REGS wp-content/uploads/2025/08/29095657/2025-26-Arizona-Hunting-Regulations_250829.pdf
-REGS wp-content/uploads/2025/09/05122248/2026-Spring-Regulations_250908.pdf
-REGS wp-content/uploads/2025/11/05144900/2026-2030-Reptile-and-Amphibian-Regulations.pdf
-REGS wp-content/uploads/2025/12/23103956/2025-26-Arizona-Hunting-Regulations_251223.pdf
-REGS wp-content/uploads/2025/12/23143704/2026-Pronghorn-and-Elk-Regulations_251223.pdf
-REGS wp-content/uploads/2026/01/30111408/2025-26-Fishing-Regulations_260130.pdf
-REGS wp-content/uploads/2026/04/13163158/2026-2030-Reptile-and-Amphibian-Regulations_260413.pdf
-REGS wp-content/uploads/2026/05/04081122/2026-27-Arizona-Hunting-Regulations.pdf
-REGS wp-content/uploads/2026/05/04082322/2026-27-Trapping-Regulations.pdf
-REGS wp-content/uploads/2026/05/04082836/2026-27-Dove-and-Pigeon-Regulations.pdf
-REGS wp-content/uploads/2026/05/04082841/2026-27-Waterfowl-and-Snipe-Regulations_web.pdf
-REGS wp-content/uploads/2026/08/28141738/2016-Elk-and-Pronghorn-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/08/28141743/2016-Elk-and-Pronghorn-Draw-Report-3-4-5-Pass.pdf
-REGS wp-content/uploads/2026/08/28141747/2016-Elk-and-Pronghorn-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/08/28141752/2016-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Genus.pdf
-REGS wp-content/uploads/2026/08/28141800/2016-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Hunt.pdf
-REGS wp-content/uploads/2026/08/31153328/2017-Elk-and-Pronghorn-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/08/31153341/2017-Elk-and-Pronghorn-Draw-Report-3-4-5-Pass.pdf
-REGS wp-content/uploads/2026/08/31153345/2017-Elk-and-Pronghorn-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/08/31153348/2017-Elk-and-Pronghorn-Bonus-Point-Report-Bonus-Pass-by-Genus.pdf
-REGS wp-content/uploads/2026/08/31153353/2017-Elk-and-Pronghorn-Bonus-Point-Report-Bonus-Pass-by-Hunt.pdf
-REGS wp-content/uploads/2026/08/31171326/2018-Pronghorn-and-Elk-Draw-Report-3-4-5-Pass.pdf
-REGS wp-content/uploads/2026/08/31171332/2018-Pronghorn-and-Elk-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/08/31171336/2018-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Genus.pdf
-REGS wp-content/uploads/2026/08/31171340/2018-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Hunt-Number.pdf
-REGS wp-content/uploads/2026/08/31171345/2018-Pronghorn-and-Elk-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/09/01153245/2019-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Genus.pdf
-REGS wp-content/uploads/2026/09/01153249/2019-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Hunt-Number.pdf
-REGS wp-content/uploads/2026/09/01153257/2019-Pronghorn-and-Elk-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/09/01153301/2019-Pronghorn-and-Elk-Draw-Report-3-4-5-Pass.pdf
-REGS wp-content/uploads/2026/09/01153305/2019-Pronghorn-and-Elk-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/09/02144752/2020-Pronghorn-and-Elk-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/09/02144759/2020-Pronghorn-and-Elk-Draw-Report-3-4-5-Pass.pdf
-REGS wp-content/uploads/2026/09/02144804/2020-Pronghorn-and-Elk-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/09/02144813/2020-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Genus.pdf
-REGS wp-content/uploads/2026/09/02144817/2020-Pronghorn-and-Elk-Bonus-Point-Report-Bonus-Pass-by-Hunt-Number.pdf
-REGS wp-content/uploads/2026/09/03150805/2021-Elk-and-Pronghorn-Draw-Report-3-4-5-Pass.pdf
-REGS wp-content/uploads/2026/09/03150813/2021-Elk-and-Pronghorn-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/09/03150819/2021-Elk-and-Pronghorn-Draw-Report-Bonus-Point-Report.pdf
-REGS wp-content/uploads/2026/09/03150904/2021-Elk-and-Pronghorn-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/09/04141153/2022-Elk-and-Pronghorn-Bonus-Point-Report.pdf
-REGS wp-content/uploads/2026/09/04141201/2022-Elk-and-Pronghorn-Draw-Report-1-2-Pass.pdf
-REGS wp-content/uploads/2026/09/04141207/2022-Elk-and-Pronghorn-Draw-Report-Bonus-Pass.pdf
-REGS wp-content/uploads/2026/09/04141213/2022-Elk-and-Pronghorn-Draw-Report-3-4-5-Pass.pdf
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Deer-Draw-Odds.pdf: 210 hunts
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Elk-Draw-Odds.pdf: 262 hunts
 2022 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/2022-AZ-Pronghorn-Antelope-Draw-Odds.pdf: 66 hunts
-2022 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/Bonus-Point-Report-2022-Elk-Pronghorn-Draw.pdf: 0 rows
-   first lines: Bonus Point Report | Draw - 2022 / M | First Choice Second Choice First + Second Total Permits Issued Permits Bonus and | Applicants Applicants Applicants Bonus Pass 1-2 Pass | Hunt Group Non - Non - Non - Non - Non - | Number Bonus Points Total Res Res Total Res Res Total Res Res Total Res Res Total Res Res | 02001 0 533 483 100 272 226 72 805 709 172 0 0 0 0 0 0 | 02001 1 524 550 74 283 279 60 807 829 134 0 0 0 0 0 0 | 02001 2 412 466 43 185 201 27 597 667 70 0 0 0 0 0 0 | 02001 3 329 360 27 153 155 21 482 515 48 0 0 0 1 1 0 | 02001 4 253 303 13 109 122 8 362 425 21 0 0 0 3 2 1 | 02001 5 175 202 13 93 99 13 268 301 26 0 0 0 2 2 0
-2022 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/Bonus-Point-Report-2022-Fall-Draw.pdf: 0 rows
-   first lines: Bonus Point Report | Draw - 2022 / F | First Choice Second Choice First + Second Total Permits Issued Permits Bonus and | Applicants Applicants Applicants Bonus Pass 1-2 Pass | Hunt Group Non - Non - Non - Non - Non - | Number Bonus Points Total Res Res Total Res Res Total Res Res Total Res Res Total Res Res | 01001 All 1566 2184 58 1069 1528 60 2635 3712 118 45 56 4 197 272 15 | 01001 0 325 375 24 177 186 17 502 561 41 0 0 0 12 16 2 | 01001 1 405 596 11 286 426 15 691 1022 26 0 0 0 23 33 2 | 01001 2 387 588 10 264 397 18 651 985 28 0 0 0 47 73 3 | 01001 3 224 329 4 173 271 2 397 600 6 0 0 0 38 51 3 | 01001 4 127 178 4 91 147 0 218 325 4 0 0 0 21 29 0
-2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141201/2022-Elk-and-Pronghorn-Draw-Report-1-2-Pass.pdf: 0 hunts
-   first lines: 3/1/22, 2:33 PM 2022 Elk 1-2 Pass - DrawReports | Arizona Game and Fish Department | 2022 Elk Draw Report 1-2 Pass | Hunt Authorized Permits First Second Frist + Fist Second Second Permits Grand Unissued | Number Permits Available Choice Choice Second Choice Choice Issued Issued Total Permits | Applicants Applicants Applicants Drawn Drawn First This Issued | Pass | 03000 | All 0 0 22009 0 22009 0 0 0 0 22009 0 | Res 0 0 8403 0 8403 0 0 0 0 8403 | Res% 38.18 0.00 38.18 0.00 0.00 0.00 | NonRes 0 0 13606 0 13606 0 0 0 0 13606
-2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141812/2022-Fall-Draw-Report-1-2-Pass.pdf: 0 hunts
-   first lines: Arizona Game and Fish Department | 2022 Fall Draw Report 1-2 Pass | Hunt Authorized Permits First Second First + First Second Second Permits Grand Unissued | Number Permits Available Choice Choice Second Choice Choice Issued Issued Total Permits | Applicants Applicants Applicants Drawn Drawn First This Pass Issued | 01000 | All 0 0 17316 0 17316 0 0 0 0 17316 0 | Res 0 0 8341 0 8341 0 0 0 0 8341 | Res% 48.17 0 48.17 0 0 0 | NonRes 0 0 8975 0 8975 0 0 0 0 8975 | NonRes% 51.83 0 51.83 0 0 0 | 01001
-2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141207/2022-Elk-and-Pronghorn-Draw-Report-Bonus-Pass.pdf: 0 hunts
-   first lines: 3/1/22, 2:31 PM 2022 Elk Bonus Pass - DrawReports | Arizona Game and Fish Department | 2022 Elk Draw Report - Bonus Pass | Hunt Authorized Permits First Second Frist + Fist Second Second Permits Grand Unissued | Number Permits Available Choice Choice Second Choice Choice Issued Issued Total Permits | Applicants Applicants Applicants Drawn Drawn First This Issued | Pass | 03000 | All 0 0 22009 0 22009 22009 0 0 22009 22009 0 | Res 0 0 8403 0 8403 8403 0 0 8403 8403 | Res% 38.18 0.00 38.18 38.18 0.00 38.18 | NonRes 0 0 13606 0 13606 13606 0 0 13606 13606
-2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141756/2022-Fall-Draw-Report-Bonus-Point-Pass.pdf: 0 hunts
-   first lines: Arizona Game and Fish Department | 2022 Fall Draw Report - Bonus Pass | Hunt Authorized Permits First Second First + First Second Second Permits Grand Unissued | Number Permits Available Choice Choice Second Choice Choice Issued Issued Total Permits | Applicants Applicants Applicants Drawn Drawn First This Pass Issued | 01000 | All 0 0 17316 0 17316 17316 0 0 17316 17316 0 | Res 0 0 8341 0 8341 8341 0 0 8341 8341 | Res% 48.17 0 48.17 48.17 0 0 | NonRes 0 0 8975 0 8975 8975 0 0 8975 8975 | NonRes% 51.83 0 51.83 51.83 0 0 | 01001
+2022 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/Bonus-Point-Report-2022-Elk-Pronghorn-Draw.pdf: 4368 rows
+2022 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/archive/Bonus-Point-Report-2022-Fall-Draw.pdf: 4290 rows
+2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141201/2022-Elk-and-Pronghorn-Draw-Report-1-2-Pass.pdf: 330 hunts
+2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141812/2022-Fall-Draw-Report-1-2-Pass.pdf: 336 hunts
+2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141207/2022-Elk-and-Pronghorn-Draw-Report-Bonus-Pass.pdf: 330 hunts
+2022 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/09/04141756/2022-Fall-Draw-Report-Bonus-Point-Pass.pdf: 336 hunts
+2022: bonus point report vs draw report resident 1st-choice apps: 115/648 hunts differ >5% -> by_pts kept
 2023 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/01/03130748/2023-AZ-Deer-Draw-Odds.pdf: 209 hunts
 2023 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/01/03130751/2023-AZ-Elk-Draw-Odds.pdf: 239 hunts
 2023 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/01/03130802/2023-AZ-Pronghorn-Draw-Odds.pdf: 58 hunts
@@ -81,6 +18,7 @@ REGS wp-content/uploads/2026/09/04141213/2022-Elk-and-Pronghorn-Draw-Report-3-4-
 2023 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/05/30093736/2023-Fall-Draw-Report-1-2-Pass.pdf: 333 hunts
 2023 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/05/05093917/2023_Mid_Draw-Report_Bonus-Pass.pdf: 325 hunts
 2023 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/08/17094622/2023-Fall-Draw-Report-Bonus-Pass.pdf: 333 hunts
+2023: bonus point report vs draw report resident 1st-choice apps: 213/642 hunts differ >5% -> by_pts DROPPED
 2024 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/12/02085502/2024-AZ-Deer-Draw-Odds.pdf: 205 hunts
 2024 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/12/02085505/2024-AZ-Elk-Draw-Odds.pdf: 189 hunts
 2024 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/12/02085516/2024-AZ-Pronghorn-Draw-Odds.pdf: 59 hunts
@@ -90,6 +28,7 @@ REGS wp-content/uploads/2026/09/04141213/2022-Elk-and-Pronghorn-Draw-Report-3-4-
 2024 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/07/17132550/2024-Fall-Draw-Report-1-2-Pass.pdf: 339 hunts
 2024 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/03/28135136/2024-Elk-Pronghorn-Draw-Report-Bonus-Pass.pdf: 315 hunts
 2024 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/07/17132558/2024-Fall-Draw-Report-Bonus-Pass.pdf: 339 hunts
+2024: bonus point report vs draw report resident 1st-choice apps: 269/641 hunts differ >5% -> by_pts DROPPED
 2025 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/22144535/2025-AZ-Deer-Draw-Odds.pdf: 217 hunts
 2025 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/22144539/2025-AZ-Elk-Draw-Odds.pdf: 248 hunts
 2025 odds https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/22144552/2025-AZ-Pronghorn-Draw-Odds.pdf: 68 hunts
@@ -97,18 +36,66 @@ REGS wp-content/uploads/2026/09/04141213/2022-Elk-and-Pronghorn-Draw-Report-3-4-
 2025 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/07/17111316/2025-Fall-Bonus-Point-Report.pdf: 4953 rows
 2025 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/05/15151926/2025-Elk-Pronghorn-Draw-Report-1-2-Pass.pdf: 318 hunts
 2025 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/05/15151934/2025-Elk-Pronghorn-Draw-Report-Bonus-Pass.pdf: 318 hunts
+2025: bonus point report vs draw report resident 1st-choice apps: 62/312 hunts differ >5% -> by_pts kept
 2026 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/03/27091508/2026-M-Bonus-Point-Report.pdf: 4401 rows
 2026 bonus point report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/08/16185459/2026-F-Bonus-Point-Report.pdf: 5358 rows
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/03/27091608/2026-M-Draw-Report-1-2-Pass.pdf: 322 hunts
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/08/05153607/2026-F-Draw-Report-1-2-Pass.pdf: 355 hunts
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/03/27091637/2026-M-Draw-Report-Bonus-Pass.pdf: 322 hunts
 2026 draw report https://azgfd-portal-wordpress-pantheon.s3.us-west-2.amazonaws.com/wp-content/uploads/2026/08/05153620/2026-F-Draw-Report-Bonus-Point-Pass.pdf: 355 hunts
+2026: bonus point report vs draw report resident 1st-choice apps: 270/667 hunts differ >5% -> by_pts DROPPED
 2026: no Draw Odds hunt list published; 667 hunts in the bonus point reports NOT included (no unit/type metadata)
 2024 odds unparsed: 1 3115 2024 Limited Opportunity (HAM) 11/15/2024 11/28/2024 Antlerless elk 2 15 #DIV/0!
 2024 odds unparsed: 1 3116 2024 Limited Opportunity (HAM) 11/29/2024 12/12/2024 Antlerless elk 3 15 #DIV/0!
-2023 3001: Bonus Point Report 1st-choice apps 9314 != Draw Odds 10147
-2023 3161: Bonus Point Report 1st-choice apps 1127 != Draw Odds 1211
-apps = first-choice applicants (Bonus Point Report sums; Draw Odds if missing). drawn = first-choice drawn in bonus pass + 1-2 pass (Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.
+2025 3803: first-choice apps 36 (draw report) vs 49 (draw odds)
+2025 3018: first-choice apps 704 (draw report) vs 748 (draw odds)
+2025 3021: first-choice apps 1494 (draw report) vs 1575 (draw odds)
+2025 3024: first-choice apps 194 (draw report) vs 217 (draw odds)
+2025 3033: first-choice apps 151 (draw report) vs 163 (draw odds)
+2025 3043: first-choice apps 395 (draw report) vs 422 (draw odds)
+2025 3044: first-choice apps 375 (draw report) vs 403 (draw odds)
+2025 3045: first-choice apps 146 (draw report) vs 157 (draw odds)
+2025 3047: first-choice apps 1441 (draw report) vs 1524 (draw odds)
+2025 3048: first-choice apps 450 (draw report) vs 487 (draw odds)
+2025 3049: first-choice apps 1016 (draw report) vs 1090 (draw odds)
+2025 3050: first-choice apps 852 (draw report) vs 916 (draw odds)
+2025 3051: first-choice apps 307 (draw report) vs 332 (draw odds)
+2025 3052: first-choice apps 983 (draw report) vs 1089 (draw odds)
+2025 3053: first-choice apps 440 (draw report) vs 504 (draw odds)
+2025 3054: first-choice apps 109 (draw report) vs 122 (draw odds)
+2025 3073: first-choice apps 347 (draw report) vs 366 (draw odds)
+2025 3085: first-choice apps 57 (draw report) vs 69 (draw odds)
+2025 3086: first-choice apps 40 (draw report) vs 53 (draw odds)
+2025 3092: first-choice apps 347 (draw report) vs 401 (draw odds)
+2025 3104: first-choice apps 239 (draw report) vs 265 (draw odds)
+2025 3105: first-choice apps 1233 (draw report) vs 1304 (draw odds)
+2025 3108: first-choice apps 243 (draw report) vs 256 (draw odds)
+2025 3109: first-choice apps 328 (draw report) vs 346 (draw odds)
+2025 3142: first-choice apps 338 (draw report) vs 361 (draw odds)
+2025 3147: first-choice apps 421 (draw report) vs 444 (draw odds)
+2025 3156: first-choice apps 73 (draw report) vs 84 (draw odds)
+2025 3166: first-choice apps 241 (draw report) vs 254 (draw odds)
+2025 3190: first-choice apps 146 (draw report) vs 157 (draw odds)
+2024 1006: first-choice apps 2125 (draw report) vs 2240 (draw odds)
+2024 1007: first-choice apps 2075 (draw report) vs 2194 (draw odds)
+2024 1009: first-choice apps 348 (draw report) vs 373 (draw odds)
+2024 1010: first-choice apps 2597 (draw report) vs 2746 (draw odds)
+2024 1012: first-choice apps 813 (draw report) vs 893 (draw odds)
+2024 1015: first-choice apps 3338 (draw report) vs 3515 (draw odds)
+2024 1019: first-choice apps 307 (draw report) vs 328 (draw odds)
+2024 1023: first-choice apps 487 (draw report) vs 523 (draw odds)
+2024 1024: first-choice apps 497 (draw report) vs 537 (draw odds)
+2024 1025: first-choice apps 707 (draw report) vs 764 (draw odds)
+2024 1026: first-choice apps 422 (draw report) vs 479 (draw odds)
+2024 1027: first-choice apps 361 (draw report) vs 394 (draw odds)
+2024 1029: first-choice apps 209 (draw report) vs 226 (draw odds)
+2024 1030: first-choice apps 1168 (draw report) vs 1252 (draw odds)
+2024 1031: first-choice apps 453 (draw report) vs 478 (draw odds)
+2024 1032: first-choice apps 220 (draw report) vs 256 (draw odds)
+2024 1033: first-choice apps 353 (draw report) vs 372 (draw odds)
+2024 1034: first-choice apps 214 (draw report) vs 236 (draw odds)
+2024 1035: first-choice apps 595 (draw report) vs 632 (draw odds)
+apps = first-choice applicants from the 1-2 Pass Draw Report (Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass (Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.
 by_pts = [points, first-choice applicants, permits issued in bonus + 1-2 pass at that level (includes 2nd-choice draws)]. min_pts = lowest point level that drew in the bonus (max-point) pass.
 T.tags = authorized permits (Draw Report); NR.tags = nonresident cap (Draw Report NonRes 'Authorized Permits'). Residents may fill all permits, so R.tags is omitted. Without a Draw Report (2025 fall), T.tags = permits issued from Draw Odds.
 Species: deer hunt types containing 'whitetail' -> C; other deer (incl. 'Any antlered deer') -> D. Youth-only hunts skipped. AZ reuses hunt numbers for different hunts, so hunts are matched across years by units+method+hunt type+season order; id = most recent number.

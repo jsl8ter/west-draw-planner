@@ -285,7 +285,7 @@ def parse():
         y = h["years"].setdefault(str(b["year"]), {})
         if b["res"] in y:
             same = y[b["res"]] == rec
-            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} identical={same} season={b.get('season')} first={y[b['res']]['tags']}/{y[b['res']]['apps']}/{y[b['res']]['drawn']} second={rec['tags']}/{rec['apps']}/{rec['drawn']} src1={y[b['res']].get('_src','')} src2={b['url'].rsplit('/',1)[-1]}")
+            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} identical={same} season={b.get('season')} first={y[b['res']]['tags']}/{y[b['res']]['apps']}/{y[b['res']]['drawn']} second={rec['tags']}/{rec['apps']}/{rec['drawn']} raw2={b['units_raw']!r} title2={b['title']!r} weapon2={b.get('weapon')!r} src2={b['url'].rsplit('/',1)[-1]}")
             continue
         y[b["res"]] = rec
         rec["_src"] = b["url"].rsplit("/", 1)[-1]

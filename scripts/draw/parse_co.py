@@ -31,7 +31,7 @@ PAGES = {
 }
 SPLETTER = {"E": "E", "D": "D", "A": "P"}
 NYEARS = int(os.environ.get("CO_YEARS", "5"))
-ONLY = [(2026, "P"), (2022, "E")]  # debug subset; empty = all
+ONLY = []  # debug subset of (year, species); empty = all
 BUDGET = float(os.environ.get("CO_BUDGET_MIN", "48")) * 60
 CODE = re.compile(r"^([EDA])([EMF])(\d{3})([A-Z]\d)([A-Z])$")
 COLS = ["RA", "NA", "RY", "NY", "LU", "LR"]
@@ -120,8 +120,6 @@ def drawn_out(page):
         k = min(range(6), key=lambda j: abs(centers[j] - xc))
         cells[COLS[k]].append((round(w["top"]), w["x0"], w["text"]))
     out = {c: " ".join(x[2] for x in sorted(v)) for c, v in cells.items()}
-    if len(DIAG) < 3:
-        DIAG.append(f"drawn_out sample: {out}")
     return out
 
 
@@ -149,10 +147,15 @@ def parse_pages(pages, year, sp, bad):
     for k, txt, do in pages:
         lines = [l.strip() for l in txt.splitlines() if l.strip()]
         for idx, ln in enumerate(lines):
-            m = CODE.match(ln)
-            if m:
+            toks = ln.split()
+            if toks and all(re.fullmatch(r"[A-Z]{2}\d{3,5}[A-Z0-9]{1,4}", x) for x in toks):
+                if not CODE.match(toks[0]):
+                    cur = None  # statewide / summary block
+                    continue
+                ln = toks[0]
                 cur = hunts.setdefault(ln, {"code": ln, "rows": [], "do": {}, "tot": None, "quota": None,
-                                            "drawn8": None, "apps": None, "c1": None})
+                                            "drawn8": None, "apps": None, "c1": None,
+                                            "also": [x for x in toks[1:] if CODE.match(x)]})
                 if do and not cur["do"]:
                     cur["do"] = do
                 continue
@@ -246,6 +249,11 @@ def build(h, bad):
     return out
 
 
+def dash(code):
+    m = CODE.match(code)
+    return "-".join(m.groups())
+
+
 def label(code):
     m = CODE.match(code)
     s, sex, gmu, season, meth = m.groups()
@@ -307,10 +315,17 @@ def parse():
             if not yd:
                 continue
             m = CODE.match(code)
-            hid = f"{m.group(1)}-{m.group(2)}-{m.group(3)}-{m.group(4)}-{m.group(5)}"
+            hid = dash(code)
             H = hunts.setdefault(hid, {"id": hid, "species": sp, "units": [str(int(m.group(3)))],
                                        "label": label(code), "weapon": METHOD.get(m.group(5), "other"),
                                        "sex": SEX[m.group(2)], "kind": "limited", "years": {}})
+            if h.get("also"):
+                if "shared" not in H["label"]:
+                    H["label"] += " (quota shared with " + ", ".join(dash(x) for x in h["also"]) + ")"
+                for x in h["also"]:
+                    u = str(int(CODE.match(x).group(3)))
+                    if u not in H["units"]:
+                        H["units"].append(u)
             H["years"][str(y)] = yd
             nh += 1
         sources.append({"year": y, "species": sp, "url": url, "title": f"{y} Primary {SPNAME['A' if sp=='P' else sp]} Post Draw Report (draw recap)"})

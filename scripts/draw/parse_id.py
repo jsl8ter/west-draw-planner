@@ -44,6 +44,9 @@ def hunt_list(year, game_id, game_name):
     """controlled hunts whose season overlaps Jul 1 Y .. Mar 31 Y+1, keyed by hunt number"""
     if year not in _LIST:
         _LIST[year] = _fetch_list(year)
+        from collections import Counter
+        LOG.append(f"hunt list {year}: {len(_LIST[year])} rows; games {dict(Counter(r.get('game') for r in _LIST[year]))}; "
+                   f"seasons {dict(Counter(r.get('season') for r in _LIST[year]).most_common(12))}")
     return _pick(_LIST[year], year, game_name)
 
 

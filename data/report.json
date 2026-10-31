@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T18:27:06Z",
+ "generated": "2026-10-31T18:29:29Z",
  "layers": [
   {
    "id": "CO",
@@ -2081,6 +2081,74 @@
     "W",
     "X",
     "Y"
+   ]
+  },
+  {
+   "id": "ORD",
+   "ok": true,
+   "tried": [
+    {
+     "url": "https://nrimp.dfw.state.or.us/arcgis/rest/services/ORHAM/ODFW_Eastern_Oregon_Deer_Hunt_Areas/FeatureServer/0",
+     "ok": true
+    }
+   ],
+   "url": "https://nrimp.dfw.state.or.us/arcgis/rest/services/ORHAM/ODFW_Eastern_Oregon_Deer_Hunt_Areas/FeatureServer/0",
+   "format": "geojson",
+   "field": "HuntArea",
+   "count": 43,
+   "layer_name": "ODFW Eastern Oregon Deer Hunt Areas",
+   "fields": [
+    "OBJECTID",
+    "HerdRange",
+    "HuntArea",
+    "Shape__Area",
+    "Shape__Length"
+   ],
+   "bytes": 206388,
+   "values": [
+    "AD-01",
+    "CR-01",
+    "DE-01",
+    "DG-01",
+    "DG-02",
+    "DG-03",
+    "DG-04",
+    "DO-01",
+    "DO-02",
+    "EH-01",
+    "EH-02",
+    "FX-01",
+    "FX-02",
+    "FX-03",
+    "HX-01",
+    "JK-01",
+    "JT-01",
+    "JT-02",
+    "JT-03",
+    "KB-01",
+    "KB-02",
+    "KE-01",
+    "MC-01",
+    "MC-02",
+    "NB-01",
+    "NB-02",
+    "NE-01",
+    "NE-02",
+    "NE-03",
+    "NE-04",
+    "NE-05",
+    "NE-06",
+    "PB-01",
+    "PH-01",
+    "SE-01",
+    "SE-02",
+    "SH-01",
+    "SH-02",
+    "ST-01",
+    "SW-01",
+    "SW-02",
+    "TC-01",
+    "TC-02"
    ]
   }
  ]

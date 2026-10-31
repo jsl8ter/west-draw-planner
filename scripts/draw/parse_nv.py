@@ -284,7 +284,7 @@ def parse():
             bad.append(f"{b['year']} {hid} {b['res']}: by_pts drawn sum {sum(r[2] for r in by)} != total S1 {tot.get('S1', 0)}")
         y = h["years"].setdefault(str(b["year"]), {})
         if b["res"] in y:
-            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} (kept first)")
+            if len(bad) < 50: bad.append(f"duplicate {b['year']} {hid} {b['res']} season={b.get('season')} units={b['units_raw']} quota={b['quota']} weapon={b.get('weapon')} title={b['title']} (kept first)")
             continue
         y[b["res"]] = rec
     for h in hunts.values():

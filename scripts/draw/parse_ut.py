@@ -23,8 +23,8 @@ def n(s):
     return int(s.replace(",", ""))
 
 
-ROW2 = re.compile(rf"^(Totals|\d+)\s+({NUM})\s+({NUM})\s+({NUM})\s+({NUM})\s+(?:N/A|1 in [\d.,]+)\s+"
-                  rf"(Totals|\d+)\s+({NUM})\s+({NUM})\s+({NUM})\s+({NUM})\s+(?:N/A|1 in [\d.,]+)\s*$")
+HALF = r"(Totals|\d+)\s+((?:[\d,]+\s+){3}[\d,]+)\s+(N/A|(?:1\s+)?in\s+[\d.,]+)"
+ROW2 = re.compile(rf"^{HALF}\s+{HALF}\s*$")
 
 
 def fetch(url):
@@ -67,9 +67,14 @@ def parse_pdf(data, url, year, general, bad):
                         bad.append(f"{year} {code} p{pi+1}: {line.strip()}")
                     continue
                 g = mm.groups()
-                for side, off in ((R, 0), (NR, 5)):
+                for side, off in ((R, 0), (NR, 3)):
                     k = g[off]
-                    vals = [n(x) for x in g[off + 1:off + 5]]  # eligible, bonus, regular, total
+                    vals = [n(x) for x in g[off + 1].split()]  # eligible, bonus, regular, total
+                    ratio = re.search(r"in\s+([\d.,]+)", g[off + 2])
+                    if ratio and vals[3] and abs(vals[0] / vals[3] - float(ratio.group(1).replace(",", ""))) > 0.11 and len(bad) < 50:
+                        bad.append(f"{year} {code} p{pi+1}: ratio mismatch: {line.strip()}")
+                    if vals[1] + vals[2] != vals[3] and len(bad) < 50:
+                        bad.append(f"{year} {code} p{pi+1}: bonus+regular != total: {line.strip()}")
                     side["T" if k == "Totals" else int(k)] = vals
                 rows_ok += 1
             if "T" not in R:

@@ -63,7 +63,7 @@ def _fetch_list(year):
 def _pick(rows, year, game_name):
     out = {}
     for r in rows:
-        if (r.get("game") or "").lower() != game_name.lower() or "controlled" not in (r.get("season") or "").lower():
+        if game_name.lower() not in (r.get("game") or "").lower() or "controlled" not in (r.get("season") or "").lower():
             continue
         num = str(r.get("number") or "").strip()
         if not num:

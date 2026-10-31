@@ -33,7 +33,8 @@ BASE = "https://wgfd.wyo.gov"
 # media ids known from searches, in case the page drops older years
 EXTRA = [32451, 32452, 32455, 32686, 32688, 32697, 32703, 32765, 30130, 30447, 30451, 30457]
 SPECIES = {"elk": "E", "deer": "D", "antelope": "P"}
-REGION_NAMES = {"E": "Eastern", "S": "Southern", "W": "Western", "N": "Northern"}
+SPN = {"E": "elk", "D": "deer", "P": "antelope"}
+REGION_NAMES = {"GEN": "General", "E": "Eastern", "S": "Southern", "W": "Western", "N": "Northern"}
 NUM = r"(\d[\d,]*)"
 
 
@@ -212,7 +213,11 @@ def parse():
         h = hunts.get(hid)
         if not h:
             weapon, sex = describe(sp, desc)
-            label = (f"Area {int(area)}" if area.isdigit() else f"Region {area}") + f" type {hid.split('-')[1] or 'gen'} - {desc.title()}"
+            typ = hid.split("-")[2]
+            if area.isdigit():
+                label = f"Area {int(area)} type {typ} - {desc.title()}"
+            else:
+                label = f"General {SPN[sp]}" + (f" - Region {area}" if area != "GEN" else "")
             if kind == "special":
                 label += " (NR special)"
             h = hunts[hid] = {"id": hid, "species": sp, "units": unit_for(sp, area), "label": label,
@@ -234,7 +239,7 @@ def parse():
                 continue
             general = not area.isdigit()
             kind = "special" if r["special"] else ("general" if general else "limited")
-            hid = f"{area}-{typ or 'GEN'}" + ("-S" if r["special"] else "")
+            hid = f"{r['sp']}-{area}-{typ or 'GEN'}" + ("-S" if r["special"] else "")
             h = hunt(hid, r["sp"], area, d["desc"], kind)
             y = h["years"].setdefault(str(r["year"]), {})
             res = y.setdefault(r["res"], {})
@@ -242,7 +247,10 @@ def parse():
                 st = pp_stats(d)
                 res["_pp"] = st
             else:
-                res["_rnd"] = {"tags": d["quota"], "apps": d["apps"], "drawn": min(d["quota"], d["apps"])}
+                rr = {"tags": d["quota"], "apps": d["apps"], "drawn": min(d["quota"], d["apps"])}
+                if d["quota"] >= 9999:  # unlimited general license
+                    del rr["tags"]
+                res["_rnd"] = rr
             n += 1
         sources.append({"year": r["year"], "species": r["sp"], "url": r["url"], "title": r["title"]})
         LOG.append(f"{r['url']} | {r['year']} {r['sp']} {r['title']} | pages {len(r['pages'])} hunts {n} unparsed {len(bad)}")
@@ -256,7 +264,7 @@ def parse():
             for res in list(y):
                 p = y[res]
                 pp, rnd = p.pop("_pp", None), p.pop("_rnd", None)
-                if pp and rnd:
+                if pp and rnd and "tags" in rnd:
                     p.update(tags=pp["tags"] + rnd["tags"], apps=pp["apps"], drawn=pp["drawn"] + rnd["drawn"],
                              by_pts=pp["by_pts"])
                     if "min_pts" in pp:
@@ -268,7 +276,7 @@ def parse():
                 if not p:
                     del y[res]
             if "NR" in y and "R" in y and h["kind"] != "special":
-                y["T"] = {k: y["NR"][k] + y["R"][k] for k in ("tags", "apps", "drawn")}
+                y["T"] = {k: y["NR"][k] + y["R"][k] for k in ("tags", "apps", "drawn") if k in y["NR"] and k in y["R"]}
     out = [h for h in hunts.values() if h["years"]]
     out.sort(key=lambda h: (h["species"], h["id"]))
     LOG.append(f"hunts: E {sum(h['species']=='E' for h in out)} D {sum(h['species']=='D' for h in out)} P {sum(h['species']=='P' for h in out)}")

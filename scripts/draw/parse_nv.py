@@ -262,12 +262,19 @@ def parse():
             cl[-1].append(d); last = d
         clusters[gk] = cl
     hunts = {}
+    occ = collections.Counter()
     for b in raw:
         gk = b["gk"]
         cl = clusters[gk]
         idx = next(i for i, c in enumerate(cl) if doy(b["start"]) in c) + 1
         typecode = re.sub(r"[^A-Za-z]+", "", b["name"].replace("Mule Deer", "").replace("Elk", "").replace("Antelope", ""))
         hid = f"{b['sp']}-{typecode}-{b['weapon_k'][:3].upper()}-{'.'.join(b['units'])}" + (f"-S{idx}" if len(cl) > 1 else "")
+        # NDOW sometimes lists two hunts with identical units/weapon/season in one report (e.g. antelope 033):
+        # keep them apart by order of appearance
+        occ[(hid, b["year"], b["res"])] += 1
+        dup_n = occ[(hid, b["year"], b["res"])]
+        if dup_n > 1:
+            hid += f"-L{dup_n}"
         h = hunts.get(hid)
         if h is None:
             kind = "special" if "guided" in b["name"].lower() else "limited"
@@ -275,7 +282,7 @@ def parse():
                               "sex": sex_of(b["name"]), "kind": kind, "years": {}, "_ly": 0}
         if b["year"] >= h["_ly"]:
             h["_ly"] = b["year"]
-            h["label"] = f"{b['name']} - {b.get('weapon','')} - Units {b['units_raw']} - {b.get('season','')}".strip()
+            h["label"] = f"{b['name']} - {b.get('weapon','')} - Units {b['units_raw']} - {b.get('season','')}".strip() + (f" (listing {dup_n} of identical unit/season)" if dup_n > 1 else "")
         tot = b["total"]
         drawn = sum(tot.get("S" + c, 0) for c in "12345")
         by = [[p, v.get("A1", 0), v.get("S1", 0)] for p, v in sorted(b["rows"].items(), reverse=True)]

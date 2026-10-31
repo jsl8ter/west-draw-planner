@@ -1,40 +1,6 @@
 ID: OK 0 hunts, years []
-=== https://idfg.idaho.gov/ifwis/huntplanner/filter 200 79631
-<option value="1" selected >Jan
-<option value="2">Feb
-<option value="3">Mar
-<option value="4">Apr
-<option value="5">May
-<option value="6">Jun
-<option value="7">Jul
-<option value="8">Aug
-<option value="9">Sep
-<option value="10">Oct
-<option value="11">Nov
-<option value="12">Dec
-<option value="1">Jan
-<option value="2">Feb
-<option value="3">Mar
-<option value="4">Apr
-<option value="5">May
-<option value="6">Jun
-<option value="7">Jul
-<option value="8">Aug
-<option value="9">Sep
-<option value="10">Oct
-<option value="11">Nov
-<option value="12" selected>Dec
-data-field="tag"
-data-field="open"
-data-field="close"
-data-field="ornament"
-data-field="game"
-data-field="method"
-data-field="area"
-data-field="permits"
-data-field="season"
-
-id="scope" class="hidden"> <div class="form-inline" role="form"> <div class="form-group"> <span>Types: </span> <input name="type" id="type" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Games: </span> <input name="game" id="game" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Methods: </span> <input name="method" id="method" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Ornaments: </span> <input name="ornament" id="ornament" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Regions: </span> <input name="region" id="region" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Counties: </span> <input name="county" id="county" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Zones: </span> <input name="zone" id="zone" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Units: </span> <input name="unit" id="unit" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Towns: </span> <input id="town" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>Start: </span> <input name="start" id="start" class="form-control" value="" disabled /> </div> <div class="form-group"> <span>End: </span> <input name="end" id="end" class="form-control" value="" disabled /> </div> <!--<button id="ok" type="submit" class="btn btn-primary">Filter</button>--> </div> </div> <div id="problems" class="alert text-muted"><strong>Find an error?</strong> Please let us know what is wrong so we can get it fixed up! <a role="button" class="btn" href="https://idfg.idaho.gov/form/report-problem?uri=idfg.idaho.gov/ifwis/huntplanner/filter" target="_blank" title="Send us a note"><span class="glyphicon glyphicon-send"></span>Report a Problem</a></div> </section> </div> <!--/main-container--> <div id="footer-context"> <div class="row"> </div> <footer class="footer"> <div class="container"> <div class="col-xs-12 footer-top"> </div> </div> <div class="container"> <div> <div class="col-sm-4"> <div class="region region-footer-1"> <section id="block-block-18" class="block block-block clearfix"> <p><img height="115" src="https://idfg.idaho.gov/sites/all/themes/burbot/img
-hunt page: url: "https://tiles.arcgis.com/tiles/FjJI5xHF2dUPVrgK/arcgis/rest/services/BLM_Surface_Management/MapServer"
-hunt page: url: "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hunting/MapServer/3"
-hunt page: url: "https://gisservices.cfc.umt.edu/arcgis/rest/services/ProtectedAreas/National_Wilderness_Preservation_System/FeatureServer/0"
+SELECT: <select id="month-start" class="form-control input-sm"> <option value="1" selected >Jan</option> <option value="2">Feb</option> <option value="3">Mar</option> <option value="4">Apr</option> <option value="5">May</option> <option value="6">Jun</option> <option value="7">Jul</option> <option value="8">Aug</option> <option value="9">Sep</option> <option value="10">Oct</option> <option value="11">Nov</option> <option value="12">Dec</option> </select>
+SELECT: <select id="year-start" class="form-control input-sm"> <option selected>2026</option> <option>2025</option> <option>2024</option> <option>2023</option> <option>2022</option> <option>2021</option> <option>2020</option> <option>2019</option> <option>2018</option> <option>2017</option> <option>2016</option> <option>2015</option> <option>2014</option> <option>2013</option> <option>2012</option> <option>2011</option> <option>2010</option> <option>2009</option> <option>2008</option> <option>2007</option> <option>2006</option> <option>2005</option> <option>2004</option> <option>2003</option> </select>
+SELECT: <select id="month-end" class="form-control input-sm"> <option value="1">Jan</option> <option value="2">Feb</option> <option value="3">Mar</option> <option value="4">Apr</option> <option value="5">May</option> <option value="6">Jun</option> <option value="7">Jul</option> <option value="8">Aug</option> <option value="9">Sep</option> <option value="10">Oct</option> <option value="11">Nov</option> <option value="12" selected>Dec</option> </select>
+SELECT: <select id="year-end" class="form-control input-sm"> <option selected>2026</option> <option>2025</option> <option>2024</option> <option>2023</option> <option>2022</option> <option>2021</option> <option>2020</option> <option>2019</option> <option>2018</option> <option>2017</option> <option>2016</option> <option>2015</option> <option>2014</option> <option>2013</option> <option>2012</option> <option>2011</option> <option>2010</option> <option>2009</option> <option>2008</option> <option>2007</option> <option>2006</option> <option>2005</option> <option>2004</option> <option>2003</option> </select>
+HUNT HTML: 

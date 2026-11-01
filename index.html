@@ -968,14 +968,14 @@ function huntCard(st,h){
   const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
   return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
   <div class="stats">
-    <div><b>Your odds ${y?+y+1:""} (${mp} pts)</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
+    <div><b>Your odds ${y?+y+1:""}${sys==="random"?" (random draw)":` (${mp} pts)`}</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
     <div><b>NR ${y} drawn</b>${n0(nr.drawn??nr.tags)} of ${n0(nr.apps)} · ${ov(nr)}</div>
     <div><b>NR pts needed ${y}</b>${nr.min_pts??(sys==="random"?"random":"–")}</div>
     <div><b>Resident ${y}</b>${n0(r.drawn??r.tags)} of ${n0(r.apps)} · ${ov(r)}</div>
     <div><b>Total ${y}</b>${n0(tot.drawn??tot.tags)} of ${n0(tot.apps)} · ${ov(tot)}</div>
     ${s&&s.years!=null?`<div><b>Est. years to draw</b>${s.years>30?"30+":s.years}</div>`:""}
   </div>
-  ${s&&s.historical.length?`<p class="note">Your odds at ${mp} pts in past draws: ${s.historical.map(([yy,v])=>`${yy} ${pct(v)}`).join(" · ")}</p>`:""}
+  ${s&&s.historical.length?`<p class="note">${sys==="random"?"Nonresident odds":`Your odds at ${mp} pts`} in past draws: ${s.historical.map(([yy,v])=>`${yy} ${pct(v)}`).join(" · ")}</p>`:""}
   ${cr?`<p class="note">NR points needed by year: ${cr}</p>`:""}
   <details class="dt"><summary>All years: nonresident, resident, total</summary><div class="dtab"><table>
    <thead><tr><th rowspan="2">Year</th><th colspan="5">Nonresident</th><th colspan="5">Resident</th><th colspan="3">Total</th></tr>
@@ -991,7 +991,7 @@ function huntsSheet(f,Lc){
   if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?"bull/buck ":sexF==="antlerless"?"cow/doe ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
   const order=h=>(isAntlerless(h)?1000:0)+(()=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99})();
   return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} · ${SPECIES[sp]} draw results</h3>${trophy}
-  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. Odds use your ${SN[Lc.st]} ${SPECIES[sp].toLowerCase()} points from My Points and ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. ${sysOf(Lc.st)==="random"?"Next-year odds use last year's applicants and tags.":"Next-year odds assume everyone who missed gains a point and tags stay the same."}</p>
+  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. ${sysOf(Lc.st)==="random"?`${SN[Lc.st]} has no points; odds are`:`Odds use your ${SN[Lc.st]} ${sp==="C"?"deer":SPECIES[sp].toLowerCase()} points from My Points and`} ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. ${sysOf(Lc.st)==="random"?"Next-year odds use last year's applicants and tags.":"Next-year odds assume everyone who missed gains a point and tags stay the same."}</p>
   ${hs.slice().sort((a,b)=>order(a)-order(b)).map(h=>huntCard(Lc.st,h)).join("")}</div>`;
 }
 function showFeature(f,Lc,lyr){

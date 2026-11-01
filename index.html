@@ -105,6 +105,13 @@ td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;
 .callout ol{margin:0;padding-left:20px}
 a{color:var(--accent)}
 .src{font-size:12.5px;color:var(--muted);word-break:break-word}
+.cbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px 12px;align-items:end}
+.cbar .cwide{grid-column:span 2}
+.cbar label{display:flex;flex-direction:column;gap:3px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.cbar select{font:500 15px var(--body);color:var(--ink);background:var(--panel);border:1.5px solid var(--line);border-radius:5px;padding:6px 8px;min-width:0;text-transform:none;letter-spacing:0}
+.cbar .ccheck{flex-direction:row;align-items:center;gap:6px;font:600 13px var(--body);text-transform:none;letter-spacing:0;color:var(--ink);padding-bottom:8px}
+.cbar select:disabled{opacity:.45}
+@media (max-width:520px){.cbar .cwide{grid-column:1/-1}}
 .filter{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
 .fhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
 .fsum{font-size:13px;color:var(--muted)}
@@ -171,12 +178,13 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
   <div class="results" id="results" hidden></div>
   <div class="controls">
     <div class="row" id="spRow"><span class="lbl">Species</span></div>
-    <div class="row"><span class="lbl">Color by</span>
-      <button class="chip" id="c-tier" aria-pressed="false" data-color="tier">Hunt quality</button>
-      <button class="chip" id="c-chance" aria-pressed="false" data-color="chance">My draw chance</button>
-      <button class="chip" id="c-points" aria-pressed="true" data-color="points">Points needed</button>
-      <button class="chip" id="c-odds" aria-pressed="false" data-color="odds">My odds (draw data)</button>
-      <button class="chip" id="c-trophy" aria-pressed="false" data-color="trophy">Trophy potential</button>
+    <div class="cbar" id="cbar">
+      <label for="cm-metric" class="cwide">Color by<select id="cm-metric"></select></label>
+      <label for="cm-res">Residency<select id="cm-res"><option value="NR">Nonresident</option><option value="R">Resident</option><option value="T">Total</option></select></label>
+      <label for="cm-year">Year<select id="cm-year"><option value="latest">Latest</option><option value="avg3">3-year average</option></select></label>
+      <label for="cm-agg">Unit with several hunts<select id="cm-agg"><option value="best">Best for me</option><option value="avg">Average</option><option value="sum">Total</option><option value="worst">Hardest</option></select></label>
+      <label for="cm-scale">Color breaks<select id="cm-scale"><option value="fixed">Standard</option><option value="auto">Spread evenly (data)</option></select></label>
+      <label for="cm-flip" class="ccheck"><input type="checkbox" id="cm-flip"> Flip colors</label>
     </div>
     <div class="row" id="wpnRow"><span class="lbl">Weapon</span>
       <button class="chip" data-wpn="any" aria-pressed="true">Any</button>
@@ -638,7 +646,7 @@ async function loadLayer(L){
   LS[L.id]={state:"wait"};renderStatus();
   let urls=[];
   try{
-    try{const r=await fetch(`data/${L.id}.geojson`,{cache:"no-cache"});if(r.ok){const fc=await r.json();if(fc.features&&fc.features.length){LS[L.id]={state:"ok",n:fc.features.length,url:"saved copy"};attach(L,fc.features,"unit");renderStatus();return}}}catch(e){}
+    try{const r=await fetch(`data/${L.id}.geojson`,{cache:"no-cache"});if(r.ok){const fc=await r.json();if(fc.features&&fc.features.length){LS[L.id]={state:"ok",n:fc.features.length,url:"saved copy"};attach(L,fc.features,"unit");renderStatus();return}}}catch(e){console.error("saved boundaries "+L.id,e)}
     if(L.items){for(const it of L.items){try{urls.push(await resolveItem(it))}catch(e){}}}
     else urls=[L.url,...(L.alt||[])];
     let lastErr;
@@ -713,18 +721,19 @@ function attach(L,feats,forced){
   gj._cfg=L;POLY[L.id]=gj;
   if(L.sp.includes(sp)) gj.addTo(map);
   for(const id in POLY){if(POLY[id]._cfg.zone&&map.hasLayer(POLY[id]))POLY[id].bringToBack()}
-  renderDots();renderList();
+  restyle();renderList();
 }
 function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
 function styleFor(f,L){
   const es=entriesFor(f);
   const line=base==="sat"?"#ffffff":"#2b322d";
   const isSel=(sel!=null&&f._e.includes(sel))||selF===f;
+  if(L.onlyMatched&&!es.length&&!(f._h||[]).some(i=>DRAW[L.st]&&DRAW[L.st].hunts[i].species===sp)) return {opacity:0,fillOpacity:0,fill:false,weight:0};
   if(FILTER.on&&!featurePasses(f,L)) return {color:line,weight:.5,opacity:.3,dashArray:null,fill:true,fillColor:"#000",fillOpacity:.04};
-  if(colorMode==="points"||colorMode==="odds"||colorMode==="trophy"){
+  if(!METRICS[CM.metric].legacy){
     const v=metric(f,L);
     if(v==null) return {color:line,weight:.7,opacity:.55,dashArray:L.zone?"7 5":null,fill:true,fillOpacity:0.01};
-    const c=rampColor(colorMode,v);
+    const c=metricColor(v);
     if(L.zone) return {color:isSel?css("--accent"):c,weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:c,fillOpacity:.14};
     return {color:isSel?css("--accent"):line,weight:isSel?3:1,opacity:.9,dashArray:null,fill:true,fillColor:c,fillOpacity:base==="sat"?.6:.5};
   }
@@ -740,8 +749,8 @@ function chance(u){
   if(odds!=null){if(odds>=40)return "likely";if(odds>=10)return "close";return "long"}
   return "otc";
 }
-const colorHex=u=>colorMode==="tier"?css(TIERV[u[4]]):css(CHV[chance(u)][1]);
-const colorOf=u=>colorMode==="tier"?TIERC[u[4]]:CH[chance(u)][1];
+const colorHex=u=>CM.metric==="tier"?css(TIERV[u[4]]):css(CHV[chance(u)][1]);
+const colorOf=u=>CM.metric!=="chance"?TIERC[u[4]]:CH[chance(u)][1];
 const reqText=u=>u[7]!=null?`${u[7]}${u[7]>=20?"+":""} pts`:(u[8]!=null?`${u[8]}% odds`:"no draw");
 
 // ---------- draw data, trophy, metrics ----------
@@ -751,6 +760,7 @@ async function loadData(){
   await Promise.all(DSTATES.map(async st=>{try{const r=await fetch(`data/draw/${st}.json`,{cache:"no-cache"});if(r.ok){DRAW[st]=await r.json();DLS[st]="ok"}else DLS[st]="none"}catch(e){DLS[st]="none"}}));
   try{const r=await fetch("data/trophy.json",{cache:"no-cache"});if(r.ok)TROPHY=await r.json()}catch(e){}
   renderDStatus();
+  if(window.__addYears)window.__addYears();
 }
 function renderDStatus(){
   const parts=DSTATES.map(st=>{const d=DRAW[st];if(!d||!d.hunts||!d.hunts.length)return `<span class="wait">${st} pending</span>`;
@@ -782,27 +792,113 @@ function huntPts(st,h){
 }
 // nonresidents had a real shot in the latest year?
 function nrOpen(h){const y=Odds.latestYear(h,"NR");if(!y)return false;const b=h.years[y].NR;return !(b.tags===0||(b.apps>0&&b.drawn===0&&!(b.by_pts||[]).some(r=>r[2]>0)))}
+// ---------- color-by metrics ----------
+const pctf=v=>pct(v);
+const METRICS={
+  pts:{label:"Points needed to draw",group:"Draw",good:"low",fmt:v=>v+" pts",fixed:[0,2,5,9,14,20],draw:true,
+       note:"Lowest points that drew; in weighted-random states, points for a 50% chance"},
+  p50:{label:"Points for a 50% chance next year",group:"Draw",good:"low",fmt:v=>v>30?"30+ pts":v+" pts",fixed:[0,2,5,9,14,20],draw:true},
+  odds:{label:"My odds next year",group:"Draw",good:"high",fmt:pctf,fixed:[0,.02,.1,.25,.5,.75],draw:true,usesPts:true},
+  dpct:{label:"Draw rate (drawn ÷ applicants)",group:"Draw",good:"high",fmt:pctf,fixed:[0,.02,.1,.25,.5,.75],draw:true},
+  years:{label:"Years to draw at my points",group:"Draw",good:"low",fmt:v=>v>30?"30+ yrs":v+" yr"+(v===1?"":"s"),fixed:[1,2,4,7,11,16],draw:true,usesPts:true,prefOnly:true},
+  creep:{label:"Point creep (points per year)",group:"Draw",good:"low",fmt:v=>(v>=0?"+":"")+v.toFixed(2)+"/yr",fixed:[-99,.01,.25,.5,.75,1],draw:true,noYear:true},
+  apps:{label:"Applicants",group:"Demand",good:"low",fmt:v=>n0(Math.round(v)),draw:true,agg:"sum"},
+  tags:{label:"Tags / licenses",group:"Demand",good:"high",fmt:v=>n0(Math.round(v)),draw:true,agg:"sum"},
+  ratio:{label:"Applicants per tag",group:"Demand",good:"low",fmt:v=>v.toFixed(1),fixed:[0,1,2,5,10,25],draw:true},
+  appchg:{label:"Change in applicants vs prior year",group:"Demand",good:"low",fmt:v=>(v>=0?"+":"")+Math.round(v*100)+"%",fixed:[-99,-.1,0,.1,.25,.5],draw:true,noYear:true},
+  nhunts:{label:"Number of draw hunts",group:"Demand",good:"high",fmt:v=>n0(v),draw:true,agg:"sum",noYear:true},
+  trophy:{label:"Trophy potential (1–5)",group:"Quality",good:"high",fmt:v=>v+"/5",fixed:[1,2,3,4,5],trophy:true},
+  tier:{label:"Planner rating (hand-picked units)",group:"Planner",legacy:true},
+  chance:{label:"Planner draw chance (hand-picked units)",group:"Planner",legacy:true}
+};
+const CM={metric:"pts",res:"NR",year:"latest",agg:"best",scale:"fixed",flip:false};
+const PAL=["#2f8a4a","#8bbf3f","#e4c228","#e08a1e","#c8452c","#7a2a6e"];       // good -> bad
+const PAL_T=["#e8e1c8","#e9c46a","#e08a1e","#c8452c","#6e1b47"];                 // trophy low -> high
+const resLbl=()=>({NR:"nonresident",R:"resident",T:"total"})[CM.res];
+// one residency block for a hunt in the chosen year (or a 3-year average)
+function blkFor(h,res,yr){
+  const get=y=>{const Y=h.years[y];if(!Y)return null;if(res!=="T")return Y[res]||null;
+    if(Y.T)return Y.T;if(!Y.NR&&!Y.R)return null;const a=Y.NR||{},b=Y.R||{};
+    const sum=k=>(a[k]==null&&b[k]==null)?null:(a[k]||0)+(b[k]||0);return {apps:sum("apps"),tags:sum("tags"),drawn:sum("drawn")}};
+  const ys=Object.keys(h.years).filter(y=>get(y)).sort();
+  if(!ys.length)return null;
+  if(yr==="latest")return get(ys[ys.length-1]);
+  if(yr==="avg3"){const bl=ys.slice(-3).map(get);const avg=k=>{const v=bl.map(b=>b[k]).filter(x=>x!=null);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
+    const last=bl[bl.length-1];return {apps:avg("apps"),tags:avg("tags"),drawn:avg("drawn"),min_pts:avg("min_pts")!=null?Math.round(avg("min_pts")):null,by_pts:last.by_pts}}
+  return get(yr);
+}
+function huntVal(st,h,k){
+  const sys=huntSys(st,h),res=CM.res,b=blkFor(h,res,CM.year);
+  if(k==="creep"){const c=Odds.creep(h.years,res==="T"?"NR":res);return c.slope}
+  if(k==="nhunts")return 1;
+  if(k==="appchg"){const ys=Object.keys(h.years).filter(y=>blkFor({years:{[y]:h.years[y]}},res,"latest")).sort();if(ys.length<2)return null;
+    const a=blkFor({years:{[ys[ys.length-1]]:h.years[ys[ys.length-1]]}},res,"latest"),p=blkFor({years:{[ys[ys.length-2]]:h.years[ys[ys.length-2]]}},res,"latest");
+    return a&&p&&a.apps!=null&&p.apps?(a.apps-p.apps)/p.apps:null}
+  if(!b)return null;
+  const drawn=b.drawn??b.tags;
+  switch(k){
+    case "apps":return b.apps??null;
+    case "tags":return b.tags??b.drawn??null;
+    case "ratio":return b.apps!=null&&(b.tags||b.drawn)?b.apps/(b.tags||b.drawn):null;
+    case "dpct":return b.apps?Math.min(1,(drawn||0)/b.apps):null;
+    case "pts":{if(sys==="random")return "R";if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;
+      if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5);return b.min_pts??null}
+    case "p50":{if(sys==="random")return "R";if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;return Odds.pointsFor(sys,b,.5)}
+    case "odds":{const r=res==="T"?"NR":res;return oddsVal(Odds.summarize(sys,h,r,effPts(st,h.species,h)))}
+    case "years":{if(!/^pref/.test(sys))return null;return Odds.yearsToDraw(sys,h,res==="T"?"NR":res,effPts(st,h.species,h))}
+  }
+  return null;
+}
+// nonresidents (or residents) had a real shot in the latest year?
+function resOpen(h){if(CM.res==="T")return true;const y=Odds.latestYear(h,CM.res);if(!y)return false;const b=h.years[y][CM.res];return !(b.tags===0||(b.apps>0&&b.drawn===0&&!(b.by_pts||[]).some(r=>r[2]>0)))}
+function aggregate(vals,k){
+  const M=METRICS[k];const nums=vals.filter(v=>typeof v==="number"&&isFinite(v));
+  if(!nums.length)return vals.includes("R")?"R":null;
+  const agg=M.agg==="sum"&&CM.agg==="best"?"sum":CM.agg;
+  if(agg==="sum")return nums.reduce((a,b)=>a+b,0);
+  if(agg==="avg")return nums.reduce((a,b)=>a+b,0)/nums.length;
+  const lowGood=M.good==="low";const best=lowGood?Math.min(...nums):Math.max(...nums),worst=lowGood?Math.max(...nums):Math.min(...nums);
+  return agg==="worst"?worst:best;
+}
 function metric(f,Lc){
-  const st=Lc.st,hs=huntsOf(f,st);
-  if(colorMode==="trophy"){const t=trophyOf(st,sp,f._id);return t?t.s:null}
-  if(colorMode!=="points"&&colorMode!=="odds")return null;
-  const open=hs.filter(nrOpen);
-  if(!hs.length||!open.length){
-    if(!DRAW[st])return null;
-    const gen=st==="MT"&&!Lc.zone?generalHunts(st):[];
-    if(gen.length&&!hs.length){
-      if(colorMode==="points"){const v=gen.map(h=>huntPts(st,h)).filter(x=>x!=null);if(v.length)return Math.min(...v)}
-      else{const v=gen.map(h=>oddsVal(huntOdds(st,h))).filter(x=>x!=null);if(v.length)return Math.max(...v)}
-    }
+  const k=CM.metric,M=METRICS[k],st=Lc.st;
+  if(!M||M.legacy)return null;
+  if(M.trophy){const t=trophyOf(st,sp,f._id);return t?t.s:null}
+  if(!DRAW[st])return null;
+  const hs=huntsOf(f,st),open=hs.filter(resOpen);
+  if(!open.length){
+    const gen=st==="MT"&&!Lc.zone&&!hs.length?generalHunts(st):[];
+    if(gen.length){const v=aggregate(gen.map(h=>huntVal(st,h,k)),k);if(v!=null&&v!=="R")return v}
     return hs.length?"X":"G";
   }
-  if(colorMode==="points"){
-    if(sysOf(st)==="random")return "R";
-    const v=open.map(h=>huntPts(st,h)).filter(x=>x!=null);
-    if(v.length)return Math.min(...v);
-    return "X";
-  }
-  const v=open.map(h=>oddsVal(huntOdds(st,h))).filter(x=>x!=null);return v.length?Math.max(...v):"X";
+  if(M.prefOnly&&!/^pref/.test(sysOf(st))&&!(st==="MT"))return "N";
+  const v=aggregate(open.map(h=>huntVal(st,h,k)),k);
+  return v==null?"X":v;
+}
+// class breaks: standard per metric, or quantiles of what's on the map
+let BREAKS=null;
+function computeBreaks(){
+  const k=CM.metric,M=METRICS[k];if(!M||M.legacy){BREAKS=null;return}
+  if(M.trophy){BREAKS=M.fixed;return}
+  if(CM.scale==="fixed"&&M.fixed){BREAKS=M.fixed;return}
+  const vals=[];for(const id in POLY){const g=POLY[id];if(!g._cfg.sp.includes(sp)||(FILTER.on&&FILTER.st&&g._cfg.st!==FILTER.st))continue;g.eachLayer(l=>{const v=metric(l.feature,g._cfg);if(typeof v==="number"&&isFinite(v))vals.push(v)})}
+  vals.sort((a,b)=>a-b);
+  if(!vals.length){BREAKS=M.fixed||[0];return}
+  const q=[0,1,2,3,4,5].map(i=>vals[Math.min(vals.length-1,Math.floor(i*vals.length/6))]);
+  BREAKS=[...new Set(q)];
+}
+function classOf(v){let i=0;for(let j=0;j<BREAKS.length;j++)if(v>=BREAKS[j])i=j;return i}
+function metricColor(v){
+  if(v==="R")return "#4f8fd0";if(v==="G")return "#b7c8d8";if(v==="X")return "#676d72";if(v==="N")return "#cfcac0";
+  const M=METRICS[CM.metric];
+  if(!BREAKS)BREAKS=M.fixed||[0];
+  if(M.trophy){const c=PAL_T[Math.max(0,Math.min(4,Math.round(v)-1))];return c}
+  const n=BREAKS.length,i=classOf(v);
+  // spread classes across the 6-color palette; low index = low value
+  let idx=n>1?Math.round(i*(PAL.length-1)/(n-1)):0;
+  if(M.good==="high")idx=PAL.length-1-idx;
+  if(CM.flip)idx=PAL.length-1-idx;
+  return PAL[idx];
 }
 function trophyOf(st,s,id){
   const t=TROPHY&&TROPHY.units&&TROPHY.units[st]&&TROPHY.units[st][s];if(!t)return null;
@@ -813,7 +909,7 @@ const RAMP={
   odds:[[0,"#7a2a6e","<2%"],[.02,"#c8452c","2–10%"],[.10,"#e08a1e","10–25%"],[.25,"#e4c228","25–50%"],[.50,"#8bbf3f","50–75%"],[.75,"#2f8a4a","75%+"]],
   trophy:[[1,"#e8e1c8","1 · opportunity"],[2,"#e9c46a","2"],[3,"#e08a1e","3 · solid"],[4,"#c8452c","4"],[5,"#6e1b47","5 · top tier"]]
 };
-function rampColor(mode,v){if(v==="R")return "#4f8fd0";if(v==="G")return "#b7c8d8";if(v==="X")return "#676d72";const r=RAMP[mode];let c=r[0][1];for(const [t,col] of r){if(v>=t)c=col}return c}
+function rampColor(mode,v){if(v==="R")return "#4f8fd0";const r=RAMP[mode];let c=r[0][1];for(const [t,col] of r){if(v>=t)c=col}return c}
 const pct=x=>x==null?"–":x===0?"0%":x>=.995?"100%":x<.001&&x>0?"<0.1%":(x*100).toFixed(x<.1?1:0)+"%";
 const n0=x=>x==null?"–":Number(x).toLocaleString();
 
@@ -863,7 +959,7 @@ function applyFilter(zoom){
 }
 
 // ---------- state ----------
-let colorMode="points",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,selF=null,base="topo";
+let colorMode="tier",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,selF=null,base="topo";
 let PTS={};
 try{PTS=JSON.parse(localStorage.getItem("wdp-pts")||"{}")}catch(e){PTS={}}
 for(const k of Object.keys(PTS)){if(/^[A-Z]{2}C$/.test(k)){const d=k.slice(0,2)+"D";if(!PTS[d])PTS[d]=PTS[k];delete PTS[k]}}
@@ -900,13 +996,14 @@ function renderDots(){
   U.forEach((u,i)=>{
     if(u[1]!==sp||!tierOn.has(u[4])||FILTER.on)return;
     if(ENTRY_SHAPES[i]&&ENTRY_SHAPES[i].length)return;
-    const fc=colorMode==="points"?(u[7]!=null?rampColor("points",u[7]):(u[8]!=null?rampColor("points","R"):"#9aa39a")):(colorMode==="odds"||colorMode==="trophy")?"#9aa39a":colorHex(u);
+    const fc=METRICS[CM.metric].legacy?colorHex(u):(CM.metric==="pts"&&u[7]!=null&&BREAKS?metricColor(u[7]):"#9aa39a");
     const m=L.circleMarker([u[5],u[6]],{renderer:canvas,radius:sel===i?9:6.5,color:sel===i?css("--ink"):"#fff",weight:sel===i?3:1.5,fillColor:fc,fillOpacity:1});
     m.bindTooltip(`${u[0]} ${u[2]}`,{className:"ulbl",direction:"top"});
     m.on("click",()=>pick(i));m.addTo(dots);
   });
 }
 function restyle(){
+  computeBreaks();
   for(const id in POLY){const g=POLY[id];const on=g._cfg.sp.includes(sp);if(on&&!map.hasLayer(g))g.addTo(map);if(!on&&map.hasLayer(g))map.removeLayer(g);if(on)g.setStyle(f=>styleFor(f,g._cfg))}
   for(const id in POLY){if(POLY[id]._cfg.zone&&map.hasLayer(POLY[id]))POLY[id].bringToBack()}
   renderDots();renderLegend();
@@ -919,16 +1016,43 @@ for(const k in SPECIES){const b=document.createElement("button");b.className="ch
 for(const k in TIERS){const b=document.createElement("button");b.className="chip";b.id="ti-"+k;b.setAttribute("aria-pressed","true");b.innerHTML=`<i class="dot" style="background:${TIERC[k]}"></i>${TIERS[k].split(" /")[0]}`;b.onclick=()=>{tierOn.has(k)?tierOn.delete(k):tierOn.add(k);b.setAttribute("aria-pressed",tierOn.has(k));render()};tierRow.appendChild(b)}
 document.querySelectorAll("[data-sex]").forEach(b=>b.onclick=()=>{sexF=b.dataset.sex;document.querySelectorAll("[data-sex]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
 document.querySelectorAll("[data-wpn]").forEach(b=>b.onclick=()=>{wpn=b.dataset.wpn;document.querySelectorAll("[data-wpn]").forEach(x=>x.setAttribute("aria-pressed",x===b));render();if(selF&&lastShown)showFeature(...lastShown)});
-document.querySelectorAll("[data-color]").forEach(b=>b.onclick=()=>{colorMode=b.dataset.color;document.querySelectorAll("[data-color]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+// color-by controls
+(function(){
+  const sel=document.getElementById("cm-metric");let grp="";let html="";
+  for(const [k,M] of Object.entries(METRICS)){if(M.group!==grp){if(grp)html+="</optgroup>";html+=`<optgroup label="${M.group}">`;grp=M.group}html+=`<option value="${k}"${k===CM.metric?" selected":""}>${M.label}</option>`}
+  sel.innerHTML=html+"</optgroup>";
+  const ys=new Set();
+  const addYears=()=>{for(const st in DRAW)for(const h of DRAW[st].hunts||[])Object.keys(h.years||{}).forEach(y=>ys.add(y));
+    const ysel=document.getElementById("cm-year");[...ys].sort().reverse().forEach(y=>{if(!ysel.querySelector(`option[value="${y}"]`))ysel.insertAdjacentHTML("beforeend",`<option value="${y}">${y}</option>`)})};
+  window.__addYears=addYears;
+  const sync=()=>{const M=METRICS[CM.metric];
+    ["cm-res","cm-year","cm-agg","cm-scale","cm-flip"].forEach(id=>document.getElementById(id).disabled=!!(M.legacy));
+    document.getElementById("cm-year").disabled=!!(M.legacy||M.trophy||M.noYear||M.usesPts);
+    document.getElementById("cm-res").disabled=!!(M.legacy||M.trophy);
+    document.getElementById("cm-agg").disabled=!!(M.legacy||M.trophy);
+    document.getElementById("cm-scale").disabled=!!(M.legacy||M.trophy||!M.fixed);
+    if(!M.fixed&&!M.legacy)document.getElementById("cm-scale").value="auto";
+  };
+  const read=()=>{CM.metric=sel.value;CM.res=document.getElementById("cm-res").value;CM.year=document.getElementById("cm-year").value;CM.agg=document.getElementById("cm-agg").value;CM.scale=document.getElementById("cm-scale").value;CM.flip=document.getElementById("cm-flip").checked;
+    if(!METRICS[CM.metric].fixed)CM.scale="auto";sync();render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)};
+  ["cm-metric","cm-res","cm-year","cm-agg","cm-scale","cm-flip"].forEach(id=>document.getElementById(id).addEventListener("change",read));
+  sync();
+})();
 
 function renderLegend(){
-  const L=document.getElementById("legend");
-  if(RAMP[colorMode]){
-    const title={points:"NR points needed (lowest that drew last year; weighted-draw states: points for a 50% chance)",odds:`Your best NR odds next year, using My Points for ${SPECIES[sp].toLowerCase()}`,trophy:"Trophy potential"}[colorMode];
-    L.innerHTML=`<span><b>${title}</b></span>`+RAMP[colorMode].map(([,c,l])=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`).join("")+(colorMode==="points"?`<span><i class="sq" style="background:#4f8fd0"></i>Random draw (no points)</span>`:"")+(colorMode!=="trophy"?`<span><i class="sq" style="background:#b7c8d8"></i>No draw hunt here (general / OTC season, or none)</span><span><i class="sq" style="background:#676d72"></i>No nonresident tags drawn last year</span>`:"")+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>${colorMode==="trophy"?"Not rated":"No draw data for this state"}</span>`+(FILTER.on?`<span><b>Filtered:</b> faded units don't match</span>`:"");
+  const L=document.getElementById("legend");const M=METRICS[CM.metric];
+  if(!M.legacy){
+    const sw=(c,l)=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`;
+    let items="";
+    if(M.trophy)items=[1,2,3,4,5].map(v=>sw(metricColor(v),v+(v===1?" · opportunity":v===3?" · solid":v===5?" · top tier":""))).join("");
+    else if(BREAKS){items=BREAKS.map((b,i)=>{const hi=BREAKS[i+1];const lo=b<=-99?"":M.fmt(b);const lab=hi==null?(lo?lo+"+":"any"):(b<=-99?"under "+M.fmt(hi):lo+" – "+M.fmt(hi));return sw(metricColor(b),lab)}).join("")}
+    const ctx=M.trophy?"":` · ${resLbl()}${M.noYear||M.usesPts?"":CM.year==="latest"?" · latest year":CM.year==="avg3"?" · 3-yr avg":" · "+CM.year}${M.usesPts?" · your points":""} · ${({best:"best hunt in unit",avg:"average of hunts",sum:"total of hunts",worst:"hardest hunt"})[M.agg==="sum"&&CM.agg==="best"?"sum":CM.agg]}`;
+    L.innerHTML=`<span><b>${M.label}</b>${ctx}</span>`+items+
+      (M.draw?((CM.metric==="pts"||CM.metric==="p50")?sw("#4f8fd0","Random draw (no points)"):"")+sw("#b7c8d8","No draw hunt here (general / OTC season, or none)")+sw("#676d72",`No ${resLbl()} draw last year`)+(M.prefOnly?sw("#cfcac0","Not a preference-point state"):""):"")+
+      `<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>${M.trophy?"Not rated":"No draw data"}</span>`+(FILTER.on?`<span><b>Filtered:</b> faded units don't match</span>`:"");
     return;
   }
-  L.innerHTML=(colorMode==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span><span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-tag region or zone</span>`;
+  L.innerHTML=(CM.metric==="tier"?Object.keys(TIERS).map(k=>`<span><i class="sq" style="background:${TIERC[k]}"></i>${TIERS[k]}</span>`).join(""):Object.keys(CH).map(k=>`<span><i class="sq" style="background:${CH[k][1]}"></i>${CH[k][0]}</span>`).join("")+`<span>· based on My Points</span>`)+`<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>Not rated yet</span><span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-tag region or zone</span>`;
 }
 function renderStatus(){
   document.getElementById("status").innerHTML="Boundaries: "+LAYERS.map(L=>{const s=LS[L.id]||{state:"wait"};
@@ -1014,7 +1138,7 @@ function showFeature(f,Lc,lyr){
     FILTER.odds=+document.getElementById("f-odds").value;FILTER.trophy=+document.getElementById("f-trophy").value;
     sp=fsp.value;wpn=document.getElementById("f-wpn").value;sexF=document.getElementById("f-sex").value;
     setChip("sp",sp);setChip("wpn",wpn);setChip("sex",sexF);sel=null;selF=null;document.getElementById("sheet").innerHTML="";
-    if(colorMode==="tier"||colorMode==="chance"){colorMode=FILTER.trophy?"trophy":"odds";document.querySelectorAll("[data-color]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.color===colorMode))}
+    if(METRICS[CM.metric].legacy){CM.metric=FILTER.trophy?"trophy":"odds";document.getElementById("cm-metric").value=CM.metric}
     renderList();applyFilter(true);
   });
   document.getElementById("f-clear").onclick=()=>{FILTER.on=false;applyFilter(false);map.setView([41.2,-112.5],5)};

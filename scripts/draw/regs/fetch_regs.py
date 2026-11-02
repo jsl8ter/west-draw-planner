@@ -47,7 +47,7 @@ def extract_or(page_tables):
                     hdr = low; continue
                 if not hdr or not r:
                     continue
-                m = re.match(r"^(\d{3}[A-Z0-9]*)$", r[0].replace(" ", ""))
+                m = re.match(r"^((?:[A-Z]{2}\d{3}|\d{3})[A-Z0-9-]*)\*?$", r[0].replace(" ", ""))
                 if not m:
                     continue
                 row = dict(zip(hdr, r))

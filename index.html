@@ -110,6 +110,7 @@ td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;
 .pts .card label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px}
 .pts input{width:64px;font:500 15px var(--mono);padding:4px 6px;border:1.5px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);text-align:right}
 .note{font-size:13px;color:var(--muted);max-width:75ch}
+p.warn{font-size:13px;margin:6px 0;padding:6px 8px;border-left:3px solid var(--long);background:color-mix(in srgb,var(--long) 10%,transparent);max-width:75ch}
 .callout{background:var(--ink);color:var(--bg);border-radius:6px;padding:14px 16px;margin-top:12px;display:flex;flex-direction:column;gap:6px}
 .callout ol{margin:0;padding-left:20px}
 a{color:var(--accent)}
@@ -216,7 +217,7 @@ details.panel[open] summary{margin-bottom:6px}
   <div class="mapctl">
     <div class="ctlgrid">
       <label for="hunt-sel">Hunt<select id="hunt-sel">
-        <optgroup label="Elk"><option value="E|antlered" selected>Elk – antlered (bull)</option><option value="E|antlerless">Elk – antlerless (cow)</option><option value="E|either">Elk – either-sex only</option><option value="E|all">Elk – any tag</option></optgroup>
+        <optgroup label="Elk"><option value="E|antlered" selected>Elk – antlered (bull)</option><option value="E|antlerless">Elk – antlerless (cow)</option><option value="E|either">Elk – either-sex only</option><option value="E|spike">Elk – spike only</option><option value="E|all">Elk – any tag</option></optgroup>
         <optgroup label="Mule deer"><option value="D|antlered">Mule deer – antlered (buck)</option><option value="D|antlerless">Mule deer – antlerless (doe)</option><option value="D|either">Mule deer – either-sex only</option><option value="D|all">Mule deer – any tag</option></optgroup>
         <optgroup label="Coues deer (AZ, NM)"><option value="C|antlered">Coues deer – antlered (buck)</option><option value="C|antlerless">Coues deer – antlerless (doe)</option><option value="C|all">Coues deer – any tag</option></optgroup>
         <optgroup label="Pronghorn"><option value="P|antlered">Pronghorn – buck</option><option value="P|antlerless">Pronghorn – doe</option><option value="P|either">Pronghorn – either-sex only</option><option value="P|all">Pronghorn – any tag</option></optgroup>
@@ -789,6 +790,7 @@ const DRAW={};let TROPHY=null;const DLS={};
 async function loadData(){
   await Promise.all(DSTATES.map(async st=>{try{const r=await fetch(`data/draw/${st}.json`,{cache:"no-cache"});if(r.ok){DRAW[st]=await r.json();DLS[st]="ok"}else DLS[st]="none"}catch(e){DLS[st]="none"}}));
   try{const r=await fetch("data/trophy.json",{cache:"no-cache"});if(r.ok)TROPHY=await r.json()}catch(e){}
+  CUR={};for(const st in DRAW){for(const h of DRAW[st].hunts||[]){h._st=st;const ys=Object.keys(h.years||{});if(!ys.length)continue;const y=ys.sort().pop();const k=st+h.species;if(!CUR[k]||y>CUR[k])CUR[k]=y}}
   renderDStatus();
   if(window.__addYears)window.__addYears();
   if(window.renderPlan&&!document.getElementById("v-plan").hidden)window.renderPlan();
@@ -803,11 +805,27 @@ let wpn="any",sexF="antlered";
 const ANTLERLESS=/antlerless|\bcow\b|\bdoe\b|\bewe\b|cow\/calf|doe\/fawn|\b(elk|deer|antelope) b\b|\btype [4678]\b|\b(female|ewes?)\b|horns shorter/i;
 const EITHER=/\beither\b|either[- ]sex|\bany (elk|deer|antelope|pronghorn|whitetail)\b|\bES\b/i;
 // the hunt's own label wins (Idaho stores "Either Sex - Antlerless or Antlered" hunts as female)
-const isEither=h=>h.sex==="either"||/either[- ]sex|antlerless or antlered|antlered or antlerless/i.test(h.label||"")||(h.sex!=="male"&&h.sex!=="female"&&EITHER.test(h.label||""));
-const isAntlerless=h=>!isEither(h)&&(h.sex==="female"||(h.sex!=="male"&&ANTLERLESS.test(h.label||"")));
+// what the tag lets you kill (set from official hunt codes / bag-limit text by scripts/draw/postprocess.py):
+// antlered | either | spike | antlerless | other (whitetail/blacktail-only on a mule deer list) | unknown
+function bagOf(h){if(h.bag)return h.bag;
+  const e=h.sex==="either"||/either[- ]sex|antlerless or antlered|antlered or antlerless/i.test(h.label||"")||(h.sex!=="male"&&h.sex!=="female"&&EITHER.test(h.label||""));
+  if(e)return "either";if(h.sex==="female"||(h.sex!=="male"&&ANTLERLESS.test(h.label||"")))return "antlerless";return h.sex==="male"?"antlered":"unknown"}
+const isEither=h=>bagOf(h)==="either";
+const isAntlerless=h=>bagOf(h)==="antlerless";
+// a mature male is legal on this tag, so the unit's trophy rating applies to it
+const trophyOk=h=>{const b=bagOf(h);return b==="antlered"||b==="either"};
+const MALE={E:"bull",D:"buck",C:"buck",P:"buck"},FEM={E:"cow",D:"doe",C:"doe",P:"doe"};
+function bagLabel(h){const b=bagOf(h),s=h.species;
+  return b==="antlered"?`Antlered (${MALE[s]})`:b==="either"?"Either sex":b==="spike"?"Spike only":b==="antlerless"?`Antlerless (${FEM[s]})`:b==="other"?"Whitetail / blacktail only":"Bag limit not confirmed"}
+window.bagOf=bagOf;window.trophyOk=trophyOk;window.bagLabel=bagLabel;
+// a hunt is still offered if it was in the state's latest draw for that species (CUR built in loadData)
+let CUR={};
+const isCurrent=h=>!h._st||!CUR[h._st+h.species]||!!h.years[CUR[h._st+h.species]];
+window.isCurrent=isCurrent;
 let incEither=true;
-function sexOk(h){if(sexF==="all")return true;const e=isEither(h),f=isAntlerless(h);
-  if(sexF==="either")return e;if(sexF==="antlerless")return f||(incEither&&e);return (!f&&!e)||(incEither&&e)}
+function sexOk(h){if(sexF==="all")return true;const b=bagOf(h);
+  if(sexF==="either")return b==="either";if(sexF==="spike")return b==="spike";
+  if(sexF==="antlerless")return b==="antlerless"||(incEither&&b==="either");return b==="antlered"||(incEither&&b==="either")}
 // hunts a Texas nonresident DIY hunter can't apply for
 const RESTRICTED=/\bCHAMP\b|\byouth\b|\bjunior\b|disab|mobility|\bMI\b|landowner|\bLOA\b|military|veteran|camp navajo|outfitter|\bguided\b|\bF-IM\b|apprentice|\bheritage\b|\bdepredation\b/i;
 // Colorado season letters: K = youth only; P = private-land only; W/J = Ranching for Wildlife
@@ -815,7 +833,7 @@ const restricted=h=>RESTRICTED.test(h.label||"")||RESTRICTED.test(h.kind||"")||/
 const PRIVATE=/private[- ]land|\bcwmu\b|ranching for wildlife|\bRFW\b|landowner/i;
 const privateLand=h=>PRIVATE.test(h.label||"")||/^[DEA]-[MFE]-\d{3}-(P\d|W\d|J)/.test(h.id||"");
 let incPrivate=false;
-const huntOk=h=>!restricted(h)&&(incPrivate||!privateLand(h))&&h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&sexOk(h);
+const huntOk=h=>isCurrent(h)&&!restricted(h)&&(incPrivate||!privateLand(h))&&h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&sexOk(h);
 function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}
 function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
 // Montana general combos use preference points; its permits use bonus points
@@ -1237,7 +1255,11 @@ function huntCard(st,h){
   const rows=Object.keys(h.years).sort().reverse().map(yy=>{const Z=h.years[yy];const T=Z.T||{apps:(Z.NR?.apps||0)+(Z.R?.apps||0)||null,tags:(Z.NR?.tags||0)+(Z.R?.tags||0)||null,drawn:(Z.NR?.drawn||0)+(Z.R?.drawn||0)||null};return `<tr><td>${yy}</td>${blkCells(Z.NR)}${blkCells(Z.R)}<td>${n0(T.apps)}</td><td>${n0(T.tags)}</td><td>${ov(T)}</td></tr>`}).join("");
   const bp=(nr.by_pts||[]).slice().sort((a,b)=>b[0]-a[0]);
   const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
-  return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${isEither(h)?"Either sex":isAntlerless(h)?(h.species==="E"?"Antlerless (cow)":"Antlerless (doe)"):(h.species==="E"?"Antlered (bull)":"Antlered (buck)")} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
+  return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${bagLabel(h)} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
+  ${h.bag_text?`<p class="note"><b>Bag limit:</b> ${escH(h.bag_text)}</p>`:""}
+  ${bagOf(h)==="spike"?`<p class="warn">Spike-only tag: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
+  ${!isCurrent(h)?`<p class="warn">Not offered in the ${CUR[h._st+h.species]} draw (last drawn ${Object.keys(h.years).sort().pop()}).</p>`:""}
+  ${nr.apps!=null&&nr.apps<5&&sys!=="random"?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}: treat the odds as rough.</p>`:""}
   <div class="stats">
     <div><b>Your odds ${y?+y+1:""}${sys==="random"?" (random draw)":` (${mp} pts)`}</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
     <div><b>NR ${y} drawn</b>${n0(nr.drawn??nr.tags)} of ${n0(nr.apps)} · ${ov(nr)}</div>
@@ -1298,7 +1320,7 @@ function goMap(){show("map");try{history.replaceState(null,"","#map")}catch(e){}
 function setHuntMenu(s,sx){const hs=document.getElementById("hunt-sel");hs.value=s+"|"+sx;if(hs.value!==s+"|"+sx){sx="all";hs.value=s+"|all"}sp=s;sexF=sx}
 window.showHuntOnMap=function(st,hid){
   const d=DRAW[st];if(!d)return;const hi=d.hunts.findIndex(h=>h.id===hid);if(hi<0)return;const h=d.hunts[hi];
-  setHuntMenu(h.species,isEither(h)||!isAntlerless(h)?"antlered":"antlerless");
+  {const b=bagOf(h);setHuntMenu(h.species,b==="antlerless"?"antlerless":b==="spike"?"spike":b==="antlered"||b==="either"?"antlered":"all")}
   wpn="any";document.getElementById("wpn-sel").value="any";
   if(privateLand(h)&&!incPrivate){incPrivate=true;document.getElementById("inc-private").checked=true}
   if(FILTER.on){FILTER.on=false;applyFilter(false)}

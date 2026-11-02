@@ -11,6 +11,7 @@ def run(st):
     log_p = os.path.join(ROOT, "data", "draw", f"{st}.log.txt")
     try:
         d = m.parse()
+        import postprocess; d = postprocess.annotate(st, d)
         d["generated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         json.dump(d, open(os.path.join(ROOT, "data", "draw", f"{st}.json"), "w"), separators=(",", ":"))
         n = len(d.get("hunts", [])); yrs = sorted({y for h in d.get("hunts", []) for y in h.get("years", {})})

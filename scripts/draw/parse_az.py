@@ -8,7 +8,7 @@ Sources (AZGFD public S3 bucket; azgfd.com itself returns 403 to scripts):
     (bonus pass + 1-2 pass) by residency
 Draw "M" = elk/pronghorn draw (hunt numbers 2xxx pronghorn, 3xxx elk); "F" = fall draw (1xxx deer).
 """
-import io, re, os, requests
+import io, re, os, math, requests
 from concurrent.futures import ProcessPoolExecutor
 
 LOG = []
@@ -296,7 +296,7 @@ def parse():
         if not meta:
             if bpr: LOG.append(f"{y}: no hunt list (draw odds/regulations); {len(bpr)} bonus-point-report hunts NOT included")
             continue
-        used, nskip = set(), 0
+        nskip, todo = 0, []
         for num in sorted(meta):
             m = meta[num]
             sp = species_of(num, m["type"])
@@ -306,14 +306,25 @@ def parse():
             sx = sex_of(m["type"])   # 2022 lists deer as just "DEER"/"WHITETAIL DEER": unknown sex matches any
             gk = (sp, tuple(sorted(unit_list(m["unit"]))), norm_method(m["method"]))
             mo, dy, _ = (int(x) for x in m["open"].split("/"))
-            doy = mo * 31 + dy
-            best = None
+            todo.append((num, m, sp, sx, gk, mo * 31 + dy, m.get("issued") or 0))
+        # match all of this year's hunts to known hunts at once, cheapest first: season-open distance (days)
+        # plus a penalty for different permit numbers, so a 10-permit hunt can't take a 300-permit hunt's history
+        pairs = []
+        for i, (num, m, sp, sx, gk, doy, iss) in enumerate(todo):
             for h in groups.get(gk, []):
-                if id(h) in used or (sx and h.get("sex") and sx != h["sex"]): continue
+                if sx and h.get("sex") and sx != h["sex"]: continue
                 dd = abs(h["_doy"] - doy)
-                if dd <= 14 and (best is None or dd < best[0]): best = (dd, h)
-            if best: h = best[1]
-            else:
+                if dd > 14: continue
+                pen = 12 * abs(math.log((iss + 1) / (h["_iss"] + 1)))
+                pairs.append((dd + pen, i, id(h), h))
+        pairs.sort(key=lambda x: x[0])
+        match, used = {}, set()
+        for cost, i, hk, h in pairs:
+            if i in match or hk in used: continue
+            match[i] = h; used.add(hk)
+        for i, (num, m, sp, sx, gk, doy, iss) in enumerate(todo):
+            h = match.get(i)
+            if h is None:
                 hid = num if num not in hunts else f"{num} ({y})"
                 h = {"id": hid, "species": sp, "units": unit_list(m["unit"]),
                      "label": f"{strip_notes(m.get('area') or m['unit'])} {m['type']} - {m['method']} {m['open']}-{m['close']}",
@@ -322,10 +333,11 @@ def parse():
                 s = sex_of(m["type"])
                 if s: h["sex"] = s
                 hunts[hid] = h; groups.setdefault(gk, []).append(h)
-            h["_doy"] = doy; used.add(id(h))
+            h["_doy"] = doy; h["_iss"] = iss
             h["years"][str(y)] = year_rec(y, num, m, dr12.get(num), drbp.get(num), bpr.get(num), bpr_ok, bad)
+            h.setdefault("nums", {})[str(y)] = num
         if nskip: LOG.append(f"{y}: {nskip} listed hunts had no draw data (not in draw/bonus reports) - skipped")
-    for h in hunts.values(): h.pop("_doy", None)
+    for h in hunts.values(): h.pop("_doy", None); h.pop("_iss", None)
     LOG.extend(bad[:50])
     LOG.append("apps = first-choice applicants from the Bonus Pass Draw Report (1-2 Pass report excludes bonus-pass winners; Bonus Point Report sums, then Draw Odds, if missing). drawn = first-choice drawn in bonus pass + 1-2 pass "
                "(Draw Reports); where those are missing (2025 fall deer), drawn = permits issued in bonus + 1-2 pass (1st or 2nd choice) from the Bonus Point Report.")

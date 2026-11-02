@@ -92,13 +92,15 @@
   }
 
   // ---------- candidates ----------
+  // bag from the official hunt code / bag-limit text; spike-only, whitetail-only and unconfirmed tags are never "antlered"
   function tagOk(h) {
-    if (S.tag === "any") return true;
-    const e = isEither(h), f = isAntlerless(h);
-    return S.tag === "antlerless" ? (f || e) : (!f);
+    const b = bagOf(h);
+    if (S.tag === "any") return b !== "other";
+    return S.tag === "antlerless" ? (b === "antlerless" || b === "either") : (b === "antlered" || b === "either");
   }
   function weaponOk(w) { return S.weapon === "any" || w === S.weapon || (S.weapon === "rifle" && w === "any"); }
   function huntTrophy(st, h) {
+    if (!trophyOk(h)) return null;   // spike-only / antlerless / unconfirmed: the unit's trophy rating doesn't apply
     let best = null;
     for (const u of h.units || []) { const t = trophyOf(st, h.species, String(u)); if (t && (best == null || t.s > best)) best = t.s; }
     return best;
@@ -116,7 +118,7 @@
       const d = DRAW[st]; if (!d) continue;
       for (const h of d.hunts) {
         if (!S.species.includes(h.species) || !weaponOk(h.weapon) || !tagOk(h) || restricted(h) || (!S.priv && privateLand(h))) continue;
-        if (!nrOpen(h)) continue;
+        if (!nrOpen(h) || !isCurrent(h)) continue;   // no NR tags lately, or not offered in the latest draw
         const y = Odds.latestYear(h, "NR"); if (!y) continue;
         // need at least two years of nonresident history, and enough applicants to mean something
         const ys = Object.keys(h.years).filter(yy => h.years[yy].NR && h.years[yy].NR.apps != null);
@@ -244,7 +246,7 @@
     if (p.otc) return `<div class="pick"><div class="ph"><span class="tag" style="color:var(--otc)">OTC</span><b>${esc(p.otc.label)}</b></div><div class="pm">${SN[p.otc.st]} · ${SPN[p.otc.sp]} · ~${money(p.otc.cost)} incl. license</div><p class="note">${esc(p.otc.note)}</p><button type="button" class="maplink" data-st="${p.otc.st}" data-sp="${p.otc.sp}">Show ${SN[p.otc.st]} on map</button></div>`;
     const c = p.c, t = c.trophy;
     return `<div class="pick"><div class="ph"><span class="tag" style="color:${p.kind === "trophy" ? "var(--premier)" : "var(--easy)"}">${p.kind === "trophy" ? "Trophy" : "Hunt"}</span><b>${SN[c.st]} ${SPN[c.sp].toLowerCase()} · ${esc(c.units)}</b></div>
-      <div class="pm">${esc(c.label)}</div>
+      <div class="pm">${esc(c.label)} · <b>${bagLabel(c.h)}</b>${c.h.bag_text ? ` (${esc(c.h.bag_text)})` : ""}</div>
       <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5 (${window.trophyInches ? window.trophyInches(c.sp, t) : ""})` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}<button type="button" class="maplink" data-st="${c.st}" data-hid="${esc(c.h.id)}">Show unit${(c.h.units || []).length > 1 ? "s" : ""} on map</button></div>`;
   }
   function render() {

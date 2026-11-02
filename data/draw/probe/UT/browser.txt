@@ -1,0 +1,244 @@
+PAGE TEXT:
+Loading complete
+HomeDraw OddsHarvest ReportingFAQ
+UDWR DRAW ODDS
+Draw Name *
+--- Select One ---
+Antlerless
+Big Game
+Black Bear
+Crane/Grouse/Swan
+Sportsman
+Turkey
+License Year *
+--- Select One ---
+Species *
+--- Select One ---
+Antlerless Deer
+Antlerless Elk
+Doe Pronghorn
+Antlerless Moose
+Ewe Rocky Mtn Bighorn Sheep
+General-Season Buck Deer
+Dedicated Hunter Buck Deer
+Draw-only Youth Elk
+Limited-Entry Buck Deer
+Limited-Entry Bull Elk
+Limited-Entry Buck Pronghorn
+Bull Moose
+Bison
+Desert Bighorn Sheep
+Rocky Mtn Bighorn Sheep
+Mountain Goat
+Black Bear
+Black Bear Restricted Pursuit
+Sandhill Crane
+Sharp-tailed Grouse
+Greater Sage-grouse
+Tundra Swan
+Sportsman Deer
+Sportsman Elk
+Sportsman Pronghorn
+Sportsman Moose
+Sportsman Bison
+Sportsman Desert Bighorn Sheep
+Sportsman Rocky Mtn Bighorn Sheep
+Sportsman Mountain Goat
+Sportsman Black Bear
+Sportsman Turkey
+Turkey
+Hunt Type
+--- Select One ---
+Hunt Number
+--- Select One ---
+Reset Filters Print
+Please complete the required fields in the filter to view draw odds.
+
+If you are experiencing difficulty using this application and need assistance, contact the Draw Helpline at:
+
+1 855 883-7297 (1-855-UTDRAWS)
+
+Standard Support Hours are:
+
+Mon-Fri 8:00 AM to 6:00 PM MT
+
+ 
+
+Beginning one week prior to a draw application opening date, through the draw application period to one week after the draw application closes date, support hours will change to:
+
+Mon-Fri 8:00 AM to 11:30 PM MT
+
+ 
+
+The Draw Helpline is closed for Thanksgiving Day, Christmas Day and New Years Day.
+
+ 
+
+DWR - DNR - Utah.gov - Contact - Disclaimer - Privacy - Accessibility
+
+Copyright © 2026 ASPIRA. All Rights Reserved. Version: 2026.7.0.1793
+
+SELECTS:
+[{"id": "ddlDrawPackage", "name": "", "opts": ["=--- Select One ---", "Antlerless=Antlerless", "Big Game=Big Game", "Black Bear=Black Bear", "Crane/Grouse/Swan=Crane/Grouse/Swan", "Sportsman=Sportsman", "Turkey=Turkey"]}, {"id": "ddlLicenseYear", "name": "", "opts": ["=--- Select One ---"]}, {"id": "ddlSpecies", "name": "", "opts": ["=--- Select One ---", "17=Antlerless Deer", "18=Antlerless Elk", "20=Doe Pronghorn", "19=Antlerless Moose", "21=Ewe Rocky Mtn Bighorn Sheep", "5=General-Season Buck Deer", "32=Dedicated Hunter Buck Deer", "6=Draw-only Youth Elk", "8=Limited-Entry Buck Deer", "9=Limited-Entry Bull Elk", "10=Limited-Entry Buck Pronghorn", "11=Bull Moose", "12=Bison", "13=Desert Bighorn Sheep", "14=Rocky Mtn Bighorn Sheep", "15=Mountain Goat", "1=Black Bear", "16=Black Bear Restricted Pursuit", "35=Sandhill Crane", "34=Sharp-tailed Grouse", "33=Greater Sage-grouse", "36=Tundra Swan", "22=Sportsman Deer", "23=Sportsman Elk", "24=Sportsman Pronghorn", "25=Sportsman Moose", "26=Sportsman Bison", "28=Sportsman Desert Bighorn Sheep", "27=Sportsman Rocky Mtn Bighorn Sheep", "29=Sportsman Mountain Goat", "30=Sportsman Black Bear", "31=Sportsman Turkey", "3=Turkey"]}, {"id": "ddlHuntCategory", "name": "", "opts": ["=--- Select One ---"]}, {"id": "ddlHuntCode", "name": "", "opts": ["=--- Select One ---"]}]
+
+LINKS:
+https://wildlife.utah.gov/ | 
+https://www.utahdraws.com/internetsales/Catalog | Home
+https://www.utahdraws.com/internetsales/Customer/ApplicationManagement | View/Edit/Withdrawal
+https://www.utahdraws.com/internetsales/Customer/Profile | Edit Profile
+https://www.utahdraws.com/internetsales/Customer/PaymentSetting | Edit Payment
+https://www.utahdraws.com/internetsales/Customer/PointsAndEligibility | Points & Eligibility
+https://www.utahdraws.com/internetsales/Customer/ApplicationHistory | Application History
+https://www.utahdraws.com/internetsales/Customer/CommunicationAndLetters | Communications
+https://www.utahdraws.com/internetsales/Home/DrawOdds | Draw Odds
+https://wildlife.utah.gov/harvest | Harvest Reporting
+https://www.utahdraws.com/internetsales/home/faq | FAQ
+ | 
+https://wildlife.utah.gov/ | DWR
+https://naturalresources.utah.gov/ | DNR
+https://www.utah.gov/ | Utah.gov
+https://wildlife.utah.gov/about-us/contact-dwr.html | Contact
+https://www.utah.gov/disclaimer.html | Disclaimer
+https://www.utah.gov/privacypolicy.html | Privacy
+https://www.utah.gov/accessibility.html | Accessibility
+https://www.utahdraws.com/internetsales/home/drawodds# | Back to Top
+https://www.example.gov/contact.htm | Contact US
+https://www.example.gov/nj/legal.html | Conditions of Use
+https://www.example.gov/nj/privacy.html | Privacy Policy
+https://aspiraconnect.com/ | 
+### GET https://www.utahdraws.com/internetsales/Home/GetCustomizedContent [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":{"Hero":"<!-- [InternetSales.LandingPage.Hero] --> <div class=\"top-nav-fixed\"> <div class=\"top-nav-left\"> <img src=\"https://www.nj.gov/dep/images/dep_logo.png\" alt=\"New Jersey Department of Environmental Protection Logo\"> <span>Department of Environmental Protection</span> </div> <div class=\"top-nav-right\"> <a class=\"top-nav-link\" href=\"/internetsales/Home/LicensingAndFees\">Licenses & Fees</a> <a class=\"top-nav-link\" href=\"/internetsales/Home/FAQ\">FAQs</a> <a class=\"top-nav-link\" href=\"/internetsales/Home/ContactAspira\">Contact Us</a> <a class=\"new-button\" href=\"https://dep.nj.gov/njfw/licenses-and-permits/license-agents/\" target=\"_blank\">Find a License Agent</a> </div> </div> <!-- /[InternetSales.LandingPage.Hero] -->","HighlightItems":"<!-- InternetSales.LandingPage.Highlights --> <div class=\"sub-level landing-page-highlight-line-1\">Utah Division of Wildlife Resources </div> <h1 class=\"landing-page-highlight-line-2\">Utah Draw System</h1>","SearchBeginInstruction":"<p>Enter the Last Name and Date of Birth of the person wishing to use the system.<br /> \r\n<strong>Note:</strong> Do not enter a suffix (Jr, Sr, III, etc.) in the last name field.</p>","AdultSearchInstruction":null,"YouthSearchInstruction":null,"CustomerLoggedInInstruction":"Use these buttons to return to Utah Draw System.","SubItem1Content":"<div class=\"tile-row\">\r\n\t<div class=\"tile aa light hunter\">\r\n\t\t<div class=\"inside\">\r\n\t\t\t<div class=\"tile-title\">Sportsman</div>\r\n\t\t\t<div class=\"tile-purpose\">Draw Application</div>\r\n\t\t\t<div class=\"period-title\">Applications Open:</div>\r\n\t\t\t<div class=\"period-dates\">October 20, 2026 @ 8:00am MT</div>\r\n\t\t\t<div class=\"period-title\">Applications Close:</div>\r\n\t\t\t<div class=\"period-dates\">November 10, 2026 @ 11:00pm MT</div>\r\n\t\t\t<div class=\"draw-title\">Results Available:</div>\r\n\t\t\t<div class=\"draw-date\">November 19, 2026</div>\r\n\t\t\t<div class=\"draw-status\">NOW OPEN</div>\r\n\t\t\t<div class=\"status-flag\"><img src=\"https://utahdraws.com/service-content/Content/GetImageFileContent/open1.png\" ></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"tile aa light turkey\">\r\n\t\t<div class=\"inside\">\r\n\t\t\t<div class=\"tile-title\">Turkey</div>\r\n\t\t\t<div class=\"tile-purpose\">Draw Application</div>\r\n\t\t\t<div class=\"period-title\">Applications Open:</div>\r\n\t\t\t<div class=\"period-dates\">December 15, 2026 @ 8:00am MT</div>\r\n\t\t\t<div class=\"period-title\">Applications Close:</div>\r\n\t\t\t<div class=\"period-dates\">December 29, 2026 @ 11:00pm MT</div>\r\n\t\t\t<div class=\"draw-title\">Results Available:</div>\r\n\t\t\t<div class=\"draw-date\">January 7, 2027</div>\r\n\t\t\t<div class=\"draw-status\">COMING UP</div>\r\n\t\t\t<div class=\"status-flag\"><img src=\"https://utahdraws.com/service-content/Content/GetImageFileContent/coming1.png\" ></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"tile aa light cal\">\r\n\t\t<div class=\"inside\">\r\n\t\t\t<div class=\"tile-title\">Future Draws</div>\r\n\t\t\t<div class=\"tile-purpose\">Draw Applications</div>\r\n\t\t\t<div class=\"period-dates\">Bear</div>\r\n\t\t\t<div class=\"draw-title\">Opens February 2, 2027</div>\r\n\t\t\t<div class=\"period-dates\">Big Game</div>\r\n\t\t\t<div class=\"draw-title\">Opens March 18, 2027</div>\r\n\t\t\t<div class=\"period-dates\">Antlerless</div>\r\n\t\t\t<div class=\"draw-title\">Opens June 8, 2027</div>\r\n\t\t\t<div class=\"period-dates\">Crane / Grouse / Swan</div>\r\n\t\t\t<div class=\"draw-title\">Opens July 13, 2027</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<!--<div class=\"tile aa light elk\">\r\n\t\t<div class=\"inside\">\r\n\t\t\t<div class=\"tile-title\">Big Game</div>\r\n\t\t\t<div class=\"tile-purpose\">Draw Application</div>\r\n\t\t\t<div class=\"period-title\">Applications Open:</div>\r\n\t\t\t<div class=\"period-dates\">March 19, 2026 @ 8:00am MT</div>\r\n\t\t\t<div class=\"period-title\">Applic
+
+### GET https://www.utahdraws.com/internetsales/Home/GetFooterContent [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":{"TopMenus":[],"PageTitle":"Utah Draw System","FooterBottomContent":"<!-- InternetSales.LandingPage.Footer.Bottom --> <p> <a href=\"https://www.facebook.com/NewJerseyFishandWildlife/\" target=\"_blank\"><img src=\"https://www.utahdraws.com/service-content/Content/GetImageFileContent/fb.png\" /></a>&nbsp;&nbsp;&nbsp; <!--<a href=\"\" target=\"_blank\"><img src=\"https://www.utahdraws.com/service-content/Content/GetImageFileContent/tw.png\" /></a>&nbsp;&nbsp;&nbsp;--> <a href=\"https://youtube.com/playlist?list=PLpTE5tP4yTvFyXDws_oJGqz3v73Rn9vdH\" target=\"_blank\"><img src=\"https://www.utahdraws.com/service-content/Content/GetImageFileContent/yt.png\" /></a>&nbsp;&nbsp;&nbsp; <a href=\"https://www.instagram.com/newjerseyfishandwildlife/\" target=\"_blank\"><img src=\"https://www.utahdraws.com/service-content/Content/GetImageFileContent/ig.png\" /></a> </p>","FooterContact":"<p>If you are experiencing difficulty using this application and need assistance, contact the Draw Helpline at:</p> <p style=\"font-family:'Roboto Slab';font-size: 26px;\">1 855 883-7297 (1-855-UTDRAWS)</p> <div class=\"support-hours\"> <div class=\"standard-support\"> <p>Standard Support Hours are: </p> <p style=\"text-align:center;font-family: 'roboto slab'; font-size: 20px;\">Mon-Fri 8:00 AM to 6:00 PM MT</p> <p>&nbsp;</p> <p style=\"text-align:center;\">Beginning one week prior to a draw application opening date, through the draw application period to one week after the draw application closes date, support hours will change to:</p> <p style=\"text-align:center;font-family: 'roboto slab'; font-size: 20px;\">Mon-Fri 8:00 AM to 11:30 PM MT</p> <p>&nbsp;</p> <p style=\"text-align:center;\">The Draw Helpline is closed for Thanksgiving Day, Christmas Day and New Years Day.</p> </div> <p>&nbsp;</p> <p class=\"footer-links\"> <a href=\"https://wildlife.utah.gov/\" target=\"_blank\" rel=\"nofollow\">DWR</a> - <a href=\"https://naturalresources.utah.gov/\" target=\"_blank\" rel=\"nofollow\">DNR</a> - <a href=\"https://www.utah.gov/\" target=\"_blank\" rel=\"nofollow\">Utah.gov</a> - <a href=\"https://wildlife.utah.gov/about-us/contact-dwr.html\" target=\"_blank\">Contact</a><span class=\"hidden-phone\"> - <a href=\"https://www.utah.gov/disclaimer.html\" target=\"_blank\" rel=\"nofollow\">Disclaimer</a></span> - <a href=\"https://www.utah.gov/privacypolicy.html\" target=\"_blank\" rel=\"nofollow\">Privacy</a><span class=\"hidden-phone\"> - <a href=\"https://www.utah.gov/accessibility.html\" target=\"_blank\" rel=\"nofollow\">Accessibility</a></span> </p>","FooterLinks":"<a href='#'>Back to Top</a> - <a href='https://www.example.gov/contact.htm'>Contact US</a> - <a href='https://www.example.gov/nj/legal.html'>Conditions of Use</a> - <a href='https://www.example.gov/nj/privacy.html'>Privacy Policy</a>","BuildInfo":"Copyright © 2026 ASPIRA. All Rights Reserved. Version: 2026.7.0.1793"},"Message":null}
+
+### GET https://www.utahdraws.com/internetsales/Toolbar/TopLinks [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":[{"Action":"Index","Controller":"Catalog","LinkText":"Home","LinkValue":"/internetsales/Catalog","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"Sales.PurchaseLicenses","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"ApplicationManagement","Controller":"Customer","LinkText":"View/Edit/Withdrawal","LinkValue":"/internetsales/Customer/ApplicationManagement","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"IS.Application.Management","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"Profile","Controller":"Customer","LinkText":"Edit Profile","LinkValue":"/internetsales/Customer/Profile","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"IS.ViewProfile","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"PaymentSetting","Controller":"Customer","LinkText":"Edit Payment","LinkValue":"/internetsales/Customer/PaymentSetting","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"Global.EnableCustomerPaymentSetting","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"PointsAndEligibility","Controller":"Customer","LinkText":"Points & Eligibility","LinkValue":"/internetsales/Customer/PointsAndEligibility","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"IS.Points.Eligibility","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"ApplicationHistory","Controller":"Customer","LinkText":"Application History","LinkValue":"/internetsales/Customer/ApplicationHistory","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"IS.Application.History","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"CommunicationAndLetters","Controller":"Customer","LinkText":"Communications","LinkValue":"/internetsales/Customer/CommunicationAndLetters","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"IS.Communication.Letter","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":"DrawOdds","Controller":"Home","LinkText":"Draw Odds","LinkValue":"/internetsales/Home/DrawOdds","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":"IS.DrawOdds","FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":null,"Controller":null,"LinkText":"Harvest Reporting","LinkValue":"https://wildlife.utah.gov/harvest","Parameter":null,"IsActive":false,"ReactPage":false,"ActionConfirm":false,"FeatureKey":null,"FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":true,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},{"Action":null,"Controller":null,"LinkText":"FAQ","LinkValue":"https://www.utahdraws.com/internetsales/home/faq","Parameter":null,"IsActive":false,"ReactPage":false,"ActionConfirm":false,"FeatureKey":null,"FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":true,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null}],"Message":null}
+
+### GET https://www.utahdraws.com/internetsales/Home/GetCurrentState [200] application/json; charset=utf-8
+POST: 
+"UT"
+
+### GET https://www.utahdraws.com/internetsales/Home/GetUserData?location=/internetsales/home/drawodds [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":{"LogoUrl":"https://www.utahdraws.com/service-content/Content/GetLogo/InternetSalesLogo","HomeMenu":{"Action":"Index","Controller":"Home","LinkText":"Home","LinkValue":"https://wildlife.utah.gov/","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":null,"FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":true,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},"CustomerMobileMenus":[],"CustomerDesktopMenus":[[],[],[],[]],"LoginedHomeMenus":null,"SysAlert_Harvest":"","SysAlert_Suspension":"","SysAlert_BigGameSuspension":"","SysAlert_ExpHE":"","SysAlert_CustomerHold":"","SysAlert_IWVC":"","AllowHESelfDeclaration":null,"FocusCustomerInfo":null,"LandingLoaded":false,"AllowLinkCustomer":false},"Message":null}
+
+### GET https://www.utahdraws.com/internetsales/Home/DrawOddsSupplementData [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":{"IsPreviewMode":false,"DrawNameAvailableLicenseYears":[{"HuntCount":22,"DrawName":"Antlerless","LicenseYear":2026,"MasterHuntTypeID":17,"MasterHuntTypeName":"Antlerless Deer","HuntTypeLicenseYearID":115,"DisplayOrder":1.00,"DrawOddsCalculationSplitResidency":false,"DrawOddsCalculationSplitYouth":true},{"HuntCount":174,"DrawName":"Antlerless","LicenseYear":2026,"MasterHuntTypeID":18,"MasterHuntTypeName":"Antlerless Elk","HuntTypeLicenseYearID":116,"DisplayOrder":2.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":true},{"HuntCount":26,"DrawName":"Antlerless","LicenseYear":2026,"MasterHuntTypeID":20,"MasterHuntTypeName":"Doe Pronghorn","HuntTypeLicenseYearID":117,"DisplayOrder":2.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":true},{"HuntCount":6,"DrawName":"Antlerless","LicenseYear":2026,"MasterHuntTypeID":19,"MasterHuntTypeName":"Antlerless Moose","HuntTypeLicenseYearID":118,"DisplayOrder":4.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":2,"DrawName":"Antlerless","LicenseYear":2026,"MasterHuntTypeID":21,"MasterHuntTypeName":"Ewe Rocky Mtn Bighorn Sheep","HuntTypeLicenseYearID":119,"DisplayOrder":5.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":107,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":5,"MasterHuntTypeName":"General-Season Buck Deer","HuntTypeLicenseYearID":6,"DisplayOrder":1.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":true},{"HuntCount":32,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":32,"MasterHuntTypeName":"Dedicated Hunter Buck Deer","HuntTypeLicenseYearID":16,"DisplayOrder":2.00,"DrawOddsCalculationSplitResidency":false,"DrawOddsCalculationSplitYouth":true},{"HuntCount":1,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":6,"MasterHuntTypeName":"Draw-only Youth Elk","HuntTypeLicenseYearID":8,"DisplayOrder":4.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":193,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":8,"MasterHuntTypeName":"Limited-Entry Buck Deer","HuntTypeLicenseYearID":7,"DisplayOrder":5.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":210,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":9,"MasterHuntTypeName":"Limited-Entry Bull Elk","HuntTypeLicenseYearID":10,"DisplayOrder":6.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":88,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":10,"MasterHuntTypeName":"Limited-Entry Buck Pronghorn","HuntTypeLicenseYearID":9,"DisplayOrder":7.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":27,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":11,"MasterHuntTypeName":"Bull Moose","HuntTypeLicenseYearID":15,"DisplayOrder":8.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":17,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":12,"MasterHuntTypeName":"Bison","HuntTypeLicenseYearID":14,"DisplayOrder":9.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":19,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":13,"MasterHuntTypeName":"Desert Bighorn Sheep","HuntTypeLicenseYearID":11,"DisplayOrder":10.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":16,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":14,"MasterHuntTypeName":"Rocky Mtn Bighorn Sheep","HuntTypeLicenseYearID":13,"DisplayOrder":11.00,"DrawOddsCalculationSplitResidency":true,"DrawOddsCalculationSplitYouth":false},{"HuntCount":18,"DrawName":"Big Game","LicenseYear":2026,"MasterHuntTypeID":15,"MasterHuntTypeName":"Mountain Goat","HuntTypeLicenseYearID":12,"DisplayOrder":12.00,"DrawOddsCalculatio
+
+### POST https://www.utahdraws.com/internetsales/HelpTopicApi/GetHelpTopicList [401] text/html
+POST: ["InternetSales.HistoricalDrawOdds.Message","InternetSales.DrawOddsDisclaimer.Title","InternetSales.DrawOddsDisclaimer.Body"]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<title>401 - Unauthorized: Access is denied due to invalid credentials.</title>
+<style type="text/css">
+<!--
+body{margin:0;font-size:.7em;font-family:Verdana, Arial, Helvetica, sans-serif;background:#EEEEEE;}
+fieldset{padding:0 15px 10px 15px;} 
+h1{font-size:2.4em;margin:0;color:#FFF;}
+h2{font-size:1.7em;margin:0;color:#CC0000;} 
+h3{font-size:1.2em;margin:10px 0 0 0;color:#000000;} 
+#header{width:96%;margin:0 0 0 0;padding:6px 2% 6px 2%;font-family:"trebuchet MS", Verdana, sans-serif;color:#FFF;
+background-color:#555555;}
+#content{margin:0 0 0 2%;position:relative;}
+.content-container{background:#FFF;width:96%;margin-top:8px;padding:10px;position:relative;}
+-->
+</style>
+</head>
+<body>
+<div id="header"><h1>Server Error</h1></div>
+<div id="content">
+ <div class="content-container"><fieldset>
+  <h2>401 - Unauthorized: Access is denied due to invalid credentials.</h2>
+  <h3>You do not have permission to view this directory or page using the credentials that you supplied.</h3>
+ </fieldset></div>
+</div>
+</body>
+</html>
+
+
+### POST https://www.utahdraws.com/internetsales/HelpTopicApi/GetHelpTopicList [403] text/html
+POST: ["InternetSales.HistoricalDrawOdds.Message","InternetSales.DrawOddsDisclaimer.Title","InternetSales.DrawOddsDisclaimer.Body"]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<title>403 - Forbidden: Access is denied.</title>
+<style type="text/css">
+<!--
+body{margin:0;font-size:.7em;font-family:Verdana, Arial, Helvetica, sans-serif;background:#EEEEEE;}
+fieldset{padding:0 15px 10px 15px;} 
+h1{font-size:2.4em;margin:0;color:#FFF;}
+h2{font-size:1.7em;margin:0;color:#CC0000;} 
+h3{font-size:1.2em;margin:10px 0 0 0;color:#000000;} 
+#header{width:96%;margin:0 0 0 0;padding:6px 2% 6px 2%;font-family:"trebuchet MS", Verdana, sans-serif;color:#FFF;
+background-color:#555555;}
+#content{margin:0 0 0 2%;position:relative;}
+.content-container{background:#FFF;width:96%;margin-top:8px;padding:10px;position:relative;}
+-->
+</style>
+</head>
+<body>
+<div id="header"><h1>Server Error</h1></div>
+<div id="content">
+ <div class="content-container"><fieldset>
+  <h2>403 - Forbidden: Access is denied.</h2>
+  <h3>You do not have permission to view this directory or page using the credentials that you supplied.</h3>
+ </fieldset></div>
+</div>
+</body>
+</html>
+
+
+### POST https://www.google-analytics.com/g/collect?v=2&tid=G-FSY5R2S4ZH&gtm=45je6at0v9227400141za20ozb9225750065zd9225750065xf1&_p=1793654130643&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=1276563650.1793654131&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=1280x720&uaa=x86&uab=64&uafvl=Not%253AA-Brand%3B8.0.0.0%7CChromium%3B156.0.8078.4%7CHeadlessChrome%3B156.0.8078.4&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123620777~123691370&sid=1793654131&sct=1&seg=0&dl=https%3A%2F%2Fwww.utahdraws.com%2Finternetsales%2Fhome%2Fdrawodds&dt=Utah%20Draw%20System&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1339 [204] text/plain
+POST: 
+<Response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier
+Response body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.>
+
+### GET https://www.utahdraws.com/internetsales/FeatureConfig/CIDSettings [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":{"GOIDLabel":"Customer ID Number","GOIDLen":"9"},"Message":null}
+
+### POST https://bam.nr-data.net/browser/connect/2/NRJS-3b72105899c52f6e776?a=1083377164&v=1.324.1&s=333455a185084291 [200] application/json
+POST: 
+{"config":{"err":1,"ins":1,"spa":1,"sr":0,"srs":0,"st":1,"sts":0,"log":2,"logapi":2},"app":{"agents":[{"entityGuid":"Njc0NjQ0MnxCUk9XU0VSfEFQUExJQ0FUSU9OfDExMDM0NDA4MDc"}],"igp":"","nrServerTime":1793654131609}}
+
+### POST https://bam.nr-data.net/rum/2/NRJS-3b72105899c52f6e776?a=1083377164&v=1.324.1&to=ZFFTZxZQXkJZURAKX10bcGA0HkZYXUUXTFhcWVQcDV9UVEAcBRBASw%3D%3D&rst=1554&s=333455a185084291&ref=https://www.utahdraws.com/internetsales/home/drawodds&ptid=d5017030d9487488&af=err,spa,xhr,stn,ins&qt=3&ap=39&be=334&fe=1125&dc=488&fp=872&fcp=992&perf=%7B%22timing%22:%7B%22of%22:1793654130071,%22n%22:0,%22f%22:252,%22dn%22:252,%22dne%22:252,%22c%22:252,%22s%22:252,%22ce%22:252,%22rq%22:262,%22rp%22:334,%22rpe%22:355,%22di%22:822,%22ds%22:822,%22de%22:822,%22dc%22:1457,%22l%22:1457,%22le%22:1459%7D,%22navigation%22:%7B%7D%7D&timestamp=1793654130088 [200] image/gif
+POST: {"ja":{"webdriverDetected":true}}
+GIF89a     ,       
+
+### POST https://bam.nr-data.net/jserrors/1/NRJS-3b72105899c52f6e776?a=1083377164&v=1.324.1&to=ZFFTZxZQXkJZURAKX10bcGA0HkZYXUUXTFhcWVQcDV9UVEAcBRBASw%3D%3D&rst=1558&s=333455a185084291&ref=https://www.utahdraws.com/internetsales/home/drawodds&ptid=d5017030d9487488&pve=1 [200] image/gif
+POST: {"err":[{"params":{"stackHash":94834675,"exceptionClass":"UncaughtError","request_uri":"/internetsales/home/drawodds","message":"Unhandled Promise Rejection: An error occurred when connecting to server.","stack_trace":"UncaughtError: Unhandled Promise Rejection: An error occurred when connecting to server.\n    in evaluated code","releaseIds":"{}","pageview":1,"firstOccurrenceTimestamp":1793654131351,"timestamp":1793654131351,"browserInteractionId":"6b97a6d9-c8ba-417b-9a44-01cb77a0bc2c"},"custom":{"isFirstOfSession":true,"webdriverDetected":true,"unhandledPromiseRejection":1},"metrics":{"count":1,"time":{"t":1263}}}],"xhr":[{"params":{"hostname":"www.utahdraws.com","port":"443","protocol":"https","host":"www.utahdraws.com:443","pathname":"/internetsales/Home/GetCustomizedContent","method":"GET","status":200},"metrics":{"count":1,"txSize":{"t":0},"rxSize":{"t":8093},"duration":{"t":62},"time":{"t":811}}},{"params":{"hostname":"www.utahdraws.com","port":"443","protocol":"https","host":"w
+GIF89a     ,       
+
+### POST https://bam.nr-data.net/events/1/NRJS-3b72105899c52f6e776?a=1083377164&v=1.324.1&to=ZFFTZxZQXkJZURAKX10bcGA0HkZYXUUXTFhcWVQcDV9UVEAcBRBASw%3D%3D&rst=1557&s=333455a185084291&ref=https://www.utahdraws.com/internetsales/home/drawodds&ptid=d5017030d9487488 [200] image/gif
+POST: bel.6;e,'fp,o8,5;5,'net-etype,'4g;6,'net-dlink,10.;6,'cls,0.7102605755329132;7,'webdriverDetected;5,'pageUrl,'https://www.utahdraws.com/internetsales/home/drawodds;e,'fcp,rk,8;6,'timeToFirstByte,334.40000000000146;6,'firstByteToFCP,657.5999999999985;5,'loadState,'dom-content-loaded;5,1,2;6,3,10.;6,4,0.7102605755329132;7,5;5,6,7;e,'load,14j,5;5,1,2;6,3,10.;6,4,0.7102605755329132;7,5;5,6,7
+GIF89a     ,       
+
+### POST https://bam.nr-data.net/events/1/NRJS-3b72105899c52f6e776?a=1083377164&v=1.324.1&to=ZFFTZxZQXkJZURAKX10bcGA0HkZYXUUXTFhcWVQcDV9UVEAcBRBASw%3D%3D&rst=1560&s=333455a185084291&ref=https://www.utahdraws.com/internetsales/home/drawodds&ptid=d5017030d9487488 [200] image/gif
+POST: bel.7;1,c,,14j,,,'initialPageLoad,'https://www.utahdraws.com/internetsales/home/drawodds,,1,,,3,13,!!'6b97a6d9-c8ba-417b-9a44-01cb77a0bc2c,'1,o8,rk;7,'isFirstOfSession;7,'webdriverDetected;2,1,mj,1q,,,'GET,5k,'www.utahdraws.com:443,'/internetsales/Home/GetCustomizedContent,,68t,1,'2,'7ddbca7fec1da195,'f4eab0fe585a3c99f75dea514707fd89,mvzrcwya;5,'ajaxRequest.id,'7ab34cb6-048d-4e8d-a2d8-fca3ef71341c;2,1,pb,27,,,'GET,5k,'www.utahdraws.com:443,'/internetsales/Home/GetFooterContent,,29i,1,'3,'1d86a0eac4ae71f7,'073ed218e876284ddd86b8e8798b89ad,mvzrcx12;5,'ajaxRequest.id,'15564888-4046-4b6d-a0c5-acdf6da14bda;2,1,pb,27,,,'GET,5k,'www.utahdraws.com:443,'/internetsales/Toolbar/TopLinks,,31a,1,'4,'2a5b0ee9b2ab8a86,'692f94163274a5ada33f84e05d71abde,mvzrcx13;5,'ajaxRequest.id,'ffda3bc2-270e-4346-be98-2edf7003b8e1;2,1,pd,25,,,'GET,5k,'www.utahdraws.com:443,'/internetsales/Home/GetCurrentState,,4,1,'5,'20cf95c9f61e3a10,'ed9d57f80ce78f54bb795fa1eb341e97,mvzrcx15;5,'ajaxRequest.id,'6ac462b3-a80b-4178-b
+GIF89a     ,       
+
+### GET https://www.utahdraws.com/internetsales/Toolbar/CartLinkAndCount [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":{"CanEditCart":false,"ShoppingCartMenu":{"Action":"ShoppingCart","Controller":"Catalog","LinkText":"VIEW APPLICATIONS AND CHECKOUT","LinkValue":"/internetsales/Catalog/ShoppingCart","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":null,"FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},"CatalogMenu":{"Action":"Index","Controller":"Catalog","LinkText":"CONTINUE SHOPPING","LinkValue":"/internetsales/Catalog","Parameter":null,"IsActive":false,"ReactPage":true,"ActionConfirm":false,"FeatureKey":null,"FeatureAliasKey":null,"NeedChildSupportVerification":false,"OpenNewPage":false,"ChildSupportVerificationResult":0,"AlterMessage":"","PreventMessage":null},"Count":0,"CartSummary":[]},"Message":null}
+
+### GET https://www.utahdraws.com/internetsales/Toolbar/Profiles [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":null,"Message":null}
+
+### GET https://www.utahdraws.com/internetsales/Home/DrawOddsData?drawName=Antlerless&licenseYear=2026&masterHuntTypeID=17 [200] application/json; charset=utf-8
+POST: 
+{"Status":0,"Data":[{"ActiveDH":null,"HuntID":2111,"HuntName":"Antlerless Deer Preference Point","HuntCode":"AND","HuntMapURL":"","HuntCategoryName":"Preference Point","SpeciesSubtypeName":"Antlerless Deer","IsMultiseasonHunt":false,"OddsList":[{"HuntID":2111,"PreferencePoint":3.0,"Point":3.0,"ParticipantCount":758,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":62,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":1,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":6.0,"Point":6.0,"ParticipantCount":93,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":2,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":13.0,"Point":13.0,"ParticipantCount":13,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":1,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":19.0,"Point":19.0,"ParticipantCount":5,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":1,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":9.0,"Point":9.0,"ParticipantCount":22,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":2,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":17.0,"Point":17.0,"ParticipantCount":7,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":1,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":7.0,"Point":7.0,"ParticipantCount":83,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"SuccessfulByMaxPointRoundCount":0,"SuccessfulByLifetimeCount":0,"ResidencyTypeID":2,"IsYouth":false,"HideSuccessfulByRegularRoundCount":false,"HideSuccessfulByMaxPointRoundCount":false,"IsHistoricalData":false},{"HuntID":2111,"PreferencePoint":13.0,"Point":13.0,"ParticipantCount":7,"AllChoicesSuccessfulCount":0,"AllChoicesSuccessfulByMaxPointRoundCount":0,"AllChoicesSuccessfulByRegularRoundCount":0,"SuccessfulCount":0,"YouthRoundFirstChoiceUnsuccessful":0,"SuccessfulByRegularRoundCount":0,"Success
+
+### POST https://www.google-analytics.com/g/collect?v=2&tid=G-FSY5R2S4ZH&gtm=45je6at0v9227400141za20gzb9225750065zd9225750065xf1&_p=1793654130643&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&cid=1276563650.1793654131&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=1280x720&uaa=x86&uab=64&uafvl=Not%253AA-Brand%3B8.0.0.0%7CChromium%3B156.0.8078.4%7CHeadlessChrome%3B156.0.8078.4&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-us&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123620777~123691370&dl=https%3A%2F%2Fwww.utahdraws.com%2Finternetsales%2Fhome%2Fdrawodds%3FdrawPackage%3DAntlerless%26youth%3Dfalse&dr=https%3A%2F%2Fwww.utahdraws.com%2Finternetsales%2Fhome%2Fdrawodds&sid=1793654131&sct=1&seg=1&dt=Utah%20Draw%20System&_s=2&tfd=14051 [204] text/plain
+POST: en=page_view&_et=7709
+en=page_view&_et=2510&dl=https%3A%2F%2Fwww.utahdraws.com%2Finternetsales%2Fhome%2Fdrawodds%3FdrawPackage%3DAntlerless%26youth%3Dfalse%26licenseYear%3D2026&dr=https%3A%2F%2Fwww.utahdraws.com%2Finternetsales%2Fhome%2Fdrawodds%3FdrawPackage%3DAntlerless%26youth%3Dfalse
+<Response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier
+Response body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.>

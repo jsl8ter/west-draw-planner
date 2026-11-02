@@ -241,11 +241,11 @@
     </details>`;
   }
   function pickHTML(p) {
-    if (p.otc) return `<div class="pick"><div class="ph"><span class="tag" style="color:var(--otc)">OTC</span><b>${esc(p.otc.label)}</b></div><div class="pm">${SN[p.otc.st]} · ${SPN[p.otc.sp]} · ~${money(p.otc.cost)} incl. license</div><p class="note">${esc(p.otc.note)}</p></div>`;
+    if (p.otc) return `<div class="pick"><div class="ph"><span class="tag" style="color:var(--otc)">OTC</span><b>${esc(p.otc.label)}</b></div><div class="pm">${SN[p.otc.st]} · ${SPN[p.otc.sp]} · ~${money(p.otc.cost)} incl. license</div><p class="note">${esc(p.otc.note)}</p><button type="button" class="maplink" data-st="${p.otc.st}" data-sp="${p.otc.sp}">Show ${SN[p.otc.st]} on map</button></div>`;
     const c = p.c, t = c.trophy;
     return `<div class="pick"><div class="ph"><span class="tag" style="color:${p.kind === "trophy" ? "var(--premier)" : "var(--easy)"}">${p.kind === "trophy" ? "Trophy" : "Hunt"}</span><b>${SN[c.st]} ${SPN[c.sp].toLowerCase()} · ${esc(c.units)}</b></div>
       <div class="pm">${esc(c.label)}</div>
-      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}</div>`;
+      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}<button type="button" class="maplink" data-st="${c.st}" data-hid="${esc(c.h.id)}">Show unit${(c.h.units || []).length > 1 ? "s" : ""} on map</button></div>`;
   }
   function render() {
     const root = document.getElementById("plan-root"); if (!root) return;
@@ -274,7 +274,7 @@
       </div></div>`;
     }).join("") + `</div>`;
     html += `<h2>Trophy targets</h2><p class="lede">Hunts rated ${S.trophyMin}+ for trophy, soonest first. "Year" is when your odds reach ${Math.round(S.minOdds * 100)}% if you keep applying.</p><div class="tbl"><table><thead><tr><th>Hunt</th><th>Trophy</th><th>Odds next draw</th><th>Reach ${Math.round(S.minOdds * 100)}%</th><th>Tag</th></tr></thead><tbody>` +
-      (R.trackTop.length ? R.trackTop.map(t => `<tr><td><b>${SN[t.c.st]} ${SPN[t.c.sp].toLowerCase()} ${esc(t.c.units)}</b><br><span class="note">${esc(t.c.label.slice(0, 70))}</span></td><td class="num">${t.c.trophy}/5</td><td class="num">${pct(t.o0)}</td><td class="num">${t.when == null ? `beyond ${S.maxWait} yrs` : t.when === 0 ? R.Y0 : R.Y0 + t.when}</td><td class="num">${money(t.c.cost)}</td></tr>`).join("") : `<tr><td colspan="5">No trophy-rated hunts match these settings.</td></tr>`) + `</tbody></table></div>`;
+      (R.trackTop.length ? R.trackTop.map(t => `<tr><td><b>${SN[t.c.st]} ${SPN[t.c.sp].toLowerCase()} ${esc(t.c.units)}</b><br><span class="note">${esc(t.c.label.slice(0, 70))}</span><br><button type="button" class="maplink" data-st="${t.c.st}" data-hid="${esc(t.c.h.id)}">Show on map</button></td><td class="num">${t.c.trophy}/5</td><td class="num">${pct(t.o0)}</td><td class="num">${t.when == null ? `beyond ${S.maxWait} yrs` : t.when === 0 ? R.Y0 : R.Y0 + t.when}</td><td class="num">${money(t.c.cost)}</td></tr>`).join("") : `<tr><td colspan="5">No trophy-rated hunts match these settings.</td></tr>`) + `</tbody></table></div>`;
     html += `<p class="note" style="margin-top:8px">Prices are 2026 nonresident fees (Wyoming points at the 2027 price) and will change. Expected tag cost is tag price × draw odds. Odds come from each state's draw reports; check the state's own numbers before you apply.</p>`;
     root.innerHTML = html; wire();
   }
@@ -290,6 +290,9 @@
   }
   function wire() {
     const cmd = document.getElementById("plan-cmd"), set = document.getElementById("plan-settings");
+    const root = document.getElementById("plan-root");
+    if (!root.__mapWired) { root.__mapWired = true; root.addEventListener("click", e => { const b = e.target.closest(".maplink"); if (!b) return;
+      if (b.dataset.hid && window.showHuntOnMap) window.showHuntOnMap(b.dataset.st, b.dataset.hid); else if (window.showStateOnMap) window.showStateOnMap(b.dataset.st, b.dataset.sp); }); }
     cmd.addEventListener("submit", e => {
       e.preventDefault();
       const text = document.getElementById("plan-text").value.trim();

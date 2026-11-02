@@ -187,6 +187,10 @@ details.panel[open] summary{margin-bottom:6px}
 .ptn{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
 .pcost{font-size:13.5px}.pcost.over{color:var(--long)}
 .small-n{color:var(--mid)}
+.ulabel{background:none;border:0;white-space:nowrap;font:700 11px var(--body);color:#1c231f;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff;transform:translate(-50%,-50%);pointer-events:none}
+.ulabel.sat{color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 0 2px #000}
+.maplink{font:600 12.5px var(--body);color:var(--accent);background:none;border:1.5px solid var(--accent);border-radius:999px;padding:2px 10px;cursor:pointer;align-self:flex-start;margin-top:4px}
+.maplink:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .leaflet-tooltip.ulbl{font:600 12px var(--body);padding:2px 6px}
 @media (max-width:520px){.yr{grid-template-columns:1fr;gap:4px}.dl{grid-template-columns:1fr;gap:2px}.li{grid-template-columns:12px 40px 1fr auto}#map{height:60vh}.basebar button{padding:7px 8px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -733,7 +737,7 @@ function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
 function styleFor(f,L){
   const es=entriesFor(f);
   const line=base==="sat"?"#ffffff":"#2b322d";
-  const isSel=(sel!=null&&f._e.includes(sel))||selF===f;
+  const isSel=(sel!=null&&f._e.includes(sel))||selF===f||(selHunt&&selHunt.st===L.st&&(f._h||[]).includes(selHunt.hi));
   if(L.zone) return {color:base==="sat"?"#ffffff":"#1f2a24",weight:2,opacity:.8,dashArray:"7 6",fill:false};
   if(L.onlyMatched&&!es.length&&!(f._h||[]).some(i=>DRAW[L.st]&&DRAW[L.st].hunts[i].species===sp)&&!utGeneralElk(f,L)) return {opacity:0,fillOpacity:0,fill:false,weight:0};
   if(FILTER.on&&!featurePasses(f,L)) return {color:line,weight:.5,opacity:.3,dashArray:null,fill:true,fillColor:"#000",fillOpacity:.04};
@@ -1010,6 +1014,7 @@ function applyFilter(zoom){
 }
 
 // ---------- state ----------
+let selHunt=null;
 let colorMode="tier",sp="E",tierOn=new Set(Object.keys(TIERS)),sel=null,selF=null,base="topo";
 let PTS={};
 try{PTS=JSON.parse(localStorage.getItem("wdp-pts")||"{}")}catch(e){PTS={}}
@@ -1037,7 +1042,7 @@ function setBase(b){
   document.querySelectorAll("[data-base]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.base===b));
   syncLabels();restyle();
 }
-function syncLabels(){const on=document.getElementById("b-labels").checked&&base==="sat";if(on)LABELS.addTo(map);else map.removeLayer(LABELS)}
+function syncLabels(){const on=document.getElementById("b-labels").checked&&base==="sat";if(on)LABELS.addTo(map);else map.removeLayer(LABELS);if(typeof renderUnitLabels==="function")renderUnitLabels()}
 document.querySelectorAll("[data-base]").forEach(b=>b.onclick=()=>setBase(b.dataset.base));
 document.getElementById("b-labels").onchange=syncLabels;
 
@@ -1053,17 +1058,30 @@ function renderDots(){
     m.on("click",()=>pick(i));m.addTo(dots);
   });
 }
+// ---------- unit number / name labels (zoomed in) ----------
+const unitLabels=L.layerGroup().addTo(map);
+const escH=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function renderUnitLabels(){
+  unitLabels.clearLayers();
+  if(!document.getElementById("b-labels").checked||map.getZoom()<7)return;
+  const bnd=map.getBounds();let n=0;
+  for(const id in POLY){const g=POLY[id],Lc=g._cfg;if(Lc.zone||!map.hasLayer(g))continue;
+    g.eachLayer(l=>{if(n>500)return;const f=l.feature;if(!f||!f._id)return;const st=styleFor(f,Lc);if(st.opacity===0)return;
+      const [x,y]=featPoint(f);if(!bnd.contains([y,x]))return;n++;
+      window.L.marker([y,x],{icon:window.L.divIcon({className:"ulabel"+(base==="sat"?" sat":""),html:escH(f._id),iconSize:null}),interactive:false,keyboard:false}).addTo(unitLabels)})}
+}
+map.on("zoomend moveend",renderUnitLabels);
 function restyle(){
   computeBreaks();
   for(const id in POLY){const g=POLY[id];const on=g._cfg.sp.includes(sp);if(on&&!map.hasLayer(g))g.addTo(map);if(!on&&map.hasLayer(g))map.removeLayer(g);if(on)g.setStyle(f=>styleFor(f,g._cfg))}
   for(const id in POLY){if(POLY[id]._cfg.zone&&map.hasLayer(POLY[id]))POLY[id].bringToBack()}
-  renderDots();renderLegend();
+  renderDots();renderLegend();renderUnitLabels();
 }
 function render(){restyle();renderList()}
 
 // ---------- UI ----------
 
-document.getElementById("hunt-sel").addEventListener("change",e=>{const [k,sx]=e.target.value.split("|");sp=k;sexF=sx;sel=null;selF=null;document.getElementById("sheet").innerHTML="";render();if(FILTER.on)applyFilter(false)});
+document.getElementById("hunt-sel").addEventListener("change",e=>{const [k,sx]=e.target.value.split("|");sp=k;sexF=sx;sel=null;selF=null;selHunt=null;document.getElementById("sheet").innerHTML="";render();if(FILTER.on)applyFilter(false)});
 document.getElementById("inc-private").addEventListener("change",e=>{incPrivate=e.target.checked;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
 document.getElementById("inc-either").addEventListener("change",e=>{incEither=e.target.checked;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
 
@@ -1171,14 +1189,16 @@ function huntsSheet(f,Lc){
   const trophy=tr?`<p><b>Trophy potential ${tr.s}/5.</b> ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
   if(!d)return trophy?`<div class="sheet">${trophy}<p class="note">${SN[Lc.st]} draw results are still being added.</p></div>`:"";
   if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?(sp==="E"?"bull ":"buck "):sexF==="antlerless"?(sp==="E"?"cow ":"doe "):sexF==="either"?"either-sex ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
-  const order=h=>(isAntlerless(h)?1000:0)+(()=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99})();
+  const selH=selHunt&&selHunt.st===Lc.st?DRAW[Lc.st].hunts[selHunt.hi]:null;
+  const order=h=>(h===selH?-1e6:0)+(isAntlerless(h)?1000:0)+(()=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99})();
   return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} · ${SPECIES[sp]} draw results</h3>${trophy}
   <p class="note">${hs.length} hunt${hs.length>1?"s":""}. ${sysOf(Lc.st)==="random"?`${SN[Lc.st]} has no points; odds are`:`Odds use your ${SN[Lc.st]} ${sp==="C"?"deer":SPECIES[sp].toLowerCase()} points from My Points and`} ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. ${sysOf(Lc.st)==="random"?"Next-year odds use last year's applicants and tags.":"Next-year odds assume everyone who missed gains a point and tags stay the same."}</p>
   ${hs.slice().sort((a,b)=>order(a)-order(b)).map(h=>huntCard(Lc.st,h)).join("")}</div>`;
 }
-function showFeature(f,Lc,lyr){
+function showFeature(f,Lc,lyr,keepHunt){
+  if(!keepHunt)selHunt=null;
   lastShown=[f,Lc,lyr];selF=f;
-  const es=entriesFor(f);
+  const es=METRICS[CM.metric].legacy?entriesFor(f):[];
   if(es.length){sel=es[0];restyle();renderList();document.getElementById("sheet").innerHTML=es.map(entrySheet).join("")+huntsSheet(f,Lc);return}
   sel=null;restyle();
   const s=STATE_INFO[Lc.st];let hs=huntsOf(f,Lc.st).length?huntsSheet(f,Lc):"";
@@ -1201,6 +1221,28 @@ function showFeature(f,Lc,lyr){
   });
   document.getElementById("f-clear").onclick=()=>{FILTER.on=false;applyFilter(false);map.setView([41.2,-112.5],5)};
 })();
+
+// ---------- jump to a hunt from the Plan tab ----------
+function goMap(){show("map");try{history.replaceState(null,"","#map")}catch(e){}}
+function setHuntMenu(s,sx){const hs=document.getElementById("hunt-sel");hs.value=s+"|"+sx;if(hs.value!==s+"|"+sx){sx="all";hs.value=s+"|all"}sp=s;sexF=sx}
+window.showHuntOnMap=function(st,hid){
+  const d=DRAW[st];if(!d)return;const hi=d.hunts.findIndex(h=>h.id===hid);if(hi<0)return;const h=d.hunts[hi];
+  setHuntMenu(h.species,isEither(h)||!isAntlerless(h)?"antlered":"antlerless");
+  wpn="any";document.getElementById("wpn-sel").value="any";
+  if(privateLand(h)&&!incPrivate){incPrivate=true;document.getElementById("inc-private").checked=true}
+  if(FILTER.on){FILTER.on=false;applyFilter(false)}
+  selHunt={st,hi};sel=null;goMap();render();
+  setTimeout(()=>{map.invalidateSize();
+    const hits=[];for(const id in POLY){const g=POLY[id];if(g._cfg.st!==st||!g._cfg.sp.includes(h.species))continue;g.eachLayer(l=>{if(l.feature&&(l.feature._h||[]).includes(hi))hits.push([l,g._cfg])})}
+    if(hits.length){let b=null;for(const [l] of hits){const lb=l.getBounds();b=b?b.extend(lb):window.L.latLngBounds(lb.getSouthWest(),lb.getNorthEast())}
+      map.fitBounds(b,{padding:[30,30],maxZoom:10});const [l0,L0]=hits[0];showFeature(l0.feature,L0,l0,true)}
+    restyle();document.getElementById("map").scrollIntoView({behavior:"smooth",block:"start"})},80);
+};
+window.showStateOnMap=function(st,s){
+  setHuntMenu(s,"antlered");selHunt=null;goMap();render();
+  setTimeout(()=>{map.invalidateSize();let b=null;for(const id in POLY){const g=POLY[id];if(g._cfg.st!==st||g._cfg.zone)continue;try{const gb=g.getBounds();b=b?b.extend(gb):gb}catch(e){}}
+    if(b)map.fitBounds(b,{padding:[20,20]});document.getElementById("map").scrollIntoView({behavior:"smooth",block:"start"})},80);
+};
 
 // ---------- other views ----------
 function buildStates(){document.getElementById("stateCards").innerHTML=Object.keys(STATE_INFO).map(k=>{const s=STATE_INFO[k];return `<article class="card"><h3>${SN[k]}</h3><p class="meta">${s.date}</p><p>${s.sys}</p><ul><li><b>NR share:</b> ${s.nr}</li><li><b>License:</b> ${s.lic}</li><li><b>Application:</b> ${s.app}</li><li><b>Point only:</b> ${s.pt}</li><li><b>Tags:</b> ${s.tags}</li><li><b>Payment:</b> ${s.pay}</li><li><b>OTC:</b> ${s.otc}</li></ul><a href="${s.url}" target="_blank" rel="noopener">Official page</a></article>`}).join("")}

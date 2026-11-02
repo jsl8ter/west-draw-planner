@@ -273,12 +273,12 @@ def _dump_brochure():
     out = [f"URL {url} bytes {len(data)}"]
     with pdfplumber.open(io.BytesIO(data)) as pdf:
         for i, pg in enumerate(pdf.pages):
-            t = pg.extract_text() or ""
-            out.append(f"\n===== PAGE {i+1} =====\n{t}")
-            if i in (31, 45):
-                for tb in pg.extract_tables()[:3]:
-                    out.append("--- TABLE ---\n" + "\n".join(" | ".join(str(c) for c in r) for r in tb[:25]))
-    open(os.path.join(d, "brochure_2026.txt"), "w").write("\n".join(out))
+            if not 26 <= i <= 70:
+                continue
+            out.append(f"\n===== PAGE {i+1} =====")
+            for k, tb in enumerate(pg.extract_tables()):
+                out.append(f"--- TABLE {k} ---\n" + "\n".join(" | ".join(repr(c) for c in r) for r in tb))
+    open(os.path.join(d, "brochure_tables_2026.txt"), "w").write("\n".join(out))
     raise RuntimeError("brochure dump only")
 
 

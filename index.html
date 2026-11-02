@@ -711,7 +711,12 @@ function attach(L,feats,forced){
           if(sub.length){sub.forEach(k=>hits.push(...idx[k]));continue}
           const m=t.match(/^(\d+[A-Z]?)[NSEW]$/);if(m){const b=m[1];if(idx[b])hits.push(...idx[b]);else{const n=b.replace(/[A-Z]$/,"");if(idx[n])hits.push(...idx[n])}}
         }}
-        else{const k=String(u).toLowerCase().replace(/\b(nonresident|nr|region|general|mule deer)\b/g,"").replace(/\s+/g," ").trim();hits=feats.filter(f=>f._lc===k||(f.properties.alt&&f.properties.alt.toLowerCase().replace(/\s+/g," ").trim()===k))}
+        else{const k=String(u).toLowerCase().replace(/\b(nonresident|nr|region|general|mule deer)\b/g,"").replace(/\s+/g," ").trim();hits=feats.filter(f=>f._lc===k||(f.properties.alt&&f.properties.alt.toLowerCase().replace(/\s+/g," ").trim()===k));
+          // Utah writes names differently in draw reports and boundaries ("La Sal, La Sal Mtns" vs "La Sal Mtns")
+          if(!hits.length&&L.st==="UT"){const nz=t=>t.toLowerCase().replace(/[\/\-]/g," ").replace(/[^a-z0-9, ]/g,"").replace(/\s+/g," ").trim();
+            const kk=nz(k),tail=kk.includes(",")?kk.split(",").pop().trim():null;
+            hits=feats.filter(f=>nz(f._id)===kk);
+            if(!hits.length&&tail&&tail.length>3)hits=feats.filter(f=>{const n=nz(f._id);return n===tail||n.endsWith(", "+tail)});}}
         hits.forEach(f=>{if(!f._h.includes(hi))f._h.push(hi)});
       }
     });
@@ -758,6 +763,7 @@ function styleFor(f,L){
     const v=metric(f,L);
     if(v==null) return {color:line,weight:1.4,opacity:.8,dashArray:L.zone?"7 5":null,fill:true,fillOpacity:0.01};
     const c=metricColor(v);
+    if(v==="P") return {color:line,weight:.6,opacity:.45,dashArray:null,fill:true,fillColor:c,fillOpacity:.25};
     if(L.zone) return {color:isSel?css("--accent"):c,weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:c,fillOpacity:.14};
     return {color:isSel?css("--accent"):line,weight:isSel?3.5:1.8,opacity:1,dashArray:null,fill:true,fillColor:c,fillOpacity:base==="sat"?.6:.5};
   }

@@ -22,7 +22,7 @@ async def main():
             await pg.locator(".mapbox").screenshot(path=f"{OUT}/{sp}-{metric}.png")
         await pg.screenshot(path=f"{OUT}/top.png")
         await pg.select_option("#hunt-sel", "E|antlered"); await pg.select_option("#cm-metric", "pts")
-        for name, lat, lng, z in [("co_nm", 37.25, -107.6, 8.5), ("ut_central", 38.6, -111.9, 8.5), ("wy", 43.0, -108.5, 7)]:
+        for name, lat, lng, z in [("ut_state", 39.4, -111.6, 6.5), ("ut_central", 38.6, -111.9, 8.5), ("co_nm", 37.25, -107.6, 8.5)]:
             await pg.evaluate(f"void map.setView([{lat},{lng}],{z})"); await pg.wait_for_timeout(3500)
             await pg.locator(".mapbox").screenshot(path=f"{OUT}/zoom_{name}.png")
         await pg.click("#t-plan"); await pg.wait_for_timeout(3000)

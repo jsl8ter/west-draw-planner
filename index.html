@@ -737,22 +737,22 @@ function utGeneralElk(f,L){return L.st==="UT"&&sp==="E"&&DRAW.UT&&(f._h||[]).som
 function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
 function styleFor(f,L){
   const es=entriesFor(f);
-  const line=base==="sat"?"#ffffff":"#2b322d";
+  const line=base==="sat"?"#ffffff":"#0b0d0c";
   const isSel=(sel!=null&&f._e.includes(sel))||selF===f||(selHunt&&selHunt.st===L.st&&(f._h||[]).includes(selHunt.hi));
   if(L.zone) return {color:base==="sat"?"#ffffff":"#1f2a24",weight:2,opacity:.8,dashArray:"7 6",fill:false};
-  if(L.onlyMatched&&!es.length&&!huntsOf(f,L.st).length&&!utGeneralElk(f,L)) return {opacity:0,fillOpacity:0,fill:false,weight:0};
+  if(L.onlyMatched&&!es.length&&!(f._h||[]).some(i=>DRAW[L.st]&&DRAW[L.st].hunts[i].species===sp)&&!utGeneralElk(f,L)) return {opacity:0,fillOpacity:0,fill:false,weight:0};
   if(FILTER.on&&!featurePasses(f,L)) return {color:line,weight:.5,opacity:.3,dashArray:null,fill:true,fillColor:"#000",fillOpacity:.04};
   if(!METRICS[CM.metric].legacy){
     const v=metric(f,L);
-    if(v==null) return {color:line,weight:.7,opacity:.55,dashArray:L.zone?"7 5":null,fill:true,fillOpacity:0.01};
+    if(v==null) return {color:line,weight:1.4,opacity:.8,dashArray:L.zone?"7 5":null,fill:true,fillOpacity:0.01};
     const c=metricColor(v);
     if(L.zone) return {color:isSel?css("--accent"):c,weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:c,fillOpacity:.14};
-    return {color:isSel?css("--accent"):line,weight:isSel?3:1,opacity:.9,dashArray:null,fill:true,fillColor:c,fillOpacity:base==="sat"?.6:.5};
+    return {color:isSel?css("--accent"):line,weight:isSel?3.5:1.8,opacity:1,dashArray:null,fill:true,fillColor:c,fillOpacity:base==="sat"?.6:.5};
   }
-  if(!es.length) return {color:line,weight:.7,opacity:.55,fill:true,fillOpacity:0.01};
+  if(!es.length) return {color:line,weight:1.4,opacity:.8,fill:true,fillOpacity:0.01};
   const u=U[es[0]];
   if(L.zone) return {color:isSel?css("--accent"):colorHex(u),weight:isSel?3:2.5,opacity:.95,dashArray:"7 5",fill:true,fillColor:colorHex(u),fillOpacity:.14};
-  return {color:isSel?css("--accent"):line,weight:isSel?3:1,opacity:.9,fill:true,fillColor:colorHex(u),fillOpacity:base==="sat"?.55:.45};
+  return {color:isSel?css("--accent"):line,weight:isSel?3.5:1.8,opacity:1,fill:true,fillColor:colorHex(u),fillOpacity:base==="sat"?.55:.45};
 }
 function chance(u){
   const [st,s,,,tier,,,need,odds]=u;
@@ -920,6 +920,7 @@ function metricOwn(f,Lc){
   if(M.trophy){const t=trophyOf(st,sp,f._id);return t?t.s:null}
   if(!DRAW[st])return null;
   const hs=huntsOf(f,st),open=hs.filter(resOpen);
+  if(!hs.length&&!incPrivate&&DRAW[st]&&(f._h||[]).some(i=>{const h=DRAW[st].hunts[i];return h.species===sp&&privateLand(h)&&!restricted(h)}))return "P";
   if(!open.length){
     const gen=st==="MT"&&!Lc.zone&&!hs.length?generalHunts(st):[];
     if(gen.length){const v=aggregate(gen.map(h=>huntVal(st,h,k)),k);if(v!=null&&v!=="R")return v}
@@ -943,7 +944,7 @@ function computeBreaks(){
 }
 function classOf(v){let i=0;for(let j=0;j<BREAKS.length;j++)if(v>=BREAKS[j])i=j;return i}
 function metricColor(v){
-  if(v==="R")return "#4f8fd0";if(v==="G")return "#93a9bf";if(v==="X")return "#676d72";if(v==="N")return "#cfcac0";
+  if(v==="R")return "#4f8fd0";if(v==="G")return "#93a9bf";if(v==="X")return "#676d72";if(v==="P")return "#b39b7d";if(v==="N")return "#cfcac0";
   const M=METRICS[CM.metric];
   if(!BREAKS)BREAKS=M.fixed||[0];
   if(M.trophy){const c=PAL_T[Math.max(0,Math.min(4,Math.round(v)-1))];return c}
@@ -1162,7 +1163,7 @@ function renderLegend(){
     else if(BREAKS){items=BREAKS.map((b,i)=>{const hi=BREAKS[i+1];const lo=b<=-99?"":M.fmt(b);const lab=hi==null?(lo?lo+"+":"any"):(b<=-99?"under "+M.fmt(hi):lo+" – "+M.fmt(hi));return sw(metricColor(b),lab)}).join("")}
     const ctx=M.trophy?"":` · ${resLbl()}${M.noYear||M.usesPts?"":CM.year==="latest"?" · latest year":CM.year==="avg3"?" · 3-yr avg":" · "+CM.year}${M.usesPts?" · your points":""} · ${({best:"best hunt in unit",avg:"average of hunts",sum:"total of hunts",worst:"hardest hunt"})[M.agg==="sum"&&CM.agg==="best"?"sum":CM.agg]}`;
     L.innerHTML=`<span><b>${M.label}</b>${ctx}</span>`+items+
-      (M.draw?((CM.metric==="pts"||CM.metric==="p50")?sw("#4f8fd0","Random draw (no points)"):"")+sw("#93a9bf","No draw hunt (general / OTC season, or no season)")+sw("#676d72",`No ${resLbl()} tags in the last 3 years`)+`<span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-license region</span>`+(M.prefOnly?sw("#cfcac0","Not a preference-point state"):""):"")+
+      (M.draw?((CM.metric==="pts"||CM.metric==="p50")?sw("#4f8fd0","Random draw (no points)"):"")+sw("#93a9bf","No draw hunt (general / OTC season, or no season)")+sw("#676d72",`No ${resLbl()} tags in the last 3 years`)+(incPrivate?"":sw("#b39b7d","Only private-land or ranch hunts (turn on in Color options)"))+`<span><i class="sq" style="background:none;border:2px dashed var(--muted)"></i>General-license region</span>`+(M.prefOnly?sw("#cfcac0","Not a preference-point state"):""):"")+
       `<span><i class="sq" style="background:none;border:1.5px solid var(--muted)"></i>${M.trophy?"Not rated":"No draw data"}</span>`+(FILTER.on?`<span><b>Filtered:</b> faded units don't match</span>`:"");
     return;
   }

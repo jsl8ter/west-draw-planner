@@ -15,7 +15,7 @@ def extract():
         if "B License" in kind or l.startswith(m.group(1) + " B "): desc = desc if re.search(r"antlerless|doe|cow|fawn|calf", desc, re.I) else desc + " (B license)"
         tail = " ".join(x.strip() for x in lines[i + 1:i + 3] if not LINE.match(x.strip()))
         lim = []
-        for pat in (r"[^.]*private land[^.]*\.", r"[^.]*must be used with[^.]*\.", r"[^.]*[Oo]nly valid[^.]*\."):
+        for pat in (r"Only valid[^.]*\.", r"Permit must be used with[^.]*\.", r"[Vv]alid (?:only )?on private land[^.]*\."):
             mm = re.search(pat, l[m.end():] + " " + tail)
             if mm: lim.append(mm.group(0).strip())
         k = f"{sp}:{code}"

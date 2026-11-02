@@ -18,6 +18,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 REGS = os.path.join(ROOT, "data", "draw", "regs")
 
 OTHER = re.compile(r"white[- ]?tail|black[- ]?tail|\bAny Wh\b", re.I)
+SMALL = re.compile(r"\(?\d\)? ?points? or (less|fewer)|(one|two|three|four|five) \(\d\) points? or (less|fewer)", re.I)
 SPIKE = re.compile(r"(?<!golden )\bspike\b", re.I)   # not the "Golden Spike" CWMU
 EITHER = re.compile(r"either[- ]sex|\beither\b|antlerless or antlered|antlered or antlerless|\bany (elk|deer|antelope|pronghorn)\b|"
                     r"^one (elk|deer)\b(?! with)|\(ES\)", re.I)
@@ -33,8 +34,8 @@ def classify(text, species):
     if species == "D" and OTHER.search(t) and not re.search(r"mule", t, re.I):
         # "white-tailed buck ... or black-tailed deer", "Any white-tailed deer": not a mule deer tag
         return "other"
-    if SPIKE.search(t):
-        return "spike"
+    if SPIKE.search(t) or SMALL.search(t):
+        return "spike"      # spike-only or point-restricted (e.g. "four (4) points or less"): no mature males
     if EITHER.search(t):
         return "either"
     if ANTLERLESS.search(t):
@@ -78,6 +79,12 @@ def bag_for(st, h, regs):
         b = {"MB": "antlered", "FAD": "antlered", "FAMD": "antlered", "FAWTD": "antlered", "ES": "either", "ESWTD": "either", "MB/A": "either", "A": "antlerless"}.get(code)
         if b is None and code.startswith("APRE"): b = "antlered"
         return b or classify(lab, sp), code or None
+    if st == "WY":
+        r = regs.get(re.sub(r"-S$", "", hid))
+        if r and r.get("bag"):
+            t = re.split(r"\s+(?:cial archery|\d{1,3}$)", r["bag"])[0].strip()
+            b = classify(t, sp)
+            if b != "unknown": return b, t   # else a wrapped fragment of the row above: use the hunt name
     if st == "WY" and re.match(r"^Region [A-Z]|General deer", lab.split(" - ", 1)[-1]):
         return "antlered", "General license (legal deer set by hunt area)"
     b = classify(lab, sp)

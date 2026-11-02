@@ -10,7 +10,7 @@
  "hunts": {
   "D:100-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "100 5-600 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Only valid in the Libby CWD Management Zone."
+   "limits": "Only valid in the Libby CWD Management Zone."
   },
   "D:199-20": {
    "bag": "Either-sex White-tailed Deer (B license)",
@@ -18,11 +18,11 @@
   },
   "E:100-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:101-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "200 5-800 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:101-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -30,7 +30,7 @@
   },
   "E:101-00": {
    "bag": "Antlerless Elk",
-   "limits": "Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:101-01": {
    "bag": "Antlerless Elk",
@@ -42,7 +42,7 @@
   },
   "D:103-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "150 5-600 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Only valid in the Libby CWD Management Zone."
+   "limits": "Only valid in the Libby CWD Management Zone."
   },
   "D:103-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -50,19 +50,19 @@
   },
   "E:103-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:104-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "100 5-600 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Only valid in the Libby CWD Management Zone."
+   "limits": "Only valid in the Libby CWD Management Zone."
   },
   "E:104-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:110-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "100 5-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:120-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -74,11 +74,11 @@
   },
   "E:121-00": {
    "bag": "Antlerless Elk",
-   "limits": "150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:121-01": {
    "bag": "Antlerless Elk",
-   "limits": "20 5-100 - - - - Nov 30-Feb 15 Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:122-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -86,7 +86,7 @@
   },
   "E:122-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:123-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -94,7 +94,7 @@
   },
   "E:123-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:124-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -102,11 +102,11 @@
   },
   "E:124-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 25-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:130-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "50 10-1,000 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:130-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -126,7 +126,7 @@
   },
   "E:200-00": {
    "bag": "Antlerless Elk",
-   "limits": "5 5-100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid in Mullan Gulch area."
+   "limits": "Only valid in Mullan Gulch area."
   },
   "D:201-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -146,7 +146,7 @@
   },
   "D:202-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "75 25-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:202-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -158,11 +158,11 @@
   },
   "D:204-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "25 5-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:299-00": {
    "bag": "Antlerless White-tailed Deer UNL - -",
-   "limits": "5-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - private land in HDs 204, 240, Jun 15 261, and 270."
+   "limits": ""
   },
   "E:204-00": {
    "bag": "Antlerless Elk",
@@ -178,7 +178,7 @@
   },
   "D:210-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "55 1-100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:210-02": {
    "bag": "Antlerless White-tailed Deer UNL - -",
@@ -210,7 +210,7 @@
   },
   "D:212-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "40 5-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:212-02": {
    "bag": "Antlerless White-tailed Deer UNL - -",
@@ -230,7 +230,7 @@
   },
   "E:213-00": {
    "bag": "Antlerless Elk",
-   "limits": "375 25-700 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Aug 15-Oct 23 - - - - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:213-01": {
    "bag": "Antlerless Elk",
@@ -250,7 +250,7 @@
   },
   "E:215-02": {
    "bag": "Antlerless Elk",
-   "limits": "400 5-800 Only valid on private lands and DNRC lands outside the - - Oct 24-Nov 29 - Nov 30-Jan 08 National Forest Boundary."
+   "limits": "Only valid on private lands and DNRC lands outside the - - Oct 24-Nov 29 - Nov 30-Jan 08 National Forest Boundary. valid on private lands and DNRC lands outside the - - Oct 24-Nov 29 - Nov 30-Jan 08 N"
   },
   "D:216-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -266,7 +266,7 @@
   },
   "D:217-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "65 1-100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:217-01": {
    "bag": "Antlerless White-tailed Deer UNL - -",
@@ -278,7 +278,7 @@
   },
   "E:217-02": {
    "bag": "Antlerless Elk",
-   "limits": "150 5-500 Aug 15-Sep 04 Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Valid on private land only. Permit must be used with a valid General Elk License."
+   "limits": "Permit must be used with a valid General Elk License. Valid on private land only."
   },
   "E:217-10": {
    "bag": "Brow-tined Bull or Antlerless Elk",
@@ -294,7 +294,7 @@
   },
   "E:240-01": {
    "bag": "Antlerless Elk",
-   "limits": "50 5-300 - - - - Nov 30-Jan 15 Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:250-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -302,7 +302,7 @@
   },
   "E:250-00": {
    "bag": "Antlerless Elk",
-   "limits": "25 5-50 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Elk License."
+   "limits": "Permit must be used with a valid General Elk License."
   },
   "E:250-45": {
    "bag": "Brow-tined Bull Elk",
@@ -318,7 +318,7 @@
   },
   "D:261-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "10 1-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:261-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -330,7 +330,7 @@
   },
   "D:262-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:262-02": {
    "bag": "Antlerless White-tailed Deer",
@@ -362,15 +362,15 @@
   },
   "E:270-01": {
    "bag": "Antlerless Elk",
-   "limits": "300 10-400 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid north of Rye Creek."
+   "limits": "Only valid north of Rye Creek."
   },
   "E:270-02": {
    "bag": "Antlerless Elk",
-   "limits": "500 20-800 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid south of Rye Creek."
+   "limits": "Only valid south of Rye Creek."
   },
   "E:270-45": {
    "bag": "Brow-tined Bull Elk",
-   "limits": "UNL - - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Permit must be used with a valid General Elk License."
+   "limits": "Permit must be used with a valid General Elk License."
   },
   "D:281-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -382,7 +382,7 @@
   },
   "D:282-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "25 5-50 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:282-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -410,11 +410,11 @@
   },
   "D:290-00": {
    "bag": "Antlerless White-tailed Deer UNL - - -",
-   "limits": "- Sep 05-Oct 18 - - - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:290-01": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "25 5-250 Valid on private land only."
+   "limits": "Valid on private land only."
   },
   "D:290-02": {
    "bag": "Either-sex White-tailed Deer (B license)",
@@ -426,7 +426,7 @@
   },
   "D:291-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "50 5-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:291-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -438,7 +438,7 @@
   },
   "E:291-03": {
    "bag": "Antlerless Elk",
-   "limits": "250 5-600 Aug 15-Oct 23 - Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private lands."
+   "limits": "Only valid on private lands. valid on private lands."
   },
   "D:292-00": {
    "bag": "Antlerless White-tailed Deer",
@@ -490,7 +490,7 @@
   },
   "D:312-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 25-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:312-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -498,7 +498,7 @@
   },
   "D:313-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "20 20-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:313-00": {
    "bag": "Antlerless Elk",
@@ -518,7 +518,7 @@
   },
   "D:314-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:397-00": {
    "bag": "Antlerless White-tailed Deer UNL - -",
@@ -530,15 +530,15 @@
   },
   "D:315-02": {
    "bag": "Antlerless Mule Deer",
-   "limits": "70 25-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Valid on private land only."
+   "limits": "Valid on private land only."
   },
   "D:317-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "85 25-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:318-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "25 25-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:394-00": {
    "bag": "Antlerless Elk",
@@ -546,7 +546,7 @@
   },
   "D:319-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 10-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:319-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -566,11 +566,11 @@
   },
   "E:322-00": {
    "bag": "Antlerless Elk",
-   "limits": "100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Valid on private lands only."
+   "limits": "Valid on private lands only."
   },
   "E:324-00": {
    "bag": "Antlerless Elk",
-   "limits": "100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Valid on private land only."
+   "limits": "Valid on private land only."
   },
   "D:331-01": {
    "bag": "Antlerless White-tailed Deer",
@@ -582,7 +582,7 @@
   },
   "D:335-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "25 25-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:396-01": {
    "bag": "Antlerless Mule Deer",
@@ -598,7 +598,7 @@
   },
   "D:340-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 50-350 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:340-00": {
    "bag": "Antlerless Elk",
@@ -606,7 +606,7 @@
   },
   "D:350-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 50-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:350-02": {
    "bag": "Antlerless Elk",
@@ -626,7 +626,7 @@
   },
   "D:370-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 50-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:370-02": {
    "bag": "Antlerless Elk",
@@ -658,11 +658,11 @@
   },
   "D:390-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "75 25-400 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:391-02": {
    "bag": "Antlerless Mule Deer",
-   "limits": "175 25-400 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:391-00": {
    "bag": "Antlerless Elk",
@@ -670,7 +670,7 @@
   },
   "D:392-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 25-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:392-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -682,7 +682,7 @@
   },
   "D:393-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Valid on private land only."
+   "limits": "Valid on private land only."
   },
   "D:004-00": {
    "bag": "Antlerless White-tailed Deer UNL - -",
@@ -694,7 +694,7 @@
   },
   "D:400-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "300 25-500 - Sep 05-Oct 18 Oct 24-Nov 15 - - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:400-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -710,7 +710,7 @@
   },
   "D:401-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "200 100-500 - Sep 05-Oct 18 Oct 24-Nov 15 - - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:401-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -726,7 +726,7 @@
   },
   "D:403-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 25-300 - Sep 05-Oct 18 Oct 24-Nov 15 - - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:403-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -746,7 +746,7 @@
   },
   "D:406-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "200 25-500 - Sep 05-Oct 18 Oct 24-Nov 15 - - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "D:406-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -758,7 +758,7 @@
   },
   "D:410-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "5 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land. Permit must be used with a valid General Deer License."
+   "limits": "Only valid on private land. Permit must be used with a valid General Deer License. valid on private land."
   },
   "D:410-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -770,7 +770,7 @@
   },
   "E:410-01": {
    "bag": "Antlerless Elk",
-   "limits": "300 50-300 - Sep 05-Oct 18 - - - Only valid in HD 410."
+   "limits": "Only valid in HD 410."
   },
   "E:410-02": {
    "bag": "Antlerless Elk",
@@ -786,7 +786,7 @@
   },
   "D:411-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:411-00": {
    "bag": "Antlerless Elk",
@@ -802,7 +802,7 @@
   },
   "D:412-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:412-20": {
    "bag": "Either-sex Elk",
@@ -810,11 +810,11 @@
   },
   "D:413-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:417-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "25 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land. Permit must be used with a valid General Deer License."
+   "limits": "Only valid on private land. Permit must be used with a valid General Deer License. valid on private land."
   },
   "D:417-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -834,15 +834,15 @@
   },
   "D:418-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-150 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:419-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:448-00": {
    "bag": "Antlerless Elk",
-   "limits": "Permit must be used with a valid General Elk License. 150 100-400 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid in HDs 420 and 448."
+   "limits": "Only valid in HDs 420 and 448. Permit must be used with a valid General Elk License."
   },
   "E:420-20": {
    "bag": "Brow-tined Bull or Antlerless Elk",
@@ -870,7 +870,7 @@
   },
   "D:426-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land. Permit must be used with a valid General Deer License."
+   "limits": "Only valid on private land. Permit must be used with a valid General Deer License. valid on private land."
   },
   "E:426-20": {
    "bag": "Either-sex Elk",
@@ -878,7 +878,7 @@
   },
   "D:432-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:441-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -894,11 +894,11 @@
   },
   "D:444-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 50-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:445-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "25 5-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:445-20": {
    "bag": "Either-sex Elk",
@@ -906,7 +906,7 @@
   },
   "D:447-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:447-51": {
    "bag": "Antlered Buck Mule Deer",
@@ -926,11 +926,11 @@
   },
   "D:448-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 5-250 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:455-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "20 5-50 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Deer License."
+   "limits": "Permit must be used with a valid General Deer License."
   },
   "E:455-00": {
    "bag": "Antlerless Elk",
@@ -946,7 +946,7 @@
   },
   "D:471-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 5-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:471-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -958,7 +958,7 @@
   },
   "D:502-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "150 50-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - ELK Antlerless Elk - - - Aug 15-Sep 04 - - - - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:502-20": {
    "bag": "Either-sex Elk",
@@ -970,11 +970,11 @@
   },
   "D:515-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 50-500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - ELK Antlerless Elk - - - Aug 15-Sep 04 - - - - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:525-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "ELK Antlerless Elk - - - Aug 15-Sep 04 - - - - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:005-00": {
    "bag": "Antlerless Elk J O u T n C 15 : UNL - -",
@@ -982,7 +982,7 @@
   },
   "D:535-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 50-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land. Permit must be used with a valid General Deer License."
+   "limits": "Only valid on private land. Permit must be used with a valid General Deer License. valid on private land."
   },
   "D:535-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -994,7 +994,7 @@
   },
   "E:555-00": {
    "bag": "Antlerless Elk",
-   "limits": "30 15-50 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - Permit must be used with a valid General Elk License."
+   "limits": "Permit must be used with a valid General Elk License."
   },
   "E:555-20": {
    "bag": "Either-sex Elk",
@@ -1002,11 +1002,11 @@
   },
   "D:575-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "500 50-750 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - - ELK Antlerless Elk - - - Aug 15-Sep 04 - - - - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:580-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 50-200 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:590-00": {
    "bag": "Antlerless Mule Deer",
@@ -1022,7 +1022,7 @@
   },
   "D:600-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:620-00": {
    "bag": "Antlerless Mule Deer",
@@ -1030,11 +1030,11 @@
   },
   "E:621-01": {
    "bag": "Antlerless Elk",
-   "limits": "100 100-600 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid in HD 620 and HD 621."
+   "limits": "Only valid in HD 620 and HD 621."
   },
   "E:622-00": {
    "bag": "Antlerless Elk",
-   "limits": "50 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid in HDs 620 and 622."
+   "limits": "Only valid in HDs 620 and 622."
   },
   "E:698-00": {
    "bag": "Antlerless Elk",
@@ -1062,7 +1062,7 @@
   },
   "D:630-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 100-1,000 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:630-00": {
    "bag": "Antlerless Elk",
@@ -1078,15 +1078,15 @@
   },
   "D:640-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "500 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:650-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "50 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:652-01": {
    "bag": "Antlerless Mule Deer",
-   "limits": "25 25-300 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land. Permit must be used with a valid General Deer License."
+   "limits": "Only valid on private land. Permit must be used with a valid General Deer License. valid on private land."
   },
   "D:652-50": {
    "bag": "Antlered Buck Mule Deer",
@@ -1094,11 +1094,11 @@
   },
   "D:670-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "D:690-00": {
    "bag": "Antlerless Mule Deer",
-   "limits": "100 - Sep 05-Oct 18 Oct 24-Nov 29 Dec 12-Dec 20 - Only valid on private land."
+   "limits": "Only valid on private land. valid on private land."
   },
   "E:690-01": {
    "bag": "Antlerless Elk",
@@ -1114,7 +1114,7 @@
   },
   "D:007-00": {
    "bag": "Antlerless White-tailed Deer",
-   "limits": "10,000 1,000- Only valid on private lands."
+   "limits": "Only valid on private lands. valid on private lands."
   },
   "E:007-00": {
    "bag": "Antlerless Elk",
@@ -1138,7 +1138,7 @@
   },
   "E:799-00": {
    "bag": "Antlerless Elk",
-   "limits": "600 25-800 Only valid on private land in - - - - Nov 30-Feb 15 HDs 702, 704, and 705."
+   "limits": "Only valid on private land in - - - - Nov 30-Feb 15 HDs 702, 704, and 705. valid on private land in - - - - Nov 30-Feb 15 HDs 702, 704, and 705."
   },
   "E:702-20": {
    "bag": "Either-sex Elk",

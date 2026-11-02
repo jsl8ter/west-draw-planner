@@ -104,7 +104,8 @@
   function replay(system, blk, pts, tagsNow) {
     if (!blk) return null;
     const tags = tagsNow != null ? tagsNow : resTags(blk);
-    if (blk.apps != null && blk.drawn != null && blk.drawn >= blk.apps && (tagsNow == null || tagsNow >= blk.drawn)) return 1;   // everyone who applied drew
+    if (!blk.apps) return null;   // nobody applied: no evidence either way (and NR quota may be zero)
+    if (blk.drawn != null && blk.drawn >= blk.apps && (tagsNow == null || tagsNow >= blk.drawn)) return 1;   // everyone who applied drew
     if (system === "random" || !blk.by_pts || !sortRows(blk.by_pts).length) return blk.apps && tags != null ? Math.min(1, tags / blk.apps) : null;
     if (!tags) return 0;
     const rows = sortRows(blk.by_pts);
@@ -279,7 +280,7 @@
   // applicant's points as the "minimum"), otherwise the lowest level that drew.
   function ptsNeeded(blk) {
     if (!blk) return null;
-    if (blk.apps != null && blk.drawn != null && blk.drawn >= blk.apps) return 0;
+    if (blk.apps && blk.drawn != null && blk.drawn >= blk.apps) return 0;
     return blk.min_pts != null ? blk.min_pts : null;
   }
 

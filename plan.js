@@ -120,6 +120,8 @@
         if (!S.species.includes(h.species) || !weaponOk(h.weapon) || !tagOk(h) || restricted(h) || (!S.priv && privateLand(h))) continue;
         if (!nrOpen(h) || !isCurrent(h)) continue;   // no NR tags lately, or not offered in the latest draw
         const y = Odds.latestYear(h, "NR"); if (!y) continue;
+        // nonresident results must be from the hunt's latest draw, not an older year
+        if (y !== Object.keys(h.years).sort().pop()) continue;
         // need at least two years of nonresident history, and enough applicants to mean something
         const ys = Object.keys(h.years).filter(yy => h.years[yy].NR && h.years[yy].NR.apps != null);
         if (ys.length < 2) continue;

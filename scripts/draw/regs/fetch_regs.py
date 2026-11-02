@@ -122,6 +122,9 @@ def main():
         if st == "MT" and pdfs:
             sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
             import extract_mt; hunts = extract_mt.extract()
+        if st == "WY" and pdfs:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import extract_wy; hunts = extract_wy.extract()
         json.dump(got, open(os.path.join(OUT, f"{st}_tables.json"), "w"), indent=0)
         json.dump({"state": st, "generated": time.strftime("%Y-%m-%d"), "log": log, "hunts": hunts},
                   open(os.path.join(OUT, f"{st}.json"), "w"), indent=1)

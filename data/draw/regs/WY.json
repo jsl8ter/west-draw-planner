@@ -10,5 +10,1629 @@
   "   PDF 34 pages; first line: 'ANTELOPE, DEER AND ELK\\nWYOMING GAME AND FISH COMMISSION\\n2026\\nREGULATIONS'",
   "https://wgfd.wyo.gov/media/33523/download -> 404 235885 bytes"
  ],
- "hunts": {}
+ "hunts": {
+  "P-001-1": {
+   "bag": "Any antelope"
+  },
+  "P-023-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-001-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-023-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-002-1": {
+   "bag": "Any antelope"
+  },
+  "P-024-1": {
+   "bag": "Any antelope"
+  },
+  "P-003-1": {
+   "bag": "Any antelope"
+  },
+  "P-024-2": {
+   "bag": "Any antelope valid on private land"
+  },
+  "P-003-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-024-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-004-1": {
+   "bag": "Any antelope"
+  },
+  "P-024-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-005-1": {
+   "bag": "Any antelope"
+  },
+  "P-025-1": {
+   "bag": "Any antelope"
+  },
+  "P-006-1": {
+   "bag": "Any antelope"
+  },
+  "P-026-1": {
+   "bag": "Any antelope"
+  },
+  "P-007-1": {
+   "bag": "Any antelope"
+  },
+  "P-026-7": {
+   "bag": "Doe or fawn valid on or within (1) mile of irrigated land"
+  },
+  "P-008-1": {
+   "bag": "Any antelope"
+  },
+  "P-027-1": {
+   "bag": "Any antelope"
+  },
+  "P-009-1": {
+   "bag": "Any antelope"
+  },
+  "P-029-1": {
+   "bag": "Any antelope"
+  },
+  "P-009-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-029-2": {
+   "bag": "Any antelope valid on private land"
+  },
+  "P-010-1": {
+   "bag": "Any antelope"
+  },
+  "P-029-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-010-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-030-1": {
+   "bag": "Any antelope"
+  },
+  "P-011-1": {
+   "bag": "Any antelope"
+  },
+  "P-030-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-011-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-031-1": {
+   "bag": "Any antelope"
+  },
+  "P-011-7": {
+   "bag": "Doe or fawn valid in Converse or Niobrara counties"
+  },
+  "P-032-1": {
+   "bag": "Any antelope"
+  },
+  "P-015-1": {
+   "bag": "Any antelope"
+  },
+  "P-032-2": {
+   "bag": "Any antelope"
+  },
+  "P-015-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-032-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-016-1": {
+   "bag": "Any antelope"
+  },
+  "P-016-6": {
+   "bag": "Doe or fawn gated land"
+  },
+  "P-017-1": {
+   "bag": "Any antelope"
+  },
+  "P-034-1": {
+   "bag": "Any antelope"
+  },
+  "P-018-1": {
+   "bag": "Any antelope"
+  },
+  "P-034-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-018-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-037-1": {
+   "bag": "Any antelope"
+  },
+  "P-018-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-037-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-019-1": {
+   "bag": "Any antelope"
+  },
+  "P-038-1": {
+   "bag": "Any antelope"
+  },
+  "P-019-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-038-2": {
+   "bag": "Any antelope south of Wyoming Highway 34"
+  },
+  "P-020-1": {
+   "bag": "Any antelope"
+  },
+  "P-038-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-020-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-042-1": {
+   "bag": "Any antelope"
+  },
+  "P-021-1": {
+   "bag": "Any antelope"
+  },
+  "P-042-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-021-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-043-1": {
+   "bag": "Any antelope"
+  },
+  "P-022-1": {
+   "bag": "Any antelope"
+  },
+  "P-043-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-022-6": {
+   "bag": "Doe or fawn valid on private land north of Crazy Woman Creek"
+  },
+  "P-044-1": {
+   "bag": "Any antelope"
+  },
+  "P-044-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-023-1": {
+   "bag": "Any antelope"
+  },
+  "P-045-1": {
+   "bag": "Any antelope"
+  },
+  "P-023-2": {
+   "bag": "Any antelope valid on private land"
+  },
+  "P-045-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-046-1": {
+   "bag": "Any antelope"
+  },
+  "P-065-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-046-2": {
+   "bag": "Any antelope Doe or fawn valid north of the Little Popo Agie River;"
+  },
+  "P-046-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-066-1": {
+   "bag": "Any antelope"
+  },
+  "P-047-1": {
+   "bag": "Any antelope"
+  },
+  "P-067-1": {
+   "bag": "Any antelope"
+  },
+  "P-047-2": {
+   "bag": "Any antelope"
+  },
+  "P-067-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-047-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-068-1": {
+   "bag": "Any antelope"
+  },
+  "P-048-1": {
+   "bag": "Any antelope"
+  },
+  "P-068-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-048-2": {
+   "bag": "Any antelope"
+  },
+  "P-069-1": {
+   "bag": "Any antelope"
+  },
+  "P-048-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-069-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-050-1": {
+   "bag": "Any antelope"
+  },
+  "P-070-1": {
+   "bag": "Any antelope"
+  },
+  "P-050-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-070-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-050-0": {
+   "bag": "Any antelope, muzzle-loading firearms only"
+  },
+  "P-071-1": {
+   "bag": "Any antelope"
+  },
+  "P-051-1": {
+   "bag": "Any antelope"
+  },
+  "P-072-1": {
+   "bag": "Any antelope"
+  },
+  "P-051-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-072-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-052-1": {
+   "bag": "Any antelope"
+  },
+  "P-073-1": {
+   "bag": "Any antelope"
+  },
+  "P-052-2": {
+   "bag": "Any antelope valid south of North Spring Creek"
+  },
+  "P-053-1": {
+   "bag": "Any antelope"
+  },
+  "P-073-7": {
+   "bag": "County Road 125) and south of Burlington Northern"
+  },
+  "P-074-1": {
+   "bag": "Any antelope"
+  },
+  "P-075-1": {
+   "bag": "Any antelope"
+  },
+  "P-055-1": {
+   "bag": "Any antelope"
+  },
+  "P-075-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-056-1": {
+   "bag": "Any antelope"
+  },
+  "P-076-1": {
+   "bag": "Any antelope"
+  },
+  "P-057-1": {
+   "bag": "Any antelope"
+  },
+  "P-077-1": {
+   "bag": "Any antelope"
+  },
+  "P-057-2": {
+   "bag": "23S and B.L.M. Road 3310, and north and east of B.L.M."
+  },
+  "P-077-6": {
+   "bag": "rigated land"
+  },
+  "P-058-1": {
+   "bag": "Any antelope"
+  },
+  "P-077-7": {
+   "bag": "rigated land"
+  },
+  "P-059-1": {
+   "bag": "Any antelope Doe or fawn valid north of Wyoming Highway 30 or"
+  },
+  "P-060-1": {
+   "bag": "Any antelope"
+  },
+  "P-078-1": {
+   "bag": "Any antelope"
+  },
+  "P-061-1": {
+   "bag": "Any antelope"
+  },
+  "P-078-7": {
+   "bag": "Doe or fawn valid on irrigated land"
+  },
+  "P-062-1": {
+   "bag": "Any antelope"
+  },
+  "P-078-8": {
+   "bag": "Doe or fawn valid on irrigated land in Big Horn County"
+  },
+  "P-063-1": {
+   "bag": "Any antelope rigated land"
+  },
+  "P-064-1": {
+   "bag": "Any antelope"
+  },
+  "P-079-9": {
+   "bag": "Any antelope, archery only"
+  },
+  "P-065-1": {
+   "bag": "Any antelope"
+  },
+  "P-079-0": {
+   "bag": "Any antelope, muzzle-loading firearms only"
+  },
+  "P-080-1": {
+   "bag": "Any antelope"
+  },
+  "P-094-1": {
+   "bag": "Any antelope"
+  },
+  "P-094-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-094-7": {
+   "bag": "Doe or fawn valid on private irrigated land"
+  },
+  "P-080-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-095-1": {
+   "bag": "Any antelope"
+  },
+  "P-081-1": {
+   "bag": "Any antelope"
+  },
+  "P-096-1": {
+   "bag": "Any antelope"
+  },
+  "P-081-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-082-1": {
+   "bag": "Any antelope 117"
+  },
+  "P-082-2": {
+   "bag": "Any antelope valid east of Wyoming Highway 120 Any antelope valid in Area 97 south of U.S. Highway 26"
+  },
+  "P-082-6": {
+   "bag": "Doe or fawn 117 and in all of Area 117"
+  },
+  "P-082-8": {
+   "bag": "Doe or fawn valid in Big Horn County"
+  },
+  "P-083-1": {
+   "bag": "Any antelope"
+  },
+  "P-117-7": {
+   "bag": "or Wyoming Highway 134 and east of Eight Mile Road,"
+  },
+  "P-098-1": {
+   "bag": "Any antelope"
+  },
+  "P-098-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-099-1": {
+   "bag": "Any antelope"
+  },
+  "P-083-8": {
+   "bag": "gated land within Gooseberry Creek drainage"
+  },
+  "P-099-2": {
+   "bag": "Any antelope valid north and west of Wyoming High-"
+  },
+  "P-084-1": {
+   "bag": "Any antelope"
+  },
+  "P-100-1": {
+   "bag": "Any antelope"
+  },
+  "P-084-2": {
+   "bag": "Any antelope"
+  },
+  "P-100-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-084-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-101-1": {
+   "bag": "Any antelope"
+  },
+  "P-102-1": {
+   "bag": "Any antelope"
+  },
+  "P-086-1": {
+   "bag": "Any antelope"
+  },
+  "P-102-6": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-087-1": {
+   "bag": "Any antelope"
+  },
+  "P-087-2": {
+   "bag": "Any antelope"
+  },
+  "P-103-1": {
+   "bag": "Any antelope"
+  },
+  "P-088-1": {
+   "bag": "Any antelope"
+  },
+  "P-103-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-089-1": {
+   "bag": "Any antelope"
+  },
+  "P-106-1": {
+   "bag": "Any antelope"
+  },
+  "P-089-2": {
+   "bag": "Any antelope"
+  },
+  "P-106-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-090-1": {
+   "bag": "Any antelope"
+  },
+  "P-107-1": {
+   "bag": "Any antelope"
+  },
+  "P-090-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "P-091-1": {
+   "bag": "Any antelope"
+  },
+  "P-107-0": {
+   "bag": "only"
+  },
+  "P-108-1": {
+   "bag": "Any antelope"
+  },
+  "P-091-7": {
+   "bag": "(B.L.M. Road 3301), east of the Continental Divide"
+  },
+  "P-092-1": {
+   "bag": "Any antelope 505W)"
+  },
+  "P-093-1": {
+   "bag": "Any antelope"
+  },
+  "P-109-1": {
+   "bag": "Any antelope"
+  },
+  "P-093-7": {
+   "bag": "Doe or fawn valid on private irrigated land"
+  },
+  "P-109-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-110-1": {
+   "bag": "Any antelope ANTELOPE"
+  },
+  "P-110-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-111-1": {
+   "bag": "Any antelope"
+  },
+  "P-111-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-112-1": {
+   "bag": "Any antelope"
+  },
+  "P-113-1": {
+   "bag": "Any antelope have shorter horns, typically at ear-length. Does often grow horns,"
+  },
+  "P-113-2": {
+   "bag": "Any antelope which occasionally grow to the length of the ears."
+  },
+  "P-113-6": {
+   "bag": "Doe or fawn"
+  },
+  "P-114-1": {
+   "bag": "Any antelope which usually lack visible horns, the black cheek patches distinguish"
+  },
+  "P-115-1": {
+   "bag": "Any antelope to hunters holding licenses valid for only does and fawns."
+  },
+  "D-015-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-015-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-003-8": {
+   "bag": "vate land"
+  },
+  "D-017-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-019-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-008-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-008-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-021-8": {
+   "bag": "Doe or fawn white-tailed deer valid on pri-"
+  },
+  "D-022-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-010-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-022-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-010-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-022-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-010-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-026-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-023-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-024-3": {
+   "bag": "Any white-tailed deer valid on private land"
+  },
+  "D-024-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-024-8": {
+   "bag": "vate land"
+  },
+  "D-015-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-034-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-036-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-036-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-027-8": {
+   "bag": "area; also valid in Area 28"
+  },
+  "D-037-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-037-7": {
+   "bag": "mile of irrigated land within the Buffalo Creek"
+  },
+  "D-031-8": {
+   "bag": "vate land"
+  },
+  "D-040-3": {
+   "bag": "Any white-tailed deer; also valid in Area 35"
+  },
+  "D-041-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-047-8": {
+   "bag": "Doe or fawn white-tailed deer; also valid in Area 46"
+  },
+  "D-034-1": {
+   "bag": "Antlered mule deer or any white-tailed deer either antler or any white-tailed deer"
+  },
+  "D-034-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-034-7": {
+   "bag": "trona County Road 125) and south of Burlington"
+  },
+  "D-051-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-074-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-064-6": {
+   "bag": "Doe or fawn valid on private land 75,"
+  },
+  "D-060-1": {
+   "bag": "Any deer 75,"
+  },
+  "D-060-2": {
+   "bag": "Any deer off national forest 77"
+  },
+  "D-060-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-060-6": {
+   "bag": "Doe or fawn"
+  },
+  "D-060-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-078-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-079-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-064-2": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-080-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-081-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-065-3": {
+   "bag": "Antlered mule deer four (4) points or more on"
+  },
+  "D-065-8": {
+   "bag": "portion of Area 66 in Converse County Gen- Antlered mule deer or any white-tailed deer;"
+  },
+  "D-084-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-106-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-087-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-109-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-109-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-088-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-089-1": {
+   "bag": "Antlered deer"
+  },
+  "D-111-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-090-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-101-1": {
+   "bag": "Antlered deer"
+  },
+  "D-102-1": {
+   "bag": "Any deer"
+  },
+  "D-116-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-116-7": {
+   "bag": "Doe or la fa n w d n i n w t h h i e te W -ta o i o le d d R d iv e e e r r d v r a a l i i n d a o g n e private"
+  },
+  "D-117-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-118-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-105-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-119-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-119-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-119-2": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-120-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-120-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-120-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-121-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-121-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-121-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-122-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-122-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-122-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-123-7": {
+   "bag": "Doe or fawn valid on private land"
+  },
+  "D-124-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-124-7": {
+   "bag": "of irrigated land"
+  },
+  "D-124-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-125-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-127-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-127-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-128-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-128-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-128-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-130-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-131-7": {
+   "bag": "water County Road 5) and Old Stauffer Roads"
+  },
+  "D-145-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-145-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-149-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-149-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-157-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-141-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-157-6": {
+   "bag": "Doe or fawn"
+  },
+  "D-157-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-164-3": {
+   "bag": "Any white-tailed deer \u2022 Area 34 - All Types \u2022 Area 106 - Type 8"
+  },
+  "D-164-6": {
+   "bag": "\u2022 Area 74 - General \u2022 Area 157 - All Types"
+  },
+  "D-164-8": {
+   "bag": "Doe or fawn white-tailed deer \u2022 Area 87 - Type 1, 2"
+  },
+  "D-165-1": {
+   "bag": "Antlered mule deer or any white-tailed deer"
+  },
+  "D-165-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-165-8": {
+   "bag": "Doe or fawn white-tailed deer"
+  },
+  "D-171-3": {
+   "bag": "Any white-tailed deer"
+  },
+  "D-171-6": {
+   "bag": "Doe or fawn Department in accordance with Commission regulation may hunt deer starting five (5) days prior"
+  },
+  "E-001-1": {
+   "bag": "Any elk"
+  },
+  "E-011-6": {
+   "bag": "Cow or calf valid off national forest and off the Wick"
+  },
+  "E-001-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-011-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-002-6": {
+   "bag": "Cow or calf"
+  },
+  "E-012-6": {
+   "bag": "Cow or calf"
+  },
+  "E-003-8": {
+   "bag": "Unlimited Cow or calf 13,"
+  },
+  "E-006-1": {
+   "bag": "Any elk"
+  },
+  "E-013-6": {
+   "bag": "Cow or calf"
+  },
+  "E-006-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-015-6": {
+   "bag": "Cow or calf"
+  },
+  "E-006-8": {
+   "bag": "Unlimited Cow or calf valid off national forest"
+  },
+  "E-016-1": {
+   "bag": "Any elk"
+  },
+  "E-007-1": {
+   "bag": "Any elk"
+  },
+  "E-016-2": {
+   "bag": "Any elk"
+  },
+  "E-007-2": {
+   "bag": "Any elk"
+  },
+  "E-007-6": {
+   "bag": "Cow or calf"
+  },
+  "E-016-4": {
+   "bag": "Antlerless elk valid on private land; also valid on or"
+  },
+  "E-007-8": {
+   "bag": "Unlimited Cow or calf valid on private land in Albany and Car- within one-half (1/2) mile of irrigated land"
+  },
+  "E-016-6": {
+   "bag": "Cow or calf valid on private land; also valid on or"
+  },
+  "E-008-1": {
+   "bag": "Any elk"
+  },
+  "E-016-7": {
+   "bag": "Cow or calf"
+  },
+  "E-008-8": {
+   "bag": "Unlimited Cow or calf"
+  },
+  "E-019-1": {
+   "bag": "Any elk"
+  },
+  "E-009-6": {
+   "bag": "Cow or calf"
+  },
+  "E-019-2": {
+   "bag": "Any elk"
+  },
+  "E-010-7": {
+   "bag": "Cow or calf valid off national forest"
+  },
+  "E-019-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-010-6": {
+   "bag": "Cow or calf"
+  },
+  "E-019-5": {
+   "bag": "Antlerless elk"
+  },
+  "E-011-1": {
+   "bag": "Any elk"
+  },
+  "E-019-6": {
+   "bag": "Cow or calf"
+  },
+  "E-011-2": {
+   "bag": "Any elk"
+  },
+  "E-011-4": {
+   "bag": "Antlerless elk only"
+  },
+  "E-030-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-021-6": {
+   "bag": "Cow or calf"
+  },
+  "E-031-1": {
+   "bag": "Any elk"
+  },
+  "E-021-7": {
+   "bag": "Cow or calf valid on private land"
+  },
+  "E-031-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-022-1": {
+   "bag": "Any elk"
+  },
+  "E-032-1": {
+   "bag": "Any elk"
+  },
+  "E-032-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-033-1": {
+   "bag": "Any elk"
+  },
+  "E-022-2": {
+   "bag": "Antlered elk five (5) points or less on either antler"
+  },
+  "E-033-4": {
+   "bag": "Antlerless elk valid on private land east of Buffalo"
+  },
+  "E-022-6": {
+   "bag": "Cow or calf valid in the Muddy Creek drainage Creek and the Bar C Road (B.L.M. Road 6214)"
+  },
+  "E-023-1": {
+   "bag": "Any elk"
+  },
+  "E-033-6": {
+   "bag": "Cow or calf"
+  },
+  "E-034-1": {
+   "bag": "Any elk"
+  },
+  "E-023-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-034-7": {
+   "bag": "Cow or calf valid on private land on or within one (1)"
+  },
+  "E-023-6": {
+   "bag": "Cow or calf"
+  },
+  "E-035-1": {
+   "bag": "Any elk"
+  },
+  "E-035-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-023-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-024-1": {
+   "bag": "Any elk"
+  },
+  "E-035-7": {
+   "bag": "Cow or calf valid on private land"
+  },
+  "E-024-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-024-5": {
+   "bag": "Antlerless elk; also valid in Area 128"
+  },
+  "E-035-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-025-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-025-5": {
+   "bag": "Antlerless elk"
+  },
+  "E-036-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-025-6": {
+   "bag": "Cow or calf valid north of the Sweetwater River"
+  },
+  "E-025-7": {
+   "bag": "Cow or calf valid on or within one-half (1/2) mile of pri-"
+  },
+  "E-036-6": {
+   "bag": "Cow or calf valid off national forest north of Rock"
+  },
+  "E-027-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-036-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-028-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-037-6": {
+   "bag": "Cow or calf valid on private land"
+  },
+  "E-030-1": {
+   "bag": "Any elk"
+  },
+  "E-037-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-048-1": {
+   "bag": "Any elk"
+  },
+  "E-038-1": {
+   "bag": "Any elk"
+  },
+  "E-048-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-038-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-038-6": {
+   "bag": "Cow or calf valid off national forest and off the Wy-"
+  },
+  "E-048-6": {
+   "bag": "Cow or calf"
+  },
+  "E-038-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-048-7": {
+   "bag": "Cow or calf"
+  },
+  "E-039-1": {
+   "bag": "Any elk"
+  },
+  "E-049-1": {
+   "bag": "Any elk"
+  },
+  "E-039-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-049-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-039-6": {
+   "bag": "Cow or calf"
+  },
+  "E-039-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-049-6": {
+   "bag": "Cow or calf"
+  },
+  "E-040-1": {
+   "bag": "Any elk"
+  },
+  "E-049-7": {
+   "bag": "Cow or calf"
+  },
+  "E-040-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-051-1": {
+   "bag": "Any elk south and west of the Clark's Fork River"
+  },
+  "E-040-6": {
+   "bag": "Cow or calf valid off national forest"
+  },
+  "E-051-2": {
+   "bag": "Any elk north and east of the Clark's Fork River"
+  },
+  "E-051-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-040-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-041-1": {
+   "bag": "Any elk Bull Elk"
+  },
+  "E-041-2": {
+   "bag": "Any elk"
+  },
+  "E-041-3": {
+   "bag": "Any elk valid off national forest north of Trapper ELK CHARACTERISTICS"
+  },
+  "E-041-4": {
+   "bag": "Antlerless elk 1. Body - Tends to be 5"
+  },
+  "E-041-6": {
+   "bag": "Cow or calf"
+  },
+  "E-041-7": {
+   "bag": "Cow or calf valid off national forest north of Trap- legs."
+  },
+  "E-041-9": {
+   "bag": "Any elk, archery only usually a chestnut"
+  },
+  "E-045-1": {
+   "bag": "Any elk"
+  },
+  "E-045-4": {
+   "bag": "Antlerless elk 3. Snout \u2013 Their noses 3"
+  },
+  "E-045-5": {
+   "bag": "Antlerless elk"
+  },
+  "E-045-6": {
+   "bag": "Cow or calf 5. Antlers \u2013 On bulls,"
+  },
+  "E-045-7": {
+   "bag": "Cow or calf valid on or within one (1) mile of irrigat- older, the antlers have"
+  },
+  "E-045-9": {
+   "bag": "Any elk, archery only coming off a main"
+  },
+  "E-047-1": {
+   "bag": "Any elk"
+  },
+  "E-047-6": {
+   "bag": "Cow or calf"
+  },
+  "E-051-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-061-2": {
+   "bag": "Any elk"
+  },
+  "E-054-1": {
+   "bag": "Any elk valid south of the Clark's Fork River; also"
+  },
+  "E-061-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-061-6": {
+   "bag": "Cow or calf"
+  },
+  "E-054-2": {
+   "bag": "Any elk valid north of the Clark's Fork River and"
+  },
+  "E-061-7": {
+   "bag": "Cow or calf valid on or within one-half (1/2) mile of"
+  },
+  "E-054-3": {
+   "bag": "Any elk Creek drainage"
+  },
+  "E-054-6": {
+   "bag": "Cow or calf"
+  },
+  "E-054-7": {
+   "bag": "Cow or calf valid north of the Clark's Fork River and Creek drainage"
+  },
+  "E-061-9": {
+   "bag": "Any elk, archery only; also valid in that portion of"
+  },
+  "E-054-9": {
+   "bag": "Any elk, archery only; also valid in Area 65 Avalanche Creek"
+  },
+  "E-055-1": {
+   "bag": "Any elk"
+  },
+  "E-062-1": {
+   "bag": "Any elk"
+  },
+  "E-055-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-062-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-056-1": {
+   "bag": "Any elk; also valid in Area 55"
+  },
+  "E-056-6": {
+   "bag": "Cow or calf 64"
+  },
+  "E-056-7": {
+   "bag": "Cow or calf 63, 2 Sep. 1 Sep. 30 Oct. 1 Oct. 21 35 Any elk valid within the Washakie Wilderness"
+  },
+  "E-063-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-056-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-063-6": {
+   "bag": "Cow or calf valid off national forest north of Goose-"
+  },
+  "E-058-1": {
+   "bag": "Any elk berry Creek"
+  },
+  "E-058-6": {
+   "bag": "Cow or calf"
+  },
+  "E-064-6": {
+   "bag": "Cow or calf valid in that portion of the Cotton-"
+  },
+  "E-059-1": {
+   "bag": "Any elk Creek drainage downstream of the Grass Creek/Lit-"
+  },
+  "E-059-6": {
+   "bag": "Cow or calf"
+  },
+  "E-064-7": {
+   "bag": "Cow or calf valid south of and including the Cotton-"
+  },
+  "E-059-7": {
+   "bag": "Cow or calf wood Creek drainage"
+  },
+  "E-065-1": {
+   "bag": "Any elk"
+  },
+  "E-059-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-065-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-065-6": {
+   "bag": "Cow or calf"
+  },
+  "E-060-9": {
+   "bag": "Any elk, archery only"
+  },
+  "E-061-1": {
+   "bag": "Any elk; also valid in that portion of Area 62 within"
+  },
+  "E-065-7": {
+   "bag": "Cow or calf"
+  },
+  "E-066-6": {
+   "bag": "Cow or calf"
+  },
+  "E-077-6": {
+   "bag": "Cow or calf; permission slips for the National Elk"
+  },
+  "E-067-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-067-6": {
+   "bag": "Cow or calf"
+  },
+  "E-078-1": {
+   "bag": "Any elk valid off national forest"
+  },
+  "E-078-2": {
+   "bag": "Any elk valid on private land"
+  },
+  "E-067-7": {
+   "bag": "Cow or calf valid west of the Wiggins Fork and west"
+  },
+  "E-078-6": {
+   "bag": "Cow or calf valid off national forest"
+  },
+  "E-080-6": {
+   "bag": "Cow or calf"
+  },
+  "E-068-6": {
+   "bag": "Cow or calf"
+  },
+  "E-069-6": {
+   "bag": "Cow or calf"
+  },
+  "E-082-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-073-6": {
+   "bag": "Cow or calf"
+  },
+  "E-084-1": {
+   "bag": "Any elk valid on private land west of U.S. Highway"
+  },
+  "E-075-4": {
+   "bag": "Antlerless elk; except the Snake River Bottom and 191 and north and east of the Snake River starting at"
+  },
+  "E-075-6": {
+   "bag": "Cow or calf; except the Snake River Bottom and An-"
+  },
+  "E-084-6": {
+   "bag": "Cow or calf; except that portion of Area 84 east and"
+  },
+  "E-085-6": {
+   "bag": "Cow or calf"
+  },
+  "E-094-6": {
+   "bag": "Cow or calf"
+  },
+  "E-094-7": {
+   "bag": "Cow or calf; except that portion of Area 94 between"
+  },
+  "E-086-6": {
+   "bag": "Cow or calf and South Piney-Fish Creek Road (Sublette Coun-"
+  },
+  "E-087-1": {
+   "bag": "Antlered elk valid within the interior of the Dell Piney Creek"
+  },
+  "E-095-1": {
+   "bag": "Any elk"
+  },
+  "E-095-2": {
+   "bag": "Any elk valid within the Green River drainage up-"
+  },
+  "E-087-6": {
+   "bag": "Cow or calf valid south and east of Dell Creek, and"
+  },
+  "E-087-7": {
+   "bag": "Cow or calf; also valid in that portion of Area 84"
+  },
+  "E-095-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-095-5": {
+   "bag": "Antlerless elk valid within the Green River drain-"
+  },
+  "E-088-1": {
+   "bag": "Any elk"
+  },
+  "E-095-6": {
+   "bag": "Cow or calf"
+  },
+  "E-090-6": {
+   "bag": "Cow or calf"
+  },
+  "E-096-1": {
+   "bag": "Any elk"
+  },
+  "E-096-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-091-1": {
+   "bag": "Any elk"
+  },
+  "E-096-6": {
+   "bag": "Cow or calf"
+  },
+  "E-096-8": {
+   "bag": "Unlimited Cow or calf valid on private land west of the elk"
+  },
+  "E-091-6": {
+   "bag": "Cow or calf"
+  },
+  "E-091-7": {
+   "bag": "Cow or calf valid off national forest west of U.S."
+  },
+  "E-097-1": {
+   "bag": "Any elk"
+  },
+  "E-097-6": {
+   "bag": "Cow or calf"
+  },
+  "E-092-6": {
+   "bag": "Cow or calf"
+  },
+  "E-098-1": {
+   "bag": "Any elk"
+  },
+  "E-093-1": {
+   "bag": "Any elk"
+  },
+  "E-093-6": {
+   "bag": "Cow or calf"
+  },
+  "E-098-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-093-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-098-6": {
+   "bag": "Cow or calf"
+  },
+  "E-106-1": {
+   "bag": "Any elk valid west of the Black's Fork River or north"
+  },
+  "E-098-8": {
+   "bag": "Unlimited Cow or calf valid on private land of Wyoming Highway 410; also valid in Area 105"
+  },
+  "E-099-1": {
+   "bag": "Any elk"
+  },
+  "E-106-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-099-4": {
+   "bag": "Antlerless elk Black's Fork River or north of Wyoming Highway 410"
+  },
+  "E-100-1": {
+   "bag": "Any elk"
+  },
+  "E-106-7": {
+   "bag": "Cow or calf valid on private land or west of the"
+  },
+  "E-100-2": {
+   "bag": "Any elk valid within two (2) miles of the Far-"
+  },
+  "E-107-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-100-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-100-5": {
+   "bag": "Antlerless elk"
+  },
+  "E-107-7": {
+   "bag": "Cow or calf valid in Sweetwater County"
+  },
+  "E-100-7": {
+   "bag": "Cow or calf valid east of U.S. Highway 191, south of"
+  },
+  "E-108-1": {
+   "bag": "Any elk"
+  },
+  "E-102-6": {
+   "bag": "Cow or calf"
+  },
+  "E-108-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-102-7": {
+   "bag": "Cow or calf"
+  },
+  "E-108-6": {
+   "bag": "Cow or calf"
+  },
+  "E-103-6": {
+   "bag": "Cow or calf valid on or within one-half (1/2) mile of"
+  },
+  "E-110-6": {
+   "bag": "Cow or calf"
+  },
+  "E-111-1": {
+   "bag": "Any elk"
+  },
+  "E-104-6": {
+   "bag": "Cow or calf; also valid in Area 105 in Lincoln County"
+  },
+  "E-111-2": {
+   "bag": "Antlered elk five (5) points or less on either antler"
+  },
+  "E-104-7": {
+   "bag": "Cow or calf valid on or within one-half (1/2) mile of"
+  },
+  "E-111-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-111-6": {
+   "bag": "Cow or calf"
+  },
+  "E-113-1": {
+   "bag": "Any elk"
+  },
+  "E-113-3": {
+   "bag": "Spike or antlerless elk"
+  },
+  "E-105-6": {
+   "bag": "Cow or calf"
+  },
+  "E-113-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-116-1": {
+   "bag": "Any elk valid off national forest"
+  },
+  "E-124-7": {
+   "bag": "Cow or calf valid south and east of Standard Road/"
+  },
+  "E-116-8": {
+   "bag": "Unlimited Cow or calf valid on private land bon County"
+  },
+  "E-117-1": {
+   "bag": "Any elk"
+  },
+  "E-125-1": {
+   "bag": "Any elk"
+  },
+  "E-117-3": {
+   "bag": "Spike or antlerless elk"
+  },
+  "E-125-6": {
+   "bag": "Cow or calf"
+  },
+  "E-117-6": {
+   "bag": "Cow or calf"
+  },
+  "E-117-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-118-1": {
+   "bag": "Antlered elk"
+  },
+  "E-118-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-126-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-118-7": {
+   "bag": "Cow or calf valid south of the Mineral X Road"
+  },
+  "E-120-1": {
+   "bag": "Any elk"
+  },
+  "E-120-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-120-6": {
+   "bag": "Cow or calf"
+  },
+  "E-122-1": {
+   "bag": "Any elk"
+  },
+  "E-122-2": {
+   "bag": "Antlered elk five (5) points or less on either antler"
+  },
+  "E-122-6": {
+   "bag": "Cow or calf"
+  },
+  "E-129-6": {
+   "bag": "Cow or calf; also valid in that portion of Area 2 with-"
+  },
+  "E-122-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-129-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-123-1": {
+   "bag": "Any elk"
+  },
+  "E-123-4": {
+   "bag": "Antlerless elk"
+  },
+  "E-123-6": {
+   "bag": "Cow or calf"
+  },
+  "E-123-8": {
+   "bag": "Unlimited Cow or calf valid on private land"
+  },
+  "E-124-1": {
+   "bag": "Any elk a. There shall be special archery elk hunting seasons on the dates specified in Section 2. Spe-"
+  },
+  "E-124-2": {
+   "bag": "Antlered elk four (4) points or less on either ant- cial archery hunting seasons are specific to individual hunt areas by license type. During the"
+  },
+  "E-124-4": {
+   "bag": "Antlerless elk"
+  }
+ }
 }

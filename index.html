@@ -817,7 +817,7 @@ const isAntlerless=h=>bagOf(h)==="antlerless";
 const trophyOk=h=>{const b=bagOf(h);return b==="antlered"||b==="either"};
 const MALE={E:"bull",D:"buck",C:"buck",P:"buck"},FEM={E:"cow",D:"doe",C:"doe",P:"doe"};
 function bagLabel(h){const b=bagOf(h),s=h.species;
-  return b==="antlered"?`Antlered (${MALE[s]})`:b==="either"?"Either sex":b==="spike"?"Spike only":b==="antlerless"?`Antlerless (${FEM[s]})`:b==="other"?"Whitetail / blacktail only":"Bag limit not confirmed"}
+  return b==="antlered"?`Antlered (${MALE[s]})`:b==="either"?"Either sex":b==="spike"?(/points? or (less|fewer)/i.test(h.bag_text||"")?"Point-restricted (small antlers only)":"Spike only"):b==="antlerless"?`Antlerless (${FEM[s]})`:b==="other"?"Whitetail / blacktail only":"Bag limit not confirmed"}
 window.bagOf=bagOf;window.trophyOk=trophyOk;window.bagLabel=bagLabel;
 // a hunt is still offered if it was in the state's latest draw for that species (CUR built in loadData)
 let CUR={};
@@ -1265,7 +1265,8 @@ function huntCard(st,h){
   const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
   return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${bagLabel(h)} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
   ${h.bag_text?`<p class="note"><b>Bag limit:</b> ${escH(h.bag_text)}</p>`:""}
-  ${bagOf(h)==="spike"?`<p class="warn">Spike-only tag: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
+  ${bagOf(h)==="spike"?`<p class="warn">${bagLabel(h)}: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
+  ${y&&y!==Object.keys(h.years).sort().pop()?`<p class="warn">No nonresident results since ${y}: nonresidents may not get tags here now.</p>`:""}
   ${!isCurrent(h)?`<p class="warn">Not offered in the ${CUR[h._st+h.species]} draw (last drawn ${Object.keys(h.years).sort().pop()}).</p>`:""}
   ${s&&s.combo!=null?`<p class="note">Includes the nonresident ${h.species==="E"?"Big Game Combo":"Deer or Big Game Combo"} draw you need first: permit ${pct(s.permitOdds)} × combo ${pct(s.combo)} at your Montana preference points.</p>`:""}
   ${s&&s.pooled?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}. Nonresidents draw from the same pool as residents here, so your odds use the whole pool's results.</p>`:nr.apps!=null&&nr.apps<5&&sys!=="random"?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}: treat the odds as rough.</p>`:""}

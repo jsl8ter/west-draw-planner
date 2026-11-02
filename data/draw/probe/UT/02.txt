@@ -1,158 +1,410 @@
-URL: https://wildlife.utah.gov/pdf/bg/2021/21_bg-odds.pdf
-FINAL: https://wildlife.utah.gov/pdf/bg/2021/21_bg-odds.pdf
-TYPE: application/pdf
+URL: https://wildlife.utah.gov/bg-odds.html
+FINAL: https://wildlife.utah.gov/biggame/odds
+TYPE: text/html; charset=utf-8
 DISPOSITION: 
-BYTES: 10570345
+BYTES: 118330
 
-PDF PAGES: 566
+HTML TEXT:
+ Drawing odds and points reports - Big game - Utah Division of Wildlife Resources An official website of the state of Utah. Here is how you know Official website of the state of Utah Official Utah websites use utah.gov in the browser's address bar. A Utah.gov website belongs to an official government organization in the state of Utah. Be careful when sharing sensitive information. Share sensitive information only on secure official Utah.gov websites. An official website of the state of Utah &copy; State of Utah An official website How do I know it's official? Learn more. Division&nbsp;of Wildlife&nbsp;Resources Wildlife&nbsp;Resources What would you like to do? Some items need attention. Select one: Report your harvest Buy a hunting or fishing license Download a guidebook UtahID sign in Close An official website of the state of Utah. Here's how you know: Official Utah websites use utah.gov in the browser's address bar. A Utah.gov website belongs to an official government organization in the state of Utah. Be careful when sharing sensitive information. Share sensitive information only on secure official Utah.gov websites. An official website &copy; State of Utah Home Hunting Hunting in Utah Species Big game Black bear Cougar Coyote Furbearers Upland game &amp; turkey Waterfowl &amp; migratory birds Report your harvest Buy a hunting license Hunting permits &amp; drawings Hunting regulations &amp; guidebooks Guidebooks Administrative rules Utah wildlife statutes Hunter education Utah Hunt Planner: maps, season dates &amp; more Dedicated Hunters volunteer program Walk-in Access properties Fishing Fishing in Utah Buy a fishing license Fishing regulations &amp; guidebook Guidebooks Administrative rules Utah wildlife statutes Find a fishing spot Fish Utah: interactive maps &amp; more Blue Ribbon fisheries Community ponds Fish stocking reports Walk-in Access properties Fish hatcheries Utah Cutthroat Slam Aquatic invasive species: quagga mussels, milfoil &amp; more Discover Learn more about Utah's wildlife Conservation programs Utah Natural Heritage Program Utah Species Field Guide Utah Species Protection Account: native species protection Greater sage-grouse conservation Great Salt Lake Ecosystem Program Wildlife Action Plan DWR lands Information about DWR lands Wildlife/Waterfowl Management Areas Cooperative Wildlife Management Units Habitat Council Walk-in Access properties Education centers Eccles Wildlife Education Center Hardware Wildlife Education Center Shooting ranges Cache Valley Public Shooting Range Lee Kay Public Shooting Range Shooting sports National Archery in the Schools Program Utah Hunting Skills Challenge Wildlife events calendar Wildlife viewing Licenses &amp; permits Licenses &amp; permits home Buy a hunting or fishing license Hunt drawings: access your drawing history, points &amp; results Licenses &amp; permits FAQ Certificates of Registration Apply to be a guide or outfitter Additional permits Falconry Fish, mollusks &amp; crustaceans (collection, importation &amp; possession) Reptiles &amp; amphibians WMA digital access permit Remaining and over-the-counter permits Fees News Utah Wildlife News Wildlife blog &quot;Wild&quot; podcast Wildlife recipes Subscribe to updates Contact us Contact DWR offices Report a wildlife crime About the DWR Who we are Careers Funding &amp; expenditures Submit a GRAMA request: records, violations, background checks, etc. Public meetings Buy a wildlife license plate Share your feedback Search again Search now --> Search UtahID sign in Big game Big game Hunting big game in Utah Baiting big game FAQ Annual reports Harvest &amp; survey data Drawing odds &amp; points reports Main Menu Profile Main menu Home Hunting Hunting in Utah Species Big game Black bear Cougar Coyote (Predator Control Program) Furbearer Upland game &amp; turkey Waterfowl &amp; migratory game birds Report your harvest Buy a hunting license Hunting regulations &amp; guidebooks Guidebooks Administrative rules Utah wildlife statutes Hunter education Utah Hunt Planner: maps, season dates &amp; more Dedicated Hunters volunteer program Walk-in Access properties Fishing Fishing in Utah Buy a fishing license Fishing regulations &amp; guidebook Guidebooks Administrative rules Utah wildlife statutes Find a fishing spot Fish Utah: interactive maps &amp; more Blue Ribbon fisheries Community ponds &amp; fisheries Fish stocking reports Walk-in Access properties Fish hatcheries Utah Cutthroat Slam Aquatic invasive species: mussels, milfoil &amp; more --> Aquatic invasive species: mussels, milfoil &amp; more Discover Learn more about Utah's wildlife Conservation programs Utah Natural Heritage Program Utah Species Field Guide Utah Species Protection Account: native species protection Greater sage-grouse conservation Great Salt Lake Ecosystem Program Wildlife Action Plan DWR lands Information about DWR lands Wildlife/Waterfowl Management Areas Cooperative Wildlife Management Units Habitat Council Walk-in Access properties Education centers Eccles Wildlife Education Center Hardware Wildlife Education Center Shooting ranges Cache Valley Public Shooting Range Lee Kay Public Shooting Range Shooting sports National Archery in the Schools Program Utah Hunting Skills Challenge Wildlife events calendar Wildlife viewing Licenses &amp; permits Licenses &amp; permits home Buy a hunting or fishing license Hunt drawings: access your drawing history, points &amp; results Licenses &amp; permits FAQ Certificates of Registration Apply to be a guide or outfitter Additional permits Falconry Fish, mollusks &amp; crustaceans: collection, importation &amp; possession Reptiles &amp; amphibians WMA digital access permit Remaining and over-the-counter permits Fees News Utah Wildlife News Wildlife blog Blog de vida silvestre (en español) --> "Wild" podcast Wildlife recipes Subscribe to updates Contact us Contact DWR offices Report a wildlife crime Donate --> About the DWR Who we are Careers Funding &amp; expenditures Submit a GRAMA request: records, violations, background checks, etc. Public meetings Buy a wildlife license plate Share your feedback Utah ID menu UtahID Profile Check your drawing results. Also, check the new draw odds page for the latest information. Big game drawing odds &amp; points reports Information on past hunt applications for big game species Are you looking for other species' reports, such as black bear , cougar or wild turkey ? Disclaimer: The following drawing odds and points reports should be used for informational purposes only. These reports do not guarantee that you will draw a permit in any given year. When you review the drawing odds, please keep in mind that the reports only reflect hunters' first-choice selections. Due to the complexity of the odds for hunters' second through fifth choices &mdash; which can be affected by residency status, youth status, group applications, dedicated hunter selections and weapon types &mdash; those odds are not included in these reports. 2025 General-season permits General-season buck deer draw results &ndash; PDF (1.6 MB) Lifetime general-season deer draw results &ndash; PDF (1.4 MB) Youth general-season deer draw results &ndash; PDF (1.6 MB) Youth draw-only elk draw results &ndash; PDF (91.11 KB) Limited-entry permits Big game limited-entry &amp; once-in-a-lifetime draw results &ndash; PDF (12.1 MB) Antlerless permits Antlerless big game draw results &ndash; PDF (3.4 MB) Youth antlerless big game draw results &ndash; PDF (2.7 MB) Points Big game and antlerless bonus and preference point purchase results &ndash; PDF (208.32 KB) Dedicated Hunter permits Dedicated Hunter deer draw results &ndash; PDF (537.75 KB) Youth Dedicated Hunter deer draw results &ndash; PDF (426.25 KB) 2024 General-season permits General-season buck deer draw results &ndash; PDF (448.96 KB) Lifetime general-season deer draw results &ndash; PDF (427.34 KB) Youth general-season deer draw results &ndash; PDF (431.9 KB) Youth draw-only elk bonus point draw results &ndash; PDF (74.31 KB) Limited-entry permits Big game limited-entry &amp; once-in-a-lifetime draw results &ndash; PDF (3 MB) Antlerless permits Antlerless big game draw results &ndash; PDF (756.7 KB) Youth antlerless big game draw results &ndash; PDF (677.63 KB) Points Big game and antlerless bonus and preference point purchase results &ndash; PDF (90.8 KB) Youth draw-only elk bonus point draw results &ndash; PDF (74.31 KB) Dedicated Hunter permits Dedicated Hunter deer draw results &ndash; PDF (196.38 KB) Youth Dedicated Hunter deer draw results &ndash; PDF (177.39 KB) Sportsman permits Sportsman draw odds report &ndash; PDF (110.81 KB) 2023 General-season permits General-season deer draw results &ndash; PDF (452.61 KB) Lifetime general-season deer draw results &ndash; PDF (403.24 KB) Youth general-season deer draw results &ndash; PDF (429.12 KB) Youth draw-only elk bonus point draw results &ndash; PDF (74.91 KB) Limited-entry permits Big game limited-entry &amp; once-in-a-lifetime draw results &ndash; PDF (2.9 MB) Antlerless permits Antlerless big game draw results &ndash; PDF (752.72 KB) Youth antlerless big game draw results &ndash; PDF (673.01 KB) Points Big game and antlerless bonus and preference point purchase results &ndash; PDF (92.31 KB) Youth draw-only elk bonus point draw results &ndash; PDF (74.91 KB) Dedicated Hunter permits Dedicated Hunter deer draw results &ndash; PDF (175.67 KB) Youth Dedicated Hunter deer draw results &ndash; PDF (145.01 KB) Sportsman permits Sportsman draw odds report &ndash; PDF (99.85 KB) 2022 General-season permits General-season buck deer draw results &ndash; PDF (1.4 MB) Lifetime general-season deer draw results &ndash; PDF (1.3 MB) Youth draw-only elk bonus point draw results &ndash; PDF (87.34 KB) Youth general-season deer draw results &ndash; PDF (1.4 MB) Limited-entry permits Big game limited-entry &amp; once-in-a-lifetime draw results &ndash; PDF (2.7 MB) Antlerless permits Antlerless big game draw results &ndash; PDF (2.8 MB) Youth antlerless big game draw results &ndash; PDF (2.3 MB) Points Youth draw-only elk bonus point draw results &ndash; PDF (87.34 KB) Dedicated Hunter permits Dedicated Hunter deer draw results &ndash; PDF (520.01 KB) Youth Dedicated Hunter deer draw results &ndash; PDF (361.05 KB) Sportsman permits Sportsman draw odds report &ndash; PDF (120.33 KB) 2021 General-season permits General-season buck deer draw results &ndash; PDF (1.4 MB) Lifetime general-season deer draw results &ndash; PDF (1.3 MB) Youth draw-only elk bonus point draw results &ndash; PDF (86.87 KB) Youth general-season deer draw results &ndash; PDF (1.3 MB) Limited-entry permits Big game limited-entry &amp; once-in-a-lifetime draw results &ndash; PDF (10.1 MB) Antlerless permits Antlerless big game draw results &ndash; PDF (2.7 MB) Youth antlerless big game draw results &ndash; PDF (2.5 MB) Points Youth draw-only elk bonus point draw results &ndash; PDF (86.87 KB) Dedicated Hunter permits Dedicated Hunter deer draw results &ndash; PDF (519.43 KB) Youth Dedicated Hunter deer draw results &ndash; PDF (334.95 KB) Sportsman permits Sportsman draw odds report &ndash; PDF (153.05 KB) 2020 General-season permits General-season buck deer draw results &ndash; PDF (1.3 MB) Lifetime general-season deer draw results &ndash; PDF (1.3 MB) Youth draw-only elk bonus point draw results &ndash; PDF (89.64 KB) Youth general-season deer draw results &ndash; PDF (1.3 MB) Limited-entry permits Big game limited-entry &amp; once-in-a-lifetime draw results &ndash; PDF (9.7 MB) Antlerless permits Antlerless big game draw results &ndash; PDF (2.8 MB) Youth antlerless big game draw results &ndash; PDF (2.6 MB) Points Youth draw-only elk bonus point draw results &ndash; PDF (89.64 KB) Dedicated Hunter permits Dedicated Hunter deer draw results &ndash; PDF (481.92 KB) Youth Dedicated Hunter deer draw results &ndash; PDF (387.49 KB) Sportsman permits Sportsman draw odds report &ndash; PDF (130.8 KB) 2019 2019-20 sportsman drawing odds report 2019 big game drawing odds report for limited-entry and once-in-a-lifetime 2019 general-season deer drawing odds report 2019 Dedicated Hunter drawing odds report 2019 lifetime general-season deer drawing odds report 2019 youth any bull elk drawing odds report 2019 youth Dedicated Hunter drawing odds report 2019 youth general-season deer drawing odds report 2019 antlerless drawing odds report 2019 youth antlerless drawing odds report 2018 2018-19 sportsman drawing odds report 2018 big game drawing odds report for limited-entry and once-in-a-lifetime 2018 Dedicated Hunter drawing odds report 2018 general-season deer drawing odds report 2018 lifetime general-season deer drawing odds report 2018 youth any bull elk drawing odds report 2018 youth general-season deer drawing odds report 2018 youth any bull elk drawing odds report 2018 antlerless drawing odds report 2018 youth antlerless drawing odds report 2018 sportsman drawing odds report 2017 2017 sportsman drawing odds report 2017 big game drawing odds report 2017 preference point summary by residency and species 2017 general-season deer preference point purchase, bonus points, drawing odds report 2017 dedicated hunter preference point purchase, bonus points, drawing odds report 2017 lifetime general-season deer permit drawing odds report 2017 youth general-season deer preference point purchase, bonus points, drawing odds report 2017 youth any bull elk drawing odds report 2017 antlerless preference point draw results 2017 antlerless bonus point draw results 2017 antlerless bonus point purchase results 2017 antlerless youth preference point draw results 2017 antlerless youth bonus point draw results 2016 2016 sportsman drawing odds report 2016 big game drawing odds report 2016 general-season deer preference point purchase, bonus points, drawing odds report 2016 preference point summary by residency and species 2016 lifetime general-season deer permit drawing odds report 2016 dedicated hunter preference point purchase, bonus points, drawing odds report 2016 youth any bull elk drawing odds report 2016 antlerless drawing odds report 2016 antlerless preference point draw results 2016 antlerless bonus point draw results 2016 antlerless bonus point purchase results 2015 2015 big game drawing odds report 2015 general-season deer preference point purchase, bonus points, drawing odds report 2015 preference point summary by residency and species 2015 lifetime general-season deer permit drawing odds report 2015 dedicated hunter preference point purchase, bonus points, drawing odds report 2015 youth any bull elk drawing odds report 2015 antlerless drawing odds report 2015 antlerless preference point draw results 2015 antlerless bonus point draw results 2015 antlerless bonus point purchase results 2014 2014 sportsman drawing odds report 2014 big game drawing odds report 2014 bison bonus point purchase, bonus points, drawing odds report 2014 bull moose bonus point purchase, 
 
-
------ PAGE 1 TEXT -----
-2021 Draw 5, Big Game Bonus Point Purchase Results 06/18/2021
-Species: DEER Page 1
-Bonus Resident Nonresident
-Points Applicants Applicants
-28
-27 1 4
-26 3
-25 6 8
-24 7 19
-23 17 29
-22 30 30
-21 42 26
-20 45 55
-19 71 90
-18 97 108
-17 100 105
-16 109 131
-15 135 157
-14 152 157
-13 178 205
-12 238 1,057
-11 264 692
-10 301 630
-9 302 614
-8 327 593
-7 311 666
-6 390 737
-5 423 823
-4 500 1,159
-3 568 1,261
-2 523 1,604
-1 660 1,783
-0 805 2,428
-Totals 6,602 15,174
-
------ PAGE 2 TEXT -----
-2021 Draw 5, Big Game Draw Results 06/16/2021
-Species: LIMITED ENTRY DEER Page 1
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-28 0 0 0 0 N/A 28 0 0 0 0 N/A
-27 0 0 0 0 N/A 27 0 0 0 0 N/A
-26 0 0 0 0 N/A 26 3 2 0 2 1 in 1.5
-25 8 2 0 2 1 in 4.0 25 8 1 0 1 1 in 8.0
-24 15 5 0 5 1 in 3.0 24 30 7 0 7 1 in 4.3
-23 48 20 0 20 1 in 2.4 23 37 0 0 0 N/A
-22 87 11 0 11 1 in 7.9 22 74 2 0 2 1 in 37.0
-21 137 16 0 16 1 in 8.6 21 103 1 0 1 1 in 103.0
-20 246 33 2 35 1 in 7.0 20 148 6 0 6 1 in 24.7
-19 345 11 4 15 1 in 23.0 19 159 7 0 7 1 in 22.7
-18 416 26 2 28 1 in 14.9 18 197 7 1 8 1 in 24.6
-17 560 30 9 39 1 in 14.4 17 225 2 1 3 1 in 75.0
-16 657 35 6 41 1 in 16.0 16 235 0 1 1 1 in 235.0
-15 725 41 11 52 1 in 13.9 15 296 3 4 7 1 in 42.3
-14 980 119 19 138 1 in 7.1 14 320 1 5 6 1 in 53.3
-13 1087 36 23 59 1 in 18.4 13 372 1 2 3 1 in 124.0
-12 1427 77 25 102 1 in 14.0 12 1874 2 15 17 1 in 110.2
-11 1628 54 32 86 1 in 18.9 11 898 1 1 2 1 in 449.0
-10 1751 38 42 80 1 in 21.9 10 767 2 4 6 1 in 127.8
-9 2025 25 61 86 1 in 23.5 9 729 0 3 3 1 in 243.0
-8 1999 32 42 74 1 in 27.0 8 731 1 2 3 1 in 243.7
-7 2140 20 66 86 1 in 24.9 7 830 3 5 8 1 in 103.8
-6 2317 16 53 69 1 in 33.6 6 914 1 5 6 1 in 152.3
-5 2531 12 46 58 1 in 43.6 5 907 0 2 2 1 in 453.5
-4 3193 12 61 73 1 in 43.7 4 1233 0 5 5 1 in 246.6
-3 3273 1 77 78 1 in 42.0 3 1314 0 6 6 1 in 219.0
-2 3330 2 54 56 1 in 59.5 2 1502 0 5 5 1 in 300.4
-1 3676 0 33 33 1 in 111.4 1 1462 0 7 7 1 in 208.9
-0 4342 0 25 25 1 in 173.7 0 1958 0 5 5 1 in 391.6
-Totals 38943 674 693 1367 1 in 28.5 Totals 17326 50 79 129 1 in 134.3
-
------ PAGE 3 TEXT -----
-2021 Draw 5, Big Game Bonus Point Draw Results 06/15/2021
-Hunt: DB1000 Premium Le Archery Buck Deer - Henry Mtns - Archery Page 15
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-28 0 0 0 0 N/A 28 0 0 0 0 N/A
-27 0 0 0 0 N/A 27 0 0 0 0 N/A
-26 0 0 0 0 N/A 26 0 0 0 0 N/A
-25 0 0 0 0 N/A 25 0 0 0 0 N/A
-24 0 0 0 0 N/A 24 1 0 0 0 N/A
-23 0 0 0 0 N/A 23 0 0 0 0 N/A
-22 0 0 0 0 N/A 22 2 0 0 0 N/A
-21 3 3 0 3 1 in 1.0 21 5 0 0 0 N/A
-20 5 2 0 2 1 in 2.5 20 8 0 0 0 N/A
-19 11 0 0 0 N/A 19 4 0 0 0 N/A
-18 8 0 0 0 N/A 18 3 0 0 0 N/A
-17 10 0 0 0 N/A 17 3 0 0 0 N/A
-16 12 0 0 0 N/A 16 8 0 0 0 N/A
-15 11 0 0 0 N/A 15 9 0 0 0 N/A
-14 22 0 0 0 N/A 14 7 0 0 0 N/A
-13 17 0 0 0 N/A 13 13 0 0 0 N/A
-12 25 0 0 0 N/A 12 110 0 0 0 N/A
-11 22 0 1 1 1 in 22.0 11 44 0 0 0 N/A
-10 25 0 0 0 N/A 10 31 0 0 0 N/A
-9 27 0 0 0 N/A 9 28 0 0 0 N/A
-8 34 0 0 0 N/A 8 40 0 1 1 1 in 40.0
-7 26 0 0 0 N/A 7 38 0 0 0 N/A
-6 25 0 1 1 1 in 25.0 6 34 0 0 0 N/A
-5 36 0 1 1 1 in 36.0 5 53 0 0 0 N/A
-4 32 0 0 0 N/A 4 69 0 0 0 N/A
-3 45 0 1 1 1 in 45.0 3 62 0 0 0 N/A
-2 24 0 0 0 N/A 2 66 0 0 0 N/A
-1 49 0 0 0 N/A 1 62 0 0 0 N/A
-0 35 0 0 0 N/A 0 75 0 0 0 N/A
-Totals 504 5 4 9 1 in 56.0 Totals 775 0 1 1 1 in 775.0
-
------ PAGE 566 TEXT -----
-2021 Draw 5, Big Game Bonus Point Draw Results 06/15/2021
-Hunt: GO6821 Mountain Goat Archery - Central Mtns, Nebo - Archery Page 414
-Resident Applicants Nonresident Applicants
-Total Total
-Bonus Eligible Bonus Regular Total Success Bonus Eligible Bonus Regular Total Success
-Points Applicants # Permits # Permits # Permits Ratio Points Applicants # Permits # Permits # Permits Ratio
-28 0 0 0 0 N/A 28 0 0 0 0 N/A
-27 0 0 0 0 N/A 27 0 0 0 0 N/A
-26 0 0 0 0 N/A 26 0 0 0 0 N/A
-25 0 0 0 0 N/A 25 0 0 0 0 N/A
-24 0 0 0 0 N/A 24 0 0 0 0 N/A
-23 0 0 0 0 N/A 23 0 0 0 0 N/A
-22 0 0 0 0 N/A 22 1 0 0 0 N/A
-21 0 0 0 0 N/A 21 0 0 0 0 N/A
-20 0 0 0 0 N/A 20 2 0 0 0 N/A
-19 0 0 0 0 N/A 19 3 0 0 0 N/A
-18 1 1 0 1 1 in 1.0 18 2 0 0 0 N/A
-17 1 1 0 1 1 in 1.0 17 2 0 0 0 N/A
-16 0 0 0 0 N/A 16 4 0 0 0 N/A
-15 5 2 0 2 1 in 2.5 15 4 0 0 0 N/A
-14 7 0 0 0 N/A 14 9 0 0 0 N/A
-13 5 0 0 0 N/A 13 7 0 0 0 N/A
-12 4 0 0 0 N/A 12 62 0 1 1 1 in 62.0
-11 6 0 0 0 N/A 11 50 0 0 0 N/A
-10 7 0 0 0 N/A 10 34 0 0 0 N/A
-9 7 0 0 0 N/A 9 32 0 0 0 N/A
-8 9 0 0 0 N/A 8 30 0 0 0 N/A
-7 20 0 0 0 N/A 7 50 0 0 0 N/A
-6 15 0 2 2 1 in 7.5 6 34 0 0 0 N/A
-5 18 0 2 2 1 in 9.0 5 62 0 0 0 N/A
-4 12 0 0 0 N/A 4 55 0 0 0 N/A
-3 20 0 0 0 N/A 3 61 0 0 0 N/A
-2 25 0 0 0 N/A 2 77 0 0 0 N/A
-1 22 0 0 0 N/A 1 64 0 0 0 N/A
-0 28 0 0 0 N/A 0 81 0 0 0 N/A
-Totals 212 4 4 8 1 in 26.5 Totals 726 0 1 1 1 in 726.0
+LINKS:
+ | /media/templates/site/cassiopeia/images/favicon.svg
+ | /media/system/images/favicon-dwr.ico
+ | /media/templates/site/cassiopeia/images/favicon-32.png
+ | /media/templates/site/cassiopeia/images/favicon-192.png
+ | /media/templates/site/cassiopeia/images/apple-touch-icon.png
+ | /media/templates/site/cassiopeia/images/pinned-icon.svg
+ | https://wildlife.utah.gov/search?format=opensearch
+ | /media/system/css/joomla-fontawesome.min.css?8a27bb
+ | /media/system/css/joomla-fontawesome.min.css?8a27bb
+ | https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;display=swap
+ | /media/templates/site/cassiopeia/css/utds-icons.css?8a27bb
+ | /media/templates/site/cassiopeia/css/template.min.css?8a27bb
+ | /media/templates/site/cassiopeia/css/global/colors_standard.min.css?8a27bb
+ | /media/vendor/awesomplete/css/awesomplete.css?1.1.7
+ | /media/templates/site/cassiopeia/css/vendor/joomla-custom-elements/joomla-alert.min.css?0.4.1
+ | /media/templates/site/cassiopeia/css/user.css?8a27bb
+ | /plugins/system/mediabox_ck/assets/mediaboxck.css?ver=2.11.2
+Here is how you know | #subInfoPanel
+Official website of the state of Utah | #subInfoPanel
+ | /
+Report your harvest | /harvest
+Buy a hunting or fishing license | https://wildlifelicense.utah.gov/hflo
+Download a guidebook | /guidebooks
+UtahID sign in | https://id.utah.gov/
+Home | /
+Hunting in Utah | /hunting
+Big game | /biggame
+Black bear | /bear
+Cougar | /cougar
+Coyote | /coyote
+Furbearers | /furbearer
+Upland game &amp; turkey | /uplandgame
+Waterfowl &amp; migratory birds | /waterfowl
+Report your harvest | /harvest
+Buy a hunting license | https://wildlifelicense.utah.gov/hflo
+Hunting permits &amp; drawings | https://utahdraws.com/
+Guidebooks | /guidebooks
+Administrative rules | /rules
+Utah wildlife statutes | https://le.utah.gov/documents/code_const.htm
+Hunter education | /huntereducation
+Utah Hunt Planner: maps, season dates &amp; more | https://hunt.utah.gov/
+Dedicated Hunters volunteer program | /dedicatedhunters
+Walk-in Access properties | /walkinaccess
+Fishing in Utah | /fishing
+Buy a fishing license | https://wildlifelicense.utah.gov/hflo
+Guidebooks | /guidebooks
+Administrative rules | /rules
+Utah wildlife statutes | https://le.utah.gov/documents/code_const.htm
+Fish Utah: interactive maps &amp; more | https://fish.utah.gov/
+Blue Ribbon fisheries | /blueribbon
+Community ponds | /fishing/communityponds
+Fish stocking reports | https://dwrapps.utah.gov/fishstocking/Fish
+Walk-in Access properties | /walkinaccess
+Fish hatcheries | /hatcheries
+Utah Cutthroat Slam | https://www.utahcutthroatslam.org/
+Aquatic invasive species: quagga mussels, milfoil &amp; more | /mussels
+Learn more about Utah's wildlife | /discover
+Utah Natural Heritage Program | /naturalheritage
+Utah Species Field Guide | /fieldguide
+Utah Species Protection Account: native species protection | /speciesprotection
+Greater sage-grouse conservation | /sage-grouse
+Great Salt Lake Ecosystem Program | /gslep
+Wildlife Action Plan | /uwap
+Information about DWR lands | /lands
+Wildlife/Waterfowl Management Areas | /wmas
+Cooperative Wildlife Management Units | /cwmu
+Habitat Council | /habitatcouncil
+Walk-in Access properties | /walkinaccess
+Eccles Wildlife Education Center | /ewec
+Hardware Wildlife Education Center | /hardware
+Cache Valley Public Shooting Range | /cachevalley
+Lee Kay Public Shooting Range | /leekay
+National Archery in the Schools Program | /nasp
+Utah Hunting Skills Challenge | /uhsc
+Wildlife events calendar | /calendar
+Wildlife viewing | /viewing
+Licenses &amp; permits home | /licenses
+Buy a hunting or fishing license | https://wildlifelicense.utah.gov/hflo
+Hunt drawings: access your drawing history, points &amp; results | https://utahdraws.com/
+Licenses &amp; permits FAQ | /licenses/faq
+Certificates of Registration | /cor
+Apply to be a guide or outfitter | /guides
+Falconry | /falconry
+Fish, mollusks &amp; crustaceans (collection, importation &amp; possession) | /cip
+Reptiles &amp; amphibians | /reptiles-amphibians
+WMA digital access permit | https://ut.accessgov.com/dwrdonations/Forms/Page/dwrdonations/008b2762-ef20-47e8-9ae4-a69eceefc1d7/a98a6b44-ded9-4c28-91b5-6c1b9871742e/1
+Remaining and over-the-counter permits | /remainingpermits
+Fees | /fees
+Utah Wildlife News | /news
+Wildlife blog | /blog
+&quot;Wild&quot; podcast | /podcast
+Wildlife recipes | /recipes
+Subscribe to updates | /subscribe
+Contact DWR offices | /contact
+Report a wildlife crime | /reportwildlifecrimes
+Who we are | /about
+Careers | /careers
+Funding &amp; expenditures | /funding
+Submit a GRAMA request: records, violations, background checks, etc. | /grama
+Public meetings | /meetings
+Buy a wildlife license plate | /licenseplates
+Share your feedback | /feedback
+UtahID sign in | https://id.utah.gov/
+ | /biggame
+ | /biggame/baiting
+ | /hunting/reports
+ | /biggame/reports
+ | /biggame/odds
+ | /
+ | #menuMobileHunting
+ | /hunting
+ | #menuMobileHuntingSpecies
+ | /biggame
+ | /bear
+ | /cougar
+ | /coyote
+ | /furbearer
+ | /uplandgame
+ | /waterfowl
+ | /harvest
+ | https://wildlifelicense.utah.gov/hflo
+ | #menuMobileHuntingRegulations
+ | /guidebooks
+ | /rules
+ | https://le.utah.gov/documents/code_const.htm
+ | /huntereducation
+ | https://hunt.utah.gov/
+ | /dedicatedhunters
+ | /walkinaccess
+ | #menuMobileFishing
+ | /fishing
+ | https://wildlifelicense.utah.gov/hflo
+ | #menuMobileFishingRegulations
+ | /guidebooks
+ | /rules
+ | https://le.utah.gov/documents/code_const.htm
+ | #menuMobileFindFishingSpot
+ | https://fish.utah.gov/
+ | /blueribbon
+ | /fishing/communityponds
+ | https://dwrapps.utah.gov/fishstocking/Fish
+ | /walkinaccess
+ | /hatcheries
+ | https://www.utahcutthroatslam.org/
+ | https://stdofthesea.utah.gov/
+ | /mussels
+ | #menuMobileDiscover
+ | /discover
+ | #menuMobilePrograms
+ | /naturalheritage
+ | /fieldguide
+ | /speciesprotection
+ | /sage-grouse
+ | /gslep
+ | /uwap
+ | #menuMobileDWRLands
+ | /lands
+ | /wmas
+ | /cwmu
+ | /habitatcouncil
+ | /walkinaccess
+ | #menuMobileEducationCenters
+ | /ewec
+ | /hardware
+ | #menuMobileShootingRanges
+ | /cachevalley
+ | /leekay
+ | #menuMobileShootingSports
+ | /nasp
+ | /uhsc
+ | /calendar
+ | /viewing
+ | #menuMobileLicensesPermits
+ | /licenses
+ | https://wildlifelicense.utah.gov/hflo
+ | https://utahdraws.com/
+ | /licenses/faq
+ | /cor
+ | /guides/application
+ | #menuMobileAdditionalPermits
+ | /falconry
+ | /cip
+ | /reptiles-amphibians
+ | https://ut.accessgov.com/dwrdonations/Forms/Page/dwrdonations/008b2762-ef20-47e8-9ae4-a69eceefc1d7/a98a6b44-ded9-4c28-91b5-6c1b9871742e/1
+ | /remainingpermits
+ | /fees
+ | #menuMobileNews
+ | /news
+ | /blog
+ | /blog/es/
+ | /podcast
+ | /recipes
+ | /subscribe
+ | #menuMobileContactUs
+ | /contact
+ | /reportwildlifecrimes
+ | /donate/
+ | #menuMobileAboutTheDWR
+ | /about
+ | /careers
+ | /funding
+ | /grama
+ | /meetings
+ | /licenseplates
+ | /feedback
+ | https://id.utah.gov/
+Check your drawing results. | https://utahdraws.com/
+new draw odds page | https://utahdraws.com/drawodds
+ | /images/deer/deer-in-field.jpg
+black bear | /odds#bearReports
+cougar | /odds#cougarReports
+wild turkey | /odds#turkeyReports
+General-season buck deer draw results | /pdf/bg/2025/25_deer_odds.pdf
+Lifetime general-season deer draw results | /pdf/bg/2025/25_lifetime_deer.pdf
+Youth general-season deer draw results | /pdf/bg/2025/25_youth_deer.pdf
+Youth draw-only elk draw results | /pdf/bg/2025/25_youth_elk.pdf
+Big game limited-entry &amp; once-in-a-lifetime draw results | /pdf/bg/2025/25_bg-odds.pdf
+Antlerless big game draw results | /pdf/bg/2025/25_antlerless_drawing_odds_report.pdf
+Youth antlerless big game draw results | /pdf/bg/2025/25_youth_antlerless_drawing_odds_report.pdf
+Big game and antlerless bonus and preference point purchase results | /pdf/bg/2025/25_point-only_purchases_for_big_game_and_antlerless.pdf
+Dedicated Hunter deer draw results | /pdf/bg/2025/25_dh_odds.pdf
+Youth Dedicated Hunter deer draw results | /pdf/bg/2025/25_youth_dh_odds.pdf
+General-season buck deer draw results | /pdf/bg/2024/24_deer_odds.pdf
+Lifetime general-season deer draw results | /pdf/bg/2024/24_lifetime_deer.pdf
+Youth general-season deer draw results | /pdf/bg/2024/24_youth_deer.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2024/24_youth_elk.pdf
+Big game limited-entry &amp; once-in-a-lifetime draw results | /pdf/bg/2024/24_bg-odds.pdf
+Antlerless big game draw results | /pdf/bg/2024/24_antlerless_drawing_odds_report.pdf
+Youth antlerless big game draw results | /pdf/bg/2024/24_youth_antlerless_drawing_odds_report.pdf
+Big game and antlerless bonus and preference point purchase results | /pdf/bg/2024/24_point-only_purchases_for_big_game_and_antlerless.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2024/24_youth_elk.pdf
+Dedicated Hunter deer draw results | /pdf/bg/2024/24_dh_odds.pdf
+Youth Dedicated Hunter deer draw results | /pdf/bg/2024/24_youth_dh_odds.pdf
+Sportsman draw odds report | /pdf/bg/2024/24-25_sportsman_odds.pdf
+General-season deer draw results | /pdf/bg/2023/23_deer_odds.pdf
+Lifetime general-season deer draw results | /pdf/bg/2023/23_lifetime_deer.pdf
+Youth general-season deer draw results | /pdf/bg/2023/23_youth_deer.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2023/23_youth_elk.pdf
+Big game limited-entry &amp; once-in-a-lifetime draw results | /pdf/bg/2023/23_bg-odds.pdf
+Antlerless big game draw results | /pdf/bg/2023/23_antlerless_drawing_odds_report.pdf
+Youth antlerless big game draw results | /pdf/bg/2023/23_youth_antlerless_drawing_odds_report.pdf
+Big game and antlerless bonus and preference point purchase results | /pdf/bg/2023/23_point-only_purchases_for_big_game_and_antlerless.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2023/23_youth_elk.pdf
+Dedicated Hunter deer draw results | /pdf/bg/2023/23_dh_odds.pdf
+Youth Dedicated Hunter deer draw results | /pdf/bg/2023/23_youth_dh_odds.pdf
+Sportsman draw odds report | /pdf/bg/2023/23-24_sportsman_odds.pdf
+General-season buck deer draw results | /pdf/bg/2022/22_deer_odds.pdf
+Lifetime general-season deer draw results | /pdf/bg/2022/22_lifetime_deer.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2022/22_youth_bull_elk.pdf
+Youth general-season deer draw results | /pdf/bg/2022/22_youth_deer.pdf
+Big game limited-entry &amp; once-in-a-lifetime draw results | /pdf/bg/2022/22_bg-odds.pdf
+Antlerless big game draw results | /pdf/bg/2022/22_antlerless_drawing_odds_report.pdf
+Youth antlerless big game draw results | /pdf/bg/2022/22_youth_antlerless_drawing_odds_report.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2022/22_youth_bull_elk.pdf
+Dedicated Hunter deer draw results | /pdf/bg/2022/22_dh_odds.pdf
+Youth Dedicated Hunter deer draw results | /pdf/bg/2022/22_youth_dh_odds.pdf
+Sportsman draw odds report | /pdf/bg/2022/22-23_sportsman_odds.pdf
+General-season buck deer draw results | /pdf/bg/2021/21_deer_odds.pdf
+Lifetime general-season deer draw results | /pdf/bg/2021/21_lifetime_deer.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2021/21_youth_bull_elk.pdf
+Youth general-season deer draw results | /pdf/bg/2021/21_youth_deer.pdf
+Big game limited-entry &amp; once-in-a-lifetime draw results | /pdf/bg/2021/21_bg-odds.pdf
+Antlerless big game draw results | /pdf/bg/2021/21_antlerless_drawing_odds_report.pdf
+Youth antlerless big game draw results | /pdf/bg/2021/21_youth_antlerless_drawing_odds_report.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2021/21_youth_bull_elk.pdf
+Dedicated Hunter deer draw results | /pdf/bg/2021/21_dh_odds.pdf
+Youth Dedicated Hunter deer draw results | /pdf/bg/2021/21_youth_dh_odds.pdf
+Sportsman draw odds report | /pdf/bg/2021/21-22_sportsman_odds.pdf
+General-season buck deer draw results | /pdf/bg/2020/20_deer_odds.pdf
+Lifetime general-season deer draw results | /pdf/bg/2020/20_lifetime_deer.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2020/20_youth_bull_elk.pdf
+Youth general-season deer draw results | /pdf/bg/2020/20_youth_deer.pdf
+Big game limited-entry &amp; once-in-a-lifetime draw results | /pdf/bg/2020/20_bg-odds.pdf
+Antlerless big game draw results | /pdf/bg/2020/20_antlerless_drawing_odds_report.pdf
+Youth antlerless big game draw results | /pdf/bg/2020/20_youth_antlerless_drawing_odds_report.pdf
+Youth draw-only elk bonus point draw results | /pdf/bg/2020/20_youth_bull_elk.pdf
+Dedicated Hunter deer draw results | /pdf/bg/2020/20_dh_odds.pdf
+Youth Dedicated Hunter deer draw results | /pdf/bg/2020/20_youth_dh_odds.pdf
+Sportsman draw odds report | /pdf/bg/2020/20-21_sportsman_odds.pdf
+2019-20 sportsman drawing odds report | /pdf/bg/2019/19-20_sportsman_odds.pdf
+2019 big game drawing odds report for limited-entry and once-in-a-lifetime | /pdf/bg/2019/19_bg-odds.pdf
+2019 general-season deer drawing odds report | /pdf/bg/2019/19_deer_odds.pdf
+2019 Dedicated Hunter drawing odds report | /pdf/bg/2019/19_dh_odds.pdf
+2019 lifetime general-season deer drawing odds report | /pdf/bg/2019/19_lifetime_deer.pdf
+2019 youth any bull elk drawing odds report | /pdf/bg/2019/19_youth_bull_elk.pdf
+2019 youth Dedicated Hunter drawing odds report | /pdf/bg/2019/19_youth_dh_odds.pdf
+2019 youth general-season deer drawing odds report | /pdf/bg/2019/19_youth_deer.pdf
+2019 antlerless drawing odds report | /pdf/bg/2019/19_antlerless_drawing_odds_report.pdf
+2019 youth antlerless drawing odds report | /pdf/bg/2019/19_youth_antlerless_drawing_odds_report.pdf
+2018-19 sportsman drawing odds report | /pdf/bg/2018/18-19_sportsman_odds.pdf
+2018 big game drawing odds report for limited-entry and once-in-a-lifetime | /pdf/bg/2018/18_big_game_odds_report.pdf
+2018 Dedicated Hunter drawing odds report | /pdf/bg/2018/18_dedicated_hunter_deer.pdf
+2018 general-season deer drawing odds report | /pdf/bg/2018/18_general_deer.pdf
+2018 lifetime general-season deer drawing odds report | /pdf/bg/2018/18_lifetime_general_deer.pdf
+2018 youth any bull elk drawing odds report | /pdf/bg/2018/18_youth_any_bull_elk.pdf
+2018 youth general-season deer drawing odds report | /pdf/bg/2018/18_youth_general_deer.pdf
+2018 youth any bull elk drawing odds report | /pdf/bg/2018/18_youth_any_bull_elk.pdf
+2018 antlerless drawing odds report | /pdf/bg/2018/18_antlerless_drawing_odds_report.pdf
+2018 youth antlerless drawing odds report | /pdf/bg/2018/18_youth_antlerless_drawing_odds_report.pdf
+2018 sportsman drawing odds report | /pdf/bg/2018/2018_sportsman_odds.pdf
+2017 sportsman drawing odds report | /pdf/bg/2017/2017_sportsman_odds.pdf
+2017 big game drawing odds report | /pdf/bg/2017/17_big_game_odds_report.pdf
+2017 preference point summary by residency and species | /pdf/bg/2017/17_point_summary.pdf
+2017 general-season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2017/17_general_deer.pdf
+2017 dedicated hunter preference point purchase, bonus points, drawing odds report | /pdf/bg/2017/17_dedicated_hunter_deer.pdf
+2017 lifetime general-season deer permit drawing odds report | /pdf/bg/2017/17_lifetime_general_deer.pdf
+2017 youth general-season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2017/17_youth_general_deer.pdf
+2017 youth any bull elk drawing odds report | /pdf/bg/2017/17_youth_any_bull_elk.pdf
+2017 antlerless preference point draw results | /pdf/bg/2017/17_antlerless_points.pdf
+2017 antlerless bonus point draw results | /pdf/bg/2017/17_antlerless_bonus_point_draw.pdf
+2017 antlerless bonus point purchase results | /pdf/bg/2017/17_antlerless_bonus_point_purchase.pdf
+2017 antlerless youth preference point draw results | /pdf/bg/2017/17_antlerless_youth_points.pdf
+2017 antlerless youth bonus point draw results | /pdf/bg/2017/17_antlerless_youth_bonus_point_draw.pdf
+2016 sportsman drawing odds report | /pdf/bg/2016/2016_sportsman_odds.pdf
+2016 big game drawing odds report | /pdf/bg/2016/16_big_game_odds_report.pdf
+2016 general-season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2016/16_general_deer.pdf
+2016 preference point summary by residency and species | /pdf/bg/2016/16_point_summary.pdf
+2016 lifetime general-season deer permit drawing odds report | /pdf/bg/2016/16_lifetime_general_deer.pdf
+2016 dedicated hunter preference point purchase, bonus points, drawing odds report | /pdf/bg/2016/16_dedicated_hunter_deer.pdf
+2016 youth any bull elk drawing odds report | /pdf/bg/2016/16_youth_any_bull_elk.pdf
+2016 antlerless drawing odds report | /pdf/bg/2016/16_antlerless_report.pdf
+2016 antlerless preference point draw results | /pdf/bg/2016/16_antlerless_points.pdf
+2016 antlerless bonus point draw results | /pdf/bg/2016/16_antlerless_bonus_point_draw.pdf
+2016 antlerless bonus point purchase results | /pdf/bg/2016/16_antlerless_bonus_point_purchase.pdf
+2015 big game drawing odds report | /pdf/bg/2015/15_big_game_odds_report.pdf
+2015 general-season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2015/15_general_deer.pdf
+2015 preference point summary by residency and species | /pdf/bg/2015/15_point_summary.pdf
+2015 lifetime general-season deer permit drawing odds report | /pdf/bg/2015/15_lifetime_general_deer.pdf
+2015 dedicated hunter preference point purchase, bonus points, drawing odds report | /pdf/bg/2015/15_dedicated_hunter_deer.pdf
+2015 youth any bull elk drawing odds report | /pdf/bg/2015/15_youth_any_bull_elk.pdf
+2015 antlerless drawing odds report | /pdf/bg/2015/15_antlerless_report.pdf
+2015 antlerless preference point draw results | /pdf/bg/2015/15_antlerless_points.pdf
+2015 antlerless bonus point draw results | /pdf/bg/2015/15_antlerless_bonus_point_draw.pdf
+2015 antlerless bonus point purchase results | /pdf/bg/2015/15_antlerless_bonus_point_purchase.pdf
+2014 sportsman drawing odds report | /pdf/bg/2014/2014_sportsman_odds.pdf
+2014 big game drawing odds report | /pdf/bg/2014/14_big_game_odds_report.pdf
+2014 bison bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_bison.pdf
+2014 bull moose bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_moose.pdf
+2014 dedicated hunter preference point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_dedicated_hunter_deer.pdf
+2014 desert bighorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_desert_bighorn.pdf
+2014 general-season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_general_deer.pdf
+2014 lifetime general-season deer permit drawing odds report | /pdf/bg/2014/14_lifetime_general_deer.pdf
+2014 limited-entry deer bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_le_deer.pdf
+2014 limited-entry elk bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_elk.pdf
+2014 mountain goat bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_mountain_goat.pdf
+2014 preference and bonus point summaries by residency and species | /pdf/bg/2014/14_drawing_status.pdf
+2014 pronghorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_pronghorn.pdf
+2014 Rocky Mountain bighorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2014/14_rm_bighorn.pdf
+2014 antlerless drawing odds report | /pdf/bg/2014/14_antlerless_report.pdf
+2014 antlerless preference point draw results | /pdf/bg/2014/14_antlerless_points.pdf
+2014 antlerless bonus point draw results | /pdf/bg/2014/14_antlerless_bonus_point_draw.pdf
+2014 antlerless bonus point purchase results | /pdf/bg/2014/14_antlerless_bonus_point_purchase.pdf
+2013 sportsman drawing odds report | /pdf/bg/2013/2013_sportsman_permits.pdf
+2013 big game drawing odds report | /pdf/bg/2013/13_big_game_odds_report.pdf
+2013 bison bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_bison.pdf
+2013 bull moose bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_moose.pdf
+2013 desert bighorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_desert_bighorn.pdf
+2013 elk bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_elk.pdf
+2013 general season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_general_deer.pdf
+2013 limited-entry deer bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_le_deer.pdf
+2013 preference point summary by residency and species | /pdf/bg/2013/13_preference_point_summary.pdf
+2013 pronghorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_pronghorn.pdf
+2013 Rocky Mountain bighorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_rm_bighorn.pdf
+2013 mountain goat bonus point purchase, bonus points, drawing odds report | /pdf/bg/2013/13_goat.pdf
+2013 antlerless drawing odds report | /pdf/bg/2013/13_antlerless_report.pdf
+2013 antlerless preference point draw results | /pdf/bg/2013/13_antlerless_points.pdf
+2012 big game drawing odds report | /pdf/bg/2012/12_big_game_odds.pdf
+2012 bison bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_bison.pdf
+2012 bull moose bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_moose.pdf
+2012 desert bighorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_desert_bighorn.pdf
+2012 elk bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_elk.pdf
+2012 general season deer preference point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_general_deer.pdf
+2012 limited-entry deer bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_le_deer.pdf
+2012 preference point summary by residency and species | /pdf/bg/2012/12_preference_pt_summary.pdf
+2012 pronghorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_pronghorn.pdf
+2012 Rocky Mountain bighorn bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_rm_bighorn.pdf
+2012 Rocky Mountain goat bonus point purchase, bonus points, drawing odds report | /pdf/bg/2012/12_goat.pdf
+2011-12 preference point summary by residency and species | /pdf/bg/2012/11-12_preference_pt_summary.pdf
+2012 antlerless drawing odds report | /pdf/bg/2012/12_antlerless_report.pdf
+2012 antlerless preference point draw results | /pdf/bg/2012/12_antlerless_points.pdf
+2011-12 sportsman drawing odds report | /pdf/bg/2012/12_sportsman_odds.pdf
+2011 big game drawing odds report | /pdf/bg/2011/2011_biggame_odds.pdf
+2011 antlerless preference point draw results | /pdf/bg/2011/11_antlerless-points.pdf
+2011 big game bonus point draw results by hunt | /pdf/bg/2011/11_bg_bonus_point_draw_results_hunt.pdf
+2011 big game bonus point purchase results | /pdf/bg/2011/11_bonus_point_purchase.pdf
+2011 big game bonus point draw results by species | /pdf/bg/2011/11_bg_bonus_point_draw_results_species.pdf
+2010-11 sportsman drawing odds report | /pdf/bg/2011/11_sportsman_odds.pdf
+2010 antlerless preference point draw results | /pdf/bg/2010/10_antlerless_points.pdf
+2010 big game bonus point draw results | /pdf/bg/2010/10_bg_bonus_point_draw_results.pdf
+2010 big game bonus point purchase results | /pdf/bg/2010/10_bonus_point_purchase.pdf
+2010 bonus point summary by residency and species | /pdf/bg/2010/10_bonus_point_summary.pdf
+2010 big game draw results | /pdf/bg/2010/10_species_draw.pdf
+2010 big game drawing odds report | /pdf/bg/2010/2010_biggame_odds.pdf
+ | #top
+ | https://www.facebook.com/UtahDWR/
+ | https://x.com/utahdwr
+ | https://www.instagram.com/utahdwr/
+ | https://youtube.com/UDWR
+ | /
+1594 W. North Temple | https://goo.gl/maps/SxLW1paZ9T7DDK2w5

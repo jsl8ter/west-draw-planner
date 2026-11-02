@@ -1,4 +1,4 @@
-NM: OK 1290 hunts, years ['2022', '2023', '2024', '2025', '2026']
+NM: OK 733 hunts, years ['2023', '2024', '2025', '2026']
 2026 https://wildlife.dgf.nm.gov/download/2026-big-game-drawing-odds-complete-report/?wpdmdl=56113 rows=812 hunts(E/D/C/P kept)=703
 2025 https://wildlife.dgf.nm.gov/download/2025-drawing-odds-complete-report/?wpdmdl=52046 rows=812 hunts(E/D/C/P kept)=703
 2024 https://wildlife.dgf.nm.gov/download/2024-drawing-odds-complete-report/?wpdmdl=48997 rows=817 hunts(E/D/C/P kept)=704

@@ -31,7 +31,9 @@
     { st: "OR", sp: "D", label: "Oregon general archery deer (over the counter)", weapon: "archery", tag: "antlered", cost: 500 + 193, trophy: 1, odds: 1, note: "Sold over the counter." }
   ];
   const DEF = { species: ["E", "D", "C", "P"], states: ALL_ST.slice(), hpy: 2, minOdds: 0.5, trophyEvery: 2, trophyMin: 4,
-    maxWait: 8, weapon: "any", tag: "antlered", budget: 4000, otc: true, priv: false, years: 5, focus: "" };
+    maxWait: 8, weapon: "any", tag: "antlered", budget: 4000, otc: true, priv: false, years: 5, focus: "",
+    trophySp: null,   // species that count for the trophy goal (null = any planned species)
+    weaponBy: {} };   // per-species weapon from typed requests, e.g. {E: "archery", D: "rifle"}
   let S = load();
 
   function load() { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem("wdp-plan") || "{}")); } catch (e) { return Object.assign({}, DEF); } }
@@ -41,52 +43,91 @@
 
   // ---------- typed focus command ----------
   const ST_NAMES = { colorado: "CO", wyoming: "WY", utah: "UT", arizona: "AZ", "new mexico": "NM", nevada: "NV", oregon: "OR", idaho: "ID", montana: "MT" };
+  // Words for each species (used for species, trophy-species and per-species weapon phrases)
+  const SPW = { E: "elk|bulls?", D: "mule ?deer|mulies?|deer|bucks?", C: "coues(?: deer)?", P: "pronghorn|antelope|lopes?|speed ?goats?" };
+  const spOfWord = w => { for (const k of ["C", "E", "P", "D"]) if (new RegExp("^(?:" + SPW[k] + ")$").test(w)) return k; return null; };
+  const ANYSP = "(" + [SPW.C, SPW.E, SPW.P, SPW.D].join("|") + ")";
+  const NUMW = { one: 1, a: 1, an: 1, once: 1, two: 2, twice: 2, couple: 2, other: 2, three: 3, few: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
+  const num = v => NUMW[v] != null ? NUMW[v] : +v;
+  // trophy score from a size: thresholds for 3, 4, 5 (gross B&C, same scale as the map legend)
+  const INCH = { E: [300, 330, 360], D: [160, 175, 190], C: [90, 100, 110], P: [74, 78, 82] };
+  // A typed request is the whole spec: anything not mentioned goes back to its default (your points are kept).
   function parseCommand(text) {
-    const t = " " + text.toLowerCase().replace(/(\d),(\d{3})/g, "$1$2").replace(/[,;]/g, " ") + " ";
+    const t = " " + text.toLowerCase().replace(/(\d),(\d{3})/g, "$1$2").replace(/[,;!?]/g, " ").replace(/\s+/g, " ") + " ";
     const out = {}, said = [];
     // species
     const sp = [];
-    if (/\belk\b/.test(t)) sp.push("E");
-    if (/\bmule ?deer\b|\bmulies?\b/.test(t) || (/\bdeer\b/.test(t) && !/coues/.test(t))) sp.push("D");
+    if (new RegExp("\\b(" + SPW.E + ")\\b").test(t)) sp.push("E");
+    if (/\bmule ?deer\b|\bmulies?\b/.test(t) || (/\b(deer|bucks?)\b/.test(t.replace(/coues deer/g, "")))) sp.push("D");
     if (/\bcoues\b/.test(t)) sp.push("C");
-    if (/\bpronghorn\b|\bantelope\b|\blopes?\b/.test(t)) sp.push("P");
+    if (new RegExp("\\b(" + SPW.P + ")\\b").test(t)) sp.push("P");
     if (sp.length) { out.species = sp; said.push("Species: " + sp.map(k => SPN[k]).join(", ")); }
     // states: "skip/no/not/except/avoid X" excludes; "only/just/focus on X" restricts
     const named = [], skipped = [];
     for (const [name, code] of Object.entries(ST_NAMES)) {
-      const re = new RegExp("(skip|no|not|except|avoid|without|drop)\\s+(?:\\w+\\s+){0,2}?" + name + "\\b");
+      const re = new RegExp("(skip|no|not|except|avoid|without|drop|exclude)\\s+(?:\\w+\\s+){0,2}?" + name + "\\b");
       if (re.test(t)) skipped.push(code); else if (new RegExp("\\b" + name + "\\b").test(t)) named.push(code);
     }
-    if (/\b(only|just|focus on|stick to)\b/.test(t) && named.length) { out.states = named; said.push("Only " + named.map(c => SN[c]).join(", ")); }
+    if (named.length && (/\b(only|just|focus on|stick to|in)\b/.test(t) || !skipped.length)) { out.states = named; said.push("Only " + named.map(c => SN[c]).join(", ")); }
     else if (skipped.length) { out.states = ALL_ST.filter(c => !skipped.includes(c)); said.push("Skip " + skipped.map(c => SN[c]).join(", ")); }
-    // hunts per year
-    let m = t.match(/(\d|one|two|three|four)\s+hunts?\s*(a|per|each)\s*year/);
-    if (m) { const n = { one: 1, two: 2, three: 3, four: 4 }[m[1]] || +m[1]; out.hpy = Math.max(1, Math.min(4, n)); said.push(out.hpy + " hunt" + (out.hpy > 1 ? "s" : "") + " a year"); }
-    // trophy cadence and quality
-    m = t.match(/trophy[^.]*?every\s+(\d|other|two|three|four|five)\s*(years?)?/);
-    if (m) { const n = { other: 2, two: 2, three: 3, four: 4, five: 5 }[m[1]] || +m[1]; out.trophyEvery = n; said.push("Trophy hunt every " + n + " years"); }
-    if (/\bno trophy\b|\bdon'?t care about trophy\b|\bjust (want to )?hunt\b/.test(t)) { out.trophyEvery = 0; said.push("No trophy goal"); }
-    m = t.match(/trophy\s*(?:score|rating|level)?\s*(\d)\s*\+?/) || t.match(/\b([345])\s*\+?\s*trophy/);
+    // hunts per year: "2 hunts a year", "two hunts", "hunt twice a year", "one hunt every year"
+    let m = t.match(/\b(\d|one|two|three|four)\s+(?:\w+\s+)?hunts?\b(?!\s+every\s+(?:\d|two|three|four|five|other|few|couple))/) || t.match(/\bhunt\s+(once|twice)\b/);
+    if (m) { out.hpy = Math.max(1, Math.min(4, num(m[1]))); said.push(out.hpy + " hunt" + (out.hpy > 1 ? "s" : "") + " a year"); }
+    // trophy species and size
+    const tsp = new Set();
+    for (const mm of t.matchAll(new RegExp("trophy\\s+(?:class\\s+)?" + ANYSP + "\\b|" + ANYSP + "\\s+trophy|\\b(?:big|giant|mature|monster|good)\\s+" + ANYSP + "\\b", "g"))) {
+      const w = (mm[1] || mm[2] || mm[3] || "").trim(); const k = spOfWord(w); if (k) tsp.add(k);
+    }
+    for (const mm of t.matchAll(new RegExp("\\b(\\d{2,3})\\s*(?:\"|''|-?\\s*inch(?:es)?|in\\.?|\\+|-?\\s*class)?\\s*(?:class\\s+|plus\\s+|\\+\\s*)?" + ANYSP + "\\b", "g"))) {
+      const n = +mm[1], k = spOfWord(mm[2].trim()); if (!k || !INCH[k]) continue;
+      const th = INCH[(k === "D" && n < 130 && n >= 80) ? "C" : k];
+      if (n < th[0] * 0.75) continue;   // "2 bulls" etc., not a size
+      const score = n >= th[2] ? 5 : n >= th[1] ? 4 : n >= th[0] ? 3 : 2;
+      out.trophyMin = score; tsp.add(k);
+      said.push(`${n}" ${SPN[k].toLowerCase()} = trophy ${score}+`);
+    }
+    if (tsp.size) { out.trophySp = [...tsp]; if (!out.species) out.species = DEF.species.slice(); out.trophySp.forEach(k => { if (!out.species.includes(k)) out.species.push(k); }); said.push("Trophy goal: " + out.trophySp.map(k => SPN[k]).join(", ")); }
+    // trophy cadence
+    m = t.match(/(?:trophy|big|giant|mature)[^.]*?every\s+(\d+|other|two|three|four|five|few|couple(?: of)?)\s*(years?)?/) || t.match(/(?:trophy|big|giant|mature)[^.]*?\b(once|one)\s+every\s+(\d+|two|three|four|five|few)\s*years?/);
+    if (m) { const raw = m[2] && /once|one/.test(m[1]) ? m[2] : m[1]; const n = /couple/.test(raw) ? 2 : num(raw.replace(/ of$/, "")); out.trophyEvery = Math.max(1, Math.min(10, n)); said.push("Trophy hunt every " + out.trophyEvery + " years"); }
+    else if (/(?:trophy|big|giant)[^.]*?every\s+year|trophy\s+(?:hunt\s+)?(?:each|every|per)\s+year|trophy\s+(?:a|per)\s+year/.test(t)) { out.trophyEvery = 1; said.push("Trophy hunt every year"); }
+    else if (out.trophySp && out.trophyEvery == null) { /* keep default cadence */ }
+    if (/\bno trophy\b|\bdon'?t care about (a )?trophy\b|\bjust (want to )?hunt\b|\bopportunity\b/.test(t)) { out.trophyEvery = 0; said.push("No trophy goal"); }
+    m = t.match(/trophy\s*(?:score|rating|level)?\s*(?:of\s*)?(\d)\s*\+?(?!\d)/) || t.match(/\b([345])\s*\+?\s*(?:\/\s*5\s*)?trophy/);
     if (m && +m[1] >= 2 && +m[1] <= 5) { out.trophyMin = +m[1]; said.push("Trophy " + m[1] + "+"); }
-    if (/top[- ]tier|giant|once in a lifetime/.test(t)) { out.trophyMin = 5; said.push("Top-tier trophy"); }
-    m = t.match(/(?:within|in|wait(?:ing)?(?: up to)?|max(?:imum)?(?: of)?)\s+(\d+)\s+years?/);
-    if (m) { out.maxWait = Math.max(1, Math.min(20, +m[1])); said.push("Wait at most " + out.maxWait + " years"); }
-    // weapon and tag
-    if (/\barchery\b|\bbow\b/.test(t)) { out.weapon = "archery"; said.push("Archery"); }
-    else if (/\bmuzzle ?loader\b|\bml\b/.test(t)) { out.weapon = "muzzleloader"; said.push("Muzzleloader"); }
+    if (/top[- ]tier|giant|monster|once in a lifetime/.test(t)) { out.trophyMin = 5; said.push("Top-tier trophy"); }
+    // waiting and plan length
+    m = t.match(/(?:within|wait(?:ing)?(?: up to| at most)?|max(?:imum)?(?: of)?|no more than|at most)\s+(\d+|two|three|four|five|six|seven|eight|nine|ten)\s+years?/);
+    if (m) { out.maxWait = Math.max(1, Math.min(20, num(m[1]))); said.push("Wait at most " + out.maxWait + " years for a trophy"); }
+    m = t.match(/(?:next|over|plan(?: for| out)?|for the next|across)\s+(?:the\s+)?(?:next\s+)?(\d+|three|four|five|six|seven|eight|nine|ten)\s+years?/) || t.match(/\b(\d+|three|four|five|six|seven|eight|nine|ten)[- ]year plan/);
+    if (m) { out.years = Math.max(2, Math.min(10, num(m[1]))); said.push("Plan " + out.years + " years"); }
+    // weapon: per species ("archery elk, rifle deer", "elk with a bow") or overall
+    const WPN = w => /arch|bow/.test(w) ? "archery" : /muzz|\bml\b/.test(w) ? "muzzleloader" : "rifle";
+    const wre = "(archery|bow|rifle|muzzle ?loader|muzzy|ml)";
+    const by = {};
+    for (const mm of t.matchAll(new RegExp(wre + "\\s+(?:only\\s+)?(?:hunt(?:s|ing)?\\s+(?:for\\s+)?)?" + ANYSP + "\\b|" + ANYSP + "\\s+(?:with\\s+(?:a|my)\\s+|by\\s+|on\\s+|in\\s+)?(?:the\\s+)?" + wre + "\\b", "g"))) {
+      const w = mm[1] || mm[4], k = spOfWord((mm[2] || mm[3]).trim()); if (k) by[k === "C" ? "D" : k] = WPN(w);
+    }
+    if (Object.keys(by).length) { out.weaponBy = by; said.push(Object.entries(by).map(([k, w]) => `${SPN[k]}: ${w}`).join(" · ")); }
+    else if (/\barchery\b|\bbow\b/.test(t)) { out.weapon = "archery"; said.push("Archery"); }
+    else if (/\bmuzzle ?loader\b|\bmuzzy\b|\bml\b/.test(t)) { out.weapon = "muzzleloader"; said.push("Muzzleloader"); }
     else if (/\brifle\b|\bany weapon\b/.test(t)) { out.weapon = "rifle"; said.push("Rifle"); }
-    if (/\bcows?\b|\bdoes?\b|\bantlerless\b|\bmeat\b/.test(t)) { out.tag = /\bmeat\b/.test(t) ? "any" : "antlerless"; said.push(out.tag === "any" ? "Any tag (meat hunts OK)" : "Antlerless tags"); }
-    else if (/\bbulls?\b|\bbucks?\b|\bantlered\b/.test(t)) { out.tag = "antlered"; said.push("Antlered tags"); }
+    // tag type
+    if (/\bcows?\b|\bdoes?\b|\bantlerless\b|\bewes?\b/.test(t)) { out.tag = "antlerless"; said.push("Antlerless tags"); }
+    else if (/\bmeat\b|\bany tag\b|\beither sex\b/.test(t)) { out.tag = "any"; said.push("Any tag (meat hunts OK)"); }
+    // a meat/antlerless request has no trophy goal unless one was asked for
+    if (out.tag === "antlerless" && out.trophyEvery == null && !out.trophySp && out.trophyMin == null) { out.trophyEvery = 0; said.push("No trophy goal"); }
     // odds
-    m = t.match(/(\d{2})\s*%/);
+    m = t.match(/(\d{2})\s*(?:%|percent)/);
     if (m) { out.minOdds = Math.max(0.05, Math.min(0.95, +m[1] / 100)); said.push("At least " + m[1] + "% odds"); }
-    else if (/\bsure thing|\bguaranteed|\bcertain\b/.test(t)) { out.minOdds = 0.9; said.push("Near-sure draws"); }
-    // budget
-    m = t.match(/\$\s*([\d.,]+)\s*(k)?/) || t.match(/([\d.,]+)\s*(k)?\s*(?:dollars|budget|a year|per year)/);
-    if (m) { let v = parseFloat(m[1].replace(/,/g, "")); if (m[2]) v *= 1000; if (v >= 100) { out.budget = Math.round(v); said.push("Budget " + money(v) + " a year"); } }
-    // OTC
-    if (/\bprivate|\branch(es)?\b|\bcwmu\b/.test(t)) { out.priv = !/\bno private|\bpublic (land )?only\b/.test(t); said.push(out.priv ? "Private-land hunts OK" : "Public land only"); }
-    if (/\bno (otc|over the counter|general)\b|\bdraw only\b/.test(t)) { out.otc = false; said.push("Draw tags only"); }
+    else if (/\b50\s*\/\s*50\b|coin flip/.test(t)) { out.minOdds = 0.5; said.push("At least 50% odds"); }
+    else if (/\bsure thing|\bguaranteed|\bcertain\b|\bsure draw/.test(t)) { out.minOdds = 0.9; said.push("Near-sure draws"); }
+    // budget: "$3,000", "$3k", "3k a year", "budget 3000", "under 5000"
+    m = t.match(/\$\s*([\d.]+)\s*(k)?\b/) || t.match(/\b([\d.]+)\s*(k)?\s*(?:dollars|bucks budget|budget|a year|per year|\/\s*(?:yr|year))/) || t.match(/budget\s*(?:of|is|:)?\s*\$?\s*([\d.]+)\s*(k)?/) || t.match(/\b([\d.]+)\s*(k)\b/);
+    if (m) { let v = parseFloat(m[1]); if (m[2]) v *= 1000; if (v >= 100) { out.budget = Math.round(v); said.push("Budget " + money(v) + " a year"); } }
+    // private land, OTC
+    if (/\bprivate|\branch(es)?\b|\bcwmu\b/.test(t)) { out.priv = !/\bno private|\bpublic (land )?only\b|\bnot? (on )?private/.test(t); said.push(out.priv ? "Private-land hunts OK" : "Public land only"); }
+    if (/\bno (otc|over the counter|general)\b|\bdraw only\b|\bonly draw/.test(t)) { out.otc = false; said.push("Draw tags only"); }
     else if (/\b(otc|over the counter|general tags?)\b/.test(t)) { out.otc = true; said.push("Include over-the-counter tags"); }
     return { out, said };
   }
@@ -98,7 +139,9 @@
     if (S.tag === "any") return b !== "other";
     return S.tag === "antlerless" ? (b === "antlerless" || b === "either") : (b === "antlered" || b === "either");
   }
-  function weaponOk(w) { return S.weapon === "any" || w === S.weapon || (S.weapon === "rifle" && w === "any"); }
+  function weaponOk(w, sp) { const want = (S.weaponBy || {})[sp === "C" ? "D" : sp] || (S.weaponBy || {})[sp] || S.weapon;
+    return want === "any" || w === want || (want === "rifle" && w === "any"); }
+  const trophySpOk = sp => !S.trophySp || !S.trophySp.length || S.trophySp.includes(sp);
   function huntTrophy(st, h) {
     if (!trophyOk(h)) return null;   // spike-only / antlerless / unconfirmed: the unit's trophy rating doesn't apply
     let best = null;
@@ -117,7 +160,7 @@
     for (const st of S.states) {
       const d = DRAW[st]; if (!d) continue;
       for (const h of d.hunts) {
-        if (!S.species.includes(h.species) || !weaponOk(h.weapon) || !tagOk(h) || restricted(h) || (!S.priv && privateLand(h))) continue;
+        if (!S.species.includes(h.species) || !weaponOk(h.weapon, h.species) || !tagOk(h) || restricted(h) || (!S.priv && privateLand(h))) continue;
         if (!nrOpen(h) || !isCurrent(h)) continue;   // no NR tags lately, or not offered in the latest draw
         const y = Odds.latestYear(h, "NR"); if (!y) continue;
         // nonresident results must be from the hunt's latest draw, not an older year
@@ -160,28 +203,7 @@
     const usedHunts = new Set();
     for (let k = 0; k < S.years; k++) {
       const year = Y0 + k, picks = [], usedSS = new Set();
-      const scored = cands.filter(c => !usedHunts.has(c.st + c.h.id)).map(c => ({ c, pts: P(c), o: oddsAt(c, P(c), k) })).filter(x => x.o != null);
-      // trophy slot
-      const trophyDue = S.trophyEvery > 0 && (k - lastTrophy) >= S.trophyEvery;
-      if (trophyDue) {
-        const t = scored.filter(x => (x.c.trophy || 0) >= S.trophyMin && x.o >= S.minOdds)
-          .sort((a, b) => (b.c.trophy - a.c.trophy) || (b.o - a.o) || (a.c.cost - b.c.cost))[0];
-        if (t) { picks.push({ ...t, kind: "trophy" }); usedSS.add(t.c.st + t.c.sp); lastTrophy = k; }
-      }
-      // fill remaining hunts: best trophy you can draw, cheaper and fewer points spent first on ties
-      const fill = scored.filter(x => x.o >= S.minOdds && !usedSS.has(x.c.st + x.c.sp))
-        .map(x => ({ ...x, score: (x.c.trophy || 1.5) * 10 + x.o * 4 - (/^pref/.test(x.c.sys) ? P(x.c) * 0.8 : 0) - x.c.cost / 800 }))
-        .sort((a, b) => b.score - a.score);
-      for (const x of fill) { if (picks.length >= S.hpy) break; if (usedSS.has(x.c.st + x.c.sp)) continue; picks.push({ ...x, kind: "hunt" }); usedSS.add(x.c.st + x.c.sp); }
-      if (picks.length < S.hpy && S.otc) {
-        for (const o of OTC) {
-          if (picks.length >= S.hpy) break;
-          if (!S.states.includes(o.st) || !S.species.includes(o.sp) || usedSS.has(o.st + o.sp) || !weaponOk(o.weapon)) continue;
-          if (S.tag === "antlerless" && o.tag === "antlered") continue;
-          picks.push({ otc: o, o: o.odds, kind: "otc" }); usedSS.add(o.st + o.sp);
-        }
-      }
-      // costs
+      // fixed costs first (applications, points, licenses): picks must fit in what's left of the budget
       let fixed = 0; const apply = [];
       const licStates = new Set();
       for (const key of banking) {
@@ -196,8 +218,35 @@
         fixed += Pr.app * n; licStates.add(st); apply.push({ st, sp: "lottery", pts: null, cost: Pr.app * n, n });
       }
       for (const st of licStates) fixed += PRICES[st].lic || 0;
+      // budget check uses the full tag price (if you draw, you pay it)
+      let spent = 0, overBudget = 0;
+      const fits = cost => { if (!S.budget || fixed + spent + cost <= S.budget) return true; overBudget++; return false; };
+      const scored = cands.filter(c => !usedHunts.has(c.st + c.h.id)).map(c => ({ c, pts: P(c), o: oddsAt(c, P(c), k) })).filter(x => x.o != null);
+      // trophy slot (only the species the trophy goal is for)
+      const trophyDue = S.trophyEvery > 0 && (k - lastTrophy) >= S.trophyEvery;
+      let trophyMiss = false;
+      if (trophyDue) {
+        const t = scored.filter(x => trophySpOk(x.c.sp) && (x.c.trophy || 0) >= S.trophyMin && x.o >= S.minOdds)
+          .sort((a, b) => (b.c.trophy - a.c.trophy) || (b.o - a.o) || (a.c.cost - b.c.cost)).find(x => fits(x.c.cost));
+        if (t) { picks.push({ ...t, kind: "trophy" }); usedSS.add(t.c.st + t.c.sp); spent += t.c.cost; lastTrophy = k; }
+        else trophyMiss = true;
+      }
+      // fill remaining hunts: best trophy you can draw, cheaper and fewer points spent first on ties
+      const fill = scored.filter(x => x.o >= S.minOdds && !usedSS.has(x.c.st + x.c.sp))
+        .map(x => ({ ...x, score: (x.c.trophy || 1.5) * 10 + x.o * 4 - (/^pref/.test(x.c.sys) ? P(x.c) * 0.8 : 0) - x.c.cost / 800 }))
+        .sort((a, b) => b.score - a.score);
+      for (const x of fill) { if (picks.length >= S.hpy) break; if (usedSS.has(x.c.st + x.c.sp) || !fits(x.c.cost)) continue; picks.push({ ...x, kind: "hunt" }); usedSS.add(x.c.st + x.c.sp); spent += x.c.cost; }
+      if (picks.length < S.hpy && S.otc) {
+        for (const o of OTC) {
+          if (picks.length >= S.hpy) break;
+          if (!S.states.includes(o.st) || !S.species.includes(o.sp) || usedSS.has(o.st + o.sp) || !weaponOk(o.weapon, o.sp)) continue;
+          if (S.tag === "antlerless" && o.tag === "antlered") continue;
+          if (!fits(o.cost)) continue;
+          picks.push({ otc: o, o: o.odds, kind: "otc" }); usedSS.add(o.st + o.sp); spent += o.cost;
+        }
+      }
       const tagCost = picks.reduce((s, p) => s + (p.otc ? p.otc.cost : p.c.cost * (p.o || 1)), 0);
-      years.push({ year, picks, apply, fixed, tagCost, ptsBefore: Object.assign({}, pts) });
+      years.push({ year, picks, apply, fixed, tagCost, full: spent, overBudget, trophyMiss, ptsBefore: Object.assign({}, pts) });
       // advance points: drawn hunts reset, everything else +1
       const drawn = new Set(picks.filter(p => p.c).map(p => ptKeyOf(p.c)));
       for (const key of banking) pts[key] = drawn.has(key) ? 0 : (pts[key] || 0) + 1;
@@ -205,7 +254,7 @@
     }
     // trophy track: best trophy hunts and when you'd likely draw them
     const track = [];
-    const tc = cands.filter(c => (c.trophy || 0) >= S.trophyMin);
+    const tc = cands.filter(c => trophySpOk(c.sp) && (c.trophy || 0) >= S.trophyMin);
     for (const c of tc) {
       let when = null, o0 = null;
       for (let k = 0; k <= S.maxWait; k++) { const o = oddsAt(c, (myPts(c.st, c.sp, c.pref)) + k, k); if (k === 0) o0 = o; if (o != null && o >= S.minOdds) { when = k; break; } }
@@ -231,17 +280,18 @@
     </form>
     <details class="panel" id="plan-settings"><summary>All settings</summary>
       <div class="pgroup"><span class="plbl">Species</span>${["E", "D", "C", "P"].map(k => chk("species", k, SPN[k], S.species.includes(k))).join("")}</div>
+      <div class="pgroup"><span class="plbl">Trophy goal is for</span>${["E", "D", "C", "P"].map(k => chk("trophySp", k, SPN[k], !S.trophySp || !S.trophySp.length || S.trophySp.includes(k))).join("")}</div>
       <div class="pgroup"><span class="plbl">States</span>${ALL_ST.map(k => chk("states", k, SN[k], S.states.includes(k))).join("")}</div>
       <div class="fgrid">
         <label>Hunts per year<select name="hpy">${[1, 2, 3, 4].map(n => opt(n, n, S.hpy)).join("")}</select></label>
         <label>Draw odds I'll count on<select name="minOdds">${[[.25, "25%+"], [.5, "50%+"], [.75, "75%+"], [.9, "90%+"]].map(([v, l]) => opt(v, l, S.minOdds)).join("")}</select></label>
-        <label>Trophy hunt<select name="trophyEvery">${[[0, "No trophy goal"], [2, "Every 2 years"], [3, "Every 3 years"], [4, "Every 4 years"], [5, "Every 5 years"]].map(([v, l]) => opt(v, l, S.trophyEvery)).join("")}</select></label>
+        <label>Trophy hunt<select name="trophyEvery">${[[0, "No trophy goal"], [1, "Every year"], [2, "Every 2 years"], [3, "Every 3 years"], [4, "Every 4 years"], [5, "Every 5 years"]].map(([v, l]) => opt(v, l, S.trophyEvery)).join("")}</select></label>
         <label>Trophy means<select name="trophyMin">${[3, 4, 5].map(v => opt(v, `${v}+ · elk ${window.trophyInches ? window.trophyInches("E", v).replace(/–.*/, "\"+") : ""}, deer ${window.trophyInches ? window.trophyInches("D", v).replace(/–.*/, "\"+") : ""}`, S.trophyMin)).join("")}</select></label>
         <label>Longest wait for a trophy<select name="maxWait">${[3, 5, 8, 10, 15].map(n => opt(n, n + " years", S.maxWait)).join("")}</select></label>
-        <label>Weapon<select name="weapon">${[["any", "Any"], ["rifle", "Rifle"], ["archery", "Archery"], ["muzzleloader", "Muzzleloader"]].map(([v, l]) => opt(v, l, S.weapon)).join("")}</select></label>
+        <label>Weapon<select name="weapon">${Object.keys(S.weaponBy || {}).length ? `<option value="__by" selected>By species: ${esc(Object.entries(S.weaponBy).map(([k, w]) => SPN[k].split(" ")[0].toLowerCase() + " " + w).join(", "))}</option>` : ""}${[["any", "Any"], ["rifle", "Rifle"], ["archery", "Archery"], ["muzzleloader", "Muzzleloader"]].map(([v, l]) => opt(v, l, Object.keys(S.weaponBy || {}).length ? "" : S.weapon)).join("")}</select></label>
         <label>Tags<select name="tag">${[["antlered", "Antlered (incl. either-sex)"], ["antlerless", "Antlerless"], ["any", "Any tag"]].map(([v, l]) => opt(v, l, S.tag)).join("")}</select></label>
         <label>Yearly budget<input name="budget" type="number" min="0" step="100" inputmode="numeric" value="${S.budget}"></label>
-        <label>Years to plan<select name="years">${[3, 5, 7].map(n => opt(n, n, S.years)).join("")}</select></label>
+        <label>Years to plan<select name="years">${[...new Set([3, 4, 5, 6, 7, 8, 10, S.years])].sort((a, b) => a - b).map(n => opt(n, n, S.years)).join("")}</select></label>
       </div>
       <label class="pchk"><input type="checkbox" name="otc"${S.otc ? " checked" : ""}> Include over-the-counter and general tags</label>
       <label class="pchk"><input type="checkbox" name="priv"${S.priv ? " checked" : ""}> Include private-land and ranch hunts</label>
@@ -263,7 +313,8 @@
     if (!loaded) { root.innerHTML = html + `<p class="note">Loading draw data…</p>`; wire(); return; }
     const R = build();
     const sum = [`${S.species.map(k => SPN[k]).join(", ")}`, `${S.hpy} hunt${S.hpy > 1 ? "s" : ""} a year`,
-      S.trophyEvery ? `trophy ${S.trophyMin}+ every ${S.trophyEvery} years` : "no trophy goal", S.weapon !== "any" ? S.weapon : "any weapon",
+      S.trophyEvery ? `trophy${S.trophySp && S.trophySp.length ? " " + S.trophySp.map(k => SPN[k].toLowerCase()).join("/") : ""} ${S.trophyMin}+ every ${S.trophyEvery === 1 ? "year" : S.trophyEvery + " years"}` : "no trophy goal",
+      Object.keys(S.weaponBy || {}).length ? Object.entries(S.weaponBy).map(([k, w]) => SPN[k].split(" ")[0].toLowerCase() + " " + w).join(", ") : S.weapon !== "any" ? S.weapon : "any weapon",
       `odds ${Math.round(S.minOdds * 100)}%+`, `${money(S.budget)} a year`, S.states.length === 9 ? "all 9 states" : S.states.map(c => SN[c]).join(", ")].join(" · ");
     // next steps from the deadline list
     const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -271,15 +322,18 @@
       .filter(x => x.dt >= today && (x.dt - today) / 864e5 <= 120).sort((a, b) => a.dt - b.dt).slice(0, 7);
     html += `<h2 id="plan-top">Your plan</h2>${FLASH ? `<p class="said updated" role="status">${esc(FLASH)}</p>` : ""}<p class="lede">${esc(sum)}. Built from ${R.ncands.toLocaleString()} draw hunts that fit, your points on the My Points tab, trophy ratings and nonresident prices. Points are assumed to grow one a year where you apply and reset when you draw; preference cutoffs keep creeping at their past rate.</p>`;
     if (next.length) html += `<div class="callout"><h3>Coming up</h3><ol>${next.map(x => `<li><b>${x.dt.toLocaleDateString("en-US", { month: "short", day: "numeric" })} · ${SN[x.d[1]]}.</b> ${esc(x.d[2])}${x.d[3] ? " (date estimated)" : ""}</li>`).join("")}</ol></div>`;
+    const slots = S.states.reduce((n, st) => n + S.species.filter(k => SPECIES_IN[st].includes(k)).length, 0);
     html += `<h2>Year by year</h2><div id="years">` + R.years.map(y => {
-      const over = y.fixed + y.tagCost > S.budget;
+      const over = S.budget && y.fixed + y.full > S.budget;
       const bank = y.apply.filter(a => a.sp !== "lottery");
       const lot = y.apply.filter(a => a.sp === "lottery");
       return `<div class="yr"><div class="y">${y.year}</div><div class="body">
         ${y.picks.length ? y.picks.map(p => pickHTML(p)).join("") : `<p class="note">No hunt clears ${Math.round(S.minOdds * 100)}% odds this year with these settings. Lower the odds, add states or allow over-the-counter tags.</p>`}
-        ${y.picks.length < S.hpy && y.picks.length ? `<p class="note">Only ${y.picks.length} of ${S.hpy} hunts found at ${Math.round(S.minOdds * 100)}%+ odds.</p>` : ""}
+        ${y.trophyMiss ? `<p class="note">Trophy year, but no ${S.trophySp && S.trophySp.length ? S.trophySp.map(k => SPN[k].toLowerCase()).join(" or ") : ""} hunt rated ${S.trophyMin}+ reaches ${Math.round(S.minOdds * 100)}% odds with the points you'll have. Keep building points; Trophy targets below shows when the best ones open up, or lower the odds or trophy level.</p>` : ""}
+        ${y.picks.length < S.hpy && y.picks.length && !y.overBudget ? `<p class="note">Only ${y.picks.length} of ${S.hpy} hunts found at ${Math.round(S.minOdds * 100)}%+ odds${S.hpy > slots ? ` (you can hold one tag per species in each state, so ${slots} is the most these states and species allow)` : ""}.</p>` : ""}
+        ${y.picks.length < S.hpy && y.overBudget ? `<p class="note">${S.hpy - y.picks.length} hunt${S.hpy - y.picks.length > 1 ? "s" : ""} left out to stay within your ${money(S.budget)} budget${y.fixed >= S.budget ? ` (points, applications and licenses alone cost ${money(y.fixed)}; drop a state or two to free up money for tags)` : ""}.</p>` : ""}
         <p class="pbank"><span class="tag" style="color:var(--mid)">Apply / points</span>${bank.map(a => `${a.st} ${a.pref ? (a.sp === "E" ? "elk" : "deer") + " combo (pref.)" : (a.sp === "D" ? "deer" : SPN[a.sp].toLowerCase())}${a.pts != null ? ` <span class="ptn">${a.pts}→${a.pts + 1}</span>` : ""}`).join(" · ")}${lot.length ? ` · lottery: ${lot.map(a => a.st).join(", ")}` : ""}</p>
-        <p class="pcost${over ? " over" : ""}">Applications, points & licenses ${money(y.fixed)} + expected tags ${money(y.tagCost)} = <b>${money(y.fixed + y.tagCost)}</b>${over ? ` · over your ${money(S.budget)} budget` : ""}</p>
+        <p class="pcost${over ? " over" : ""}">Applications, points & licenses ${money(y.fixed)} + tags if drawn ${money(y.full)} = <b>${money(y.fixed + y.full)}</b>${over ? ` · over your ${money(S.budget)} budget` : ` · within your ${money(S.budget)} budget`}</p>
       </div></div>`;
     }).join("") + `</div>`;
     html += `<h2>Trophy targets</h2><p class="lede">Hunts rated ${S.trophyMin}+ for trophy, soonest first. "Year" is when your odds reach ${Math.round(S.minOdds * 100)}% if you keep applying.</p><div class="tbl"><table><thead><tr><th>Hunt</th><th>Trophy</th><th>Odds next draw</th><th>Reach ${Math.round(S.minOdds * 100)}%</th><th>Tag</th></tr></thead><tbody>` +
@@ -303,7 +357,10 @@
     S.species = [...f.querySelectorAll('[name="species"]:checked')].map(i => i.value);
     S.states = [...f.querySelectorAll('[name="states"]:checked')].map(i => i.value);
     S.hpy = +q("hpy").value; S.minOdds = +q("minOdds").value; S.trophyEvery = +q("trophyEvery").value; S.trophyMin = +q("trophyMin").value;
-    S.maxWait = +q("maxWait").value; S.weapon = q("weapon").value; S.tag = q("tag").value; S.budget = Math.max(0, +q("budget").value || 0);
+    S.maxWait = +q("maxWait").value;
+    if (q("weapon").value !== "__by") { S.weapon = q("weapon").value; S.weaponBy = {}; }
+    const ts = [...f.querySelectorAll('[name="trophySp"]:checked')].map(i => i.value);
+    S.trophySp = ts.length === 4 || !ts.length ? null : ts; S.tag = q("tag").value; S.budget = Math.max(0, +q("budget").value || 0);
     S.years = +q("years").value; S.otc = q("otc").checked; S.priv = q("priv").checked;
     if (!S.species.length) S.species = DEF.species.slice(); if (!S.states.length) S.states = ALL_ST.slice();
   }
@@ -316,7 +373,7 @@
       e.preventDefault();
       const text = document.getElementById("plan-text").value.trim();
       const { out, said } = parseCommand(text);
-      Object.assign(S, out); S.focus = text; save(); render();
+      S = Object.assign({}, DEF, { species: DEF.species.slice(), states: DEF.states.slice(), weaponBy: {} }, out, { focus: text }); save(); render();
       const el = document.getElementById("plan-said");
       el.innerHTML = said.length ? "Got it: " + said.map(x => `<span class="chip sm">${esc(x)}</span>`).join(" ") : "I didn't catch any settings in that. Try naming species, states, hunts a year, a budget or a weapon.";
       document.getElementById("plan-root").scrollIntoView({ behavior: "smooth" });

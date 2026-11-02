@@ -1,0 +1,33 @@
+name: Screenshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      cases:
+        description: "Space-separated species:metric cases"
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  shoot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q playwright && python -m playwright install --with-deps chromium
+      - run: python scripts/shots/shoot.py ${{ github.event.inputs.cases }}
+      - name: Save screenshots to the shots branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mv shots /tmp/shots
+          git fetch origin shots || true
+          git checkout -B shots
+          git rm -rq . || true
+          cp /tmp/shots/* .
+          git add -A && git commit -qm "Screenshots" && git push -f origin shots

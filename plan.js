@@ -245,6 +245,8 @@
       </div>
       <label class="pchk"><input type="checkbox" name="otc"${S.otc ? " checked" : ""}> Include over-the-counter and general tags</label>
       <label class="pchk"><input type="checkbox" name="priv"${S.priv ? " checked" : ""}> Include private-land and ranch hunts</label>
+      <div class="factions"><button type="button" class="btn" id="plan-apply">Apply settings</button></div>
+      ${FLASH ? `<p class="said" role="status">${esc(FLASH)}</p>` : ""}
     </details>`;
   }
   function pickHTML(p) {
@@ -267,7 +269,7 @@
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const next = DATES.filter(d => S.states.includes(d[1])).map(d => ({ d, dt: new Date(d[0] + "T12:00:00") }))
       .filter(x => x.dt >= today && (x.dt - today) / 864e5 <= 120).sort((a, b) => a.dt - b.dt).slice(0, 7);
-    html += `<h2>Your plan</h2><p class="lede">${esc(sum)}. Built from ${R.ncands.toLocaleString()} draw hunts that fit, your points on the My Points tab, trophy ratings and nonresident prices. Points are assumed to grow one a year where you apply and reset when you draw; preference cutoffs keep creeping at their past rate.</p>`;
+    html += `<h2 id="plan-top">Your plan</h2>${FLASH ? `<p class="said updated" role="status">${esc(FLASH)}</p>` : ""}<p class="lede">${esc(sum)}. Built from ${R.ncands.toLocaleString()} draw hunts that fit, your points on the My Points tab, trophy ratings and nonresident prices. Points are assumed to grow one a year where you apply and reset when you draw; preference cutoffs keep creeping at their past rate.</p>`;
     if (next.length) html += `<div class="callout"><h3>Coming up</h3><ol>${next.map(x => `<li><b>${x.dt.toLocaleDateString("en-US", { month: "short", day: "numeric" })} · ${SN[x.d[1]]}.</b> ${esc(x.d[2])}${x.d[3] ? " (date estimated)" : ""}</li>`).join("")}</ol></div>`;
     html += `<h2>Year by year</h2><div id="years">` + R.years.map(y => {
       const over = y.fixed + y.tagCost > S.budget;
@@ -284,6 +286,16 @@
       (R.trackTop.length ? R.trackTop.map(t => `<tr><td><b>${SN[t.c.st]} ${SPN[t.c.sp].toLowerCase()} ${esc(t.c.units)}</b><br><span class="note">${esc(t.c.label.slice(0, 70))}</span><br><button type="button" class="maplink" data-st="${t.c.st}" data-hid="${esc(t.c.h.id)}">Show on map</button></td><td class="num">${t.c.trophy}/5<br><span class="note">${window.trophyInches ? window.trophyInches(t.c.sp, t.c.trophy) : ""}</span></td><td class="num">${pct(t.o0)}</td><td class="num">${t.when == null ? `beyond ${S.maxWait} yrs` : t.when === 0 ? R.Y0 : R.Y0 + t.when}</td><td class="num">${money(t.c.cost)}</td></tr>`).join("") : `<tr><td colspan="5">No trophy-rated hunts match these settings.</td></tr>`) + `</tbody></table></div>`;
     html += `<p class="note" style="margin-top:8px">Prices are 2026 nonresident fees (Wyoming points at the 2027 price) and will change. Expected tag cost is tag price × draw odds. Odds come from each state's draw reports; check the state's own numbers before you apply.</p>`;
     root.innerHTML = html; wire();
+  }
+  let FLASH = "";
+  // apply the settings form: rebuild, confirm, and (from the button) jump to the new plan
+  function applySettings(jump) {
+    readForm(); save();
+    const set = document.getElementById("plan-settings"), open = set && set.open;
+    FLASH = "Plan updated: " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + ".";
+    render();
+    const s2 = document.getElementById("plan-settings"); if (s2) s2.open = jump ? false : open;
+    if (jump) { const t = document.getElementById("plan-top"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }
   function readForm() {
     const f = document.getElementById("plan-settings"); if (!f) return;
@@ -310,7 +322,11 @@
       document.getElementById("plan-root").scrollIntoView({ behavior: "smooth" });
     });
     document.getElementById("plan-reset").onclick = () => { S = Object.assign({}, DEF); save(); render(); };
-    set.addEventListener("change", () => { readForm(); save(); const open = set.open; render(); document.getElementById("plan-settings").open = open; });
+    set.addEventListener("change", () => applySettings(false));
+    document.getElementById("plan-apply").onclick = () => applySettings(true);
+    // the budget box applies as you type (after a short pause), not only when you leave it
+    const bud = set.querySelector('[name="budget"]'); let tm;
+    if (bud) bud.addEventListener("input", () => { clearTimeout(tm); tm = setTimeout(() => { const pos = bud.selectionStart; applySettings(false); const nb = document.querySelector('#plan-settings [name="budget"]'); if (nb) { nb.focus(); try { nb.setSelectionRange(pos, pos); } catch (e) {} } }, 900); });
   }
   window.renderPlan = render;
   window.__planParse = parseCommand;

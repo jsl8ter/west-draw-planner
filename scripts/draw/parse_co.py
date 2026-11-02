@@ -264,8 +264,10 @@ BROCHURE_DUMP = True
 
 
 def _dump_brochure():
-    url = pdf_url("https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure")
+    url = "https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure"
     data = get(url).content
+    if not data.startswith(b"%PDF"):
+        url = pdf_url(url); data = get(url).content
     root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     d = os.path.join(root, "data", "draw", "probe", "CO"); os.makedirs(d, exist_ok=True)
     out = [f"URL {url} bytes {len(data)}"]

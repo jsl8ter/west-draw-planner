@@ -13,6 +13,11 @@ OUT = os.path.join(ROOT, "data", "draw", "regs")
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
       "Accept": "text/html,application/xhtml+xml", "Accept-Language": "en-US,en;q=0.9"}
 PAGES = {
+    "MT": ["https://fwp.mt.gov/binaries/content/assets/fwp/hunt/regulations/2026/2026-dea-regulations-final-with-low-resolution-maps-for-web.pdf",
+           "https://fwp.mt.gov/binaries/content/assets/fwp/commission/2021/dec-14/wildlife/license-quota-and-quota-range-master-list-dec-8-2021-final.pdf"],
+    "WY": ["https://wgfd.wyo.gov/media/33850/download", "https://wgfd.wyo.gov/media/33851/download",
+           "https://wgfd.wyo.gov/media/33852/download", "https://wgfd.wyo.gov/media/33853/download",
+           "https://wgfd.wyo.gov/media/33523/download"],
     "OR": ["https://www.eregulations.com/oregon/hunting/elk-seasons",
            "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
            "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
@@ -34,6 +39,15 @@ def tables(html):
         h = t.find_previous(["h1", "h2", "h3", "h4", "h5"])
         out.append({"heading": h.get_text(" ", strip=True) if h else "", "rows": rows})
     return out
+
+
+def pdf_text(data):
+    import io, pdfplumber
+    pages = []
+    with pdfplumber.open(io.BytesIO(data)) as pdf:
+        for p in pdf.pages:
+            pages.append(p.extract_text(y_tolerance=3) or "")
+    return pages
 
 
 def extract_or(page_tables):
@@ -71,13 +85,24 @@ def main():
             try:
                 r = S.get(url, timeout=90)
                 log.append(f"{url} -> {r.status_code} {len(r.content)} bytes")
-                if r.status_code == 200:
+                if r.status_code == 200 and r.content[:4] == b"%PDF":
+                    pages = pdf_text(r.content)
+                    got[url] = {"pdf": True, "pages": pages}
+                    log.append(f"   PDF {len(pages)} pages; first line: {(pages[0] if pages else '')[:150]!r}")
+                elif r.status_code == 200:
                     got[url] = tables(r.text)
                     log.append(f"   {len(got[url])} tables")
             except Exception as e:  # noqa: BLE001
                 log.append(f"{url} FAILED {e}")
             time.sleep(2)
         hunts = EXTRACT[st](got) if st in EXTRACT else {}
+        pdfs = {u: v["pages"] for u, v in got.items() if isinstance(v, dict) and v.get("pdf")}
+        if pdfs:   # raw text for inspection / parsing (one file per state)
+            with open(os.path.join(OUT, f"{st}_text.txt"), "w") as fh:
+                for u, pages in pdfs.items():
+                    for i, t in enumerate(pages):
+                        fh.write(f"\n===== {u} PAGE {i+1} =====\n{t}\n")
+        got = {u: v for u, v in got.items() if not (isinstance(v, dict) and v.get("pdf"))}
         json.dump(got, open(os.path.join(OUT, f"{st}_tables.json"), "w"), indent=0)
         json.dump({"state": st, "generated": time.strftime("%Y-%m-%d"), "log": log, "hunts": hunts},
                   open(os.path.join(OUT, f"{st}.json"), "w"), indent=1)

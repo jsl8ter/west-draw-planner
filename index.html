@@ -791,6 +791,7 @@ async function loadData(){
   await Promise.all(DSTATES.map(async st=>{try{const r=await fetch(`data/draw/${st}.json`,{cache:"no-cache"});if(r.ok){DRAW[st]=await r.json();DLS[st]="ok"}else DLS[st]="none"}catch(e){DLS[st]="none"}}));
   try{const r=await fetch("data/trophy.json",{cache:"no-cache"});if(r.ok)TROPHY=await r.json()}catch(e){}
   CUR={};for(const st in DRAW){for(const h of DRAW[st].hunts||[]){h._st=st;const ys=Object.keys(h.years||{});if(!ys.length)continue;const y=ys.sort().pop();const k=st+h.species;if(!CUR[k]||y>CUR[k])CUR[k]=y}}
+  try{const by={};for(const st in DRAW)by[st]=DRAW[st].hunts||[];Odds.setCreepPriors(Odds.creepPriors(by))}catch(e){}
   renderDStatus();
   if(window.__addYears)window.__addYears();
   if(window.renderPlan&&!document.getElementById("v-plan").hidden)window.renderPlan();
@@ -850,7 +851,7 @@ function huntPts(st,h){
   const sys=huntSys(st,h),y=Odds.latestYear(h,"NR");if(!y)return null;const b=h.years[y].NR;
   if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;
   if(b.min_pts!=null&&!/^bonus|^az/.test(sys))return b.min_pts;
-  if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5);
+  if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5,h,"NR");
   return b.min_pts??null;
 }
 // nonresidents had a real shot in the latest year?
@@ -1243,7 +1244,7 @@ function pick(i,zoom){sel=i;selF=null;restyle();renderList();
   if(zoom){const sh=ENTRY_SHAPES[i];if(sh&&sh.length){const b=L.featureGroup(sh).getBounds();map.fitBounds(b,{maxZoom:9,padding:[30,30]})}else map.setView([U[i][5],U[i][6]],8)}}
 let lastShown=null;
 const WPN={any:"Any legal weapon",rifle:"Rifle",archery:"Archery",muzzleloader:"Muzzleloader",other:"Other"};
-function blkCells(b){return b?`<td>${n0(b.apps)}</td><td>${n0(b.tags)}</td><td>${n0(b.drawn)}</td><td>${b.apps&&(b.drawn??b.tags)!=null?pct(Math.min(1,(b.drawn??b.tags)/b.apps)):"–"}</td><td>${b.min_pts??"–"}</td>`:`<td colspan="5">–</td>`}
+function blkCells(b){return b?`<td>${n0(b.apps)}</td><td>${n0(b.tags)}</td><td>${n0(b.drawn)}</td><td>${b.apps&&(b.drawn??b.tags)!=null?pct(Math.min(1,(b.drawn??b.tags)/b.apps)):"–"}</td><td>${Odds.ptsNeeded(b)??"–"}</td>`:`<td colspan="5">–</td>`}
 function huntCard(st,h){
   const sys=huntSys(st,h),mp=effPts(st,h.species,h),s=huntOdds(st,h);
   const y=s?s.year:Object.keys(h.years).sort().pop();const Y=h.years[y]||{};
@@ -1263,7 +1264,7 @@ function huntCard(st,h){
   <div class="stats">
     <div><b>Your odds ${y?+y+1:""}${sys==="random"?" (random draw)":` (${mp} pts)`}</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
     <div><b>NR ${y} drawn</b>${n0(nr.drawn??nr.tags)} of ${n0(nr.apps)} · ${ov(nr)}</div>
-    <div><b>NR pts needed ${y}</b>${nr.min_pts??(sys==="random"?"random":"–")}</div>
+    <div><b>NR pts needed ${y}</b>${sys==="random"?"random draw":Odds.ptsNeeded(nr)===0&&nr.apps?"0 (everyone drew)":Odds.ptsNeeded(nr)??"–"}</div>
     <div><b>Resident ${y}</b>${n0(r.drawn??r.tags)} of ${n0(r.apps)} · ${ov(r)}</div>
     <div><b>Total ${y}</b>${n0(tot.drawn??tot.tags)} of ${n0(tot.apps)} · ${ov(tot)}</div>
     ${s&&s.years!=null?`<div><b>Est. years to draw</b>${s.years>30?"30+":s.years}</div>`:""}

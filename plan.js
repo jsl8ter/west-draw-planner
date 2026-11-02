@@ -133,9 +133,12 @@
   function oddsAt(c, pts, k) {
     const sys = c.sys;
     let p = pts;
-    if (/^pref/.test(sys) && k > 0) { const cr = Odds.creep(c.h.years, "NR"); const slope = cr.slope != null ? Math.max(0, cr.slope) : 0; p = Math.max(0, Math.round(pts - slope * k)); }
+    if (/^pref/.test(sys) && k > 0) { const slope = Odds.recentSlope(Odds.creep(c.h.years, "NR")); p = Math.max(0, Math.round(pts - slope * k)); }
     const s = Odds.summarize(sys, c.h, "NR", p);
-    return oddsVal(s);
+    let v = oddsVal(s);
+    // Montana elk/deer permits also need the nonresident combo license draw
+    if (v != null && c.st === "MT" && c.h.kind !== "general" && (c.sp === "E" || c.sp === "D") && window.mtCombo) { const cb = window.mtCombo(c.sp); if (cb != null) v *= cb; }
+    return v;
   }
   const ptKeyOf = c => c.st + (c.sp === "C" ? "D" : c.sp) + (c.pref ? "pref" : "");
 

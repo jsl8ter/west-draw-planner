@@ -842,7 +842,14 @@ const usesPref=(st,h)=>st==="MT"&&h&&h.kind==="general";
 function effPts(st,s,h){return FILTER.on&&FILTER.pts!=null&&(!FILTER.st||FILTER.st===st)?FILTER.pts:myPts(st,s,usesPref(st,h))}
 // Montana combos are a preference draw (75% by points, 25% random), not the squared-bonus permit draw
 function huntSys(st,h){return usesPref(st,h)?"pref75":sysOf(st)}
-function huntOdds(st,h){return Odds.summarize(huntSys(st,h),h,"NR",effPts(st,h.species,h))}
+// Montana: a nonresident elk or deer permit only counts if you also draw the general combo license
+// (Big Game Combo for elk, Deer Combo or Big Game Combo for deer) - a separate preference-point draw.
+function mtCombo(s){const d=DRAW.MT;if(!d)return null;const ids=s==="E"?["NR-BGC"]:s==="D"?["NR-DC","NR-BGC"]:[];let best=null;
+  for(const id of ids){const h=d.hunts.find(x=>x.id===id);if(!h)continue;const v=oddsVal(Odds.summarize("pref75",h,"NR",myPts("MT",s,true)));if(v!=null&&(best==null||v>best))best=v}return best}
+window.mtCombo=mtCombo;
+function withCombo(st,h,s){if(!s||st!=="MT"||h.kind==="general"||(h.species!=="E"&&h.species!=="D"))return s;const c=mtCombo(h.species);if(c==null)return s;
+  const p=oddsVal(s);return {...s,combo:c,permitOdds:p,projected:p==null?null:p*c}}
+function huntOdds(st,h){return withCombo(st,h,Odds.summarize(huntSys(st,h),h,"NR",effPts(st,h.species,h)))}
 function oddsVal(s){if(!s)return null;if(s.projected!=null)return s.projected;const h=s.historical;return h.length?h[h.length-1][1]:s.overall}
 // Montana general combos (units ["General"]) apply to general districts without a permit hunt
 function generalHunts(st){const d=DRAW[st];return d?d.hunts.filter(h=>h.species===sp&&(h.units||[]).some(u=>/^general$/i.test(u))&&!isAntlerless(h)):[]}
@@ -908,7 +915,7 @@ function huntVal(st,h,k){
     case "pts":{if(sys==="random")return "R";if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;
       if(/^bonus|^az/.test(sys))return Odds.pointsFor(sys,b,.5);return b.min_pts??null}
     case "p50":{if(sys==="random")return "R";if(b.apps&&b.drawn!=null&&b.drawn>=b.apps)return 0;return Odds.pointsFor(sys,b,.5)}
-    case "odds":{const r=res==="T"?"NR":res;return oddsVal(Odds.summarize(sys,h,r,effPts(st,h.species,h)))}
+    case "odds":{const r=res==="T"?"NR":res;const s0=Odds.summarize(sys,h,r,effPts(st,h.species,h));return oddsVal(r==="NR"?withCombo(st,h,s0):s0)}
     case "years":{if(!/^pref/.test(sys))return null;return Odds.yearsToDraw(sys,h,res==="T"?"NR":res,effPts(st,h.species,h))}
   }
   return null;
@@ -1260,6 +1267,7 @@ function huntCard(st,h){
   ${h.bag_text?`<p class="note"><b>Bag limit:</b> ${escH(h.bag_text)}</p>`:""}
   ${bagOf(h)==="spike"?`<p class="warn">Spike-only tag: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
   ${!isCurrent(h)?`<p class="warn">Not offered in the ${CUR[h._st+h.species]} draw (last drawn ${Object.keys(h.years).sort().pop()}).</p>`:""}
+  ${s&&s.combo!=null?`<p class="note">Includes the nonresident ${h.species==="E"?"Big Game Combo":"Deer or Big Game Combo"} draw you need first: permit ${pct(s.permitOdds)} × combo ${pct(s.combo)} at your Montana preference points.</p>`:""}
   ${s&&s.pooled?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}. Nonresidents draw from the same pool as residents here, so your odds use the whole pool's results.</p>`:nr.apps!=null&&nr.apps<5&&sys!=="random"?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}: treat the odds as rough.</p>`:""}
   <div class="stats">
     <div><b>Your odds ${y?+y+1:""}${sys==="random"?" (random draw)":` (${mp} pts)`}</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>

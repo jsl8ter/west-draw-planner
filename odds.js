@@ -94,9 +94,16 @@
 
   // Next-year projection: applicants who didn't draw gain a point, last year's 0-point
   // applicants are replaced by a new 0-point cohort of the same size, tags held constant.
+  // tags available to this residency: if fewer drew than the listed quota while others missed,
+  // the listed number is a total quota, so use what this residency actually drew
+  function resTags(blk) {
+    let t = blk.tags != null ? blk.tags : blk.drawn;
+    if (blk.drawn != null && blk.apps != null && t != null && blk.drawn < t && blk.apps > blk.drawn) t = blk.drawn;
+    return t;
+  }
   function project(system, blk, pts) {
     if (!blk) return null;
-    const tags = blk.tags != null ? blk.tags : blk.drawn;
+    const tags = resTags(blk);
     if (system === "random") return blk.apps ? Math.min(1, (tags || 0) / blk.apps) : null;
     if (!blk.by_pts || !blk.by_pts.length || !tags) return null;
     const rows = sortRows(blk.by_pts);

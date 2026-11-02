@@ -117,7 +117,7 @@ a{color:var(--accent)}
 .mapctl{display:flex;flex-direction:column;gap:10px;margin:12px 0 10px}
 .sprow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 .sprow .chip{flex:none}
-.ctlgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px}
+.ctlgrid{display:grid;grid-template-columns:1.6fr 1fr;gap:8px 10px}
 .ctlgrid .cwide{grid-column:1/-1}
 .ctlgrid label,.panel label{display:flex;flex-direction:column;gap:3px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
 .ctlgrid select,.panel select,.panel input{font:500 15px var(--body);color:var(--ink);background:var(--panel);border:1.5px solid var(--line);border-radius:5px;padding:7px 8px;min-width:0;text-transform:none;letter-spacing:0}
@@ -170,6 +170,22 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
 .dtab td,.dtab th{padding:4px 6px;font-family:var(--mono);white-space:nowrap}
 .dtab tr.me td{background:color-mix(in srgb,var(--panel) 80%,var(--accent))}
 .oddsbig{font-family:var(--display);font-size:26px;font-weight:700;line-height:1}
+#plan-root{display:flex;flex-direction:column;gap:12px}
+#plan-root textarea{font:500 15px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:5px;padding:8px;width:100%;resize:vertical}
+.plbl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.pgroup{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.pgroup .plbl{width:100%}
+.pchk{display:inline-flex;align-items:center;gap:5px;font-size:14px;cursor:pointer}
+details.panel summary{cursor:pointer;font-weight:700}
+details.panel[open] summary{margin-bottom:6px}
+.said{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip.sm{font-size:12px;padding:2px 8px;cursor:default}
+.pick{display:flex;flex-direction:column;gap:2px;padding-bottom:6px;border-bottom:1px dashed var(--line)}
+.pick .ph{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.pm{font-size:13.5px;color:var(--muted)}
+.pbank{font-size:13.5px}
+.ptn{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.pcost{font-size:13.5px}.pcost.over{color:var(--long)}
 .leaflet-tooltip.ulbl{font:600 12px var(--body);padding:2px 6px}
 @media (max-width:520px){.yr{grid-template-columns:1fr;gap:4px}.dl{grid-template-columns:1fr;gap:2px}.li{grid-template-columns:12px 40px 1fr auto}#map{height:60vh}.basebar button{padding:7px 8px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -192,18 +208,22 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
 <!-- MAP -->
 <section id="v-map">
   <div class="mapctl">
-    <div class="sprow" id="spRow" role="group" aria-label="Species"></div>
     <div class="ctlgrid">
-      <label for="cm-metric" class="cwide">Color by<select id="cm-metric"></select></label>
+      <label for="hunt-sel">Hunt<select id="hunt-sel">
+        <optgroup label="Elk"><option value="E|antlered" selected>Elk – antlered (bull)</option><option value="E|antlerless">Elk – antlerless (cow)</option><option value="E|either">Elk – either-sex only</option><option value="E|all">Elk – any tag</option></optgroup>
+        <optgroup label="Mule deer"><option value="D|antlered">Mule deer – antlered (buck)</option><option value="D|antlerless">Mule deer – antlerless (doe)</option><option value="D|either">Mule deer – either-sex only</option><option value="D|all">Mule deer – any tag</option></optgroup>
+        <optgroup label="Coues deer (AZ, NM)"><option value="C|antlered">Coues deer – antlered (buck)</option><option value="C|antlerless">Coues deer – antlerless (doe)</option><option value="C|all">Coues deer – any tag</option></optgroup>
+        <optgroup label="Pronghorn"><option value="P|antlered">Pronghorn – buck</option><option value="P|antlerless">Pronghorn – doe</option><option value="P|either">Pronghorn – either-sex only</option><option value="P|all">Pronghorn – any tag</option></optgroup>
+      </select></label>
       <label for="wpn-sel">Weapon<select id="wpn-sel"><option value="any">Any</option><option value="rifle">Rifle</option><option value="archery">Archery</option><option value="muzzleloader">Muzzleloader</option></select></label>
-      <label for="sex-sel">Tag<select id="sex-sel"><option value="antlered">Bull / buck</option><option value="antlerless">Cow / doe</option><option value="all">All</option></select></label>
+      <label for="cm-metric" class="cwide">Color by<select id="cm-metric"></select></label>
     </div>
     <div class="tbtns">
       <button type="button" class="tbtn" id="tg-filter" aria-expanded="false" aria-controls="filter">Find hunts</button>
       <button type="button" class="tbtn" id="tg-opts" aria-expanded="false" aria-controls="copts">Color options</button>
     </div>
     <form class="panel" id="filter" autocomplete="off" hidden>
-      <p class="pnote">Show only units you can draw. Uses the species, weapon and tag above.</p>
+      <p class="pnote">Show only units you can draw. Uses the hunt and weapon above.</p>
       <div class="fgrid">
         <label for="f-st">State<select id="f-st"><option value="">All states</option></select></label>
         <label for="f-pts">My points<input id="f-pts" type="number" min="0" max="30" inputmode="numeric" placeholder="My Points tab"></label>
@@ -220,6 +240,7 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
         <label for="cm-scale">Color breaks<select id="cm-scale"><option value="fixed">Standard</option><option value="auto">Spread evenly</option></select></label>
       </div>
       <label for="cm-flip" class="ccheck"><input type="checkbox" id="cm-flip"> Flip colors</label>
+      <label for="inc-either" class="ccheck"><input type="checkbox" id="inc-either" checked> Count either-sex tags as antlered or antlerless tags</label>
     </div>
     <div class="fbar" id="fbar" hidden><span id="fsum"></span><button type="button" class="btn ghost sm" id="f-clear">Clear</button></div>
   </div>
@@ -243,52 +264,8 @@ details.dt summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight
 <!-- PLAN -->
 <section id="v-plan" hidden>
   <h2>Your strategy</h2>
-  <p class="lede">Goal: two hunts a year, plus a better-quality tag every couple of years. That means two buckets. The <b>hunt-now</b> bucket uses general tags, OTC tags and high-odds draws. The <b>point bank</b> buys points or lottery chances every year in the states where quality tags take time.</p>
-
-  <div class="callout">
-    <h3>Next 60 days</h3>
-    <ol>
-      <li><b>Wyoming preference points by Mon, Nov 2.</b> Elk $52, deer $41, antelope $31 at wgfd.wyo.gov. They jump to $75 each on Jan 1, and Wyoming only gives points you buy.</li>
-      <li><b>Arizona OTC archery deer tag (2027).</b> Usually goes on sale in early November at otcarchery.azgfd.com and sells out. $160 license + $300 tag. Good for Coues or mule deer in Aug or Dec–Jan.</li>
-      <li><b>Arizona hunter ed point.</b> Take the online "Ethically Hunting Arizona" course before the February draw. It's a permanent extra bonus point for every species.</li>
-      <li><b>Idaho general tag draw.</b> Buy the $185 license on Dec 1, apply Dec 5–15 ($18). Pick an uncapped elk zone (McCall, Weiser River, Panhandle).</li>
-      <li><b>Montana preference point.</b> $100 by Dec 31 for the general combo draw. Makes a 2028 combo very likely.</li>
-      <li>Make accounts on all 9 state portals now so the spring deadlines are just a few clicks.</li>
-    </ol>
-  </div>
-
-  <h2>Year by year</h2>
-  <div id="years">
-    <div class="yr"><div class="y">2027</div><div class="body">
-      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Idaho general elk</b>, uncapped zone (McCall or Weiser River). Random draw in December; leftover tags often sell OTC in late March as a backup.</p>
-      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>New Mexico Coues deer, archery</b> in Unit 23 or 24 (about 75% nonresident odds in 2025). Backup: the Arizona OTC archery tag.</p>
-      <p><span class="tag" style="color:var(--easy)">Option</span><b>Wyoming pronghorn</b> in a 1-point area (24 Thunder Basin, 15 Clearmont or 2 Sundance) using the point you buy this week. Much of that country is private, so line up access before applying.</p>
-      <p><span class="tag" style="color:var(--premier)">Bank</span>Buy Wyoming elk and deer points each summer. Apply or buy points in AZ (elk, pronghorn, deer), UT (LE elk, deer, pronghorn), NV (elk, deer, antelope) and CO (elk, deer, pronghorn; points are free in 2027). Each one is a small lottery ticket at a top unit.</p>
-    </div></div>
-    <div class="yr"><div class="y">2028</div><div class="body">
-      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Montana general combo</b> (elk + deer) with 2 preference points, about 85–95% odds. Hunt any general district, such as the Gravelly Range.</p>
-      <p><span class="tag" style="color:var(--mid)">Hunt</span><b>Colorado pronghorn or deer</b>, mid units (San Luis Valley 79/82 pronghorn, or 22/31 deer). Colorado moves to a 50/50 preference/random split in 2028, so 1–2 points plus the random half are enough.</p>
-    </div></div>
-    <div class="yr"><div class="y">2029</div><div class="body">
-      <p><span class="tag" style="color:var(--mid)">Trophy-ish</span><b>Arizona Coues rifle</b>, Units 31/32 or 36. By then you'll have 2 earned points + the hunter ed point.</p>
-      <p><span class="tag" style="color:var(--easy)">Hunt</span><b>Wyoming general elk, Region E</b> (Bighorns), about 3 points in the regular draw. Or Idaho general elk/deer, or Utah OTC archery elk.</p>
-    </div></div>
-    <div class="yr"><div class="y">2030</div><div class="body">
-      <p><span class="tag" style="color:var(--mid)">Trophy-ish</span><b>Colorado elk</b>, Units 66/67 (Lake City) or Unit 2 archery, using 3+ points.</p>
-      <p><span class="tag" style="color:var(--mid)">Hunt</span>Nevada antelope (mid units like 041/042 or 071–079) with 3–4 squared bonus points, or a Montana combo again.</p>
-    </div></div>
-    <div class="yr"><div class="y">2031+</div><div class="body">
-      <p><span class="tag" style="color:var(--premier)">Trophy</span>Utah LE elk on Manti or Wasatch (archery, about 5–10 points), and Arizona elk Unit 6A archery. Keep the long-shot applications going every year: AZ 1/9/23 elk, UT Beaver East, NV 231, MT Missouri Breaks.</p>
-    </div></div>
-  </div>
-
-  <h2>Yearly cost to stay in the game</h2>
-  <p class="lede">Licenses plus application or point fees, before any tag you actually draw. Tags are charged only if you draw, except New Mexico and Montana, which charge up front and refund.</p>
-  <div class="tbl"><table>
-    <thead><tr><th>State</th><th>What to buy</th><th>Approx $/yr</th><th>Why</th></tr></thead>
-    <tbody id="costRows"></tbody>
-  </table></div>
-  <p class="note" style="margin-top:8px">Oregon is skipped for now. Nonresidents get at most 5% of deer and elk tags and 3% of pronghorn, so it's poor value. Its OTC archery elk and deer tags are still an option for a spur-of-the-moment hunt.</p>
+  <p class="lede">Type what you want, or open All settings. The plan rebuilds from the draw data, your points and your budget.</p>
+  <div id="plan-root"></div>
 </section>
 
 <!-- DEADLINES -->
@@ -789,6 +766,7 @@ async function loadData(){
   try{const r=await fetch("data/trophy.json",{cache:"no-cache"});if(r.ok)TROPHY=await r.json()}catch(e){}
   renderDStatus();
   if(window.__addYears)window.__addYears();
+  if(window.renderPlan&&!document.getElementById("v-plan").hidden)window.renderPlan();
 }
 function renderDStatus(){
   const parts=DSTATES.map(st=>{const d=DRAW[st];if(!d||!d.hunts||!d.hunts.length)return `<span class="wait">${st} pending</span>`;
@@ -798,8 +776,17 @@ function renderDStatus(){
 }
 let wpn="any",sexF="antlered";
 const ANTLERLESS=/antlerless|\bcow\b|\bdoe\b|\bewe\b|cow\/calf|doe\/fawn|\b(elk|deer|antelope) b\b|\btype [4678]\b|\b(female|ewes?)\b|horns shorter/i;
-const isAntlerless=h=>h.sex==="female"||(h.sex!=="male"&&ANTLERLESS.test(h.label||""));
-const huntOk=h=>h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&(sexF==="all"||(sexF==="antlerless")===isAntlerless(h));
+const EITHER=/\beither\b|either[- ]sex|\bany (elk|deer|antelope|pronghorn|whitetail)\b|\bES\b/i;
+// the hunt's own label wins (Idaho stores "Either Sex - Antlerless or Antlered" hunts as female)
+const isEither=h=>h.sex==="either"||/either[- ]sex|antlerless or antlered|antlered or antlerless/i.test(h.label||"")||(h.sex!=="male"&&h.sex!=="female"&&EITHER.test(h.label||""));
+const isAntlerless=h=>!isEither(h)&&(h.sex==="female"||(h.sex!=="male"&&ANTLERLESS.test(h.label||"")));
+let incEither=true;
+function sexOk(h){if(sexF==="all")return true;const e=isEither(h),f=isAntlerless(h);
+  if(sexF==="either")return e;if(sexF==="antlerless")return f||(incEither&&e);return (!f&&!e)||(incEither&&e)}
+// hunts a Texas nonresident DIY hunter can't apply for
+const RESTRICTED=/\bCHAMP\b|\byouth\b|\bjunior\b|disab|mobility|\bMI\b|landowner|\bLOA\b|military|veteran|camp navajo|outfitter|\bguided\b|\bF-IM\b|apprentice|\bheritage\b|\bdepredation\b/i;
+const restricted=h=>RESTRICTED.test(h.label||"")||RESTRICTED.test(h.kind||"");
+const huntOk=h=>!restricted(h)&&h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&sexOk(h);
 function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}
 function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
 // Montana general combos use preference points; its permits use bonus points
@@ -1002,7 +989,7 @@ function applyFilter(zoom){
   bar.hidden=false;
   const m=filterMatches();
   const units=new Set(m.map(x=>x.st+"|"+x.f._id));
-  const desc=[FILTER.st?SN[FILTER.st]:"All states",SPECIES[sp],FILTER.pts!=null?FILTER.pts+" pts":"My Points",FILTER.odds>0?"≥"+Math.round(FILTER.odds*100)+"% chance":"",FILTER.trophy?"trophy "+FILTER.trophy+"+":"",wpn!=="any"?WPN[wpn]:"",sexF==="antlered"?"bull/buck":sexF==="antlerless"?"cow/doe":""].filter(Boolean).join(" · ");
+  const desc=[FILTER.st?SN[FILTER.st]:"All states",SPECIES[sp],FILTER.pts!=null?FILTER.pts+" pts":"My Points",FILTER.odds>0?"≥"+Math.round(FILTER.odds*100)+"% chance":"",FILTER.trophy?"trophy "+FILTER.trophy+"+":"",wpn!=="any"?WPN[wpn]:"",sexF==="antlered"?(sp==="E"?"bull":sp==="P"?"buck":"buck"):sexF==="antlerless"?(sp==="E"?"cow":"doe"):sexF==="either"?"either-sex":""].filter(Boolean).join(" · ");
   sum.textContent=`${desc}: ${units.size} unit${units.size===1?"":"s"}`;
   tb.innerHTML=`Find hunts<span class="badge">${units.size}</span>`;
   const byU=new Map();
@@ -1069,10 +1056,11 @@ function restyle(){
 function render(){restyle();renderList()}
 
 // ---------- UI ----------
-const spRow=document.getElementById("spRow");
-for(const k in SPECIES){const b=document.createElement("button");b.className="chip";b.id="sp-"+k;b.dataset.sp=k;b.setAttribute("aria-pressed",k===sp);b.textContent=SPECIES[k];b.onclick=()=>{sp=k;sel=null;document.getElementById("sheet").innerHTML="";spRow.querySelectorAll("[data-sp]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sp===k));render();if(FILTER.on)applyFilter(false)};spRow.appendChild(b)}
 
-document.getElementById("sex-sel").addEventListener("change",e=>{sexF=e.target.value;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
+document.getElementById("hunt-sel").addEventListener("change",e=>{const [k,sx]=e.target.value.split("|");sp=k;sexF=sx;sel=null;selF=null;document.getElementById("sheet").innerHTML="";render();if(FILTER.on)applyFilter(false)});
+document.getElementById("inc-either").addEventListener("change",e=>{incEither=e.target.checked;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
+
+
 document.getElementById("wpn-sel").addEventListener("change",e=>{wpn=e.target.value;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
 // collapsible panels
 for(const [bid,pid] of [["tg-filter","filter"],["tg-opts","copts"]]){const b=document.getElementById(bid),p=document.getElementById(pid);
@@ -1153,7 +1141,7 @@ function huntCard(st,h){
   const rows=Object.keys(h.years).sort().reverse().map(yy=>{const Z=h.years[yy];const T=Z.T||{apps:(Z.NR?.apps||0)+(Z.R?.apps||0)||null,tags:(Z.NR?.tags||0)+(Z.R?.tags||0)||null,drawn:(Z.NR?.drawn||0)+(Z.R?.drawn||0)||null};return `<tr><td>${yy}</td>${blkCells(Z.NR)}${blkCells(Z.R)}<td>${n0(T.apps)}</td><td>${n0(T.tags)}</td><td>${ov(T)}</td></tr>`}).join("");
   const bp=(nr.by_pts||[]).slice().sort((a,b)=>b[0]-a[0]);
   const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
-  return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
+  return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${isEither(h)?"Either sex":isAntlerless(h)?(h.species==="E"?"Antlerless (cow)":"Antlerless (doe)"):(h.species==="E"?"Antlered (bull)":"Antlered (buck)")} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
   <div class="stats">
     <div><b>Your odds ${y?+y+1:""}${sys==="random"?" (random draw)":` (${mp} pts)`}</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
     <div><b>NR ${y} drawn</b>${n0(nr.drawn??nr.tags)} of ${n0(nr.apps)} · ${ov(nr)}</div>
@@ -1175,7 +1163,7 @@ function huntsSheet(f,Lc){
   const hs=huntsOf(f,Lc.st);const d=DRAW[Lc.st];const tr=trophyOf(Lc.st,sp,f._id);
   const trophy=tr?`<p><b>Trophy potential ${tr.s}/5.</b> ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
   if(!d)return trophy?`<div class="sheet">${trophy}<p class="note">${SN[Lc.st]} draw results are still being added.</p></div>`:"";
-  if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?"bull/buck ":sexF==="antlerless"?"cow/doe ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
+  if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?(sp==="E"?"bull ":"buck "):sexF==="antlerless"?(sp==="E"?"cow ":"doe "):sexF==="either"?"either-sex ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
   const order=h=>(isAntlerless(h)?1000:0)+(()=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99})();
   return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} · ${SPECIES[sp]} draw results</h3>${trophy}
   <p class="note">${hs.length} hunt${hs.length>1?"s":""}. ${sysOf(Lc.st)==="random"?`${SN[Lc.st]} has no points; odds are`:`Odds use your ${SN[Lc.st]} ${sp==="C"?"deer":SPECIES[sp].toLowerCase()} points from My Points and`} ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. ${sysOf(Lc.st)==="random"?"Next-year odds use last year's applicants and tags.":"Next-year odds assume everyone who missed gains a point and tags stay the same."}</p>
@@ -1209,7 +1197,7 @@ function showFeature(f,Lc,lyr){
 
 // ---------- other views ----------
 function buildStates(){document.getElementById("stateCards").innerHTML=Object.keys(STATE_INFO).map(k=>{const s=STATE_INFO[k];return `<article class="card"><h3>${SN[k]}</h3><p class="meta">${s.date}</p><p>${s.sys}</p><ul><li><b>NR share:</b> ${s.nr}</li><li><b>License:</b> ${s.lic}</li><li><b>Application:</b> ${s.app}</li><li><b>Point only:</b> ${s.pt}</li><li><b>Tags:</b> ${s.tags}</li><li><b>Payment:</b> ${s.pay}</li><li><b>OTC:</b> ${s.otc}</li></ul><a href="${s.url}" target="_blank" rel="noopener">Official page</a></article>`}).join("")}
-function buildCosts(){let t=0;document.getElementById("costRows").innerHTML=COSTS.map(r=>{t+=+r[2];return `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="num">$${r[2]}</td><td>${r[3]}</td></tr>`}).join("")+`<tr><td colspan="2"><b>Total</b></td><td class="num"><b>~$${t.toLocaleString()}</b></td><td>Before tags you draw</td></tr>`}
+function buildCosts(){if(!document.getElementById("costRows"))return;let t=0;document.getElementById("costRows").innerHTML=COSTS.map(r=>{t+=+r[2];return `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="num">$${r[2]}</td><td>${r[3]}</td></tr>`}).join("")+`<tr><td colspan="2"><b>Total</b></td><td class="num"><b>~$${t.toLocaleString()}</b></td><td>Before tags you draw</td></tr>`}
 function buildDates(){const now=new Date();now.setHours(0,0,0,0);document.getElementById("dates").innerHTML=DATES.slice().sort((a,b)=>a[0].localeCompare(b[0])).map(d=>{const dt=new Date(d[0]+"T12:00:00");const days=(dt-now)/864e5;const lab=dt.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});return `<div class="dl${days>=0&&days<75?" soon":""}"><div class="d">${lab}${d[3]?`<div class="est">est.</div>`:""}</div><div><b>${SN[d[1]]}</b> · ${d[2]}</div></div>`}).join("")}
 // [key suffix, label] per state; deer covers mule deer and Coues
 const PT_ROWS={
@@ -1227,7 +1215,7 @@ function buildPts(){document.getElementById("ptsGrid").innerHTML=Object.keys(PT_
 
 // ---------- tabs ----------
 const views=["map","plan","dates","states","points"];
-function show(v){if(!views.includes(v))v="map";views.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v;document.getElementById("t-"+x).setAttribute("aria-selected",x===v)});if(v==="map")setTimeout(()=>map.invalidateSize(),0)}
+function show(v){if(!views.includes(v))v="map";views.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v;document.getElementById("t-"+x).setAttribute("aria-selected",x===v)});if(v==="map")setTimeout(()=>map.invalidateSize(),0);if(v==="plan"&&window.renderPlan)window.renderPlan()}
 document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{show(b.dataset.v);try{history.replaceState(null,"","#"+b.dataset.v)}catch(e){}});
 window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",render);
@@ -1237,5 +1225,6 @@ loadData().then(()=>LAYERS.forEach(loadLayer));
 if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
 
 </script>
+<script src="plan.js"></script>
 </body>
 </html>

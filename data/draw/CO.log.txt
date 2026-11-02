@@ -1,20 +1,13 @@
-CO: OK 2429 hunts, years ['2022', '2023', '2024', '2025', '2026']
-recap links found: [(2021, 'D'), (2021, 'E'), (2021, 'P'), (2022, 'D'), (2022, 'E'), (2022, 'P'), (2023, 'D'), (2023, 'E'), (2023, 'P'), (2024, 'D'), (2024, 'E'), (2024, 'P'), (2025, 'D'), (2025, 'E'), (2025, 'P'), (2026, 'D'), (2026, 'E'), (2026, 'P')]
-https://cpw.widen.net/content/mirgybedih/original/PostDrawRecapReport_DEER-26_05112026_1505.pdf?u=qdpcdt&download=true | 2026 D | pages 1232 hunts 991 unparsed 0 | 118s
-https://cpw.widen.net/content/tl5sj6pnkb/original/PostDrawRecapReport_ELK-26_05142026_1426.pdf?u=qdpcdt&download=true | 2026 E | pages 1282 hunts 1039 unparsed 0 | 243s
-https://cpw.widen.net/content/5facqkeb5y/original/PostDrawRecapReport_PRONG-26_05212026_1006.pdf?u=qdpcdt&download=true | 2026 P | pages 404 hunts 302 unparsed 0 | 282s
-https://cpw.widen.net/content/vy2t2jygvr/original/PostDrawRecapReport_DEER-25_05102025_1540.pdf?u=qdpcdt&download=true | 2025 D | pages 1065 hunts 985 unparsed 0 | 387s
-https://cpw.widen.net/content/v8vurwjjn6/original/PostDrawRecapReport_ELK-25_05172025_0612.pdf?u=qdpcdt&download=true | 2025 E | pages 1123 hunts 1023 unparsed 0 | 496s
-https://cpw.widen.net/content/jsyu9ob6ci/original/PostDrawRecapReport_PRONG-25_05222025_0816.pdf?u=qdpcdt&download=true | 2025 P | pages 346 hunts 295 unparsed 0 | 531s
-https://cpw.widen.net/content/dmbkrapqzq/original/2024-Primary-DEER-Post-Draw-Report.pdf?u=xyuvvu&download=true | 2024 D | pages 1049 hunts 966 unparsed 0 | 633s
-https://cpw.widen.net/content/v8uftzwwry/original/2024-Primary-ELK-Post-Draw-Report.pdf?u=xyuvvu&download=true | 2024 E | pages 1082 hunts 990 unparsed 0 | 737s
-https://cpw.widen.net/content/ltxj5zp37d/original/2024-Primary-PRONGHORN-Post-Draw-Report.pdf?u=xyuvvu&download=true | 2024 P | pages 339 hunts 293 unparsed 0 | 770s
-https://cpw.widen.net/content/rpwnifzpgc/original/2023DeerDrawRecap.pdf?u=cn6igr&download=true | 2023 D | pages 1033 hunts 960 unparsed 0 | 868s
-https://cpw.widen.net/content/lb27c1naq6/original/2023ElkDrawRecap.pdf?u=cn6igr&download=true | 2023 E | pages 1075 hunts 1003 unparsed 0 | 969s
-https://cpw.widen.net/content/pvcxz46tey/original/2023PronghornDrawRecap.pdf?u=cn6igr&download=true | 2023 P | pages 360 hunts 316 unparsed 0 | 1006s
-https://cpw.widen.net/content/shjyu2kemt/original/2022DeerDrawRecap.pdf?u=cn6igr&download=true | 2022 D | pages 1025 hunts 947 unparsed 0 | 1107s
-https://cpw.widen.net/content/ux7xl3qkto/original/2022ElkDrawRecap.pdf?u=cn6igr&download=true | 2022 E | pages 943 hunts 862 unparsed 0 | 1198s
-https://cpw.widen.net/content/sdiy2hlbbl/original/2022PronghornDrawRecap.pdf?u=cn6igr&download=true | 2022 P | pages 357 hunts 314 unparsed 0 | 1235s
-unparsed/mismatch rows total 0 (first 50):
-hunts: E 1084 D 1008 P 337
-apps = 1st-choice applicants (adult + youth); T.drawn = all licenses drawn incl. landowner and later choices.
+CO: FAILED
+Traceback (most recent call last):
+  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_all.py", line 13, in run
+    d = m.parse()
+        ^^^^^^^^^
+  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 285, in parse
+    _dump_brochure()
+  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 267, in _dump_brochure
+    url = pdf_url("https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 73, in pdf_url
+    raise RuntimeError("no pdf link on share page")
+RuntimeError: no pdf link on share page

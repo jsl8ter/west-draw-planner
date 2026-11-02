@@ -31,7 +31,7 @@
     { st: "OR", sp: "D", label: "Oregon general archery deer (over the counter)", weapon: "archery", tag: "antlered", cost: 500 + 193, trophy: 1, odds: 1, note: "Sold over the counter." }
   ];
   const DEF = { species: ["E", "D", "C", "P"], states: ALL_ST.slice(), hpy: 2, minOdds: 0.5, trophyEvery: 2, trophyMin: 4,
-    maxWait: 8, weapon: "any", tag: "antlered", budget: 4000, otc: true, years: 5, focus: "" };
+    maxWait: 8, weapon: "any", tag: "antlered", budget: 4000, otc: true, priv: false, years: 5, focus: "" };
   let S = load();
 
   function load() { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem("wdp-plan") || "{}")); } catch (e) { return Object.assign({}, DEF); } }
@@ -85,6 +85,7 @@
     m = t.match(/\$\s*([\d.,]+)\s*(k)?/) || t.match(/([\d.,]+)\s*(k)?\s*(?:dollars|budget|a year|per year)/);
     if (m) { let v = parseFloat(m[1].replace(/,/g, "")); if (m[2]) v *= 1000; if (v >= 100) { out.budget = Math.round(v); said.push("Budget " + money(v) + " a year"); } }
     // OTC
+    if (/\bprivate|\branch(es)?\b|\bcwmu\b/.test(t)) { out.priv = !/\bno private|\bpublic (land )?only\b/.test(t); said.push(out.priv ? "Private-land hunts OK" : "Public land only"); }
     if (/\bno (otc|over the counter|general)\b|\bdraw only\b/.test(t)) { out.otc = false; said.push("Draw tags only"); }
     else if (/\b(otc|over the counter|general tags?)\b/.test(t)) { out.otc = true; said.push("Include over-the-counter tags"); }
     return { out, said };
@@ -114,7 +115,7 @@
     for (const st of S.states) {
       const d = DRAW[st]; if (!d) continue;
       for (const h of d.hunts) {
-        if (!S.species.includes(h.species) || !weaponOk(h.weapon) || !tagOk(h) || restricted(h)) continue;
+        if (!S.species.includes(h.species) || !weaponOk(h.weapon) || !tagOk(h) || restricted(h) || (!S.priv && privateLand(h))) continue;
         if (!nrOpen(h)) continue;
         const y = Odds.latestYear(h, "NR"); if (!y) continue;
         // need at least two years of nonresident history, and enough applicants to mean something
@@ -236,6 +237,7 @@
         <label>Years to plan<select name="years">${[3, 5, 7].map(n => opt(n, n, S.years)).join("")}</select></label>
       </div>
       <label class="pchk"><input type="checkbox" name="otc"${S.otc ? " checked" : ""}> Include over-the-counter and general tags</label>
+      <label class="pchk"><input type="checkbox" name="priv"${S.priv ? " checked" : ""}> Include private-land and ranch hunts</label>
     </details>`;
   }
   function pickHTML(p) {
@@ -243,7 +245,7 @@
     const c = p.c, t = c.trophy;
     return `<div class="pick"><div class="ph"><span class="tag" style="color:${p.kind === "trophy" ? "var(--premier)" : "var(--easy)"}">${p.kind === "trophy" ? "Trophy" : "Hunt"}</span><b>${SN[c.st]} ${SPN[c.sp].toLowerCase()} · ${esc(c.units)}</b></div>
       <div class="pm">${esc(c.label)}</div>
-      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5` : ""} · tag ~${money(c.cost)}</div></div>`;
+      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}</div>`;
   }
   function render() {
     const root = document.getElementById("plan-root"); if (!root) return;
@@ -283,7 +285,7 @@
     S.states = [...f.querySelectorAll('[name="states"]:checked')].map(i => i.value);
     S.hpy = +q("hpy").value; S.minOdds = +q("minOdds").value; S.trophyEvery = +q("trophyEvery").value; S.trophyMin = +q("trophyMin").value;
     S.maxWait = +q("maxWait").value; S.weapon = q("weapon").value; S.tag = q("tag").value; S.budget = Math.max(0, +q("budget").value || 0);
-    S.years = +q("years").value; S.otc = q("otc").checked;
+    S.years = +q("years").value; S.otc = q("otc").checked; S.priv = q("priv").checked;
     if (!S.species.length) S.species = DEF.species.slice(); if (!S.states.length) S.states = ALL_ST.slice();
   }
   function wire() {

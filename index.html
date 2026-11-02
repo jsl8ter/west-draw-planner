@@ -831,8 +831,8 @@ function sexOk(h){if(sexF==="all")return true;const b=bagOf(h);
 const RESTRICTED=/\bCHAMP\b|\byouth\b|\bjunior\b|disab|mobility|\bMI\b|landowner|\bLOA\b|military|veteran|camp navajo|outfitter|\bguided\b|\bF-IM\b|apprentice|\bheritage\b|\bdepredation\b/i;
 // Colorado season letters: K = youth only; P = private-land only; W/J = Ranching for Wildlife
 const restricted=h=>RESTRICTED.test(h.label||"")||RESTRICTED.test(h.kind||"")||/^[DEA]-[MFE]-\d{3}-K\d/.test(h.id||"");
-const PRIVATE=/private[- ]land|\bcwmu\b|ranching for wildlife|\bRFW\b|landowner/i;
-const privateLand=h=>PRIVATE.test(h.label||"")||/^[DEA]-[MFE]-\d{3}-(P\d|W\d|J)/.test(h.id||"");
+const PRIVATE=/private[- ]land|\bprivate\b|valid on private|\bcwmu\b|ranching for wildlife|\bRFW\b|landowner/i;
+const privateLand=h=>PRIVATE.test((h.label||"")+" "+(h.bag_text||"")+" "+(h.limits||""))||/^[DEA]-[MFE]-\d{3}-(P\d|W\d|J)/.test(h.id||"");
 let incPrivate=false;
 const huntOk=h=>isCurrent(h)&&!restricted(h)&&(incPrivate||!privateLand(h))&&h.species===sp&&(wpn==="any"||h.weapon===wpn||(wpn==="rifle"&&h.weapon==="any"))&&sexOk(h);
 function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}

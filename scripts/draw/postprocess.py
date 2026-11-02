@@ -17,7 +17,7 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REGS = os.path.join(ROOT, "data", "draw", "regs")
 
-OTHER = re.compile(r"white[- ]?tail|black[- ]?tail", re.I)
+OTHER = re.compile(r"white[- ]?tail|black[- ]?tail|\bAny Wh\b", re.I)
 SPIKE = re.compile(r"(?<!golden )\bspike\b", re.I)   # not the "Golden Spike" CWMU
 EITHER = re.compile(r"either[- ]sex|\beither\b|antlerless or antlered|antlered or antlerless|\bany (elk|deer|antelope|pronghorn)\b|"
                     r"^one (elk|deer)\b(?! with)|\(ES\)", re.I)
@@ -84,7 +84,45 @@ def bag_for(st, h, regs):
     return b, None
 
 
+def merge_ut_api(d):
+    """Utah 2026+: draw results from utahdraws.com JSON (data/draw/raw/UT/<year>_<type>.json, fetched by
+    fetch_ut_api.py). Rows: ResidencyTypeID 1 resident / 2 nonresident; ParticipantCount = 1st-choice applicants,
+    SuccessfulCount = drawn; max-point vs regular round split gives the bonus-pass cutoff."""
+    import glob
+    byid = {h["id"]: h for h in d["hunts"]}
+    added, missing = 0, []
+    for f in sorted(glob.glob(os.path.join(ROOT, "data", "draw", "raw", "UT", "20??_*.json"))):
+        y = os.path.basename(f)[:4]
+        try: data = (json.load(open(f)) or {}).get("Data") or []
+        except Exception: continue
+        for a in data:
+            h = byid.get(a.get("HuntCode"))
+            if h is None:
+                if a.get("QuotaQuantity"): missing.append(a.get("HuntCode"))
+                continue
+            Y = {}
+            for res, rid, q in (("R", 1, a.get("ResidentQuotaQuantity")), ("NR", 2, a.get("NonResidentQuotaQuantity"))):
+                rows = [o for o in a.get("OddsList") or [] if o.get("ResidencyTypeID") == rid and not o.get("IsYouth")]
+                if not rows: continue
+                by = {}
+                for o in rows:
+                    p = int(o.get("Point") or 0); r = by.setdefault(p, [0, 0, 0])
+                    r[0] += o.get("ParticipantCount") or 0; r[1] += o.get("SuccessfulCount") or 0; r[2] += o.get("SuccessfulByMaxPointRoundCount") or 0
+                by_pts = [[p, v[0], v[1]] for p, v in sorted(by.items(), reverse=True) if v[0] or v[1]]
+                mx = [p for p, v in by.items() if v[2] > 0]
+                blk = {"apps": sum(v[0] for v in by.values()), "drawn": sum(v[1] for v in by.values()), "by_pts": by_pts}
+                if q: blk["tags"] = q
+                if mx: blk["min_pts"] = min(mx)
+                Y[res] = blk
+            if Y:
+                Y["T"] = {"apps": sum(Y[r]["apps"] for r in ("R", "NR") if r in Y), "drawn": sum(Y[r]["drawn"] for r in ("R", "NR") if r in Y)}
+                if a.get("QuotaQuantity"): Y["T"]["tags"] = a["QuotaQuantity"]
+                h["years"][y] = Y; added += 1
+    d.setdefault("notes", {})["ut_api"] = f"{added} hunt-years from utahdraws.com; not matched to a known hunt: {missing[:20]}"
+
+
 def annotate(st, d):
+    if st == "UT": merge_ut_api(d)
     regs = load_regs(st)
     from collections import Counter
     c = Counter()

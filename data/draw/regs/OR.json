@@ -2155,6 +2155,405 @@
    "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
    "table": "Archery Seasons"
   },
+  "AD101": {
+   "name": "Aldrich 01",
+   "bag": "One buck with visible antler",
+   "tags": "1,100",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "CR101": {
+   "name": "Crooked River 01",
+   "bag": "One buck with visible antler",
+   "tags": "851",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "DO101": {
+   "name": "DeGarmo 01",
+   "bag": "One buck with visible antler",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "DE101": {
+   "name": "Deschutes 01",
+   "bag": "One buck with visible antler",
+   "tags": "990",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "DG101": {
+   "name": "Devils Garden 01",
+   "bag": "One buck with visible antler",
+   "tags": "127",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "DG102": {
+   "name": "Devils Garden 02",
+   "bag": "One buck with visible antler",
+   "tags": "1,430",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "DG103": {
+   "name": "Devils Garden 03",
+   "bag": "One buck with visible antler",
+   "tags": "1,870",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "DG104": {
+   "name": "Devils Garden 04",
+   "bag": "One buck with visible antler",
+   "tags": "1,573",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "EH101": {
+   "name": "Elkhorn 01 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "825",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "EH101-1": {
+   "name": "Elkhorn 01 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "EH102": {
+   "name": "Elkhorn 02 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "EH102-1": {
+   "name": "Elkhorn 02 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "88",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "FX101": {
+   "name": "Fox 01",
+   "bag": "One buck with visible antler",
+   "tags": "880",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "FX102": {
+   "name": "Fox 02",
+   "bag": "One buck with visible antler",
+   "tags": "1,210",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "FX103": {
+   "name": "Fox 03",
+   "bag": "One buck with visible antler",
+   "tags": "1,980",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "FX103-1": {
+   "name": "Late Fox 03",
+   "bag": "One buck with visible antler",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "HX101": {
+   "name": "Helix 01",
+   "bag": "One buck with visible antler",
+   "tags": "1,210",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "JK101": {
+   "name": "Jackknife 01",
+   "bag": "One buck with visible antler",
+   "tags": "1,650",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "JK101-1": {
+   "name": "Late Jackknife 01",
+   "bag": "One buck with visible antler",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "JT101": {
+   "name": "Juntura 01",
+   "bag": "One buck with visible antler",
+   "tags": "494",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "JT102": {
+   "name": "Juntura 02",
+   "bag": "One buck with visible antler",
+   "tags": "402",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "JT103": {
+   "name": "Juntura 03",
+   "bag": "One buck with visible antler",
+   "tags": "1,430",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "KE101": {
+   "name": "Keno 01",
+   "bag": "One buck with visible antler",
+   "tags": "825",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "KB101": {
+   "name": "Klamath Basin 01",
+   "bag": "One buck with visible antler",
+   "tags": "990",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "KB102": {
+   "name": "Klamath Basin 02",
+   "bag": "One buck with visible antler",
+   "tags": "1,282",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "MC101": {
+   "name": "Mid-Columbia 01",
+   "bag": "One buck with visible antler",
+   "tags": "1,265",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "MC101-1": {
+   "name": "Early Mid-Columbia 01*",
+   "bag": "One buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "MC101-2": {
+   "name": "Late Mid-Columbia 01",
+   "bag": "One buck with visible antler",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "MC102": {
+   "name": "Mid-Columbia 02",
+   "bag": "One buck with visible antler",
+   "tags": "550",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "MC102-1": {
+   "name": "Early Mid-Columbia 02 *",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "MC102-2": {
+   "name": "Late Mid-Columbia 02",
+   "bag": "One buck with visible antler",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NB101": {
+   "name": "North Blues 01",
+   "bag": "One buck with visible antler",
+   "tags": "715",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NB102": {
+   "name": "North Blues 02",
+   "bag": "One buck with visible antler",
+   "tags": "2,420",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE101": {
+   "name": "Northeast 01 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "1,100",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE101-1": {
+   "name": "Northeast 01 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "660",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE101-2": {
+   "name": "Late Wallowa Valley Whitetail*",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE102": {
+   "name": "Northeast 02 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "281",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE102-1": {
+   "name": "Northeast 02 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE103": {
+   "name": "Northeast 03 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "842",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE103-1": {
+   "name": "Northeast 03 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "770",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE104": {
+   "name": "Northeast 04 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "242",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE104-1": {
+   "name": "Northeast 04 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE105": {
+   "name": "Northeast 05",
+   "bag": "One buck with visible antler",
+   "tags": "248",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE106": {
+   "name": "Northeast 06",
+   "bag": "One buck with visible antler",
+   "tags": "495",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "NE106-1": {
+   "name": "Late Northeast 06",
+   "bag": "One buck with visible antler",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "PH101": {
+   "name": "Painted Hills 01",
+   "bag": "One buck with visible antler",
+   "tags": "1,254",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "PB101": {
+   "name": "Poverty Basin 01",
+   "bag": "One buck with visible antler",
+   "tags": "66",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SH101": {
+   "name": "Sage Hen 01",
+   "bag": "One buck with visible antler",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SH102": {
+   "name": "Sage Hen 02",
+   "bag": "One buck with visible antler",
+   "tags": "358",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SW101": {
+   "name": "South Wallowas 01",
+   "bag": "One buck with visible antler",
+   "tags": "248",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SW102": {
+   "name": "South Wallowas 02 Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "704",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SW102-1": {
+   "name": "South Wallowas 02 Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SE101": {
+   "name": "Southeast 01",
+   "bag": "One buck with visible antler",
+   "tags": "248",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "SE102": {
+   "name": "Southeast 02",
+   "bag": "One buck with visible antler",
+   "tags": "319",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "ST101": {
+   "name": "Steens 01*",
+   "bag": "One buck with visible antler",
+   "tags": "245",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "TC101": {
+   "name": "Trout Creek 01",
+   "bag": "One buck with visible antler",
+   "tags": "66",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "TC102": {
+   "name": "Trout Creek 02",
+   "bag": "One buck with visible antler",
+   "tags": "43",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
   "123R1": {
    "name": "Umpqua Bow*",
    "bag": "One white-tailed buck with visible antler or one black-tailed deer (*see hunt description for details)",
@@ -2173,6 +2572,384 @@
    "name": "Rogue-Siskiyou Early Bow*",
    "bag": "One buck with visible antler",
    "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "AD101R": {
+   "name": "Aldrich 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "624",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "AD101R1": {
+   "name": "Late Aldrich 01 Bow Whitetail*",
+   "bag": "One white-tailed deer",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "CR101R": {
+   "name": "Crooked River 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "281",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DO101R": {
+   "name": "DeGarmo 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "88",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DO102R": {
+   "name": "HMNAR Bow",
+   "bag": "One buck with visible antler",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DO102R2": {
+   "name": "HMNAR Late Bow",
+   "bag": "One buck with visible antler",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DE101R": {
+   "name": "Deschutes 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "523",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DE101R1": {
+   "name": "Late Deschutes 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DG101R": {
+   "name": "Devils Garden 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DG102R": {
+   "name": "Devils Garden 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DG103R": {
+   "name": "Devils Garden 03 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "358",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "DG104R": {
+   "name": "Devils Garden 04 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "154",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "EH101R": {
+   "name": "Elkhorn 01 Bow",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "512",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "EH102R": {
+   "name": "Elkhorn 02 Bow Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "583",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "EH102R1": {
+   "name": "Elkhorn 02 Bow Whitetail",
+   "bag": "One white-tailed deer",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "FX101R": {
+   "name": "Fox 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "715",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "FX102R": {
+   "name": "Fox 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "770",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "FX103R": {
+   "name": "Fox 03 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "770",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "HX101R": {
+   "name": "Helix 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "JK101R": {
+   "name": "Jackknife 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "JT101R": {
+   "name": "Juntura 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "149",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "JT101R1": {
+   "name": "Late Juntura 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "JT102R": {
+   "name": "Juntura 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "116",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "JT103R": {
+   "name": "Juntura 03 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "473",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "KE101R": {
+   "name": "Keno 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "KE101R1": {
+   "name": "Late Keno 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "KB101R": {
+   "name": "Klamath Basin 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "281",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "KB102R": {
+   "name": "Klamath Basin 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "MC101R": {
+   "name": "Mid-Columbia 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "MC102R": {
+   "name": "Mid-Columbia 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NB101R": {
+   "name": "North Blues 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "259",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NB102R": {
+   "name": "North Blues 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE101R": {
+   "name": "Northeast 01 Bow Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE101R1": {
+   "name": "Northeast 01 Bow Whitetail",
+   "bag": "One white-tailed deer",
+   "tags": "319",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE102R": {
+   "name": "Northeast 02 Bow Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE102R1": {
+   "name": "Northeast 02 Bow Whitetail",
+   "bag": "One white-tailed deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE103R": {
+   "name": "Northeast 03 Bow Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE103R1": {
+   "name": "Northeast 03 Bow Whitetail",
+   "bag": "One white-tailed deer",
+   "tags": "66",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE104R": {
+   "name": "Northeast 04 Bow Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "143",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE104R1": {
+   "name": "Northeast 04 Bow Whitetail",
+   "bag": "One white-tailed deer",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE105R": {
+   "name": "Northeast 05 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "NE106R": {
+   "name": "Northeast 06 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "182",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "PH101R": {
+   "name": "Painted Hills 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "PB101R": {
+   "name": "Poverty Basin 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SH101R": {
+   "name": "Sage Hen 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SH102R": {
+   "name": "Sage Hen 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "303",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SW101R": {
+   "name": "South Wallowas 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "154",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SW102R": {
+   "name": "South Wallowas 02 Bow Mule Deer",
+   "bag": "One mule deer buck with visible antler",
+   "tags": "935",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SW102R1": {
+   "name": "South Wallowas 02 Bow Whitetail",
+   "bag": "One white-tailed deer buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SE101R": {
+   "name": "Southeast 01 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "SE102R": {
+   "name": "Southeast 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "ST101R": {
+   "name": "Steens 01 Bow*",
+   "bag": "One buck with visible antler",
+   "tags": "176",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "TC101R": {
+   "name": "Trout Creek 01 Traditional Bow (Traditional Bow ONLY)",
+   "bag": "One buck with visible antler",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "TC102R": {
+   "name": "Trout Creek 02 Bow",
+   "bag": "One buck with visible antler",
+   "tags": "28",
    "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
    "table": "Tag Sale Deadline"
   },
@@ -2229,6 +3006,244 @@
    "name": "Applegate Unit Muzzleloader",
    "bag": "One deer",
    "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DE101M": {
+   "name": "Deschutes 01 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DG103M": {
+   "name": "Devils Garden 03 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "32",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DG104M": {
+   "name": "Devils Garden 04 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "32",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "EH101M": {
+   "name": "Elkhorn 01 Muzzleloader",
+   "bag": "One white-tailed deer",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "EH102M": {
+   "name": "Elkhorn 02 Muzzleloader",
+   "bag": "One white-tailed deer",
+   "tags": "154",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "FX103M": {
+   "name": "Fox 03 Muzzleloader*",
+   "bag": "One buck with visible antler",
+   "tags": "242",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DO102M": {
+   "name": "HMNAR Muzzeloader",
+   "bag": "One buck with visible antler",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "JT103M": {
+   "name": "Juntura 03 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "KB101M": {
+   "name": "Klamath Basin 01 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "KB102M": {
+   "name": "Klamath Basin 02 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "26",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "MC101M": {
+   "name": "Mid-Columbia 01 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "MC102M": {
+   "name": "Mid-Columbia 02 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "32",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "NE101M": {
+   "name": "Northeast 01 Muzzleloader Whitetail*",
+   "bag": "One white-tailed deer CWD Sampling Required",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "NE102M": {
+   "name": "Northeast 02 Muzzleloader Whitetail*",
+   "bag": "One white-tailed deer CWD Sampling Required",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "NE103M": {
+   "name": "Northeast 03 Muzzleloader",
+   "bag": "One white-tailed deer",
+   "tags": "242",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "NE104M": {
+   "name": "Northeast 04 Muzzleloader*",
+   "bag": "One white-tailed deer",
+   "tags": "292",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "SH102M": {
+   "name": "Sage Hen 02 Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "SW102M": {
+   "name": "South Wallowas 02 Muzzleloader",
+   "bag": "One white-tailed deer",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "SE101M": {
+   "name": "Southeast 01 Muzzleloader*",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DO101T": {
+   "name": "DeGarmo 01 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DG102T": {
+   "name": "Devils Garden 02 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DG103T": {
+   "name": "Devils Garden 03 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "DG104T": {
+   "name": "Devils Garden 04 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "JT101T": {
+   "name": "Juntura 01 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "JT102T": {
+   "name": "Juntura 02 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "JT103T": {
+   "name": "Juntura 03 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "KE101T": {
+   "name": "Keno 01 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "KB101T": {
+   "name": "Klamath Basin 01 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "KB102T": {
+   "name": "Klamath Basin 02 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "MC101T": {
+   "name": "Mid-Columbia 01 Youth*",
+   "bag": "One buck with visible antler",
+   "tags": "7",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "NE106T": {
+   "name": "Northeast 06 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "SH101T": {
+   "name": "Sage Hen 01 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "SH102T": {
+   "name": "Sage Hen 02 Youth",
+   "bag": "One buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "ST101T": {
+   "name": "Steens 01 Youth*",
+   "bag": "One buck with visible antler",
+   "tags": "22",
    "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
    "table": "Additional Regulations"
   },
@@ -2407,6 +3422,111 @@
    "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
    "table": "Antlerless Deer Seasons"
   },
+  "FX601": {
+   "name": "Fox 01*",
+   "bag": "One antlerless white-tailed deer",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "FX603": {
+   "name": "Fox 03 Private*",
+   "bag": "One antlerless deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "HX601": {
+   "name": "Helix 01 Private*",
+   "bag": "One antlerless deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "HX601-1": {
+   "name": "Umatilla NWR No. 1*",
+   "bag": "One antlerless deer",
+   "tags": "9",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "HX601-2": {
+   "name": "Umatilla NWR No. 2*",
+   "bag": "One deer",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "JK601": {
+   "name": "Jackknife 01 Private*",
+   "bag": "One antlerless deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "JT601": {
+   "name": "Juntura Agri*",
+   "bag": "One antlerless deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "MC601": {
+   "name": "The Dalles Orchard*",
+   "bag": "One antlerless deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "MC602": {
+   "name": "Hood River Agri*",
+   "bag": "One antlerless deer",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "NB601": {
+   "name": "North Blues 01* (Archery/Muzzleloader ONLY)",
+   "bag": "One white-tailed deer",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "NB602": {
+   "name": "North Blues 02 Private*",
+   "bag": "One antlerless deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "NE601": {
+   "name": "Wallowa Valley*",
+   "bag": "One antlerless white-tailed deer",
+   "tags": "528",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "NE603": {
+   "name": "Lower Grande Ronde*",
+   "bag": "One antlerless white-tailed deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "NE605": {
+   "name": "Northeast 05 (Archery/Muzzleloader ONLY)*",
+   "bag": "One white-tailed deer",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "SE602": {
+   "name": "Southeast 02 Agri*",
+   "bag": "One antlerless deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
   "610T": {
    "name": "Saddle Mtn Unit Youth",
    "bag": "One antlerless deer",
@@ -2544,6 +3664,90 @@
    "name": "Rogue Unit Youth",
    "bag": "One deer",
    "tags": "60",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "EH601T": {
+   "name": "Elkhorn 01 Youth*",
+   "bag": "One antlerless deer",
+   "tags": "6",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "EH601T1": {
+   "name": "Elkhorn 01 Youth Whitetail*",
+   "bag": "One antlerless white-tailed deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "HX601T": {
+   "name": "Helix 01Youth *",
+   "bag": "One antlerless deer",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "HX601T1": {
+   "name": "Umatilla NWR Youth*",
+   "bag": "One antlerless deer",
+   "tags": "9",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "JK601T": {
+   "name": "Jackknife 01 Youth*",
+   "bag": "One antlerless deer",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "JT601T": {
+   "name": "Juntura Agri Youth*",
+   "bag": "One antlerless deer",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "MC601T": {
+   "name": "Mid Columbia 01 Youth*",
+   "bag": "One antlerless deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "MC602T": {
+   "name": "Mid Columbia 02 Youth*",
+   "bag": "One antlerless deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "NB602T": {
+   "name": "North Blues 02 Youth*",
+   "bag": "One antlerless deer",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "SW602T": {
+   "name": "South Wallowas 02 Youth*",
+   "bag": "One antlerless deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "SW602T1": {
+   "name": "South Wallowas 02 Youth Whitetail*",
+   "bag": "One antlerless white-tailed deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "SE602T": {
+   "name": "Southeast 02 Agri Youth*",
+   "bag": "One antlerless deer",
+   "tags": "11",
    "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
    "table": "Antlerless Deer Seasons"
   },

@@ -21,6 +21,10 @@ async def main():
             await pg.wait_for_timeout(2500)
             await pg.locator(".mapbox").screenshot(path=f"{OUT}/{sp}-{metric}.png")
         await pg.screenshot(path=f"{OUT}/top.png")
+        await pg.select_option("#hunt-sel", "E|antlered"); await pg.select_option("#cm-metric", "pts")
+        for name, lat, lng, z in [("co_nm", 37.25, -107.6, 8.5), ("ut_central", 38.6, -111.9, 8.5), ("wy", 43.0, -108.5, 7)]:
+            await pg.evaluate(f"map.setView([{lat},{lng}],{z})"); await pg.wait_for_timeout(3500)
+            await pg.locator(".mapbox").screenshot(path=f"{OUT}/zoom_{name}.png")
         await pg.click("#t-plan"); await pg.wait_for_timeout(3000)
         await pg.screenshot(path=f"{OUT}/plan.png", full_page=True)
         await pg.click(".pick .maplink"); await pg.wait_for_timeout(5000)

@@ -1,0 +1,3111 @@
+{
+ "state": "OR",
+ "generated": "2026-11-02",
+ "log": [
+  "https://www.eregulations.com/oregon/hunting/elk-seasons -> 200 203005 bytes",
+  "   7 tables",
+  "https://www.eregulations.com/oregon/hunting/buck-deer-seasons -> 200 175615 bytes",
+  "   6 tables",
+  "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons -> 200 115580 bytes",
+  "   2 tables",
+  "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons -> 200 119221 bytes",
+  "   5 tables",
+  "https://www.eregulations.com/oregon/hunting/deer-seasons -> 404 19070 bytes"
+ ],
+ "hunts": {
+  "210": {
+   "name": "Saddle Mtn Unit",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210A1": {
+   "name": "W Saddle Mtn No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "42",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210A2": {
+   "name": "W Saddle Mtn No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "42",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210B1": {
+   "name": "Central Saddle Mtn No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210B2": {
+   "name": "Central Saddle Mtn No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "38",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210C1": {
+   "name": "Upper Nehalem No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "82",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210C2": {
+   "name": "Upper Nehalem No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "82",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210D": {
+   "name": "Lower Columbia*",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210X": {
+   "name": "Saddle Mtn Unit No. 1",
+   "bag": "One 3 pt+ bull elk",
+   "tags": "1,320",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "210Y": {
+   "name": "Saddle Mtn Unit No. 2",
+   "bag": "One 3 pt+ bull elk",
+   "tags": "1,320",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "211": {
+   "name": "Scappoose Unit",
+   "bag": "One antlerless elk",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "211A": {
+   "name": "North Plains*",
+   "bag": "One antlerless elk",
+   "tags": "94",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "211B": {
+   "name": "N Central Scappoose*",
+   "bag": "One antlerless elk",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "211C": {
+   "name": "Banks*",
+   "bag": "One antlerless elk",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "212": {
+   "name": "Wilson Unit",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "212A1": {
+   "name": "Miami-Nehalem No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "37",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "212A2": {
+   "name": "Miami-Nehalem No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "212B": {
+   "name": "Buick Canyon*",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214": {
+   "name": "Trask Unit*",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214A1": {
+   "name": "W Trask No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "32",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214A2": {
+   "name": "W Trask No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214B1": {
+   "name": "Central Trask No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214B2": {
+   "name": "Central Trask No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214C": {
+   "name": "SE Trask*",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214D1": {
+   "name": "NE Trask No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214D2": {
+   "name": "NE Trask No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "214E": {
+   "name": "Panther Cr*",
+   "bag": "One antlerless elk",
+   "tags": "16",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "215A": {
+   "name": "Willamette Plus*",
+   "bag": "One elk (Spike or antlerless elk from Aug. 29 - Oct. 31 in Monroe Subunit) See William L. Finley NWR pg. 90",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "216B": {
+   "name": "SW Santiam*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "216D": {
+   "name": "NW Santiam*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "217A": {
+   "name": "W Stott Mtn*",
+   "bag": "One antlerless elk",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "217B": {
+   "name": "E Stott Mtn*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "218A": {
+   "name": "N Alsea*",
+   "bag": "One antlerless elk",
+   "tags": "38",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "218B": {
+   "name": "S Alsea*",
+   "bag": "One antlerless elk",
+   "tags": "38",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "218C": {
+   "name": "Central Alsea*",
+   "bag": "One antlerless elk",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "219A": {
+   "name": "W McKenzie*",
+   "bag": "One antlerless elk",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "219C": {
+   "name": "Oakridge Private* (Shotgun/Muzzleloader Only)",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "220": {
+   "name": "Siuslaw Unit",
+   "bag": "One antlerless elk",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "221A": {
+   "name": "NW Indigo*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "221C": {
+   "name": "Harness Mtn*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "221D": {
+   "name": "S Indigo Private*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "222A": {
+   "name": "Dixon Private*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "223A": {
+   "name": "Melrose Unit",
+   "bag": "One elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "224C": {
+   "name": "Tioga Private*",
+   "bag": "One antlerless elk",
+   "tags": "26",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "224X": {
+   "name": "Tioga Unit No. 1",
+   "bag": "One 3 pt+ bull elk",
+   "tags": "902",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "224Y": {
+   "name": "Tioga Unit No. 2",
+   "bag": "One 3 pt+ bull elk",
+   "tags": "902",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "225A": {
+   "name": "N Sixes*",
+   "bag": "One antlerless elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "225B": {
+   "name": "Curry Private*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "225X": {
+   "name": "Sixes Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "225Y": {
+   "name": "Sixes Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "226A": {
+   "name": "Powers Private*",
+   "bag": "One antlerless elk",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "226X": {
+   "name": "Powers Unit No. 1",
+   "bag": "One spike elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "226Y": {
+   "name": "Powers Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "90",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "227X": {
+   "name": "Chetco Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "227Y": {
+   "name": "Chetco Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "228": {
+   "name": "Applegate Unit",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "229": {
+   "name": "Evans Cr Unit",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "230A": {
+   "name": "W Rogue*",
+   "bag": "One antlerless elk",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "231X": {
+   "name": "SE Cascades*",
+   "bag": "One bull elk",
+   "tags": "880",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "232X": {
+   "name": "Klamath Falls Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "232Y": {
+   "name": "Klamath Falls Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "233X": {
+   "name": "Sprague No. 1*",
+   "bag": "One bull elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "233Y": {
+   "name": "Sprague No. 2*",
+   "bag": "One bull elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "234B": {
+   "name": "Tumalo*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "234X": {
+   "name": "E Central Cascades*",
+   "bag": "One bull elk",
+   "tags": "1,320",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "235X": {
+   "name": "Paulina - E Fort Rock No. 1*",
+   "bag": "One bull elk",
+   "tags": "495",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "235Y": {
+   "name": "Paulina - E Fort Rock No. 2*",
+   "bag": "One bull elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "236A": {
+   "name": "Maury - Hampton Butte*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "236X": {
+   "name": "Maury Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "236Y": {
+   "name": "Maury Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "237A": {
+   "name": "Ochoco Private*",
+   "bag": "One antlerless elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "237X": {
+   "name": "Ochoco Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "237Y": {
+   "name": "Ochoco Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "238A": {
+   "name": "Grizzly Grassland*",
+   "bag": "One antlerless elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "238B1": {
+   "name": "Grizzly Private No. 1*",
+   "bag": "One elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "238B2": {
+   "name": "Grizzly Private No. 2*",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "238X": {
+   "name": "Grizzly Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "66",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "238Y": {
+   "name": "Grizzly Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "66",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "241A": {
+   "name": "The Dalles Watershed*",
+   "bag": "One elk",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "241B": {
+   "name": "White Rvr - Hood*",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "241C": {
+   "name": "White Rvr Private*",
+   "bag": "One antlerless elk",
+   "tags": "231",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "241X": {
+   "name": "White Rvr - Hood No. 1*",
+   "bag": "One bull elk",
+   "tags": "550",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "241Y": {
+   "name": "White Rvr - Hood No. 2*",
+   "bag": "One bull elk",
+   "tags": "1,210",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "242": {
+   "name": "Hood Private*",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "244": {
+   "name": "Columbia Plateau*",
+   "bag": "One elk Oct. 28 - Nov. 30, One antlerless elk Dec. 1 - Mar. 31, 2027",
+   "tags": "1,100",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245A1": {
+   "name": "N Fossil Private No. 1*",
+   "bag": "One bull elk",
+   "tags": "154",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245A2": {
+   "name": "N Fossil Private No. 2*",
+   "bag": "One elk",
+   "tags": "204",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245B1": {
+   "name": "S. Fossil Private No. 1*",
+   "bag": "One bull elk",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245B2": {
+   "name": "S. Fossil Private No. 2*",
+   "bag": "One elk",
+   "tags": "253",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245C": {
+   "name": "Fossil Unit",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245D": {
+   "name": "Fossil Private*",
+   "bag": "One antlerless elk",
+   "tags": "688",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245X": {
+   "name": "Fossil Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "245Y": {
+   "name": "Fossil Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "246": {
+   "name": "Murderers Cr Unit",
+   "bag": "One antlerless elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "246A": {
+   "name": "W Murderers Cr*",
+   "bag": "One elk",
+   "tags": "468",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "246B": {
+   "name": "E Murderers Cr*",
+   "bag": "One elk",
+   "tags": "248",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "246C": {
+   "name": "Murderers Cr Private Plus*",
+   "bag": "One antlerless elk",
+   "tags": "193",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "246X": {
+   "name": "Murderers Cr Unit",
+   "bag": "One bull elk",
+   "tags": "413",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247": {
+   "name": "Northside Unit",
+   "bag": "One antlerless elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247A1": {
+   "name": "Northside Private No. 1*",
+   "bag": "One elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247A2": {
+   "name": "Northside Private No. 2*",
+   "bag": "One elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247B": {
+   "name": "W Northside*",
+   "bag": "One elk",
+   "tags": "303",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247C": {
+   "name": "E Northside*",
+   "bag": "One elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247D1": {
+   "name": "Northside - Ritter Private No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "660",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247D2": {
+   "name": "Northside - Ritter Private No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "247X": {
+   "name": "Northside Unit",
+   "bag": "One bull elk",
+   "tags": "413",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248A1": {
+   "name": "Heppner Unit No. 1*",
+   "bag": "One bull elk",
+   "tags": "605",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248A2": {
+   "name": "Heppner Unit No. 2*",
+   "bag": "One spike elk",
+   "tags": "660",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248B1": {
+   "name": "Ritter No. 1*",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248B2": {
+   "name": "Ritter No. 2*",
+   "bag": "One elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248C": {
+   "name": "Monument*",
+   "bag": "One antlerless elk",
+   "tags": "99",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248D": {
+   "name": "Heppner Unit",
+   "bag": "One antlerless elk",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "248E": {
+   "name": "Willow Cr*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "249A1": {
+   "name": "Ukiah Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "468",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "249A2": {
+   "name": "Ukiah Unit No. 2",
+   "bag": "One spike elk",
+   "tags": "990",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "249B": {
+   "name": "Central Ukiah*",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "249C": {
+   "name": "S Ukiah*",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "249D": {
+   "name": "North Ukiah*",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "249E": {
+   "name": "Ukiah Valley Private*",
+   "bag": "One antlerless elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "250X": {
+   "name": "Desolation Unit",
+   "bag": "One bull elk",
+   "tags": "1,100",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "251A": {
+   "name": "N Sumpter*",
+   "bag": "One bull elk",
+   "tags": "825",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "251B1": {
+   "name": "S Sumpter No. 1 *",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "251B2": {
+   "name": "S Sumpter No. 2*",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "251C": {
+   "name": "S Sumpter*",
+   "bag": "One antlerless elk",
+   "tags": "193",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "251D1": {
+   "name": "Elkhorn Mtn No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "251D2": {
+   "name": "Elkhorn Mtn No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "252A1": {
+   "name": "Starkey Unit No. 1*",
+   "bag": "One bull elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "252A2": {
+   "name": "Starkey Unit No. 2*",
+   "bag": "One spike elk",
+   "tags": "990",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "252B1": {
+   "name": "Starkey Private*",
+   "bag": "One antlerless elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "252B2": {
+   "name": "Starkey*",
+   "bag": "One antlerless elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "252C1": {
+   "name": "Starkey Experimental Forest No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "252C2": {
+   "name": "Starkey Experimental Forest No. 2*",
+   "bag": "One elk",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "253A": {
+   "name": "Catherine Cr Unit",
+   "bag": "One antlerless elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "253B": {
+   "name": "Mt Harris*",
+   "bag": "One antlerless elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "253X": {
+   "name": "Catherine Cr Unit",
+   "bag": "One bull elk",
+   "tags": "303",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "254X": {
+   "name": "Mt Emily Unit No. 1",
+   "bag": "One spike elk",
+   "tags": "528",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "254Y1": {
+   "name": "Mt Emily Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "58",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "254Y2": {
+   "name": "Mt Emily Unit No. 3",
+   "bag": "One spike elk",
+   "tags": "231",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "255A": {
+   "name": "Mill Cr Watershed*",
+   "bag": "One elk",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "255X": {
+   "name": "Walla Walla Unit No. 1",
+   "bag": "One spike elk",
+   "tags": "264",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "255Y1": {
+   "name": "Walla Walla Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "26",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "255Y2": {
+   "name": "Walla Walla Unit No. 3",
+   "bag": "One spike elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "256A": {
+   "name": "Bartlett Bench*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "256X": {
+   "name": "Wenaha Unit No. 1",
+   "bag": "One spike elk",
+   "tags": "308",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "256Y1": {
+   "name": "Wenaha Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "43",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "256Y2": {
+   "name": "Wenaha Unit No. 3",
+   "bag": "One spike elk",
+   "tags": "154",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "257B": {
+   "name": "Flora*",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "257C": {
+   "name": "Sled Springs Unit",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "257X": {
+   "name": "Sled Springs Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "550",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "257Y": {
+   "name": "Sled Springs Unit No. 2",
+   "bag": "One spike elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "258A1": {
+   "name": "Zumwalt No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "72",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "258A2": {
+   "name": "Zumwalt No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "72",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "258A3": {
+   "name": "Zumwalt No. 3*",
+   "bag": "One antlerless elk",
+   "tags": "72",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "258X": {
+   "name": "Chesnimnus Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "258Y": {
+   "name": "Chesnimnus Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "259X": {
+   "name": "Snake Rvr Unit No. 1",
+   "bag": "One spike elk",
+   "tags": "154",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "259Y": {
+   "name": "Snake Rvr Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "260X": {
+   "name": "Minam Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "260Y": {
+   "name": "Minam Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "261": {
+   "name": "Imnaha Unit",
+   "bag": "One antlerless elk",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "261X": {
+   "name": "Imnaha Unit",
+   "bag": "One bull elk",
+   "tags": "303",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "262": {
+   "name": "Pine Cr Unit",
+   "bag": "One antlerless elk",
+   "tags": "193",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "262X": {
+   "name": "Pine Cr Unit",
+   "bag": "One bull elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "263": {
+   "name": "Keating Unit",
+   "bag": "One antlerless elk",
+   "tags": "88",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "263X": {
+   "name": "Keating Unit",
+   "bag": "One bull elk",
+   "tags": "248",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "264A1": {
+   "name": "Lookout Mtn Unit No. 1",
+   "bag": "One antlerless elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "264A2": {
+   "name": "Lookout Mtn Unit No. 2",
+   "bag": "One antlerless elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "264A3": {
+   "name": "Lookout Mtn Unit No. 3",
+   "bag": "One elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "264X": {
+   "name": "Lookout Mtn Unit No. 1",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "264Y": {
+   "name": "Lookout Mtn Unit No. 2",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265A1": {
+   "name": "W Beulah No. 1*",
+   "bag": "One bull elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265A2": {
+   "name": "W Beulah No. 2*",
+   "bag": "One elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265A3": {
+   "name": "W Beulah No. 3*",
+   "bag": "One antlerless elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265B1": {
+   "name": "E Beulah No. 1*",
+   "bag": "One elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265B2": {
+   "name": "E Beulah No. 2*",
+   "bag": "One elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265B3": {
+   "name": "E Beulah No. 3*",
+   "bag": "One antlerless elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "265C": {
+   "name": "Bully Cr*",
+   "bag": "One antlerless elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "266A1": {
+   "name": "Drewsey Valley No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "266A2": {
+   "name": "Drewsey Valley No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "266B": {
+   "name": "N Malheur Rvr*",
+   "bag": "One antlerless elk",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "266C": {
+   "name": "S Malheur Rvr*",
+   "bag": "One antlerless elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "266X": {
+   "name": "N Malheur Rvr No. 1*",
+   "bag": "One bull elk",
+   "tags": "358",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "266Y": {
+   "name": "N Malheur Rvr No. 2*",
+   "bag": "One bull elk",
+   "tags": "358",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "267": {
+   "name": "Owyhee Unit",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "268": {
+   "name": "Whitehorse Unit",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "271A1": {
+   "name": "Silvies - N Juniper No. 1*",
+   "bag": "One antlerless elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "271A2": {
+   "name": "Silvies - N Juniper No. 2*",
+   "bag": "One antlerless elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "272A": {
+   "name": "Silvies Unit",
+   "bag": "One antlerless elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "272X": {
+   "name": "Silvies Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "358",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "272Y": {
+   "name": "Silvies Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "358",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "274X": {
+   "name": "Warner Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "274Y": {
+   "name": "Warner Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "275X": {
+   "name": "Interstate Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "275Y": {
+   "name": "Interstate Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "276X": {
+   "name": "Silver Lake Unit No. 1",
+   "bag": "One bull elk",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "276Y": {
+   "name": "Silver Lake Unit No. 2",
+   "bag": "One bull elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "277A": {
+   "name": "North Lake*",
+   "bag": "One antlerless elk",
+   "tags": "150",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "278A1": {
+   "name": "High Desert No. 1*",
+   "bag": "One elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "278A2": {
+   "name": "High Desert No. 2*",
+   "bag": "One elk",
+   "tags": "440",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "216R1": {
+   "name": "Santiam Unit Traditional Bow (Traditional Bow Only)",
+   "bag": "**One elk outside all USFS lands **One bull elk inside all USFS lands",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "217R": {
+   "name": "Stott Mtn Unit Late Bow",
+   "bag": "One antlerless elk",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "218R": {
+   "name": "Alsea Unit Late Bow",
+   "bag": "One antlerless elk",
+   "tags": "550",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "224R": {
+   "name": "Tioga Unit Late Bow",
+   "bag": "One 3 pt+ bull elk",
+   "tags": "88",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "226R": {
+   "name": "Powers Unit Bow",
+   "bag": "One elk",
+   "tags": "61",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "230R": {
+   "name": "W Rogue Late Bow*",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "234R": {
+   "name": "Upper Deschutes Unit Bow",
+   "bag": "One elk",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "236R": {
+   "name": "Maury Unit Bow",
+   "bag": "One elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "237R": {
+   "name": "Ochoco Unit Bow",
+   "bag": "One elk",
+   "tags": "495",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "239R": {
+   "name": "Metolius Unit Bow",
+   "bag": "One elk",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "241R": {
+   "name": "The Dalles Watershed Bow*",
+   "bag": "One elk",
+   "tags": "5",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "246R": {
+   "name": "Murderers Cr Unit Bow",
+   "bag": "One elk",
+   "tags": "930",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "247R": {
+   "name": "Northside Unit Bow",
+   "bag": "One elk",
+   "tags": "1,055",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "248R1": {
+   "name": "Heppner Unit Bow No. 1",
+   "bag": "One elk",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "248R2": {
+   "name": "Heppner Unit Bow No. 2",
+   "bag": "One bull elk",
+   "tags": "1,430",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "249R1": {
+   "name": "Ukiah Unit Bow No. 1",
+   "bag": "One elk",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "249R2": {
+   "name": "Ukiah Unit Bow No. 2",
+   "bag": "One bull elk",
+   "tags": "1,300",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "250R1": {
+   "name": "Desolation Unit Bow",
+   "bag": "One bull elk",
+   "tags": "1,085",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "250R2": {
+   "name": "N Fork Traditional Bow* (Traditional Bow Only)",
+   "bag": "One elk",
+   "tags": "110",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "251R": {
+   "name": "N Sumpter Bow*",
+   "bag": "One elk",
+   "tags": "583",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "252R": {
+   "name": "Starkey Bow*",
+   "bag": "One bull elk",
+   "tags": "1,300",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "253R1": {
+   "name": "Eagle Cap Zone*",
+   "bag": "One bull elk",
+   "tags": "1,795",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "253R2": {
+   "name": "Eagle Cap Traditional Bow* (Traditional Bow Only)",
+   "bag": "One elk",
+   "tags": "200",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "254R1": {
+   "name": "Mt Emily Unit Bow No. 1",
+   "bag": "One bull elk",
+   "tags": "57",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "254R2": {
+   "name": "Mt Emily Unit Bow No. 2",
+   "bag": "One spike elk",
+   "tags": "143",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "255R1": {
+   "name": "Walla Walla Unit Bow No. 1",
+   "bag": "One bull elk",
+   "tags": "27",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "255R2": {
+   "name": "Walla Walla Unit Bow No. 2",
+   "bag": "One spike elk",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "256R1": {
+   "name": "Wenaha Unit Bow No. 1",
+   "bag": "One bull elk",
+   "tags": "41",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "256R2": {
+   "name": "Wenaha Unit Bow No. 2",
+   "bag": "One spike elk",
+   "tags": "132",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "257R1": {
+   "name": "Sled Springs Unit Bow No. 1",
+   "bag": "One elk",
+   "tags": "216",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "257R2": {
+   "name": "Sled Springs Unit Bow No. 2",
+   "bag": "One antlerless elk",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "258R": {
+   "name": "Chesnimnus Unit Bow",
+   "bag": "One elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "259R": {
+   "name": "Snake Rvr Unit Bow",
+   "bag": "One bull elk",
+   "tags": "297",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "265R": {
+   "name": "W Beulah Bow*",
+   "bag": "One elk",
+   "tags": "550",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "266R": {
+   "name": "N Malheur Rvr Bow*",
+   "bag": "One elk",
+   "tags": "425",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "272R": {
+   "name": "Silvies Unit Bow",
+   "bag": "One elk",
+   "tags": "755",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "200M": {
+   "name": "Cascade Muzzleloader*",
+   "bag": "**One elk outside all USFS lands **One bull elk inside all USFS lands",
+   "tags": "990",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "214M": {
+   "name": "NE Trask Muzzleloader*",
+   "bag": "One elk",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "224M": {
+   "name": "Tioga Unit Muzzleloader",
+   "bag": "One bull elk",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "225M": {
+   "name": "Sixes Muzzleloader",
+   "bag": "One bull elk",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "234M": {
+   "name": "E Cascade Muzzleloader*",
+   "bag": "One elk",
+   "tags": "198",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "235M": {
+   "name": "Paulina - E Fort Rock Muzzleloader*",
+   "bag": "One elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "248M": {
+   "name": "Pole Cr Muzzleloader*",
+   "bag": "One bull elk",
+   "tags": "27",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "251M1": {
+   "name": "Elkhorn No. 1 Muzzleloader*",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "251M2": {
+   "name": "Elkhorn No. 2 Muzzleloader*",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "253M": {
+   "name": "Catherine Cr Unit Muzzleloader",
+   "bag": "One antlerless elk",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "260M": {
+   "name": "Eagle Cap Muzzleloader*",
+   "bag": "One bull elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "265M": {
+   "name": "E Grant Muzzleloader*",
+   "bag": "One elk",
+   "tags": "193",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "278M": {
+   "name": "High Desert Muzzleloader*",
+   "bag": "One elk",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "200R": {
+   "name": "Oregon Youth Bow*",
+   "bag": "One elk",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "210T": {
+   "name": "Saddle Mtn Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "211T": {
+   "name": "Scappoose Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "212T1": {
+   "name": "Wilson Unit No. 1 Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "212T2": {
+   "name": "Wilson Unit No. 2 Youth",
+   "bag": "One antlerless elk",
+   "tags": "43",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "212T3": {
+   "name": "Wilson Unit No. 3 Youth",
+   "bag": "One antlerless elk",
+   "tags": "43",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "214T": {
+   "name": "Trask Unit Youth*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "216T": {
+   "name": "Santiam Unit Youth*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "217T": {
+   "name": "Stott Mtn Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "16",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "218T": {
+   "name": "Alsea Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "16",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "219T": {
+   "name": "McKenzie Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "20",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "220T": {
+   "name": "Siuslaw Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "15",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "221T1": {
+   "name": "Indigo Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "20",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "221T2": {
+   "name": "Sutherlin Youth*",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "222T": {
+   "name": "Dixon Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "224T": {
+   "name": "Tioga Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "30",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "225T": {
+   "name": "Sixes Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "226T": {
+   "name": "Powers Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "25",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "227T": {
+   "name": "Chetco Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "228T": {
+   "name": "Applegate Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "229T": {
+   "name": "Evans Cr Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "230T1": {
+   "name": "Rogue Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "230T2": {
+   "name": "W Rogue Youth*",
+   "bag": "One antlerless elk",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "231T": {
+   "name": "Keno Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "26",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "233T": {
+   "name": "Sprague Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "234T": {
+   "name": "E Central Cascades Youth*",
+   "bag": "One antlerless elk",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "235T": {
+   "name": "Paulina - E Ft Rock Youth*",
+   "bag": "One antlerless elk",
+   "tags": "30",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "236T": {
+   "name": "Maury Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "237T1": {
+   "name": "Ochoco Unit No. 1 Youth",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "237T2": {
+   "name": "Ochoco Unit No. 2 Youth",
+   "bag": "One antlerless elk",
+   "tags": "100",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "238T": {
+   "name": "Grizzly Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "241T": {
+   "name": "White Rvr - Hood Youth*",
+   "bag": "One antlerless elk",
+   "tags": "40",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "245T": {
+   "name": "Fossil Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "246T": {
+   "name": "Murderers Cr - Northside Youth*",
+   "bag": "One antlerless elk",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "248T": {
+   "name": "Heppner Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "249T": {
+   "name": "Ukiah Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "250T": {
+   "name": "Desolation Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "251T": {
+   "name": "Baker Youth*",
+   "bag": "One antlerless elk",
+   "tags": "100",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "252T1": {
+   "name": "Starkey Youth",
+   "bag": "One antlerless elk",
+   "tags": "30",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "252T2": {
+   "name": "Glass Hill Youth*",
+   "bag": "One elk",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "253T": {
+   "name": "Catherine Cr Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "30",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "255T": {
+   "name": "Walla Walla Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "257T": {
+   "name": "Sled Springs Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "258T": {
+   "name": "Chesnimnus Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "259T": {
+   "name": "Snake Rvr Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "260T": {
+   "name": "Minam Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "261T": {
+   "name": "Imnaha Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "264T": {
+   "name": "Lookout Mtn Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "40",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "265T": {
+   "name": "Beulah Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "266T": {
+   "name": "N Malheur Rvr Youth*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "272T": {
+   "name": "Silvies Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "275T": {
+   "name": "Interstate - Silver Lake Unit Youth",
+   "bag": "One antlerless elk",
+   "tags": "21",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "278T": {
+   "name": "High Desert Youth*",
+   "bag": "One antlerless elk",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/elk-seasons",
+   "table": "Additional Regulations"
+  },
+  "112": {
+   "name": "Wilson Unit",
+   "bag": "One buck with visible antler",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "119A": {
+   "name": "W High Cascade* Tag valid for both W High Cascade hunt and Western Oregon General ALW Deer Season. Hunters who harvest a deer in the W High Cascade hunt may not hunt in General ALW Deer season.",
+   "bag": "One buck with visible antler",
+   "tags": "3300",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "122": {
+   "name": "Dixon Unit",
+   "bag": "One buck with visible antler",
+   "tags": "15",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "123A": {
+   "name": "Umpqua*",
+   "bag": "One white-tailed or black-tailed buck with visible antler",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "123B": {
+   "name": "Melrose - N Bank Habitat*",
+   "bag": "One white-tailed buck with visible antler or one black-tailed deer",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Archery Seasons"
+  },
+  "123R1": {
+   "name": "Umpqua Bow*",
+   "bag": "One white-tailed buck with visible antler or one black-tailed deer (*see hunt description for details)",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "123R2": {
+   "name": "Melrose - N Bank Habitat Bow*",
+   "bag": "One white-tailed buck with visible antler or one black-tailed deer",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "130R": {
+   "name": "Rogue-Siskiyou Early Bow*",
+   "bag": "One buck with visible antler",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "114M": {
+   "name": "Trask Unit Muzzleloader",
+   "bag": "One deer",
+   "tags": "220",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "119M": {
+   "name": "McKenzie Unit Muzzleloader",
+   "bag": "One deer",
+   "tags": "385",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "121M": {
+   "name": "Indigo Unit Muzzleloader",
+   "bag": "One deer",
+   "tags": "165",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "123M1": {
+   "name": "Melrose Unit Muzzleloader*",
+   "bag": "One deer",
+   "tags": "132",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "123M2": {
+   "name": "Melrose - N Bank Habitat Muzzleloader*",
+   "bag": "One white-tailed buck with visible antler or one black-tailed deer",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "125M": {
+   "name": "Sixes Unit Muzzleloader",
+   "bag": "One deer",
+   "tags": "94",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "127M": {
+   "name": "Chetco Unit Muzzleloader",
+   "bag": "One buck with visible antler",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "128M": {
+   "name": "Applegate Unit Muzzleloader",
+   "bag": "One deer",
+   "tags": "330",
+   "page": "https://www.eregulations.com/oregon/hunting/buck-deer-seasons",
+   "table": "Additional Regulations"
+  },
+  "610": {
+   "name": "Saddle Mtn Unit",
+   "bag": "One antlerless deer",
+   "tags": "408",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "611": {
+   "name": "Scappoose Unit",
+   "bag": "One antlerless deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "612": {
+   "name": "Wilson Unit",
+   "bag": "One antlerless deer",
+   "tags": "217",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "614": {
+   "name": "Trask Unit*",
+   "bag": "One antlerless deer",
+   "tags": "502",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "615": {
+   "name": "Willamette Unit",
+   "bag": "One deer",
+   "tags": "3,410",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "616A1": {
+   "name": "NW Santiam*",
+   "bag": "One antlerless deer",
+   "tags": "50",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "616A2": {
+   "name": "SW Santiam*",
+   "bag": "One antlerless deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "617": {
+   "name": "Stott Mtn Unit*",
+   "bag": "One antlerless deer",
+   "tags": "109",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "618": {
+   "name": "Alsea Unit",
+   "bag": "One antlerless deer",
+   "tags": "107",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "619": {
+   "name": "W McKenzie*",
+   "bag": "One antlerless deer",
+   "tags": "303",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "620": {
+   "name": "Siuslaw Unit",
+   "bag": "One antlerless deer",
+   "tags": "88",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "620A": {
+   "name": "Camas Swale*",
+   "bag": "One antlerless deer",
+   "tags": "198",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "621": {
+   "name": "W Indigo*",
+   "bag": "One antlerless deer",
+   "tags": "142",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "622A": {
+   "name": "W Dixon*",
+   "bag": "One antlerless deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623": {
+   "name": "Melrose Unit*",
+   "bag": "One antlerless deer",
+   "tags": "275",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623A": {
+   "name": "Central Melrose*",
+   "bag": "One antlerless deer",
+   "tags": "1,100",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623B1": {
+   "name": "N Bank Habitat No. 1*",
+   "bag": "One antlerless deer",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623B2": {
+   "name": "N Bank Habitat No. 2*",
+   "bag": "One antlerless deer",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623B3": {
+   "name": "N Bank Habitat No. 3*",
+   "bag": "One antlerless deer",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "624": {
+   "name": "Tioga Unit",
+   "bag": "One antlerless deer",
+   "tags": "132",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "625": {
+   "name": "Sixes Unit",
+   "bag": "One antlerless deer",
+   "tags": "121",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "626": {
+   "name": "Powers Unit",
+   "bag": "One antlerless deer",
+   "tags": "91",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "627": {
+   "name": "Chetco Unit",
+   "bag": "One antlerless deer",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "628": {
+   "name": "Applegate Unit",
+   "bag": "One antlerless deer",
+   "tags": "48",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "629": {
+   "name": "Evans Cr Unit",
+   "bag": "One antlerless deer",
+   "tags": "31",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "610T": {
+   "name": "Saddle Mtn Unit Youth",
+   "bag": "One antlerless deer",
+   "tags": "83",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "611T": {
+   "name": "Scappoose Unit Youth",
+   "bag": "One antlerless deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "612T": {
+   "name": "Wilson Unit Youth",
+   "bag": "One antlerless deer",
+   "tags": "66",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "614T": {
+   "name": "Trask Unit Youth*",
+   "bag": "One antlerless deer",
+   "tags": "127",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "616T1": {
+   "name": "SW Santiam Youth*",
+   "bag": "One deer",
+   "tags": "53",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "616T2": {
+   "name": "NW Santiam Youth*",
+   "bag": "One deer",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "617T": {
+   "name": "Stott Mtn Unit Youth*",
+   "bag": "One antlerless deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "618T": {
+   "name": "Alsea Unit Youth",
+   "bag": "One antlerless deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "619T": {
+   "name": "McKenzie Unit Youth",
+   "bag": "One deer",
+   "tags": "109",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "620T1": {
+   "name": "Siuslaw Unit Youth",
+   "bag": "One antlerless deer",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "620T2": {
+   "name": "Territorial Youth*",
+   "bag": "One deer",
+   "tags": "10",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "621T": {
+   "name": "N Indigo Youth*",
+   "bag": "One deer",
+   "tags": "80",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623T1": {
+   "name": "N Bank Habitat Area No. 1 Youth*",
+   "bag": "One white-tailed buck with visible antler or one black-tailed deer",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623T2": {
+   "name": "N Bank Habitat Area No. 2 Youth*",
+   "bag": "One black-tailed deer",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "623T3": {
+   "name": "Melrose Youth*",
+   "bag": "One black-tailed deer",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "625T": {
+   "name": "Sixes Unit Youth",
+   "bag": "One antlerless deer",
+   "tags": "94",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "627T": {
+   "name": "Chetco Unit Youth",
+   "bag": "One deer",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "628T": {
+   "name": "Applegate Unit Youth",
+   "bag": "One deer",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "629T": {
+   "name": "Evans Cr Unit Youth",
+   "bag": "One deer",
+   "tags": "69",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "630T": {
+   "name": "Rogue Unit Youth",
+   "bag": "One deer",
+   "tags": "60",
+   "page": "https://www.eregulations.com/oregon/hunting/antlerless-deer-seasons",
+   "table": "Antlerless Deer Seasons"
+  },
+  "435": {
+   "name": "Paulina Unit",
+   "bag": "One buck pronghorn",
+   "tags": "17",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "436": {
+   "name": "Maury Unit",
+   "bag": "One buck pronghorn",
+   "tags": "26",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "437": {
+   "name": "Ochoco Unit",
+   "bag": "One pronghorn either sex",
+   "tags": "76",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "438": {
+   "name": "Grizzly Unit",
+   "bag": "One buck pronghorn",
+   "tags": "7",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "440A1": {
+   "name": "Columbia Plateau No. 1*",
+   "bag": "One doe or fawn pronghorn",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "440A2": {
+   "name": "Columbia Plateau No. 2*",
+   "bag": "One buck pronghorn",
+   "tags": "26",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "445A": {
+   "name": "Fossil Unit No. 1",
+   "bag": "One doe or fawn pronghorn",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "445B": {
+   "name": "Fossil Unit No. 2",
+   "bag": "One buck pronghorn",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "446": {
+   "name": "Murderers Cr Unit",
+   "bag": "One buck pronghorn",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "447": {
+   "name": "Northside - Ritter*",
+   "bag": "One buck pronghorn",
+   "tags": "7",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "451": {
+   "name": "Sumpter Unit",
+   "bag": "One buck pronghorn",
+   "tags": "5",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "462": {
+   "name": "Pine Cr - Keating*",
+   "bag": "One buck pronghorn",
+   "tags": "5",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "464": {
+   "name": "Lookout Mtn Unit",
+   "bag": "One buck pronghorn",
+   "tags": "7",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "465": {
+   "name": "Beulah Unit",
+   "bag": "One pronghorn either sex",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "466A1": {
+   "name": "Malheur Rvr Unit No. 1",
+   "bag": "One pronghorn either sex",
+   "tags": "88",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "466A2": {
+   "name": "Malheur Rvr Unit No. 2",
+   "bag": "One pronghorn either sex",
+   "tags": "86",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "466B": {
+   "name": "Harney Basin*",
+   "bag": "One doe or fawn pronghorn",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "467": {
+   "name": "Owyhee Unit",
+   "bag": "One pronghorn either sex",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "468": {
+   "name": "Whitehorse Unit",
+   "bag": "One pronghorn either sex",
+   "tags": "129",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "469A": {
+   "name": "Steens Mtn*",
+   "bag": "One buck pronghorn",
+   "tags": "75",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "470A": {
+   "name": "Beatys Butte No. 1*",
+   "bag": "One buck pronghorn",
+   "tags": "77",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "470B": {
+   "name": "Beatys Butte No. 2*",
+   "bag": "One buck pronghorn",
+   "tags": "74",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "470C": {
+   "name": "Hart Mtn*",
+   "bag": "One buck pronghorn",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "471A": {
+   "name": "Juniper*",
+   "bag": "One buck pronghorn",
+   "tags": "63",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "472A1": {
+   "name": "Silvies Unit No. 1",
+   "bag": "One pronghorn either sex",
+   "tags": "42",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "472A2": {
+   "name": "Silvies Unit No. 2",
+   "bag": "One pronghorn either sex",
+   "tags": "42",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "472B": {
+   "name": "Riley*",
+   "bag": "One doe or fawn pronghorn",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "473": {
+   "name": "Wagontire",
+   "bag": "One buck pronghorn",
+   "tags": "37",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "474A": {
+   "name": "Warner Unit No. 1",
+   "bag": "One buck pronghorn",
+   "tags": "53",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "474B": {
+   "name": "Warner Unit No. 2",
+   "bag": "One buck pronghorn",
+   "tags": "53",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "475A": {
+   "name": "E Interstate*",
+   "bag": "One pronghorn either sex",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "476A": {
+   "name": "Fort Rock - Silver Lake*",
+   "bag": "One pronghorn either sex",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "435R": {
+   "name": "Paulina Unit Bow",
+   "bag": "One buck pronghorn",
+   "tags": "6",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "436R": {
+   "name": "Maury Unit Bow",
+   "bag": "One pronghorn either sex",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "464R": {
+   "name": "Lookout Mtn Unit Bow",
+   "bag": "One pronghorn either sex",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "466R": {
+   "name": "Malheur Rvr Unit Bow",
+   "bag": "One pronghorn either sex",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "467R": {
+   "name": "Owyhee Unit Bow",
+   "bag": "One pronghorn either sex",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "470R1": {
+   "name": "Hart Mtn Bow*",
+   "bag": "One buck pronghorn",
+   "tags": "22",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "470R": {
+   "name": "Beatys Butte Bow*",
+   "bag": "One buck pronghorn",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "473R": {
+   "name": "Wagontire Unit Bow",
+   "bag": "One buck pronghorn",
+   "tags": "5",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "474R": {
+   "name": "Warner Unit Bow",
+   "bag": "One pronghorn either sex",
+   "tags": "38",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "475R1": {
+   "name": "E Interstate Bow*",
+   "bag": "One pronghorn either sex",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "475R2": {
+   "name": "Gerber Reservoir Bow*",
+   "bag": "One pronghorn either sex",
+   "tags": "138",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "477R": {
+   "name": "E Slope Bow *Please read note in hunt description before applying for this hunt",
+   "bag": "One pronghorn either sex",
+   "tags": "55",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "435M": {
+   "name": "Paulina Unit Muzzleloader",
+   "bag": "One pronghorn either sex",
+   "tags": "6",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "469M": {
+   "name": "Steens Mtn Muzzleloader*",
+   "bag": "One buck pronghorn",
+   "tags": "33",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "473M": {
+   "name": "Wagontire Unit Muzzleloader",
+   "bag": "One pronghorn either sex",
+   "tags": "11",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "475M": {
+   "name": "Gerber Reservoir Muzzleloader*",
+   "bag": "One pronghorn either sex",
+   "tags": "44",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "476M": {
+   "name": "Fort Rock-Silver Lake Muzzleloader*",
+   "bag": "One pronghorn either sex",
+   "tags": "39",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "432T": {
+   "name": "Swan Lake Youth*",
+   "bag": "One pronghorn either sex",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "453T": {
+   "name": "Catherine Cr Unit Youth",
+   "bag": "One buck pronghorn",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "470T": {
+   "name": "Hart Mtn Youth*",
+   "bag": "One buck pronghorn",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "475T": {
+   "name": "Gerber Reservoir Youth*",
+   "bag": "One pronghorn either sex",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Pronghorn Antelope Seasons"
+  },
+  "543A1": {
+   "name": "John Day Rvr No. 1*",
+   "bag": "",
+   "tags": "8",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543A2": {
+   "name": "John Day Rvr No. 2*",
+   "bag": "",
+   "tags": "7",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543A3": {
+   "name": "John Day Rvr No. 3*",
+   "bag": "",
+   "tags": "9",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543B1": {
+   "name": "E Deschutes Rvr No. 1*",
+   "bag": "",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543B2": {
+   "name": "E Deschutes Rvr No. 2*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543B3": {
+   "name": "E Deschutes Rvr No. 3*",
+   "bag": "",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543C1": {
+   "name": "W Deschutes Rvr No. 1*",
+   "bag": "",
+   "tags": "4",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543C2": {
+   "name": "W Deschutes Rvr No. 2*",
+   "bag": "",
+   "tags": "4",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543C3": {
+   "name": "W Deschutes Rvr No. 3*",
+   "bag": "",
+   "tags": "4",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543D1": {
+   "name": "John Day Rvr Ewe*",
+   "bag": "",
+   "tags": "28",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "543D2": {
+   "name": "Deschutes Rvr Ewe*",
+   "bag": "",
+   "tags": "19",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "546A": {
+   "name": "Aldrich*",
+   "bag": "",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "546B": {
+   "name": "McClellan*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "566A": {
+   "name": "Riverside*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "568A1": {
+   "name": "Sheepshead Mtns No. 1*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "568A2": {
+   "name": "Sheepshead Mtns No. 2*",
+   "bag": "",
+   "tags": "1",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "568B1": {
+   "name": "E Whitehorse No. 1*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "568B2": {
+   "name": "E Whitehorse No. 2*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "569A1": {
+   "name": "Steens Mtn No. 1*",
+   "bag": "",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "569A2": {
+   "name": "Steens Mtn No. 2*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "569B": {
+   "name": "N Catlow Rim*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "570B1": {
+   "name": "E Beatys Butte/Alvord Peaks No. 1*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "570B2": {
+   "name": "E Beatys Butte/Alvord Peaks No. 2*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "570C": {
+   "name": "Coleman - E Guano*",
+   "bag": "",
+   "tags": "1",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "574": {
+   "name": "Warner Unit",
+   "bag": "",
+   "tags": "1",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "575A1": {
+   "name": "S Central No. 1*",
+   "bag": "",
+   "tags": "2",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  },
+  "575A2": {
+   "name": "S Central No. 2*",
+   "bag": "",
+   "tags": "3",
+   "page": "https://www.eregulations.com/oregon/hunting/pronghorn-antelope-seasons",
+   "table": "Tag Sale Deadline"
+  }
+ }
+}

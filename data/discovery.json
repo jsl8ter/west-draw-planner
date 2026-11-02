@@ -113,14 +113,6 @@
    "modified": 1701726655000
   },
   {
-   "title": "Human Modification 2020 (Fig. 11) - A Sagebrush Conservation Design to Proactively Restore America?s Sagebrush Biome",
-   "owner": "matthew_heller@fws.gov_fws",
-   "type": "Map Service",
-   "url": "https://tiles.arcgis.com/tiles/QVENGdaPbd4LUkLV/arcgis/rest/services/Threats_2020___Human_Mod/MapServer",
-   "id": "ffee4e80ae974b97b5858d5fe1ce6136",
-   "modified": 1701726657000
-  },
-  {
    "title": "Invasive Annual Grass 2020 (Fig. 9) - A Sagebrush Conservation Design to Proactively Restore America?s Sagebrush Biome",
    "owner": "matthew_heller@fws.gov_fws",
    "type": "Map Service",
@@ -135,6 +127,14 @@
    "url": "https://tiles.arcgis.com/tiles/QVENGdaPbd4LUkLV/arcgis/rest/services/Threats_2020___Multi/MapServer",
    "id": "95294008ddf24ae888d1a80ed359a52a",
    "modified": 1701726659000
+  },
+  {
+   "title": "Human Modification 2020 (Fig. 11) - A Sagebrush Conservation Design to Proactively Restore America?s Sagebrush Biome",
+   "owner": "matthew_heller@fws.gov_fws",
+   "type": "Map Service",
+   "url": "https://tiles.arcgis.com/tiles/QVENGdaPbd4LUkLV/arcgis/rest/services/Threats_2020___Human_Mod/MapServer",
+   "id": "ffee4e80ae974b97b5858d5fe1ce6136",
+   "modified": 1701726657000
   }
  ],
  "ODFW wildlife management units": [

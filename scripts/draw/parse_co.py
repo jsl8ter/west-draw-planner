@@ -260,31 +260,213 @@ def label(code):
     return f"GMU {int(gmu)} {SPNAME[s]} {SEX[sex]} - {METHOD.get(meth, meth)} {SEASONS.get(season, season)}"
 
 
-BROCHURE_DUMP = True
+# ---------------------------------------------------------------------------------------------------------
+# Valid GMUs per hunt code, from the CPW Big Game brochure hunt-code tables ("Unit | Valid GMUs | Dates | Sex |
+# Hunt Code | List"). A Colorado hunt code is valid in every GMU listed for it, not only the GMU in the code.
+# Parsed maps are cached per brochure year in data/draw/probe/CO/gmus_<year>.json (delete to refresh).
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+CACHE_DIR = os.path.join(ROOT, "data", "draw", "probe", "CO")
+BROCHURES = [  # newest first; (year or None = read from page 1, url)
+    (None, "https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure"),
+]
+SPL = "https://spl.cde.state.co.us/artemis/nrserials/nr1431internet/nr1431{y}{c}internet.pdf"  # State Publications Library archive
+HCODE = re.compile(r"\b([EDA])-([MFE])-(\d{3})-([A-Z]\d)-([A-Z])\b")
+NOTE = re.compile(r"valid for|population|\bof\b|[Ss]ee page|Most land|permission|required|closed|Closures|[Ss]ee “", re.I)
+DATE = re.compile(r"(Jan|Feb|March|April|May|June|July|Aug|Sept|Oct|Nov|Dec)\.?\s*\d{1,2}(\s*[–-]\s*((Jan|Feb|March|April|May|June|July|Aug|Sept|Oct|Nov|Dec)\.?\s*)?\d{1,2})?")
 
 
-def _dump_brochure():
-    url = "https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure"
-    data = get(url).content
-    if not data.startswith(b"%PDF"):
-        url = pdf_url(url); data = get(url).content
-    root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    d = os.path.join(root, "data", "draw", "probe", "CO"); os.makedirs(d, exist_ok=True)
-    out = [f"URL {url} bytes {len(data)}"]
-    with pdfplumber.open(io.BytesIO(data)) as pdf:
-        for i, pg in enumerate(pdf.pages):
-            if not 26 <= i <= 70:
+def gmu_list(cell):
+    """'7, 8, 9, 19,\\n191' -> ['7','8','9','19','191']; None for notes / 'see unit' cells."""
+    t = (cell or "").replace("■", " ").replace("^_", " ")
+    t = re.split(r"[Ee]xcept|\babove\b|\bbelow\b|\d[\d,]* (?:ft|feet)", t)[0]
+    if not t.strip() or re.search(r"see\s+unit", t, re.I) or NOTE.search(t):
+        return None
+    nums = re.findall(r"(?<![\d.–-])\b(\d{1,3})\b(?![\d.–-])", t)
+    return [str(int(n)) for n in nums] or None
+
+
+def logical_lines(cell):
+    out = []
+    for ln in (cell or "").split("\n"):
+        if out and re.search(r"(,|\band|&)\s*$", out[-1]):
+            out[-1] += " " + ln
+        else:
+            out.append(ln)
+    return out
+
+
+def tables_to_map(tables, diag=None):
+    """tables: iterable of (page_no, rows) from pdfplumber extract_tables() on the hunt-code pages of the
+    CPW big-game brochure. Returns {dashed hunt code: [valid GMU, ...]}."""
+    out = {}
+
+    def add(code, gm):
+        if str(int(code.split("-")[2])) not in gm:  # a hunt is always valid in its own GMU
+            if diag is not None and len(diag) < 40:
+                diag.append(f"brochure: {code} rejected GMUs {gm}")
+            return
+        s = out.setdefault(code, [])
+        for x in gm:
+            if x not in s:
+                s.append(x)
+
+    for pno, rows in tables:
+        groups = None  # list of (unit_col, [gmu zone cols], code_col)
+        carry = {}
+        for r in rows:
+            cells = ["" if c is None else str(c) for c in r]
+            if any(re.search(r"Hunt\s*Codes?$", c.strip()) for c in cells):
+                codecols = [i for i, c in enumerate(cells) if re.search(r"Hunt\s*Codes?$", c.strip())]
+                groups, lo = [], 0
+                for cc in codecols:
+                    rng = range(lo, cc)
+                    g = [i for i in rng if "GMU" in cells[i]] or [i for i in rng if re.search(r"Unit|Ranch", cells[i])]
+                    u = [i for i in rng if re.search(r"Unit|Ranch", cells[i])]
+                    if g:
+                        zone = [g[-1]]
+                        while zone[-1] + 1 < cc and not cells[zone[-1] + 1].strip():
+                            zone.append(zone[-1] + 1)
+                        groups.append((u[0] if u else None, zone, cc))
+                    lo = cc + 1
+                carry = {}
                 continue
-            out.append(f"\n===== PAGE {i+1} =====")
-            for k, tb in enumerate(pg.extract_tables()):
-                out.append(f"--- TABLE {k} ---\n" + "\n".join(" | ".join(repr(c) for c in r) for r in tb))
-    open(os.path.join(d, "brochure_tables_2026.txt"), "w").write("\n".join(out))
-    raise RuntimeError("brochure dump only")
+            if groups is None:
+                continue
+            for u, zone, cc in groups:
+                if cc >= len(r):
+                    continue
+                g = zone[0]
+                zc = [cells[i] for i in zone if i < len(r) and r[i] is not None and cells[i].strip()]
+                zc = [c for c in zc if c.strip() != "New"] if len(zc) > 1 else zc
+                gcell = zc[0] if zc else None
+                ucell = cells[u] if u is not None and u < len(r) else ""
+                if gcell is not None and gcell.strip() != "New":
+                    gm = gmu_list(gcell)
+                    if gm:
+                        carry[g] = gm
+                    elif not NOTE.search(gcell) or re.search(r"see\s+unit", gcell, re.I):
+                        carry[g] = None
+                elif u is not None and u not in zone and re.search(r"\d", ucell):
+                    carry[g] = gmu_list(ucell) if gcell is not None else None
+                codes = ["-".join(m.groups()) for m in HCODE.finditer(cells[cc])]
+                # two hunts merged into one row: one GMU line per hunt-code line
+                cl = [ln for ln in cells[cc].split("\n") if ln.strip()]
+                gl = logical_lines(gcell) if gcell else []
+                if len(cl) > 1 and len(cl) == len(gl) and all(gmu_list(x) for x in gl):
+                    for ln, gx in zip(cl, gl):
+                        for m in HCODE.finditer(ln):
+                            add("-".join(m.groups()), gmu_list(gx))
+                    continue
+                for code in codes:
+                    gm = carry.get(g)
+                    if not gm:
+                        if diag is not None and len(diag) < 40:
+                            diag.append(f"brochure p{pno}: no GMUs for {code}")
+                        continue
+                    add(code, gm)
+            # hunt codes printed inside another cell (merged text): GMUs are the other numbers in that cell
+            for c in cells:
+                if HCODE.search(c) and re.search(r"[a-z]", HCODE.sub("", c)):
+                    rest = re.sub(r"see\s+unit\s+\d+", " ", HCODE.sub(" ", c), flags=re.I)
+                    rest = re.sub(r"private land|only|[A-Za-z]+", " ", DATE.sub(" ", rest))
+                    gm = gmu_list(rest)
+                    for m in HCODE.finditer(c):
+                        if gm and "-".join(m.groups()) not in out:
+                            add("-".join(m.groups()), gm)
+    return out
+
+
+def _bro_work(args):
+    path, start, stop = args
+    res = []
+    with pdfplumber.open(path) as pdf:
+        for k in range(start, stop):
+            pg = pdf.pages[k]
+            txt = pg.extract_text() or ""
+            if len(HCODE.findall(txt)) >= 3:
+                try:
+                    for t in pg.extract_tables():
+                        res.append((k + 1, [[None if c is None else str(c) for c in r] for r in t]))
+                except Exception as e:
+                    DIAG.append(f"brochure page {k+1} table error {e}")
+            if hasattr(pg, "close"):
+                pg.close()
+    return res
+
+
+def _download_pdf(url, timeout=(30, 600)):
+    r = requests.get(url, headers=UA, timeout=timeout)
+    r.raise_for_status()
+    data = r.content
+    if not data.startswith(b"%PDF"):
+        r = requests.get(pdf_url(url), headers=UA, timeout=timeout); r.raise_for_status(); data = r.content
+    if not data.startswith(b"%PDF"):
+        raise RuntimeError("not a PDF")
+    return data
+
+
+def brochure_gmus(year, url):
+    """Return (year, {hunt code: [GMUs]}) for one brochure, using the per-year cache when present."""
+    import json
+    if year is not None:
+        cp = os.path.join(CACHE_DIR, f"gmus_{year}.json")
+        if os.path.exists(cp):
+            c = json.load(open(cp))
+            LOG.append(f"brochure {year}: cached {cp[len(ROOT)+1:]} ({len(c['map'])} codes) from {c['url']}")
+            return year, c["map"]
+    data = _download_pdf(url)
+    tmp = tempfile.NamedTemporaryFile(suffix=".pdf", delete=False); tmp.write(data); tmp.close()
+    with pdfplumber.open(tmp.name) as pdf:
+        n = len(pdf.pages)
+        head = " ".join((pdf.pages[i].extract_text() or "") for i in range(min(2, n)))
+    m = re.search(r"(20\d\d)\s+Colorado\s+Big\s+Game", head) or re.search(r"(20\d\d) Big Game", head)
+    y = int(m.group(1)) if m else year
+    if year is not None and y != year:
+        LOG.append(f"brochure {url}: titled {y}, expected {year}")
+    import importlib
+    fn = importlib.import_module(__name__)._bro_work
+    tables = []  # (page, rows) per table, in page order
+    with cf.ProcessPoolExecutor(max(2, os.cpu_count() or 2)) as ex:
+        for r in ex.map(fn, [(tmp.name, s0, min(n, s0 + 6)) for s0 in range(0, n, 6)]):
+            tables.extend(r)
+    os.unlink(tmp.name)
+    diag = []
+    mp = tables_to_map(tables, diag)
+    LOG.append(f"brochure {y}: {url} | pages {n} | hunt-code tables {len(tables)} | codes with GMUs {len(mp)}")
+    LOG.extend("  " + x for x in diag[:30])
+    if y and mp:
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        json.dump({"year": y, "url": url, "map": mp}, open(os.path.join(CACHE_DIR, f"gmus_{y}.json"), "w"), indent=0)
+    return y, mp
+
+
+def gmu_maps(years, t0):
+    """{year: {code: [GMUs]}} for the current brochure plus archived ones for the other draw years."""
+    maps = {}
+    for y, url in BROCHURES:
+        try:
+            yy, mp = brochure_gmus(y, url)
+            if mp:
+                maps[yy] = mp
+        except Exception as e:
+            LOG.append(f"brochure error {url}: {e}")
+    for y in sorted(years, reverse=True):
+        if y in maps or time.time() - t0 > BUDGET * 0.8:
+            continue
+        for c in ("corr", ""):
+            url = SPL.format(y=y, c=c)
+            try:
+                yy, mp = brochure_gmus(y, url)
+                if mp:
+                    maps[y] = mp; break
+            except Exception as e:
+                LOG.append(f"brochure {y} not available ({url}): {str(e)[:120]}")
+                if "timed out" in str(e) or "Timeout" in type(e).__name__:
+                    break
+    return maps
 
 
 def parse():
-    if BROCHURE_DUMP:
-        _dump_brochure()
     t0 = time.time()
     reps = find_reports()
     by_sp = {}
@@ -355,6 +537,22 @@ def parse():
         sources.append({"year": y, "species": sp, "url": url, "title": f"{y} Primary {SPNAME['A' if sp=='P' else sp]} Post Draw Report (draw recap)"})
         LOG.append(f"{url} | {y} {sp} | pages {n} hunts {nh} unparsed {len(bad)} | {time.time()-t0:.0f}s")
         bad_all += [f"  {y} {sp} {b}" for b in bad]
+    # valid GMUs: the newest brochure that lists the code (same year as the latest draw year if possible)
+    maps = gmu_maps(sorted({int(y) for h in hunts.values() for y in h["years"]}), t0)
+    gained = nomap = 0
+    for H in hunts.values():
+        own = H["units"][0]
+        ys = sorted((int(y) for y in H["years"]), reverse=True)
+        order = [y for y in ys if y in maps] + sorted((y for y in maps if y not in ys), reverse=True)
+        gm = next((maps[y][H["id"]] for y in order if H["id"] in maps[y]), None)
+        if not gm:
+            nomap += 1; continue
+        new = [own] + sorted((u for u in gm if u != own), key=int)
+        new += [u for u in H["units"] if u not in new]
+        if len(new) > len(H["units"]):
+            gained += 1
+        H["units"] = new
+    LOG.append(f"valid GMUs from brochure(s) {sorted(maps)}: {gained} hunts gained units; {nomap} hunts not in any brochure (unit from hunt code only)")
     LOG.extend(DIAG)
     LOG.append(f"unparsed/mismatch rows total {len(bad_all)} (first 50):")
     LOG.extend(bad_all[:50])

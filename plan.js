@@ -229,7 +229,7 @@
         <label>Hunts per year<select name="hpy">${[1, 2, 3, 4].map(n => opt(n, n, S.hpy)).join("")}</select></label>
         <label>Draw odds I'll count on<select name="minOdds">${[[.25, "25%+"], [.5, "50%+"], [.75, "75%+"], [.9, "90%+"]].map(([v, l]) => opt(v, l, S.minOdds)).join("")}</select></label>
         <label>Trophy hunt<select name="trophyEvery">${[[0, "No trophy goal"], [2, "Every 2 years"], [3, "Every 3 years"], [4, "Every 4 years"], [5, "Every 5 years"]].map(([v, l]) => opt(v, l, S.trophyEvery)).join("")}</select></label>
-        <label>Trophy means<select name="trophyMin">${[[3, "3+ (solid)"], [4, "4+"], [5, "5 (top tier)"]].map(([v, l]) => opt(v, l, S.trophyMin)).join("")}</select></label>
+        <label>Trophy means<select name="trophyMin">${[3, 4, 5].map(v => opt(v, `${v}+ · elk ${window.trophyInches ? window.trophyInches("E", v).replace(/–.*/, "\"+") : ""}, deer ${window.trophyInches ? window.trophyInches("D", v).replace(/–.*/, "\"+") : ""}`, S.trophyMin)).join("")}</select></label>
         <label>Longest wait for a trophy<select name="maxWait">${[3, 5, 8, 10, 15].map(n => opt(n, n + " years", S.maxWait)).join("")}</select></label>
         <label>Weapon<select name="weapon">${[["any", "Any"], ["rifle", "Rifle"], ["archery", "Archery"], ["muzzleloader", "Muzzleloader"]].map(([v, l]) => opt(v, l, S.weapon)).join("")}</select></label>
         <label>Tags<select name="tag">${[["antlered", "Antlered (incl. either-sex)"], ["antlerless", "Antlerless"], ["any", "Any tag"]].map(([v, l]) => opt(v, l, S.tag)).join("")}</select></label>
@@ -245,7 +245,7 @@
     const c = p.c, t = c.trophy;
     return `<div class="pick"><div class="ph"><span class="tag" style="color:${p.kind === "trophy" ? "var(--premier)" : "var(--easy)"}">${p.kind === "trophy" ? "Trophy" : "Hunt"}</span><b>${SN[c.st]} ${SPN[c.sp].toLowerCase()} · ${esc(c.units)}</b></div>
       <div class="pm">${esc(c.label)}</div>
-      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}<button type="button" class="maplink" data-st="${c.st}" data-hid="${esc(c.h.id)}">Show unit${(c.h.units || []).length > 1 ? "s" : ""} on map</button></div>`;
+      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5 (${window.trophyInches ? window.trophyInches(c.sp, t) : ""})` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}<button type="button" class="maplink" data-st="${c.st}" data-hid="${esc(c.h.id)}">Show unit${(c.h.units || []).length > 1 ? "s" : ""} on map</button></div>`;
   }
   function render() {
     const root = document.getElementById("plan-root"); if (!root) return;
@@ -274,7 +274,7 @@
       </div></div>`;
     }).join("") + `</div>`;
     html += `<h2>Trophy targets</h2><p class="lede">Hunts rated ${S.trophyMin}+ for trophy, soonest first. "Year" is when your odds reach ${Math.round(S.minOdds * 100)}% if you keep applying.</p><div class="tbl"><table><thead><tr><th>Hunt</th><th>Trophy</th><th>Odds next draw</th><th>Reach ${Math.round(S.minOdds * 100)}%</th><th>Tag</th></tr></thead><tbody>` +
-      (R.trackTop.length ? R.trackTop.map(t => `<tr><td><b>${SN[t.c.st]} ${SPN[t.c.sp].toLowerCase()} ${esc(t.c.units)}</b><br><span class="note">${esc(t.c.label.slice(0, 70))}</span><br><button type="button" class="maplink" data-st="${t.c.st}" data-hid="${esc(t.c.h.id)}">Show on map</button></td><td class="num">${t.c.trophy}/5</td><td class="num">${pct(t.o0)}</td><td class="num">${t.when == null ? `beyond ${S.maxWait} yrs` : t.when === 0 ? R.Y0 : R.Y0 + t.when}</td><td class="num">${money(t.c.cost)}</td></tr>`).join("") : `<tr><td colspan="5">No trophy-rated hunts match these settings.</td></tr>`) + `</tbody></table></div>`;
+      (R.trackTop.length ? R.trackTop.map(t => `<tr><td><b>${SN[t.c.st]} ${SPN[t.c.sp].toLowerCase()} ${esc(t.c.units)}</b><br><span class="note">${esc(t.c.label.slice(0, 70))}</span><br><button type="button" class="maplink" data-st="${t.c.st}" data-hid="${esc(t.c.h.id)}">Show on map</button></td><td class="num">${t.c.trophy}/5<br><span class="note">${window.trophyInches ? window.trophyInches(t.c.sp, t.c.trophy) : ""}</span></td><td class="num">${pct(t.o0)}</td><td class="num">${t.when == null ? `beyond ${S.maxWait} yrs` : t.when === 0 ? R.Y0 : R.Y0 + t.when}</td><td class="num">${money(t.c.cost)}</td></tr>`).join("") : `<tr><td colspan="5">No trophy-rated hunts match these settings.</td></tr>`) + `</tbody></table></div>`;
     html += `<p class="note" style="margin-top:8px">Prices are 2026 nonresident fees (Wyoming points at the 2027 price) and will change. Expected tag cost is tag price × draw odds. Odds come from each state's draw reports; check the state's own numbers before you apply.</p>`;
     root.innerHTML = html; wire();
   }

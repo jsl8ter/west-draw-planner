@@ -973,6 +973,16 @@ function metricColor(v){
   if(CM.flip)idx=PAL.length-1-idx;
   return PAL[idx];
 }
+// what a 1–5 trophy score means in inches: typical good mature animal taken in the unit, gross B&C
+const TROPHY_IN={
+  E:["under 270\"","270–300\"","300–330\"","330–360\"","360\"+"],
+  D:["under 145\"","145–160\"","160–175\"","175–190\"","190\"+"],
+  C:["under 80\"","80–90\"","90–100\"","100–110\"","110\"+"],
+  P:["under 70\"","70–74\"","74–78\"","78–82\"","82\"+"]
+};
+const TROPHY_ANIMAL={E:"bulls",D:"bucks",C:"bucks",P:"bucks"};
+function trophyInches(s,score){const r=TROPHY_IN[s==="C"?"C":s];return r&&score>=1&&score<=5?r[Math.round(score)-1]:""}
+window.trophyInches=trophyInches;
 function trophyOf(st,s,id){
   const t=TROPHY&&TROPHY.units&&TROPHY.units[st]&&TROPHY.units[st][s];if(!t)return null;
   if(t[id])return t[id];const n=normId(id);for(const k in t){if(normId(k)===n||k.toLowerCase()===String(id).toLowerCase())return t[k]}return null;
@@ -1012,6 +1022,8 @@ function filterMatches(){
     })}
   return out;
 }
+function syncTrophyOptions(){const sel=document.getElementById("f-trophy");if(!sel)return;
+  [...sel.options].forEach(o=>{const v=+o.value;o.textContent=v?`${v}+ (${trophyInches(sp,v).replace(/^under /,"<")}${v<5?" and up":""})`:"Any"})}
 function applyFilter(zoom){
   restyle();
   const res=document.getElementById("results"),sum=document.getElementById("fsum"),bar=document.getElementById("fbar"),tb=document.getElementById("tg-filter");
@@ -1140,7 +1152,7 @@ function render(){restyle();renderList()}
 
 // ---------- UI ----------
 
-document.getElementById("hunt-sel").addEventListener("change",e=>{const [k,sx]=e.target.value.split("|");sp=k;sexF=sx;sel=null;selF=null;selHunt=null;document.getElementById("sheet").innerHTML="";render();if(FILTER.on)applyFilter(false)});
+document.getElementById("hunt-sel").addEventListener("change",e=>{const [k,sx]=e.target.value.split("|");sp=k;sexF=sx;syncTrophyOptions();sel=null;selF=null;selHunt=null;document.getElementById("sheet").innerHTML="";render();if(FILTER.on)applyFilter(false)});
 document.getElementById("inc-private").addEventListener("change",e=>{incPrivate=e.target.checked;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
 document.getElementById("inc-either").addEventListener("change",e=>{incEither=e.target.checked;render();if(FILTER.on)applyFilter(false);if(selF&&lastShown)showFeature(...lastShown)});
 
@@ -1177,7 +1189,7 @@ function renderLegend(){
   if(!M.legacy){
     const sw=(c,l)=>`<span><i class="sq" style="background:${c}"></i>${l}</span>`;
     let items="";
-    if(M.trophy)items=[1,2,3,4,5].map(v=>sw(metricColor(v),v+(v===1?" · opportunity":v===3?" · solid":v===5?" · top tier":""))).join("");
+    if(M.trophy)items=[1,2,3,4,5].map(v=>sw(metricColor(v),`${v} · ${trophyInches(sp,v)}`)).join("")+`<span class="note">Typical good mature ${TROPHY_ANIMAL[sp]}, gross Boone &amp; Crockett inches</span>`;
     else if(BREAKS){items=BREAKS.map((b,i)=>{const hi=BREAKS[i+1];const lo=b<=-99?"":M.fmt(b);const lab=hi==null?(lo?lo+"+":"any"):(b<=-99?"under "+M.fmt(hi):lo+" – "+M.fmt(hi));return sw(metricColor(b),lab)}).join("")}
     const ctx=M.trophy?"":` · ${resLbl()}${M.noYear||M.usesPts?"":CM.year==="latest"?" · latest year":CM.year==="avg3"?" · 3-yr avg":" · "+CM.year}${M.usesPts?" · your points":""} · ${({best:"best hunt in unit",avg:"average of hunts",sum:"total of hunts",worst:"hardest hunt"})[M.agg==="sum"&&CM.agg==="best"?"sum":CM.agg]}`;
     L.innerHTML=`<span><b>${M.label}</b>${ctx}</span>`+items+
@@ -1245,7 +1257,7 @@ function huntCard(st,h){
 }
 function huntsSheet(f,Lc){
   const hs=huntsOf(f,Lc.st);const d=DRAW[Lc.st];const tr=trophyOf(Lc.st,sp,f._id);
-  const trophy=tr?`<p><b>Trophy potential ${tr.s}/5.</b> ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
+  const trophy=tr?`<p><b>Trophy ${tr.s}/5: mature ${TROPHY_ANIMAL[sp]} typically ${trophyInches(sp,tr.s)}</b> (gross B&amp;C). ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
   if(!d)return trophy?`<div class="sheet">${trophy}<p class="note">${SN[Lc.st]} draw results are still being added.</p></div>`:"";
   if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?(sp==="E"?"bull ":"buck "):sexF==="antlerless"?(sp==="E"?"cow ":"doe "):sexF==="either"?"either-sex ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
   const selH=selHunt&&selHunt.st===Lc.st?DRAW[Lc.st].hunts[selHunt.hi]:null;
@@ -1329,6 +1341,7 @@ window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",render);
 
 renderLegend();renderStatus();renderDots();renderList();buildStates();buildCosts();buildDates();buildPts();show(location.hash.slice(1));
+syncTrophyOptions();
 loadData().then(()=>LAYERS.forEach(loadLayer));
 if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
 

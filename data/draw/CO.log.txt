@@ -3,11 +3,8 @@ Traceback (most recent call last):
   File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_all.py", line 13, in run
     d = m.parse()
         ^^^^^^^^^
-  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 285, in parse
+  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 287, in parse
     _dump_brochure()
-  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 267, in _dump_brochure
-    url = pdf_url("https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure")
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 73, in pdf_url
-    raise RuntimeError("no pdf link on share page")
-RuntimeError: no pdf link on share page
+  File "/home/runner/work/west-draw-planner/west-draw-planner/scripts/draw/parse_co.py", line 282, in _dump_brochure
+    raise RuntimeError("brochure dump only")
+RuntimeError: brochure dump only

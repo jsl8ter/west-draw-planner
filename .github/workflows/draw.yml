@@ -44,6 +44,7 @@ jobs:
             probe)     python scripts/draw/probe.py $STATES $URLS ;;
             parse)     python scripts/draw/parse_all.py $STATES ;;
             regs)      python scripts/draw/regs/fetch_regs.py $STATES ;;
+            browser)   pip install -q playwright && python -m playwright install --with-deps chromium >/dev/null && python scripts/draw/probe_browser.py $STATES $URLS ;;
           esac
       - name: Commit data
         run: |

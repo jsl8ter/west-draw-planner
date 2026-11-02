@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       step:
-        description: "inventory | parse | probe"
+        description: "inventory | parse | probe | regs"
         default: "inventory"
       states:
         description: "Space-separated state codes (blank = all)"
@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install readers
-        run: pip install -q pdfplumber openpyxl xlrd requests
+        run: pip install -q pdfplumber openpyxl xlrd requests beautifulsoup4
       - name: Run
         env:
           STEP: ${{ github.event.inputs.step || '' }}
@@ -43,6 +43,7 @@ jobs:
             inventory) python scripts/draw/inventory.py $STATES ;;
             probe)     python scripts/draw/probe.py $STATES $URLS ;;
             parse)     python scripts/draw/parse_all.py $STATES ;;
+            regs)      python scripts/draw/regs/fetch_regs.py $STATES ;;
           esac
       - name: Commit data
         run: |

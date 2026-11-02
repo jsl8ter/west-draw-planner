@@ -1,6 +1,6 @@
 /* West Draw Planner service worker: app shell offline, data refreshed in the background,
    recently viewed map tiles kept for offline use. */
-const V = "wdp-v4";
+const V = "wdp-v5";
 const SHELL = ["./", "index.html", "odds.js", "plan.js", "manifest.webmanifest", "icons/icon-192.png", "icons/apple-touch-icon.png",
   "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"];

@@ -67,7 +67,8 @@
     return extra > 0 && pool > 0 ? Math.min(1, extra / pool) : 0;
   }
 
-  function historical(system, blk, pts) {
+  function historical(system, blk, pts) { const v = historicalRaw(system, blk, pts); return v == null ? null : Math.max(0, Math.min(1, v)); }
+  function historicalRaw(system, blk, pts) {
     if (!blk) return null;
     if (blk.apps && blk.drawn != null && blk.drawn >= blk.apps) return 1; // undersubscribed
     if (blk.by_pts && blk.by_pts.length && sortRows(blk.by_pts).length) {
@@ -110,8 +111,13 @@
     if (!rows.length) return null;
     const m = new Map();
     for (const [p, a, d] of rows) { const stay = Math.max(0, a - d); m.set(p + 1, (m.get(p + 1) || 0) + stay); }
+    // new 0-point cohort: last year's 0-point applicants, plus last year's winners who
+    // come back at 0 points (keeps the applicant pool about the same size year to year)
     const zero = rows.find(r => r[0] === 0);
-    m.set(0, (m.get(0) || 0) + (zero ? zero[1] : 0));
+    const winners = rows.reduce((s, r) => s + (r[2] || 0), 0);
+    const listed = rows.reduce((s, r) => s + r[1], 0);
+    const unlisted = blk.apps != null ? Math.max(0, blk.apps - listed) : 0; // applicants not in point rows
+    m.set(0, (m.get(0) || 0) + (zero ? zero[1] : 0) + winners + unlisted);
     const groups = Array.from(m, ([p, n]) => ({ p, n }));
     return drawProb(system, groups, tags, pts);
   }

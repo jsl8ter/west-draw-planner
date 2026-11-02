@@ -1259,7 +1259,7 @@ function huntCard(st,h){
   ${h.bag_text?`<p class="note"><b>Bag limit:</b> ${escH(h.bag_text)}</p>`:""}
   ${bagOf(h)==="spike"?`<p class="warn">Spike-only tag: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
   ${!isCurrent(h)?`<p class="warn">Not offered in the ${CUR[h._st+h.species]} draw (last drawn ${Object.keys(h.years).sort().pop()}).</p>`:""}
-  ${nr.apps!=null&&nr.apps<5&&sys!=="random"?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}: treat the odds as rough.</p>`:""}
+  ${s&&s.pooled?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}. Nonresidents draw from the same pool as residents here, so your odds use the whole pool's results.</p>`:nr.apps!=null&&nr.apps<5&&sys!=="random"?`<p class="note">Only ${nr.apps} nonresident applicant${nr.apps===1?"":"s"} in ${y}: treat the odds as rough.</p>`:""}
   <div class="stats">
     <div><b>Your odds ${y?+y+1:""}${sys==="random"?" (random draw)":` (${mp} pts)`}</b><span class="oddsbig">${proj==null?"–":pct(proj)}</span></div>
     <div><b>NR ${y} drawn</b>${n0(nr.drawn??nr.tags)} of ${n0(nr.apps)} · ${ov(nr)}</div>

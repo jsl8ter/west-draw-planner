@@ -150,15 +150,36 @@
     return ys.length ? ys[ys.length - 1] : null;
   }
 
+  // States where nonresidents draw from the same pool as residents (under a cap), not from their own quota.
+  // With only a handful of nonresident applicants their own row can read 100% (one person with 15 points drew);
+  // there the whole pool's odds are the better estimate, so the projection is capped at the pooled projection.
+  const POOLED = new Set(["CO", "OR", "AZ", "ID", "MT"]);
+  const THIN = 10;
+  function poolBlock(Y) {
+    if (Y.T && Y.T.by_pts && Y.T.by_pts.length) return Y.T;
+    const r = Y.R, n = Y.NR; if (!r || !n || r.apps == null || n.apps == null) return null;
+    const m = new Map();
+    for (const b of [r, n]) for (const [p, a, d] of (b.by_pts || [])) { const q = m.get(p) || [0, 0]; q[0] += a; q[1] += d || 0; m.set(p, q); }
+    const drawn = (r.drawn || 0) + (n.drawn || 0);
+    return { apps: r.apps + n.apps, drawn, tags: drawn, by_pts: m.size ? Array.from(m, ([p, q]) => [p, q[0], q[1]]) : null };
+  }
   function summarize(system, hunt, res, pts) {
     const y = latestYear(hunt, res);
     if (!y) return null;
     const blk = hunt.years[y][res];
     const hist = Object.keys(hunt.years).sort().map(yy => [yy, historical(system, hunt.years[yy][res], pts)]).filter(x => x[1] != null);
+    let projected = project(system, blk, pts), pooled = false;
+    if (res === "NR" && POOLED.has(hunt._st) && blk.apps != null && blk.apps < THIN) {
+      const all = poolBlock(hunt.years[y]);
+      if (all && all.apps) {
+        const pa = system === "random" || !all.by_pts ? Math.min(1, (all.drawn != null ? all.drawn : all.tags || 0) / all.apps) : project(system, all, pts);
+        if (pa != null && (projected == null || pa < projected)) { projected = pa; pooled = true; }
+      }
+    }
     return {
-      year: y, blk,
+      year: y, blk, pooled,
       historical: hist,
-      projected: project(system, blk, pts),
+      projected,
       minPts: blk.min_pts != null ? blk.min_pts : null,
       creep: creep(hunt.years, res),
       years: yearsToDraw(system, hunt, res, pts),

@@ -733,7 +733,19 @@ function attach(L,feats,forced){
 }
 // Utah elk outside limited-entry units is general season (OTC any-bull / spike / archery);
 // the general-season deer units tile the state, so show those as "no draw hunt" for elk.
-function utGeneralElk(f,L){return L.st==="UT"&&sp==="E"&&DRAW.UT&&(f._h||[]).some(i=>{const h=DRAW.UT.hunts[i];return h.species==="D"&&h.kind==="general"})&&!(f._h||[]).some(i=>DRAW.UT.hunts[i].species==="E")}
+function utGeneralElk(f,L){
+  if(L.st!=="UT"||sp!=="E"||!DRAW.UT)return false;
+  const hs=(f._h||[]).map(i=>DRAW.UT.hunts[i]);if(hs.some(h=>h.species==="E"))return false;
+  if(hs.some(h=>h.species==="D"&&h.kind==="general"))return true;
+  // limited-entry deer units (Henry Mtns, La Sal, ...) fill gaps where no other unit covers the ground
+  if(!hs.some(h=>h.species==="D"))return false;
+  if(f._utFill!==undefined)return f._utFill;
+  const [x,y]=labelPoint(f);let covered=false;const g=POLY.UT;
+  if(g)g.eachLayer(l=>{const o=l.feature;if(covered||!o||o===f||!o.geometry)return;
+    const oh=(o._h||[]).map(i=>DRAW.UT.hunts[i]);if(!oh.some(h=>h.species==="E"||(h.species==="D"&&h.kind==="general")))return;
+    if(geomContains(o.geometry,x,y))covered=true});
+  f._utFill=!covered;return f._utFill;
+}
 function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
 function styleFor(f,L){
   const es=entriesFor(f);

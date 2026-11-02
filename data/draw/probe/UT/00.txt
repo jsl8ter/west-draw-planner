@@ -1,2 +1,0 @@
-URL: https://utahdraws.com/drawodds
-ERROR: HTTP Error 500: Internal Server Error

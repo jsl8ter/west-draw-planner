@@ -1,8 +1,0 @@
-URL: https://www.ndow.org/wp-json/wp/v2/media?search=Application%20Trend&per_page=100&page=3&_fields=source_url
-FINAL: https://www.ndow.org/wp-json/wp/v2/media?search=Application%20Trend&per_page=100&page=3&_fields=source_url
-TYPE: application/json; charset=UTF-8
-DISPOSITION: 
-BYTES: 429
-
-TEXT/CSV:
-[{"source_url":"https:\/\/www.ndow.org\/wp-content\/uploads\/2021\/11\/Antelope-Horns-Longer-Archery-Bonus-Point-and-Application-Trend-Res-2018.pdf"},{"source_url":"https:\/\/www.ndow.org\/wp-content\/uploads\/2021\/11\/Antelope-Horns-Shorter-ALW-Bonus-Point-and-Application-Trend-Res-2018.pdf"},{"source_url":"https:\/\/www.ndow.org\/wp-content\/uploads\/2021\/11\/Black-Bear-Bonus-Point-and-Application-Trend-NonRes-2017.pdf"}]

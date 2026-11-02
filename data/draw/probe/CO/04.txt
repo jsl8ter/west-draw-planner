@@ -1,2 +1,0 @@
-URL: https://spl.cde.state.co.us/artemis/nrserials/nr1431internet/
-ERROR: <urlopen error timed out>

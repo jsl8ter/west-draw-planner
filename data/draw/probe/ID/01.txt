@@ -1,2 +1,0 @@
-URL: https://idfg.idaho.gov/ifwis/huntplanner/api/1.1/filter/
-ERROR: HTTP Error 404: Not Found

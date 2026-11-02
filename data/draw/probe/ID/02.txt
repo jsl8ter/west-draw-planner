@@ -1,2 +1,0 @@
-URL: https://idfg.idaho.gov/ifwis/huntplanner/api/1.1/hunts/?biggame=2&yr=2025
-ERROR: HTTP Error 404: Not Found

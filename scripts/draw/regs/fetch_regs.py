@@ -15,7 +15,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 PAGES = {
     "MT": ["https://fwp.mt.gov/binaries/content/assets/fwp/hunt/regulations/2026/2026-dea-regulations-final-with-low-resolution-maps-for-web.pdf",
            "https://fwp.mt.gov/binaries/content/assets/fwp/commission/2021/dec-14/wildlife/license-quota-and-quota-range-master-list-dec-8-2021-final.pdf"],
-    "WY": ["https://wgfd.wyo.gov/media/33850/download", "https://wgfd.wyo.gov/media/33851/download",
+    "WY": ["https://wgfd.wyo.gov/media/33851/download",
            "https://wgfd.wyo.gov/media/33852/download", "https://wgfd.wyo.gov/media/33853/download",
            "https://wgfd.wyo.gov/media/33523/download"],
     "OR": ["https://www.eregulations.com/oregon/hunting/elk-seasons",
@@ -42,11 +42,27 @@ def tables(html):
 
 
 def pdf_text(data):
+    """Text per page. Pages printed sideways (Wyoming's season tables come out reversed, e.g. 'snoitatimiL')
+    are rotated with pypdf and extracted again."""
     import io, pdfplumber
-    pages = []
+    pages, rot = [], []
     with pdfplumber.open(io.BytesIO(data)) as pdf:
-        for p in pdf.pages:
-            pages.append(p.extract_text(y_tolerance=3) or "")
+        for i, p in enumerate(pdf.pages):
+            t = p.extract_text(y_tolerance=3) or ""
+            pages.append(t)
+            if "snoitatimiL" in t or "atouQ" in t: rot.append(i)
+    if rot:
+        from pypdf import PdfReader, PdfWriter
+        for deg in (90, 270):
+            w = PdfWriter(); r = PdfReader(io.BytesIO(data))
+            for i in rot:
+                pg = r.pages[i]; pg.rotate(deg); w.add_page(pg)
+            buf = io.BytesIO(); w.write(buf); buf.seek(0)
+            with pdfplumber.open(buf) as pdf:
+                for j, p in enumerate(pdf.pages):
+                    t = p.extract_text(y_tolerance=3) or ""
+                    if "Limitations" in t or "Quota" in t:
+                        pages[rot[j]] = f"[rotated {deg}]\n" + t
     return pages
 
 
@@ -103,6 +119,9 @@ def main():
                     for i, t in enumerate(pages):
                         fh.write(f"\n===== {u} PAGE {i+1} =====\n{t}\n")
         got = {u: v for u, v in got.items() if not (isinstance(v, dict) and v.get("pdf"))}
+        if st == "MT" and pdfs:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import extract_mt; hunts = extract_mt.extract()
         json.dump(got, open(os.path.join(OUT, f"{st}_tables.json"), "w"), indent=0)
         json.dump({"state": st, "generated": time.strftime("%Y-%m-%d"), "log": log, "hunts": hunts},
                   open(os.path.join(OUT, f"{st}.json"), "w"), indent=1)

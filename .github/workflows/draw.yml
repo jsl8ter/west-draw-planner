@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install readers
-        run: pip install -q pdfplumber openpyxl xlrd requests beautifulsoup4
+        run: pip install -q pdfplumber openpyxl xlrd requests beautifulsoup4 pypdf
       - name: Run
         env:
           STEP: ${{ github.event.inputs.step || '' }}

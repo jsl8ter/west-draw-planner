@@ -64,9 +64,11 @@ def bag_for(st, h, regs):
         if re.match(r"^6\d\d", hid) and sp == "D": return "antlerless", None  # 600-series = antlerless deer
         return "unknown", None
     if st == "MT":
-        r = regs.get(hid)
+        r = regs.get(f"{sp}:{hid}") or regs.get(f"{'D' if sp == 'C' else sp}:{hid}")
         if r and r.get("bag"):
-            return classify(r["bag"], sp), r["bag"]
+            t = r["bag"] + (" - " + r["limits"] if r.get("limits") else "")
+            b = "either" if re.search(r"bull or antlerless|antlered or antlerless", r["bag"], re.I) else classify(r["bag"], sp)
+            return b, t
         if re.search(r"\b(Deer|Elk|Antelope) B\b", lab): return "antlerless", None
         if h.get("kind") == "general": return "either", None
         return "unknown", None

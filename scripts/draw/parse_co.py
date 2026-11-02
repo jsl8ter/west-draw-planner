@@ -260,7 +260,29 @@ def label(code):
     return f"GMU {int(gmu)} {SPNAME[s]} {SEX[sex]} - {METHOD.get(meth, meth)} {SEASONS.get(season, season)}"
 
 
+BROCHURE_DUMP = True
+
+
+def _dump_brochure():
+    url = pdf_url("https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure")
+    data = get(url).content
+    root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    d = os.path.join(root, "data", "draw", "probe", "CO"); os.makedirs(d, exist_ok=True)
+    out = [f"URL {url} bytes {len(data)}"]
+    with pdfplumber.open(io.BytesIO(data)) as pdf:
+        for i, pg in enumerate(pdf.pages):
+            t = pg.extract_text() or ""
+            out.append(f"\n===== PAGE {i+1} =====\n{t}")
+            if i in (31, 45):
+                for tb in pg.extract_tables()[:3]:
+                    out.append("--- TABLE ---\n" + "\n".join(" | ".join(str(c) for c in r) for r in tb[:25]))
+    open(os.path.join(d, "brochure_2026.txt"), "w").write("\n".join(out))
+    raise RuntimeError("brochure dump only")
+
+
 def parse():
+    if BROCHURE_DUMP:
+        _dump_brochure()
     t0 = time.time()
     reps = find_reports()
     by_sp = {}

@@ -747,13 +747,16 @@ function attach(L,feats,forced){
   for(const id in POLY){if(POLY[id]._cfg.zone&&map.hasLayer(POLY[id]))POLY[id].bringToBack()}
   restyle();renderList();
 }
+// Utah elk outside limited-entry units is general season (OTC any-bull / spike / archery);
+// the general-season deer units tile the state, so show those as "no draw hunt" for elk.
+function utGeneralElk(f,L){return L.st==="UT"&&sp==="E"&&DRAW.UT&&(f._h||[]).some(i=>{const h=DRAW.UT.hunts[i];return h.species==="D"&&h.kind==="general"})&&!(f._h||[]).some(i=>DRAW.UT.hunts[i].species==="E")}
 function entriesFor(f){return f._e.filter(i=>U[i][1]===sp&&tierOn.has(U[i][4]))}
 function styleFor(f,L){
   const es=entriesFor(f);
   const line=base==="sat"?"#ffffff":"#2b322d";
   const isSel=(sel!=null&&f._e.includes(sel))||selF===f;
   if(L.zone) return {color:base==="sat"?"#ffffff":"#1f2a24",weight:2,opacity:.8,dashArray:"7 6",fill:false};
-  if(L.onlyMatched&&!es.length&&!(f._h||[]).some(i=>DRAW[L.st]&&DRAW[L.st].hunts[i].species===sp)) return {opacity:0,fillOpacity:0,fill:false,weight:0};
+  if(L.onlyMatched&&!es.length&&!(f._h||[]).some(i=>DRAW[L.st]&&DRAW[L.st].hunts[i].species===sp)&&!utGeneralElk(f,L)) return {opacity:0,fillOpacity:0,fill:false,weight:0};
   if(FILTER.on&&!featurePasses(f,L)) return {color:line,weight:.5,opacity:.3,dashArray:null,fill:true,fillColor:"#000",fillOpacity:.04};
   if(!METRICS[CM.metric].legacy){
     const v=metric(f,L);
@@ -1049,7 +1052,7 @@ const dots=L.layerGroup().addTo(map);
 function renderDots(){
   dots.clearLayers();
   U.forEach((u,i)=>{
-    if(u[1]!==sp||!tierOn.has(u[4])||FILTER.on)return;
+    if(u[1]!==sp||!tierOn.has(u[4])||FILTER.on||!METRICS[CM.metric].legacy)return;
     if(ENTRY_SHAPES[i]&&ENTRY_SHAPES[i].length)return;
     const fc=METRICS[CM.metric].legacy?colorHex(u):(CM.metric==="pts"&&u[7]!=null&&BREAKS?metricColor(u[7]):"#9aa39a");
     const m=L.circleMarker([u[5],u[6]],{renderer:canvas,radius:sel===i?9:6.5,color:sel===i?css("--ink"):"#fff",weight:sel===i?3:1.5,fillColor:fc,fillOpacity:1});

@@ -1,2 +1,118 @@
-URL: https://spl.cde.state.co.us/artemis/nrserials/nr1431internet/nr14312026corrinternet.pdf
-ERROR: <urlopen error timed out>
+URL: https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure
+FINAL: https://cpw.widen.net/s/5wvx7rggrd/colorado-big-game-hunting-brochure
+TYPE: application/pdf
+DISPOSITION: inline; filename="Colorado Big Game Hunting Brochure.pdf"
+BYTES: 106753049
+
+PDF PAGES: 84
+
+
+----- PAGE 1 TEXT -----
+C O L O R A D O P A R K S & W I L D L I F E
+2026 Colorado
+Big Game
+Deer — Elk — Pronghorn — Moose — Bear — Bison
+Application Deadlines — Primary draw: April 7 (8 p.m. MT) ■ Secondary draw: June 30 (8 p.m. MT)
+cpw.state.co.us
+
+----- PAGE 2 TEXT -----
+C O L O R A D O P A R K S & W I L D L I F E
+2026 Big Game
+Brochure Corrections
+Latest Update: March 18, 2026
+Updated: March 18, 2026
+Moose: Limited Quota for 2026 Draw— Pages 58–61
+A update has been made since the time of publication to “Certain moose hunt codes will have limited quota in the draw in 2026.”
+The updated information is: Some of the 2026 moose hunt codes with limited quota have been surrendered.
+The online version of the brochure has been updated with this correction: cpw.state.co.us/big-game-brochure
+As printed in the brochure: Corrected view:
+Certain moose hunt codes will have limited quota in the draw in 2026: Moose hunt codes M-F-025-O1-A, M-F-025-O1-M and M-F-025-O1-R will no
+Some of the quota for certain hunt codes for moose have been re- longer have any guaranteed licenses awarded to 2025 moose license
+served for 2025 moose license holders who were affected by the 2025 holders who were affected by the 2025 fires. All applicable license
+fires. Hunt codes shaded in orange in the moose hunt code tables on holders have declined 2026 licenses, thus designating that all 2026
+pages 59–61 have limited quota available for the 2026 draw as a result. moose quota will be available for the 2026 draw.
+Updated: March 13, 2026
+Deer: Season Choice — Limited Licenses— Page 32
+A correction has been made since the time of publication to the deer season choice —limited license hunt code table: hunt code D-F-092-P5-X had an incorrect archery date.
+The correct information is: Deer season choice hunt code D-F-092-P5-X archery season dates should be: Oct. 1–23; Nov. 4–30; Dec. 15–31.
+The online version of the brochure has been updated with this correction: cpw.state.co.us/big-game-brochure
+As printed in the brochure: Corrected view:
+Updated: February 19, 2026
+Moose: Season Choice — Nonresident — Page 61
+A correction has been made since the time of publication to the moose season choice — nonresident hunt code table: hunt code M-M-038-O1-X was erroneously omitted.
+The correct information is: Moose season choice nonresident hunt code table should include M-M-038-O1-X, valid in GMU 38.
+The online version of the brochure has been updated with this correction: cpw.state.co.us/big-game-brochure
+As printed in the brochure: Corrected view:
+Colorado Parks & Wildlife • 6060 Broadway, Denver, CO 80216 • 303-297-1192 • cpw.state.co.us
+
+----- PAGE 3 TEXT -----
+Updated: February 17, 2026
+Moose: Season Choice — Resident — Page 61
+A correction has been made since the time of publication to the moose season choice — resident hunt code table: hunt code M-M-051-O1-X was erroneously omitted.
+The correct information is:
+Moose season choice resident hunt code table should include M-M-051-O1-X, valid in GMUs 51, 59, 511 & 581.
+The online version of the brochure has been updated with this correction: cpw.state.co.us/big-game-brochure
+As printed in the brochure: Corrected view:
+Updated: February 13, 2026
+Elk: Muzzleloader — Limited Licenses — Page 44
+A correction has been made since the time of publication to elk muzzleloader hunt code E-M-059-O1-M. The hunt code was incorrectly published as a “List B” license.
+The correct information is:
+Elk muzzleloader hunt code E-M-059-O1-M is a “List A” license.
+The online version of the brochure has been updated with this correction: cpw.state.co.us/big-game-brochure
+As printed in the brochure: Corrected view:
+Updated: February 13, 2026
+Elk: Rifle — Limited Licenses — Page 48
+A correction has been made since the time of publication to elk rifle hunt code E-F-044-O1-R in GMUs 45 & 47. The hunt code was incorrectly published as a “List A” license.
+The correct information is:
+Elk rifle hunt code E-F-044-O1-R is a “List B” license.
+The online version of the brochure has been updated with this correction: cpw.state.co.us/big-game-brochure
+As printed in the brochure: Corrected view:
+Colorado Parks & Wildlife • 6060 Broadway, Denver, CO 80216 • 303-297-1192 • cpw.state.co.us
+
+----- PAGE 84 TEXT -----
+GENERAL
+Printed for free distribution by:
+Colorado Parks and Wildlife
+6060 Broadway, Denver, CO 80216
+303-297-1192
+cpw.state.co.us
+Online brochure
+Notice: This brochure includes information on big-game hunting. It is not a legal notice nor a complete collection of hunting regulations and laws. It is a condensed guide issued for
+hunters’ convenience. The online brochure is the most up-to-date version and contains any corrections: cpw.state.co.us/big-game-brochure. Copies of statutes and regu-
+lations can be obtained from a Colorado Parks and Wildlife region or area office, or at cpw.state.co.us/rules-and-regulations. For questions, call CPW at 303-297-1192.
+2026 Big Game
+Primary Limited License Draw
+March 1: Applications accepted/most qualifying licenses
+available for purchase starting on this date
+April 7 Application & correction deadline, 8 p.m. MT
+May 26–29 Draw results posted online
+(check your online account)
+June 1 Surrender period deadline, 11:59 p.m. MT
+June 12 License payment deadline, 11:59 p.m. MT
+June 26 Licenses in the mail
+Secondary Limited License Draw
+June 18: Secondary draw applications accepted starting
+on this date
+June 30 Secondary draw application & correction
+deadline, 8 p.m. MT
+July 7 Secondary draw results posted online
+(check your online account)
+July 9 Surrender period deadline, 11:59 p.m. MT
+July 21 Secondary draw license payment
+deadline, 11:59 p.m. MT Report Poachers
+July 27 Secondary draw licenses in the mail
+Colorado Operation Game Thief (OGT) has partnered with the free Hunt Regs App to Scan to Report
+Leftover & Over-the-Counter Licenses provide the public with a simple and anonymous way to report hunting and fishing violations. Violations
+Reports are automatically routed to OGT dispatchers and wildlife officers for the area who are
+Aug. 4: Remaining (leftover) limited licenses on sale available 24/7/365 ensuring issues are addressed quickly and effectively.
+online, in person and by phone, 9 a.m. MT
+Submit reports to Operation Game Thief by phone, email or via the Hunt Regs app:
+74 Aug. 4: Over-the-counter licenses on sale, 9 a.m. MT Operation Game Thief: 1-877-265-6648 — game.thief@state.co.us
+2022 COLORADO BIG GAME HUNTING: GENERAL INFORMATION
+
+----- PAGE 1 TABLE -----
+C O L O R A D O P A R K S & W I L D L I F E
+2026 Colorado
+Big Game
+Deer — Elk — Pronghorn — Moose — Bear — Bison
+Application Deadlines — Primary draw: April 7 (8 p.m. MT) ■ Secondary draw: June 30 (8 p.m. MT)

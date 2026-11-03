@@ -1,7 +1,6 @@
-/* Strategy builder: turns the hunter's settings (or a typed focus command) into a multi-year
-   plan using the draw data, My Points, trophy ratings and nonresident costs. Relies on globals
-   from index.html: DRAW, TROPHY, Odds, myPts, huntSys, usesPref, nrOpen, trophyOf, isAntlerless,
-   isEither, SN, SPECIES, DATES, oddsVal, pct. */
+/* Hunt planner UI: a goal builder (hunts wanted each year, weapons, confidence, states, quality vs.
+   frequency) feeding planner-core.js, which plans applications year by year and simulates the draws.
+   Relies on globals from index.html: DRAW, TROPHY, Odds, myPts, SN, DATES, pct, bagLabel. */
 (function () {
   "use strict";
   const ALL_ST = ["CO", "WY", "UT", "AZ", "NM", "NV", "OR", "ID", "MT"];
@@ -30,363 +29,215 @@
     { st: "OR", sp: "E", label: "Oregon general archery elk (over the counter)", weapon: "archery", tag: "either", cost: 660 + 193, trophy: 1, odds: 1, note: "Sold over the counter." },
     { st: "OR", sp: "D", label: "Oregon general archery deer (over the counter)", weapon: "archery", tag: "antlered", cost: 500 + 193, trophy: 1, odds: 1, note: "Sold over the counter." }
   ];
-  const DEF = { species: ["E", "D", "C", "P"], states: ALL_ST.slice(), hpy: 2, minOdds: 0.5, trophyEvery: 2, trophyMin: 4,
-    maxWait: 8, weapon: "any", tag: "antlered", budget: 4000, otc: true, priv: false, years: 5, focus: "",
-    trophySp: null,   // species that count for the trophy goal (null = any planned species)
-    weaponBy: {} };   // per-species weapon from typed requests, e.g. {E: "archery", D: "rifle"}
-  let S = load();
 
-  function load() { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem("wdp-plan") || "{}")); } catch (e) { return Object.assign({}, DEF); } }
-  function save() { try { localStorage.setItem("wdp-plan", JSON.stringify(S)); } catch (e) {} }
+  const DEF = {
+    slots: [
+      { sp: { E: 1 }, every: 1, optional: false },
+      { sp: { E: 1, D: 1, C: 0.5 }, every: 1, optional: false },
+      { sp: { P: 1 }, every: 3, optional: true }
+    ],
+    weapons: { archery: true, rifle: true, muzzleloader: false },
+    conf: 0.9, quality: 0.5, states: ALL_ST.slice(), always: ["NM"], years: 6, priv: false, otc: true, budget: 0
+  };
+  const clone = o => JSON.parse(JSON.stringify(o));
+  let S = load();
+  function load() {
+    try { const v = JSON.parse(localStorage.getItem("wdp-goal") || "null"); if (v && v.slots) return Object.assign(clone(DEF), v); } catch (e) {}
+    return clone(DEF);
+  }
+  function save() { try { localStorage.setItem("wdp-goal", JSON.stringify(S)); } catch (e) {} }
   const money = v => "$" + Math.round(v).toLocaleString();
   const startYear = () => { const d = new Date(); return d.getMonth() >= 7 ? d.getFullYear() + 1 : d.getFullYear(); };
+  const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const P100 = v => v == null ? "–" : (v >= 0.995 ? "99%+" : v < 0.005 && v > 0 ? "<1%" : Math.round(v * 100) + "%");
+  const SPS = { E: "Elk", D: "Mule deer", C: "Coues", P: "Pronghorn" };
+  const QUAL = [[0.15, "Hunt as often as possible"], [0.5, "Balanced"], [0.85, "Build points for top units"]];
+  const EVERY = [[1, "every year"], [2, "every 2nd year"], [3, "every 3rd year"]];
 
-  // ---------- typed focus command ----------
-  const ST_NAMES = { colorado: "CO", wyoming: "WY", utah: "UT", arizona: "AZ", "new mexico": "NM", nevada: "NV", oregon: "OR", idaho: "ID", montana: "MT" };
-  // Words for each species (used for species, trophy-species and per-species weapon phrases)
-  const SPW = { E: "elk|bulls?", D: "mule ?deer|mulies?|deer|bucks?", C: "coues(?: deer)?", P: "pronghorn|antelope|lopes?|speed ?goats?" };
-  const spOfWord = w => { for (const k of ["C", "E", "P", "D"]) if (new RegExp("^(?:" + SPW[k] + ")$").test(w)) return k; return null; };
-  const ANYSP = "(" + [SPW.C, SPW.E, SPW.P, SPW.D].join("|") + ")";
-  const NUMW = { one: 1, a: 1, an: 1, once: 1, two: 2, twice: 2, couple: 2, other: 2, three: 3, few: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
-  const num = v => NUMW[v] != null ? NUMW[v] : +v;
-  // trophy score from a size: thresholds for 3, 4, 5 (gross B&C, same scale as the map legend)
-  const INCH = { E: [300, 330, 360], D: [160, 175, 190], C: [90, 100, 110], P: [74, 78, 82] };
-  // A typed request is the whole spec: anything not mentioned goes back to its default (your points are kept).
-  function parseCommand(text) {
-    const t = " " + text.toLowerCase().replace(/(\d),(\d{3})/g, "$1$2").replace(/[,;!?]/g, " ").replace(/\s+/g, " ") + " ";
-    const out = {}, said = [];
-    // species
-    const sp = [];
-    if (new RegExp("\\b(" + SPW.E + ")\\b").test(t)) sp.push("E");
-    if (/\bmule ?deer\b|\bmulies?\b/.test(t) || (/\b(deer|bucks?)\b/.test(t.replace(/coues deer/g, "")))) sp.push("D");
-    if (/\bcoues\b/.test(t)) sp.push("C");
-    if (new RegExp("\\b(" + SPW.P + ")\\b").test(t)) sp.push("P");
-    if (sp.length) { out.species = sp; said.push("Species: " + sp.map(k => SPN[k]).join(", ")); }
-    // states: "skip/no/not/except/avoid X" excludes; "only/just/focus on X" restricts
-    const named = [], skipped = [];
-    for (const [name, code] of Object.entries(ST_NAMES)) {
-      const re = new RegExp("(skip|no|not|except|avoid|without|drop|exclude)\\s+(?:\\w+\\s+){0,2}?" + name + "\\b");
-      if (re.test(t)) skipped.push(code); else if (new RegExp("\\b" + name + "\\b").test(t)) named.push(code);
-    }
-    if (named.length && (/\b(only|just|focus on|stick to|in)\b/.test(t) || !skipped.length)) { out.states = named; said.push("Only " + named.map(c => SN[c]).join(", ")); }
-    else if (skipped.length) { out.states = ALL_ST.filter(c => !skipped.includes(c)); said.push("Skip " + skipped.map(c => SN[c]).join(", ")); }
-    // hunts per year: "2 hunts a year", "two hunts", "hunt twice a year", "one hunt every year"
-    let m = t.match(/\b(\d|one|two|three|four)\s+(?:\w+\s+)?hunts?\b(?!\s+every\s+(?:\d|two|three|four|five|other|few|couple))/) || t.match(/\bhunt\s+(once|twice)\b/);
-    if (m) { out.hpy = Math.max(1, Math.min(4, num(m[1]))); said.push(out.hpy + " hunt" + (out.hpy > 1 ? "s" : "") + " a year"); }
-    // trophy species and size
-    const tsp = new Set();
-    for (const mm of t.matchAll(new RegExp("trophy\\s+(?:class\\s+)?" + ANYSP + "\\b|" + ANYSP + "\\s+trophy|\\b(?:big|giant|mature|monster|good)\\s+" + ANYSP + "\\b", "g"))) {
-      const w = (mm[1] || mm[2] || mm[3] || "").trim(); const k = spOfWord(w); if (k) tsp.add(k);
-    }
-    for (const mm of t.matchAll(new RegExp("\\b(\\d{2,3})\\s*(?:\"|''|-?\\s*inch(?:es)?|in\\.?|\\+|-?\\s*class)?\\s*(?:class\\s+|plus\\s+|\\+\\s*)?" + ANYSP + "\\b", "g"))) {
-      const n = +mm[1], k = spOfWord(mm[2].trim()); if (!k || !INCH[k]) continue;
-      const th = INCH[(k === "D" && n < 130 && n >= 80) ? "C" : k];
-      if (n < th[0] * 0.75) continue;   // "2 bulls" etc., not a size
-      const score = n >= th[2] ? 5 : n >= th[1] ? 4 : n >= th[0] ? 3 : 2;
-      out.trophyMin = score; tsp.add(k);
-      said.push(`${n}" ${SPN[k].toLowerCase()} = trophy ${score}+`);
-    }
-    if (tsp.size) { out.trophySp = [...tsp]; if (!out.species) out.species = DEF.species.slice(); out.trophySp.forEach(k => { if (!out.species.includes(k)) out.species.push(k); }); said.push("Trophy goal: " + out.trophySp.map(k => SPN[k]).join(", ")); }
-    // trophy cadence
-    m = t.match(/(?:trophy|big|giant|mature)[^.]*?every\s+(\d+|other|two|three|four|five|few|couple(?: of)?)\s*(years?)?/) || t.match(/(?:trophy|big|giant|mature)[^.]*?\b(once|one)\s+every\s+(\d+|two|three|four|five|few)\s*years?/);
-    if (m) { const raw = m[2] && /once|one/.test(m[1]) ? m[2] : m[1]; const n = /couple/.test(raw) ? 2 : num(raw.replace(/ of$/, "")); out.trophyEvery = Math.max(1, Math.min(10, n)); said.push("Trophy hunt every " + out.trophyEvery + " years"); }
-    else if (/(?:trophy|big|giant)[^.]*?every\s+year|trophy\s+(?:hunt\s+)?(?:each|every|per)\s+year|trophy\s+(?:a|per)\s+year/.test(t)) { out.trophyEvery = 1; said.push("Trophy hunt every year"); }
-    else if (out.trophySp && out.trophyEvery == null) { /* keep default cadence */ }
-    if (/\bno trophy\b|\bdon'?t care about (a )?trophy\b|\bjust (want to )?hunt\b|\bopportunity\b/.test(t)) { out.trophyEvery = 0; said.push("No trophy goal"); }
-    m = t.match(/trophy\s*(?:score|rating|level)?\s*(?:of\s*)?(\d)\s*\+?(?!\d)/) || t.match(/\b([345])\s*\+?\s*(?:\/\s*5\s*)?trophy/);
-    if (m && +m[1] >= 2 && +m[1] <= 5) { out.trophyMin = +m[1]; said.push("Trophy " + m[1] + "+"); }
-    if (/top[- ]tier|giant|monster|once in a lifetime/.test(t)) { out.trophyMin = 5; said.push("Top-tier trophy"); }
-    // waiting and plan length
-    m = t.match(/(?:within|wait(?:ing)?(?: up to| at most)?|max(?:imum)?(?: of)?|no more than|at most)\s+(\d+|two|three|four|five|six|seven|eight|nine|ten)\s+years?/);
-    if (m) { out.maxWait = Math.max(1, Math.min(20, num(m[1]))); said.push("Wait at most " + out.maxWait + " years for a trophy"); }
-    m = t.match(/(?:next|over|plan(?: for| out)?|for the next|across)\s+(?:the\s+)?(?:next\s+)?(\d+|three|four|five|six|seven|eight|nine|ten)\s+years?/) || t.match(/\b(\d+|three|four|five|six|seven|eight|nine|ten)[- ]year plan/);
-    if (m) { out.years = Math.max(2, Math.min(10, num(m[1]))); said.push("Plan " + out.years + " years"); }
-    // weapon: per species ("archery elk, rifle deer", "elk with a bow") or overall
-    const WPN = w => /arch|bow/.test(w) ? "archery" : /muzz|\bml\b/.test(w) ? "muzzleloader" : "rifle";
-    const wre = "(archery|bow|rifle|muzzle ?loader|muzzy|ml)";
-    const by = {};
-    for (const mm of t.matchAll(new RegExp(wre + "\\s+(?:only\\s+)?(?:hunt(?:s|ing)?\\s+(?:for\\s+)?)?" + ANYSP + "\\b|" + ANYSP + "\\s+(?:with\\s+(?:a|my)\\s+|by\\s+|on\\s+|in\\s+)?(?:the\\s+)?" + wre + "\\b", "g"))) {
-      const w = mm[1] || mm[4], k = spOfWord((mm[2] || mm[3]).trim()); if (k) by[k === "C" ? "D" : k] = WPN(w);
-    }
-    if (Object.keys(by).length) { out.weaponBy = by; said.push(Object.entries(by).map(([k, w]) => `${SPN[k]}: ${w}`).join(" · ")); }
-    else if (/\barchery\b|\bbow\b/.test(t)) { out.weapon = "archery"; said.push("Archery"); }
-    else if (/\bmuzzle ?loader\b|\bmuzzy\b|\bml\b/.test(t)) { out.weapon = "muzzleloader"; said.push("Muzzleloader"); }
-    else if (/\brifle\b|\bany weapon\b/.test(t)) { out.weapon = "rifle"; said.push("Rifle"); }
-    // tag type
-    if (/\bcows?\b|\bdoes?\b|\bantlerless\b|\bewes?\b/.test(t)) { out.tag = "antlerless"; said.push("Antlerless tags"); }
-    else if (/\bmeat\b|\bany tag\b|\beither sex\b/.test(t)) { out.tag = "any"; said.push("Any tag (meat hunts OK)"); }
-    // a meat/antlerless request has no trophy goal unless one was asked for
-    if (out.tag === "antlerless" && out.trophyEvery == null && !out.trophySp && out.trophyMin == null) { out.trophyEvery = 0; said.push("No trophy goal"); }
-    // odds
-    m = t.match(/(\d{2})\s*(?:%|percent)/);
-    if (m) { out.minOdds = Math.max(0.05, Math.min(0.95, +m[1] / 100)); said.push("At least " + m[1] + "% odds"); }
-    else if (/\b50\s*\/\s*50\b|coin flip/.test(t)) { out.minOdds = 0.5; said.push("At least 50% odds"); }
-    else if (/\bsure thing|\bguaranteed|\bcertain\b|\bsure draw/.test(t)) { out.minOdds = 0.9; said.push("Near-sure draws"); }
-    // budget: "$3,000", "$3k", "3k a year", "budget 3000", "under 5000"
-    m = t.match(/\$\s*([\d.]+)\s*(k)?\b/) || t.match(/\b([\d.]+)\s*(k)?\s*(?:dollars|bucks budget|budget|a year|per year|\/\s*(?:yr|year))/) || t.match(/budget\s*(?:of|is|:)?\s*\$?\s*([\d.]+)\s*(k)?/) || t.match(/\b([\d.]+)\s*(k)\b/);
-    if (m) { let v = parseFloat(m[1]); if (m[2]) v *= 1000; if (v >= 100) { out.budget = Math.round(v); said.push("Budget " + money(v) + " a year"); } }
-    // private land, OTC
-    if (/\bprivate|\branch(es)?\b|\bcwmu\b/.test(t)) { out.priv = !/\bno private|\bpublic (land )?only\b|\bnot? (on )?private/.test(t); said.push(out.priv ? "Private-land hunts OK" : "Public land only"); }
-    if (/\bno (otc|over the counter|general)\b|\bdraw only\b|\bonly draw/.test(t)) { out.otc = false; said.push("Draw tags only"); }
-    else if (/\b(otc|over the counter|general tags?)\b/.test(t)) { out.otc = true; said.push("Include over-the-counter tags"); }
-    return { out, said };
+  function slotText(s) {
+    const sp = Object.entries(s.sp).map(([k, w]) => SPS[k] + (w < 1 ? " (sometimes)" : ""));
+    return sp.join(" or ") + ", " + (EVERY.find(e => e[0] === s.every) || EVERY[0])[1] + (s.optional ? " (bonus)" : "");
   }
 
-  // ---------- candidates ----------
-  // bag from the official hunt code / bag-limit text; spike-only, whitetail-only and unconfirmed tags are never "antlered"
-  function tagOk(h) {
-    const b = bagOf(h);
-    if (S.tag === "any") return b !== "other";
-    return S.tag === "antlerless" ? (b === "antlerless" || b === "either") : (b === "antlered" || b === "either");
+  // ---------- goal form ----------
+  function formHTML() {
+    const chk = (name, val, lab, on, extra = "") => `<label class="pchk"><input type="checkbox" name="${name}" value="${val}"${on ? " checked" : ""} ${extra}> ${lab}</label>`;
+    const opt = (v, lab, cur) => `<option value="${v}"${String(v) === String(cur) ? " selected" : ""}>${lab}</option>`;
+    const slotRows = S.slots.map((s, i) => `
+      <div class="slot" data-i="${i}">
+        <span class="sn">Hunt ${i + 1}</span>
+        <span class="sps">${["E", "D", "C", "P"].map(k => `<label class="pchk"><input type="checkbox" name="s${i}sp" value="${k}"${s.sp[k] ? " checked" : ""}> ${SPS[k]}</label>`).join("")}</span>
+        ${s.sp.C ? `<label class="pchk"><input type="checkbox" name="s${i}cs"${s.sp.C < 1 ? " checked" : ""}> Coues only sometimes</label>` : ""}
+        <select name="s${i}ev" aria-label="How often">${EVERY.map(([v, l]) => opt(v, l, s.every)).join("")}</select>
+        <label class="pchk"><input type="checkbox" name="s${i}op"${s.optional ? " checked" : ""}> Bonus (nice to have)</label>
+        ${S.slots.length > 1 ? `<button type="button" class="btn ghost sm" data-del="${i}">Remove</button>` : ""}
+      </div>`).join("");
+    return `
+    <form class="panel goal" id="goal" autocomplete="off">
+      <h3>Your goal</h3>
+      <p class="pnote">Each line is one hunt you want in a year. A tag for any checked species fills it. Bonus hunts are added when a decent chance exists but aren't counted toward your confidence target.</p>
+      <div class="slots">${slotRows}</div>
+      <button type="button" class="btn ghost sm" id="slot-add">+ Add a hunt</button>
+      <div class="fgrid">
+        <label>Confidence: chance your required hunts all come through by draw<select name="conf">${[[0.8, "80%"], [0.9, "90%"], [0.95, "95%"]].map(([v, l]) => opt(v, l, S.conf)).join("")}</select></label>
+        <label>Strategy<select name="quality">${QUAL.map(([v, l]) => opt(v, l, S.quality)).join("")}</select></label>
+        <label>Years to plan<select name="years">${[3, 4, 5, 6, 8, 10].map(n => opt(n, n, S.years)).join("")}</select></label>
+        <label>Budget per year (optional)<input name="budget" type="number" min="0" step="100" inputmode="numeric" value="${S.budget || ""}" placeholder="no limit"></label>
+      </div>
+      <div class="pgroup"><span class="plbl">Weapons</span>${chk("wpn", "archery", "Archery", S.weapons.archery)}${chk("wpn", "rifle", "Rifle", S.weapons.rifle)}${chk("wpn", "muzzleloader", "Muzzleloader", S.weapons.muzzleloader)}</div>
+      <div class="pgroup"><span class="plbl">States</span>${ALL_ST.map(k => chk("states", k, SN[k], S.states.includes(k))).join("")}</div>
+      <div class="pgroup"><span class="plbl">Always apply (pure lottery)</span>${["NM", "ID"].map(k => chk("always", k, SN[k], S.always.includes(k))).join("")}</div>
+      ${chk("otc", "1", "Show over-the-counter backups if draws fall short", S.otc)}
+      ${chk("priv", "1", "Include private-land hunts", S.priv)}
+      <div class="factions"><button type="submit" class="btn">Build my plan</button><button type="button" class="btn ghost" id="goal-reset">Reset to my default goal</button></div>
+      <p class="pnote">Uses your points from the My Points tab.</p>
+    </form>`;
   }
-  function weaponOk(w, sp) { const want = (S.weaponBy || {})[sp === "C" ? "D" : sp] || (S.weaponBy || {})[sp] || S.weapon;
-    return want === "any" || w === want || (want === "rifle" && w === "any"); }
-  const trophySpOk = sp => !S.trophySp || !S.trophySp.length || S.trophySp.includes(sp);
-  function huntTrophy(st, h) {
-    if (!trophyOk(h)) return null;   // spike-only / antlerless / unconfirmed: the unit's trophy rating doesn't apply
-    let best = null;
-    for (const u of h.units || []) { const t = trophyOf(st, h.species, String(u)); if (t && (best == null || t.s > best)) best = t.s; }
-    return best;
+  function readForm() {
+    const f = document.getElementById("goal"); if (!f) return;
+    const q = n => f.querySelector(`[name="${n}"]`);
+    S.slots = S.slots.map((s, i) => {
+      const sp = {}; f.querySelectorAll(`[name="s${i}sp"]:checked`).forEach(x => { sp[x.value] = 1; });
+      if (sp.C && q(`s${i}cs`) && q(`s${i}cs`).checked) sp.C = 0.5; else if (sp.C && !q(`s${i}cs`)) sp.C = 0.5;
+      return { sp: Object.keys(sp).length ? sp : s.sp, every: +q(`s${i}ev`).value, optional: q(`s${i}op`).checked };
+    });
+    S.conf = +q("conf").value; S.quality = +q("quality").value; S.years = +q("years").value; S.budget = Math.max(0, +q("budget").value || 0);
+    S.weapons = { archery: false, rifle: false, muzzleloader: false };
+    f.querySelectorAll('[name="wpn"]:checked').forEach(x => { S.weapons[x.value] = true; });
+    if (!S.weapons.archery && !S.weapons.rifle && !S.weapons.muzzleloader) S.weapons.rifle = true;
+    S.states = [...f.querySelectorAll('[name="states"]:checked')].map(x => x.value); if (!S.states.length) S.states = ALL_ST.slice();
+    S.always = [...f.querySelectorAll('[name="always"]:checked')].map(x => x.value).filter(x => S.states.includes(x));
+    S.otc = q("otc").checked; S.priv = q("priv").checked;
   }
-  function huntCost(st, h) {
-    const P = PRICES[st]; if (!P) return 0;
-    if (st === "WY" && h.kind === "special" && P.special) return P.special[h.species] || 0;
-    if (st === "UT" && h.kind === "general" && P.general) return P.general[h.species] || P.tag[h.species] || 0;
-    return (P.tag[h.species === "C" && !P.tag.C ? "D" : h.species]) || 0;
-  }
-  const hasPts = st => PRICES[st] && PRICES[st].pt != null;
-  function candidates() {
-    const out = [];
-    for (const st of S.states) {
-      const d = DRAW[st]; if (!d) continue;
-      for (const h of d.hunts) {
-        if (!S.species.includes(h.species) || !weaponOk(h.weapon, h.species) || !tagOk(h) || restricted(h) || (!S.priv && privateLand(h))) continue;
-        if (!nrOpen(h) || !isCurrent(h)) continue;   // no NR tags lately, or not offered in the latest draw
-        const y = Odds.latestYear(h, "NR"); if (!y) continue;
-        // nonresident results must be from the hunt's latest draw, not an older year
-        if (y !== Object.keys(h.years).sort().pop()) continue;
-        // need at least two years of nonresident history, and enough applicants to mean something
-        const ys = Object.keys(h.years).filter(yy => h.years[yy].NR && h.years[yy].NR.apps != null);
-        if (ys.length < 2) continue;
-        out.push({ st, h, sp: h.species, trophy: huntTrophy(st, h), cost: huntCost(st, h), sys: huntSys(st, h), pref: usesPref(st, h),
-          label: (h.label || h.id), units: (h.units || []).slice(0, 4).join(", ") });
-      }
-    }
+
+  // ---------- run ----------
+  let RES = null, RES_KEY = "", BUSY = false;
+  function ptsMap() {
+    const out = {};
+    for (const st of ALL_ST) for (const sp of ["E", "D", "P"]) { const v = myPts(st, sp, false); if (v) out[st + sp] = v; }
+    for (const sp of ["E", "D"]) { const v = myPts("MT", sp, true); if (v) out["MT" + sp + "pref"] = v; }
     return out;
   }
-  // odds for a hunt in plan year k with `pts` points; preference states shift by historical point creep
-  function oddsAt(c, pts, k) {
-    const sys = c.sys;
-    let p = pts;
-    if (/^pref/.test(sys) && k > 0) { const slope = Odds.recentSlope(Odds.creep(c.h.years, "NR")); p = Math.max(0, Math.round(pts - slope * k)); }
-    const s = Odds.summarize(sys, c.h, "NR", p);
-    let v = oddsVal(s);
-    // Montana elk/deer permits also need the nonresident combo license draw
-    if (v != null && c.st === "MT" && c.h.kind !== "general" && (c.sp === "E" || c.sp === "D") && window.mtCombo) { const cb = window.mtCombo(c.sp); if (cb != null) v *= cb; }
-    return v;
-  }
-  const ptKeyOf = c => c.st + (c.sp === "C" ? "D" : c.sp) + (c.pref ? "pref" : "");
-
-  // ---------- the plan ----------
-  function build() {
-    const Y0 = startYear(), cands = candidates();
-    const pts = {};   // current points per state+species(+pref)
-    const banking = new Set();
-    for (const st of S.states) for (const sp of S.species) {
-      if (!SPECIES_IN[st].includes(sp) || !hasPts(st)) continue;
-      const k = st + (sp === "C" ? "D" : sp); banking.add(k); pts[k] = myPts(st, sp, false);
-      if (st === "MT" && sp !== "P") { banking.add(k + "pref"); pts[k + "pref"] = myPts(st, sp, true); }
-    }
-    const P = c => pts[ptKeyOf(c)] || 0;
-    const years = [];
-    let lastTrophy = -99;
-    const usedHunts = new Set();
-    for (let k = 0; k < S.years; k++) {
-      const year = Y0 + k, picks = [], usedSS = new Set();
-      // fixed costs first (applications, points, licenses): picks must fit in what's left of the budget
-      let fixed = 0; const apply = [];
-      const licStates = new Set();
-      for (const key of banking) {
-        const st = key.slice(0, 2), sp = key[2], pref = key.endsWith("pref"), Pr = PRICES[st];
-        let c = pref ? Pr.prefPt : (sp === "P" && Pr.ptP ? Pr.ptP : (sp === "E" && Pr.appE ? Pr.appE : (Pr.pt || Pr.app)));
-        if (st === "WY" && k === 0 && new Date() < new Date(year - 1 + "-11-03")) c = { E: 52, D: 41, P: 31 }[sp] || c;
-        fixed += c; licStates.add(st);
-        apply.push({ st, sp, pref, pts: pts[key], cost: c });
-      }
-      for (const st of S.states) if (!hasPts(st) && S.species.some(sp => SPECIES_IN[st].includes(sp))) {
-        const Pr = PRICES[st]; const n = S.species.filter(sp => SPECIES_IN[st].includes(sp)).length;
-        fixed += Pr.app * n; licStates.add(st); apply.push({ st, sp: "lottery", pts: null, cost: Pr.app * n, n });
-      }
-      for (const st of licStates) fixed += PRICES[st].lic || 0;
-      // budget check uses the full tag price (if you draw, you pay it)
-      let spent = 0, overBudget = 0;
-      const fits = cost => { if (!S.budget || fixed + spent + cost <= S.budget) return true; overBudget++; return false; };
-      const scored = cands.filter(c => !usedHunts.has(c.st + c.h.id)).map(c => ({ c, pts: P(c), o: oddsAt(c, P(c), k) })).filter(x => x.o != null);
-      // trophy slot (only the species the trophy goal is for)
-      const trophyDue = S.trophyEvery > 0 && (k - lastTrophy) >= S.trophyEvery;
-      let trophyMiss = false;
-      if (trophyDue) {
-        const t = scored.filter(x => trophySpOk(x.c.sp) && (x.c.trophy || 0) >= S.trophyMin && x.o >= S.minOdds)
-          .sort((a, b) => (b.c.trophy - a.c.trophy) || (b.o - a.o) || (a.c.cost - b.c.cost)).find(x => fits(x.c.cost));
-        if (t) { picks.push({ ...t, kind: "trophy" }); usedSS.add(t.c.st + t.c.sp); spent += t.c.cost; lastTrophy = k; }
-        else trophyMiss = true;
-      }
-      // fill remaining hunts: best trophy you can draw, cheaper and fewer points spent first on ties
-      const fill = scored.filter(x => x.o >= S.minOdds && !usedSS.has(x.c.st + x.c.sp))
-        .map(x => ({ ...x, score: (x.c.trophy || 1.5) * 10 + x.o * 4 - (/^pref/.test(x.c.sys) ? P(x.c) * 0.8 : 0) - x.c.cost / 800 }))
-        .sort((a, b) => b.score - a.score);
-      for (const x of fill) { if (picks.length >= S.hpy) break; if (usedSS.has(x.c.st + x.c.sp) || !fits(x.c.cost)) continue; picks.push({ ...x, kind: "hunt" }); usedSS.add(x.c.st + x.c.sp); spent += x.c.cost; }
-      if (picks.length < S.hpy && S.otc) {
-        for (const o of OTC) {
-          if (picks.length >= S.hpy) break;
-          if (!S.states.includes(o.st) || !S.species.includes(o.sp) || usedSS.has(o.st + o.sp) || !weaponOk(o.weapon, o.sp)) continue;
-          if (S.tag === "antlerless" && o.tag === "antlered") continue;
-          if (!fits(o.cost)) continue;
-          picks.push({ otc: o, o: o.odds, kind: "otc" }); usedSS.add(o.st + o.sp); spent += o.cost;
-        }
-      }
-      const tagCost = picks.reduce((s, p) => s + (p.otc ? p.otc.cost : p.c.cost * (p.o || 1)), 0);
-      years.push({ year, picks, apply, fixed, tagCost, full: spent, overBudget, trophyMiss, ptsBefore: Object.assign({}, pts) });
-      // advance points: drawn hunts reset, everything else +1
-      const drawn = new Set(picks.filter(p => p.c).map(p => ptKeyOf(p.c)));
-      for (const key of banking) pts[key] = drawn.has(key) ? 0 : (pts[key] || 0) + 1;
-      picks.filter(p => p.c).forEach(p => usedHunts.add(p.c.st + p.c.h.id));
-    }
-    // trophy track: best trophy hunts and when you'd likely draw them
-    const track = [];
-    const tc = cands.filter(c => trophySpOk(c.sp) && (c.trophy || 0) >= S.trophyMin);
-    for (const c of tc) {
-      let when = null, o0 = null;
-      for (let k = 0; k <= S.maxWait; k++) { const o = oddsAt(c, (myPts(c.st, c.sp, c.pref)) + k, k); if (k === 0) o0 = o; if (o != null && o >= S.minOdds) { when = k; break; } }
-      track.push({ c, when, o0 });
-    }
-    track.sort((a, b) => ((a.when ?? 99) - (b.when ?? 99)) || (b.c.trophy - a.c.trophy) || ((b.o0 || 0) - (a.o0 || 0)));
-    const seen = new Set(), trackTop = [];
-    for (const t of track) { const k = t.c.st + "|" + t.c.units + "|" + t.c.sp; if (seen.has(k)) continue; seen.add(k); trackTop.push(t); if (trackTop.length >= 10) break; }
-    return { Y0, years, trackTop, ncands: cands.length };
+  function compute(cb) {
+    const pts = ptsMap(), key = JSON.stringify([S, pts]);
+    if (RES && RES_KEY === key) return cb();
+    BUSY = true; paint();
+    setTimeout(() => {
+      try {
+        if (!window.__creepSet) { const by = {}; for (const st in DRAW) by[st] = DRAW[st].hunts || []; Odds.setCreepPriors(Odds.creepPriors(by)); window.__creepSet = true; }
+        RES = Planner.run({ DRAW, TROPHY: TROPHY && TROPHY.units, Odds, PRICES, OTC, pts, Y0: startYear() }, S);
+        RES.pts = pts; RES_KEY = key;
+      } catch (e) { RES = { error: String(e && e.stack || e) }; RES_KEY = ""; }
+      BUSY = false; cb();
+    }, 30);
   }
 
-  // ---------- render ----------
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  function settingsHTML() {
-    const chk = (name, val, lab, on) => `<label class="pchk"><input type="checkbox" name="${name}" value="${val}"${on ? " checked" : ""}> ${lab}</label>`;
-    const opt = (v, lab, cur) => `<option value="${v}"${String(v) === String(cur) ? " selected" : ""}>${lab}</option>`;
-    return `
-    <form class="panel" id="plan-cmd" autocomplete="off">
-      <label for="plan-text" class="plbl">Tell the planner what to focus on</label>
-      <textarea id="plan-text" rows="2" placeholder="Example: elk and Coues, 2 hunts a year, trophy elk every 3 years within 6 years, archery, skip Oregon, $3,000 a year">${esc(S.focus || "")}</textarea>
-      <div class="factions"><button type="submit" class="btn">Update plan</button><button type="button" class="btn ghost" id="plan-reset">Reset to defaults</button></div>
-      <div id="plan-said" class="said"></div>
-    </form>
-    <details class="panel" id="plan-settings"><summary>All settings</summary>
-      <div class="pgroup"><span class="plbl">Species</span>${["E", "D", "C", "P"].map(k => chk("species", k, SPN[k], S.species.includes(k))).join("")}</div>
-      <div class="pgroup"><span class="plbl">Trophy goal is for</span>${["E", "D", "C", "P"].map(k => chk("trophySp", k, SPN[k], !S.trophySp || !S.trophySp.length || S.trophySp.includes(k))).join("")}</div>
-      <div class="pgroup"><span class="plbl">States</span>${ALL_ST.map(k => chk("states", k, SN[k], S.states.includes(k))).join("")}</div>
-      <div class="fgrid">
-        <label>Hunts per year<select name="hpy">${[1, 2, 3, 4].map(n => opt(n, n, S.hpy)).join("")}</select></label>
-        <label>Draw odds I'll count on<select name="minOdds">${[[.25, "25%+"], [.5, "50%+"], [.75, "75%+"], [.9, "90%+"]].map(([v, l]) => opt(v, l, S.minOdds)).join("")}</select></label>
-        <label>Trophy hunt<select name="trophyEvery">${[[0, "No trophy goal"], [1, "Every year"], [2, "Every 2 years"], [3, "Every 3 years"], [4, "Every 4 years"], [5, "Every 5 years"]].map(([v, l]) => opt(v, l, S.trophyEvery)).join("")}</select></label>
-        <label>Trophy means<select name="trophyMin">${[3, 4, 5].map(v => opt(v, `${v}+ · elk ${window.trophyInches ? window.trophyInches("E", v).replace(/–.*/, "\"+") : ""}, deer ${window.trophyInches ? window.trophyInches("D", v).replace(/–.*/, "\"+") : ""}`, S.trophyMin)).join("")}</select></label>
-        <label>Longest wait for a trophy<select name="maxWait">${[3, 5, 8, 10, 15].map(n => opt(n, n + " years", S.maxWait)).join("")}</select></label>
-        <label>Weapon<select name="weapon">${Object.keys(S.weaponBy || {}).length ? `<option value="__by" selected>By species: ${esc(Object.entries(S.weaponBy).map(([k, w]) => SPN[k].split(" ")[0].toLowerCase() + " " + w).join(", "))}</option>` : ""}${[["any", "Any"], ["rifle", "Rifle"], ["archery", "Archery"], ["muzzleloader", "Muzzleloader"]].map(([v, l]) => opt(v, l, Object.keys(S.weaponBy || {}).length ? "" : S.weapon)).join("")}</select></label>
-        <label>Tags<select name="tag">${[["antlered", "Antlered (incl. either-sex)"], ["antlerless", "Antlerless"], ["any", "Any tag"]].map(([v, l]) => opt(v, l, S.tag)).join("")}</select></label>
-        <label>Yearly budget<input name="budget" type="number" min="0" step="100" inputmode="numeric" value="${S.budget}"></label>
-        <label>Years to plan<select name="years">${[...new Set([3, 4, 5, 6, 7, 8, 10, S.years])].sort((a, b) => a - b).map(n => opt(n, n, S.years)).join("")}</select></label>
-      </div>
-      <label class="pchk"><input type="checkbox" name="otc"${S.otc ? " checked" : ""}> Include over-the-counter and general tags</label>
-      <label class="pchk"><input type="checkbox" name="priv"${S.priv ? " checked" : ""}> Include private-land and ranch hunts</label>
-      <div class="factions"><button type="button" class="btn" id="plan-apply">Apply settings</button></div>
-      ${FLASH ? `<p class="said" role="status">${esc(FLASH)}</p>` : ""}
-    </details>`;
+  // ---------- results ----------
+  const KIND = {
+    burn: ["Burn points", "var(--premier)", "Spends your points here on a top hunt."],
+    draw: ["Draw", "var(--easy)", "A good chance at your current points."],
+    second: ["2nd choice", "var(--easy)", "Point as 1st choice, this hunt as 2nd choice: drawing it doesn't cost your points."],
+    lottery: ["Lottery", "var(--mid)", "Random draw, no points."],
+    combo: ["Combo draw", "var(--mid)", "Montana general license draw (preference points)."],
+    early: ["Uses points early", "var(--long)", "Needed to reach your confidence target; spends points you were building."]
+  };
+  function appHTML(a, y) {
+    const c = a.c, h = c.h, k = KIND[a.kind] || KIND.draw, pts = (y.ptsBefore[a.g] || 0);
+    const swing = a.swing ? "Long shot" : null;
+    const inch = window.trophyInches && c.rated ? ` (${window.trophyInches(c.sp, c.q)})` : "";
+    const lowDemand = (() => { const Y = h.years[Object.keys(h.years).sort().pop()] || {}; const n = (Y.NR || {}).apps; return n == null || n >= 10 ? "" : n === 0 ? " · no nonresident applicants last draw (low demand; odds are a rough guide)" : ` · only ${n} nonresident applicant${n === 1 ? "" : "s"} last draw`; })();
+    return `<div class="app">
+      <div class="ah"><span class="tag" style="color:${swing ? "var(--long)" : k[1]}" title="${esc(k[2])}">${swing || k[0]}</span>
+        <b>${SN[a.st]} ${SPS[a.sp].toLowerCase()}</b><span class="odds">${P100(a.p)}</span></div>
+      <div class="pm">${esc(h.label || h.id)} · ${window.bagLabel ? bagLabel(h) : ""}${a.optional ? " · bonus hunt" : ""}</div>
+      <div class="pm">${a.kind === "burn" || a.kind === "early" ? `Uses ${pts} pt${pts === 1 ? "" : "s"} · ` : POINT_ST(a.st) && a.kind !== "second" ? `${pts} pts · ` : a.kind === "second" ? `Point ${pts}→${pts + 1} and hunt · ` : ""}Trophy ${c.rated ? c.q + "/5" + inch : "not rated"} · tag ~${money(a.cost)}${lowDemand}</div>
+      <button type="button" class="maplink" data-st="${a.st}" data-hid="${esc(h.id)}">Show on map</button>
+    </div>`;
   }
-  function pickHTML(p) {
-    if (p.otc) return `<div class="pick"><div class="ph"><span class="tag" style="color:var(--otc)">OTC</span><b>${esc(p.otc.label)}</b></div><div class="pm">${SN[p.otc.st]} · ${SPN[p.otc.sp]} · ~${money(p.otc.cost)} incl. license</div><p class="note">${esc(p.otc.note)}</p><button type="button" class="maplink" data-st="${p.otc.st}" data-sp="${p.otc.sp}">Show ${SN[p.otc.st]} on map</button></div>`;
-    const c = p.c, t = c.trophy;
-    return `<div class="pick"><div class="ph"><span class="tag" style="color:${p.kind === "trophy" ? "var(--premier)" : "var(--easy)"}">${p.kind === "trophy" ? "Trophy" : "Hunt"}</span><b>${SN[c.st]} ${SPN[c.sp].toLowerCase()} · ${esc(c.units)}</b></div>
-      <div class="pm">${esc(c.label)} · <b>${bagLabel(c.h)}</b>${c.h.bag_text ? ` (${esc(c.h.bag_text)})` : ""}</div>
-      <div class="pm">Odds ${pct(p.o)}${/^bonus|^az|^pref/.test(c.sys) ? ` with ${p.pts ?? "your"} pts` : ""}${t ? ` · trophy ${t}/5 (${window.trophyInches ? window.trophyInches(c.sp, t) : ""})` : ""} · tag ~${money(c.cost)}</div>${(() => { const y = Odds.latestYear(c.h, "NR"), a = y ? c.h.years[y].NR.apps : null; return a != null && a < 10 ? `<div class="pm small-n">Only ${a} nonresident applicant${a === 1 ? "" : "s"} in ${y}, so these odds could swing.</div>` : ""; })()}<button type="button" class="maplink" data-st="${c.st}" data-hid="${esc(c.h.id)}">Show unit${(c.h.units || []).length > 1 ? "s" : ""} on map</button></div>`;
+  const POINT_ST = st => ["CO", "WY", "UT", "AZ", "NV", "OR", "MT"].includes(st);
+  const gName = g => { const st = g.slice(0, 2), sp = g[2]; return `${SN[st]} ${sp === "D" ? "deer" : SPS[sp].toLowerCase()}${g.endsWith("pref") ? " combo" : ""}`; };
+
+  function resultsHTML() {
+    if (BUSY) return `<p class="note" role="status">Building your plan: checking every draw hunt and simulating the draws…</p>`;
+    if (!RES) return "";
+    if (RES.error) return `<p class="warn">The planner hit an error: ${esc(RES.error.slice(0, 300))}</p>`;
+    const R = RES, st = R.stats, n = R.path.length;
+    const minF = Math.min(...st.map(s => s.filled)), maxF = Math.max(...st.map(s => s.filled));
+    const tags = st.reduce((a, s) => a + s.tags, 0) / n, elk = st.reduce((a, s) => a + s.elk, 0) / n;
+    const cost = R.path.reduce((a, y) => a + y.cost.expected, 0) / n, up = R.path.reduce((a, y) => a + y.cost.upfront, 0) / n;
+    const req = S.slots.filter(s => !s.optional);
+    let html = `<h2 id="plan-top">Your plan</h2>
+      <p class="lede">Goal: ${esc(S.slots.map(slotText).join("; "))}. ${S.always.length ? `Always applying in ${S.always.map(s => SN[s]).join(" and ")}. ` : ""}Based on ${R.ncands.toLocaleString()} draw hunts that fit, your points, and ${n} years of draws simulated 300 times.</p>
+      <div class="kpis">
+        <div><b>${P100(minF)}${maxF - minF > 0.02 ? "–" + P100(maxF) : ""}</b><span>chance each year that your ${req.length} required hunt${req.length === 1 ? "" : "s"} come${req.length === 1 ? "s" : ""} through by draw</span></div>
+        <div><b>${P100(R.every)}</b><span>chance every year of the plan works out by draw alone${S.otc ? " (OTC backups cover the rest)" : ""}</span></div>
+        <div><b>${tags.toFixed(1)}</b><span>tags a year on average</span></div>
+        <div><b>${P100(elk)}</b><span>chance of at least one elk tag in a year</span></div>
+        <div><b>${R.q4PerPlan.toFixed(1)}</b><span>hunts in units rated 4+ for trophy over ${n} years</span></div>
+        <div><b>${money(cost)}</b><span>expected cost a year (${money(up)} paid when applying)</span></div>
+      </div>`;
+    // coming up
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const next = (typeof DATES !== "undefined" ? DATES : []).filter(d => S.states.includes(d[1])).map(d => ({ d, dt: new Date(d[0] + "T12:00:00") }))
+      .filter(x => x.dt >= today && (x.dt - today) / 864e5 <= 120).sort((a, b) => a.dt - b.dt).slice(0, 6);
+    if (next.length) html += `<div class="callout"><h3>Coming up</h3><ol>${next.map(x => `<li><b>${x.dt.toLocaleDateString("en-US", { month: "short", day: "numeric" })} · ${SN[x.d[1]]}.</b> ${esc(x.d[2])}${x.d[3] ? " (date estimated)" : ""}</li>`).join("")}</ol></div>`;
+    // year by year
+    html += `<h2>Year by year</h2><p class="note">Each year lists every application to send. The plan below follows the most likely results; if a draw goes the other way, your points carry over and next year's plan shifts. The odds already account for that.</p><div id="years">`;
+    R.path.forEach((y, i) => {
+      const s = st[i];
+      const over = S.budget && y.cost.expected > S.budget;
+      const pts = y.points.map(a => `${gName(a.g)} <span class="ptn">${y.ptsBefore[a.g] || 0}→${(y.ptsBefore[a.g] || 0) + 1}</span>`).join(" · ");
+      const need = new Set(S.slots.filter(sl => !sl.optional).flatMap(sl => Object.keys(sl.sp)));
+      const otcList = y.otc.filter(o => need.has(o.sp)).sort((a, b) => (a.sp === "E" ? 0 : 1) - (b.sp === "E" ? 0 : 1) || b.odds - a.odds).slice(0, 3);
+      const otc = otcList.length && s.filled < 0.995 ? `<p class="pm"><b>If draws fall short (${P100(1 - s.filled)} of the time):</b> ${otcList.map(o => esc(o.label)).join("; ")}.</p>` : "";
+      html += `<div class="yr"><div class="y">${y.year}</div><div class="body">
+        <div class="ystat"><span><b>${P100(s.filled)}</b> required hunts filled</span><span><b>${s.tags.toFixed(1)}</b> tags expected</span><span><b>${P100(s.elk)}</b> elk</span></div>
+        ${y.apps.length ? y.apps.map(a => appHTML(a, y)).join("") : `<p class="note">No draw applications needed beyond points this year.</p>`}
+        ${pts ? `<p class="pbank"><span class="tag" style="color:var(--mid)">Points only</span>${pts}</p>` : ""}
+        ${otc}
+        <p class="pcost${over ? " over" : ""}">Paid when applying ${money(y.cost.upfront)} · expected total ${money(y.cost.expected)} · if every tag draws ${money(y.cost.allDrawn)}${over ? ` · over your ${money(S.budget)} budget` : ""}</p>
+      </div></div>`;
+    });
+    html += `</div>`;
+    // rotation table
+    const groups = [...new Set(R.path.flatMap(y => y.apps.map(a => a.g).concat(y.points.map(a => a.g))))].filter(g => POINT_ST(g.slice(0, 2))).sort();
+    const cell = (y, g) => {
+      const a = y.apps.find(x => x.g === g), pt = y.ptsBefore[g] || 0;
+      if (a) return a.kind === "second" ? `<td class="rot hunt2" title="2nd-choice hunt, point kept">2nd<small>${pt}</small></td>` : `<td class="rot hunt" title="${esc(a.c.h.label || "")}">${a.kind === "burn" || a.kind === "early" ? "★" : "●"}<small>${pt}</small></td>`;
+      return y.points.find(x => x.g === g) ? `<td class="rot" title="buy a point">+<small>${pt}</small></td>` : `<td class="rot">·</td>`;
+    };
+    const tgt = g => { const t = (R.path[R.path.length - 1].targets || {})[g] || (R.path[0].targets || {})[g]; return t ? `${esc(t.c.h.label || t.c.h.id).slice(0, 48)} · trophy ${t.c.rated ? t.c.q + "/5" : "–"}` : "–"; };
+    html += `<h2>Point rotation</h2><p class="note">★ spends points on a top hunt · ● draw at current points · 2nd hunts as a 2nd choice and keeps building · + point only. Small numbers are points going in.</p>
+      <div class="tbl"><table class="rott"><thead><tr><th>State</th>${R.path.map(y => `<th>${String(y.year).slice(2)}</th>`).join("")}<th>Building toward</th></tr></thead><tbody>
+      ${groups.map(g => `<tr><td>${gName(g)}</td>${R.path.map(y => cell(y, g)).join("")}<td class="note">${tgt(g)}</td></tr>`).join("")}
+      </tbody></table></div>`;
+    html += `<details class="dt"><summary>How the planner decides</summary><div class="note">
+      <p>For every point state and species it finds the best hunt your points can reach within your strategy's horizon and the year your odds hit about 70%: that's the "building toward" hunt, and it's not spent on filler before then. Each year it starts with the hunts whose time has come (staggered so they don't all land at once) plus your always-apply lottery states, then adds the applications that most raise the chance of getting every required hunt, until it reaches your confidence target. That can mean more applications than hunts you need. Everything else buys a point.</p>
+      <p>Draw odds come from each state's results replayed with you in them (with point creep); the year-by-year chances come from simulating all the draws 300 times. Only tags legal for a mature buck or bull count. Trophy ratings are by unit; a rifle either-sex tag counts a point lower because it's mostly a cow or doe hunt.</p>
+      <p>Prices are 2026 nonresident fees and will change. Check each state's own numbers before applying.</p></div></details>`;
+    return html;
+  }
+
+  function paint() {
+    const root = document.getElementById("plan-root"); if (!root) return;
+    root.innerHTML = formHTML() + `<div id="plan-out">${resultsHTML()}</div>`;
+    wire();
   }
   function render() {
     const root = document.getElementById("plan-root"); if (!root) return;
-    const loaded = ALL_ST.some(st => DRAW[st]);
-    let html = settingsHTML();
-    if (!loaded) { root.innerHTML = html + `<p class="note">Loading draw data…</p>`; wire(); return; }
-    const R = build();
-    const sum = [`${S.species.map(k => SPN[k]).join(", ")}`, `${S.hpy} hunt${S.hpy > 1 ? "s" : ""} a year`,
-      S.trophyEvery ? `trophy${S.trophySp && S.trophySp.length ? " " + S.trophySp.map(k => SPN[k].toLowerCase()).join("/") : ""} ${S.trophyMin}+ every ${S.trophyEvery === 1 ? "year" : S.trophyEvery + " years"}` : "no trophy goal",
-      Object.keys(S.weaponBy || {}).length ? Object.entries(S.weaponBy).map(([k, w]) => SPN[k].split(" ")[0].toLowerCase() + " " + w).join(", ") : S.weapon !== "any" ? S.weapon : "any weapon",
-      `odds ${Math.round(S.minOdds * 100)}%+`, `${money(S.budget)} a year`, S.states.length === 9 ? "all 9 states" : S.states.map(c => SN[c]).join(", ")].join(" · ");
-    // next steps from the deadline list
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    const next = DATES.filter(d => S.states.includes(d[1])).map(d => ({ d, dt: new Date(d[0] + "T12:00:00") }))
-      .filter(x => x.dt >= today && (x.dt - today) / 864e5 <= 120).sort((a, b) => a.dt - b.dt).slice(0, 7);
-    html += `<h2 id="plan-top">Your plan</h2>${FLASH ? `<p class="said updated" role="status">${esc(FLASH)}</p>` : ""}<p class="lede">${esc(sum)}. Built from ${R.ncands.toLocaleString()} draw hunts that fit, your points on the My Points tab, trophy ratings and nonresident prices. Points are assumed to grow one a year where you apply and reset when you draw; preference cutoffs keep creeping at their past rate.</p>`;
-    if (next.length) html += `<div class="callout"><h3>Coming up</h3><ol>${next.map(x => `<li><b>${x.dt.toLocaleDateString("en-US", { month: "short", day: "numeric" })} · ${SN[x.d[1]]}.</b> ${esc(x.d[2])}${x.d[3] ? " (date estimated)" : ""}</li>`).join("")}</ol></div>`;
-    const slots = S.states.reduce((n, st) => n + S.species.filter(k => SPECIES_IN[st].includes(k)).length, 0);
-    html += `<h2>Year by year</h2><div id="years">` + R.years.map(y => {
-      const over = S.budget && y.fixed + y.full > S.budget;
-      const bank = y.apply.filter(a => a.sp !== "lottery");
-      const lot = y.apply.filter(a => a.sp === "lottery");
-      return `<div class="yr"><div class="y">${y.year}</div><div class="body">
-        ${y.picks.length ? y.picks.map(p => pickHTML(p)).join("") : `<p class="note">No hunt clears ${Math.round(S.minOdds * 100)}% odds this year with these settings. Lower the odds, add states or allow over-the-counter tags.</p>`}
-        ${y.trophyMiss ? `<p class="note">Trophy year, but no ${S.trophySp && S.trophySp.length ? S.trophySp.map(k => SPN[k].toLowerCase()).join(" or ") : ""} hunt rated ${S.trophyMin}+ reaches ${Math.round(S.minOdds * 100)}% odds with the points you'll have. Keep building points; Trophy targets below shows when the best ones open up, or lower the odds or trophy level.</p>` : ""}
-        ${y.picks.length < S.hpy && y.picks.length && !y.overBudget ? `<p class="note">Only ${y.picks.length} of ${S.hpy} hunts found at ${Math.round(S.minOdds * 100)}%+ odds${S.hpy > slots ? ` (you can hold one tag per species in each state, so ${slots} is the most these states and species allow)` : ""}.</p>` : ""}
-        ${y.picks.length < S.hpy && y.overBudget ? `<p class="note">${S.hpy - y.picks.length} hunt${S.hpy - y.picks.length > 1 ? "s" : ""} left out to stay within your ${money(S.budget)} budget${y.fixed >= S.budget ? ` (points, applications and licenses alone cost ${money(y.fixed)}; drop a state or two to free up money for tags)` : ""}.</p>` : ""}
-        <p class="pbank"><span class="tag" style="color:var(--mid)">Apply / points</span>${bank.map(a => `${a.st} ${a.pref ? (a.sp === "E" ? "elk" : "deer") + " combo (pref.)" : (a.sp === "D" ? "deer" : SPN[a.sp].toLowerCase())}${a.pts != null ? ` <span class="ptn">${a.pts}→${a.pts + 1}</span>` : ""}`).join(" · ")}${lot.length ? ` · lottery: ${lot.map(a => a.st).join(", ")}` : ""}</p>
-        <p class="pcost${over ? " over" : ""}">Applications, points & licenses ${money(y.fixed)} + tags if drawn ${money(y.full)} = <b>${money(y.fixed + y.full)}</b>${over ? ` · over your ${money(S.budget)} budget` : ` · within your ${money(S.budget)} budget`}</p>
-      </div></div>`;
-    }).join("") + `</div>`;
-    html += `<h2>Trophy targets</h2><p class="lede">Hunts rated ${S.trophyMin}+ for trophy, soonest first. "Year" is when your odds reach ${Math.round(S.minOdds * 100)}% if you keep applying.</p><div class="tbl"><table><thead><tr><th>Hunt</th><th>Trophy</th><th>Odds next draw</th><th>Reach ${Math.round(S.minOdds * 100)}%</th><th>Tag</th></tr></thead><tbody>` +
-      (R.trackTop.length ? R.trackTop.map(t => `<tr><td><b>${SN[t.c.st]} ${SPN[t.c.sp].toLowerCase()} ${esc(t.c.units)}</b><br><span class="note">${esc(t.c.label.slice(0, 70))}</span><br><button type="button" class="maplink" data-st="${t.c.st}" data-hid="${esc(t.c.h.id)}">Show on map</button></td><td class="num">${t.c.trophy}/5<br><span class="note">${window.trophyInches ? window.trophyInches(t.c.sp, t.c.trophy) : ""}</span></td><td class="num">${pct(t.o0)}</td><td class="num">${t.when == null ? `beyond ${S.maxWait} yrs` : t.when === 0 ? R.Y0 : R.Y0 + t.when}</td><td class="num">${money(t.c.cost)}</td></tr>`).join("") : `<tr><td colspan="5">No trophy-rated hunts match these settings.</td></tr>`) + `</tbody></table></div>`;
-    html += `<p class="note" style="margin-top:8px">Prices are 2026 nonresident fees (Wyoming points at the 2027 price) and will change. Expected tag cost is tag price × draw odds. Odds come from each state's draw reports; check the state's own numbers before you apply.</p>`;
-    root.innerHTML = html; wire();
-  }
-  let FLASH = "";
-  // apply the settings form: rebuild, confirm, and (from the button) jump to the new plan
-  function applySettings(jump) {
-    readForm(); save();
-    const set = document.getElementById("plan-settings"), open = set && set.open;
-    FLASH = "Plan updated: " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + ".";
-    render();
-    const s2 = document.getElementById("plan-settings"); if (s2) s2.open = jump ? false : open;
-    if (jump) { const t = document.getElementById("plan-top"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }
-  }
-  function readForm() {
-    const f = document.getElementById("plan-settings"); if (!f) return;
-    const q = n => f.querySelector(`[name="${n}"]`);
-    S.species = [...f.querySelectorAll('[name="species"]:checked')].map(i => i.value);
-    S.states = [...f.querySelectorAll('[name="states"]:checked')].map(i => i.value);
-    S.hpy = +q("hpy").value; S.minOdds = +q("minOdds").value; S.trophyEvery = +q("trophyEvery").value; S.trophyMin = +q("trophyMin").value;
-    S.maxWait = +q("maxWait").value;
-    if (q("weapon").value !== "__by") { S.weapon = q("weapon").value; S.weaponBy = {}; }
-    const ts = [...f.querySelectorAll('[name="trophySp"]:checked')].map(i => i.value);
-    S.trophySp = ts.length === 4 || !ts.length ? null : ts; S.tag = q("tag").value; S.budget = Math.max(0, +q("budget").value || 0);
-    S.years = +q("years").value; S.otc = q("otc").checked; S.priv = q("priv").checked;
-    if (!S.species.length) S.species = DEF.species.slice(); if (!S.states.length) S.states = ALL_ST.slice();
+    if (!ALL_ST.some(st => DRAW[st])) { root.innerHTML = formHTML() + `<p class="note">Loading draw data…</p>`; wire(); return; }
+    compute(paint);
   }
   function wire() {
-    const cmd = document.getElementById("plan-cmd"), set = document.getElementById("plan-settings");
-    const root = document.getElementById("plan-root");
+    const root = document.getElementById("plan-root"), f = document.getElementById("goal");
     if (!root.__mapWired) { root.__mapWired = true; root.addEventListener("click", e => { const b = e.target.closest(".maplink"); if (!b) return;
-      if (b.dataset.hid && window.showHuntOnMap) window.showHuntOnMap(b.dataset.st, b.dataset.hid); else if (window.showStateOnMap) window.showStateOnMap(b.dataset.st, b.dataset.sp); }); }
-    cmd.addEventListener("submit", e => {
-      e.preventDefault();
-      const text = document.getElementById("plan-text").value.trim();
-      const { out, said } = parseCommand(text);
-      S = Object.assign({}, DEF, { species: DEF.species.slice(), states: DEF.states.slice(), weaponBy: {} }, out, { focus: text }); save(); render();
-      const el = document.getElementById("plan-said");
-      el.innerHTML = said.length ? "Got it: " + said.map(x => `<span class="chip sm">${esc(x)}</span>`).join(" ") : "I didn't catch any settings in that. Try naming species, states, hunts a year, a budget or a weapon.";
-      document.getElementById("plan-root").scrollIntoView({ behavior: "smooth" });
-    });
-    document.getElementById("plan-reset").onclick = () => { S = Object.assign({}, DEF); save(); render(); };
-    set.addEventListener("change", () => applySettings(false));
-    document.getElementById("plan-apply").onclick = () => applySettings(true);
-    // the budget box applies as you type (after a short pause), not only when you leave it
-    const bud = set.querySelector('[name="budget"]'); let tm;
-    if (bud) bud.addEventListener("input", () => { clearTimeout(tm); tm = setTimeout(() => { const pos = bud.selectionStart; applySettings(false); const nb = document.querySelector('#plan-settings [name="budget"]'); if (nb) { nb.focus(); try { nb.setSelectionRange(pos, pos); } catch (e) {} } }, 900); });
+      if (b.dataset.hid && window.showHuntOnMap) window.showHuntOnMap(b.dataset.st, b.dataset.hid); }); }
+    if (!f) return;
+    f.addEventListener("submit", e => { e.preventDefault(); readForm(); save(); RES_KEY = ""; compute(() => { paint(); const t = document.getElementById("plan-top"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+    f.addEventListener("change", e => { if (/^s\d+sp$/.test(e.target.name)) { readForm(); paint(); } });   // show/hide the Coues option
+    document.getElementById("slot-add").onclick = () => { readForm(); S.slots.push({ sp: { D: 1 }, every: 1, optional: true }); paint(); };
+    f.querySelectorAll("[data-del]").forEach(b => b.onclick = () => { readForm(); S.slots.splice(+b.dataset.del, 1); paint(); });
+    document.getElementById("goal-reset").onclick = () => { S = clone(DEF); save(); RES_KEY = ""; render(); };
   }
   window.renderPlan = render;
-  window.__planParse = parseCommand;
-  window.__planBuild = () => build();
-  window.__planSet = o => { Object.assign(S, o); };
 })();

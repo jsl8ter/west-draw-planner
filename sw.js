@@ -1,7 +1,7 @@
 /* West Draw Planner service worker: app shell offline, data refreshed in the background,
    recently viewed map tiles kept for offline use. */
-const V = "wdp-v13";
-const SHELL = ["./", "index.html", "odds.js", "plan.js", "manifest.webmanifest", "icons/icon-192.png", "icons/apple-touch-icon.png",
+const V = "wdp-v15";
+const SHELL = ["./", "index.html", "odds.js", "plan.js", "planner-core.js", "manifest.webmanifest", "icons/icon-192.png", "icons/apple-touch-icon.png",
   "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"];
 const TILE_MAX = 1500;
@@ -44,7 +44,7 @@ self.addEventListener("fetch", e => {
   const u = new URL(req.url);
   if (/\/tile\/\d+\/\d+\/\d+/.test(u.pathname)) { e.respondWith(tile(req)); return; }
   if (u.origin === location.origin) {
-    if (req.mode === "navigate" || u.pathname.endsWith(".html") || u.pathname.endsWith("odds.js") || u.pathname.endsWith("plan.js")) { e.respondWith(networkFirst(req, V + "-shell")); return; }
+    if (req.mode === "navigate" || u.pathname.endsWith(".html") || u.pathname.endsWith("odds.js") || u.pathname.endsWith("plan.js") || u.pathname.endsWith("planner-core.js")) { e.respondWith(networkFirst(req, V + "-shell")); return; }
     if (u.pathname.includes("/data/")) { e.respondWith(staleWhileRevalidate(req, V + "-data")); return; }
     e.respondWith(staleWhileRevalidate(req, V + "-shell")); return;
   }

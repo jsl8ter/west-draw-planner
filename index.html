@@ -111,6 +111,18 @@ td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;
 .pts input{width:64px;font:500 15px var(--mono);padding:4px 6px;border:1.5px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);text-align:right}
 .note{font-size:13px;color:var(--muted);max-width:75ch}
 .said.updated{animation:flash 1.6s ease-out}@keyframes flash{from{background:color-mix(in srgb,var(--easy) 25%,transparent)}to{background:transparent}}
+.goal h3{margin:0 0 4px}.slots{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.slot{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.slot .sn{font-weight:700;min-width:52px}.slot .sps{display:flex;flex-wrap:wrap;gap:4px 10px}
+.btn.sm{padding:4px 10px;font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:6px 0 10px}
+.kpis div{border:1px solid var(--line);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.kpis b{font-family:var(--display);font-size:26px;line-height:1.1;color:var(--accent)}.kpis span{font-size:12.5px;color:var(--muted)}
+.ystat{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px;color:var(--muted)}.ystat b{color:var(--ink)}
+.app{display:flex;flex-direction:column;gap:2px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.app .ah{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.app .odds{margin-left:auto;font-family:var(--display);font-size:20px;font-weight:700}
+.rott td.rot{text-align:center;font-weight:700;min-width:30px}.rott td.rot small{display:block;font-weight:400;font-size:10.5px;color:var(--muted)}
+.rott td.hunt{color:var(--premier)}.rott td.hunt2{color:var(--easy)}
 p.warn{font-size:13px;margin:6px 0;padding:6px 8px;border-left:3px solid var(--long);background:color-mix(in srgb,var(--long) 10%,transparent);max-width:75ch}
 .callout{background:var(--ink);color:var(--bg);border-radius:6px;padding:14px 16px;margin-top:12px;display:flex;flex-direction:column;gap:6px}
 .callout ol{margin:0;padding-left:20px}
@@ -273,7 +285,7 @@ details.panel[open] summary{margin-bottom:6px}
 <!-- PLAN -->
 <section id="v-plan" hidden>
   <h2>Your strategy</h2>
-  <p class="lede">Type what you want, or open All settings. The plan rebuilds from the draw data, your points and your budget.</p>
+  <p class="lede">Set your goal once: the hunts you want each year, how sure you want to be, and how hard to push for top units. The plan lists every application and point purchase, year by year, with the real chance it works out.</p>
   <div id="plan-root"></div>
 </section>
 
@@ -1379,6 +1391,7 @@ loadData().then(()=>LAYERS.forEach(loadLayer));
 if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
 
 </script>
+<script src="planner-core.js"></script>
 <script src="plan.js"></script>
 </body>
 </html>

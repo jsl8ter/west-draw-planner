@@ -854,7 +854,7 @@ function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
 const usesPref=(st,h)=>st==="MT"&&h&&h.kind==="general";
 function effPts(st,s,h){return FILTER.on&&FILTER.pts!=null&&(!FILTER.st||FILTER.st===st)?FILTER.pts:myPts(st,s,usesPref(st,h))}
 // Montana combos are a preference draw (75% by points, 25% random), not the squared-bonus permit draw
-function huntSys(st,h){return usesPref(st,h)?"pref75":sysOf(st)}
+function huntSys(st,h){return usesPref(st,h)?"mtcombo":sysOf(st)}
 // Montana: a nonresident elk or deer permit only counts if you also draw the general combo license
 // (Big Game Combo for elk, Deer Combo or Big Game Combo for deer) - a separate preference-point draw.
 function mtCombo(s){const d=DRAW.MT;if(!d)return null;const ids=s==="E"?["NR-BGC"]:s==="D"?["NR-DC","NR-BGC"]:[];let best=null;

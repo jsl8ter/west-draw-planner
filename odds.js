@@ -42,14 +42,15 @@
     const total = groups.reduce((s, g) => s + g.n, 0);
     if (!tags || !total) return 0;
     if (system === "random") return Math.min(1, tags / total);
-    const prefShare = system === "pref" ? 1 : system === "pref75" ? 0.75 : system === "bonus50" ? 0.5 : system === "az" ? 0.2 : 0;
+    const prefShare = system === "pref" ? 1 : (system === "pref75" || system === "mtcombo") ? 0.75 : system === "bonus50" ? 0.5 : system === "az" ? 0.2 : 0;
     const k = Math.round(tags * prefShare);
     const { taken } = topPass(groups, k);
     const mine = groups.find(g => g.p === pts);
     const pTop = (taken.get(pts) || 0) / mine.n;
     const rest = tags - Array.from(taken.values()).reduce((a, b) => a + b, 0);
     if (rest <= 0) return pTop;
-    const remaining = groups.map(g => ({ p: g.p, n: g.n - (taken.get(g.p) || 0) })).filter(g => g.n > 0);
+    // Montana combos: the random 25% goes only to applicants with zero preference points
+    const remaining = groups.map(g => ({ p: g.p, n: g.n - (taken.get(g.p) || 0) })).filter(g => g.n > 0 && (system !== "mtcombo" || g.p === 0));
     if (!remaining.some(g => g.p === pts)) return pTop;
     const weight = p => system === "bonus_sq" ? p * p + 1 : (system === "bonus" || system === "bonus50" || system === "az") ? p + 1 : 1;
     const odds = weightedOdds(remaining.map(g => ({ n: g.n, w: weight(g.p) })), rest);

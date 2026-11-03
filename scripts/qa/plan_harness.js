@@ -7,7 +7,7 @@ const DRAW={};for(const st of ["CO","WY","UT","AZ","NM","NV","OR","ID","MT"])DRA
 const TROPHY=JSON.parse(fs.readFileSync("data/trophy.json")).units;
 const by={};for(const st in DRAW){for(const h of DRAW[st].hunts)h._st=st;by[st]=DRAW[st].hunts}Odds.setCreepPriors(Odds.creepPriors(by));
 const G={slots:[{label:"Elk",sp:{E:1},every:1},{label:"Elk or mule deer",sp:{E:1,D:1,C:0.5},every:1},{label:"Pronghorn",sp:{P:1},every:3,optional:true}],
-  weapons:{archery:true,rifle:true,muzzleloader:false},conf:0.9,quality:0.5,states:["CO","WY","UT","AZ","NM","NV","OR","ID","MT"],always:["NM"],years:6,priv:false,otc:true};
+  weapons:{archery:true,rifle:true,muzzleloader:false},rest:2,conf:0.9,quality:0.5,states:["CO","WY","UT","AZ","NM","NV","OR","ID","MT"],always:["NM"],years:6,priv:false,otc:true};
 const pts=JSON.parse(process.env.PTS||"{}");
 const R=Planner.run({DRAW,TROPHY,Odds,PRICES,OTC,pts,Y0:2027},G);
 console.log("cands",R.ncands,"ms",R.ms,"| all years goal met",(R.every*100).toFixed(0)+"%","| 4+ trophy hunts per plan",R.q4PerPlan.toFixed(2));

@@ -37,7 +37,7 @@
       { sp: { P: 1 }, every: 3, optional: true }
     ],
     weapons: { archery: true, rifle: true, muzzleloader: false },
-    conf: 0.9, quality: 0.5, states: ALL_ST.slice(), always: ["NM"], years: 6, priv: false, otc: true, budget: 0
+    conf: 0.9, quality: 0.5, rest: 2, states: ALL_ST.slice(), always: ["NM"], years: 6, priv: false, otc: true, budget: 0
   };
   const clone = o => JSON.parse(JSON.stringify(o));
   let S = load();
@@ -81,6 +81,7 @@
       <div class="fgrid">
         <label>Confidence: chance your required hunts all come through by draw<select name="conf">${[[0.8, "80%"], [0.9, "90%"], [0.95, "95%"]].map(([v, l]) => opt(v, l, S.conf)).join("")}</select></label>
         <label>Strategy<select name="quality">${QUAL.map(([v, l]) => opt(v, l, S.quality)).join("")}</select></label>
+        <label>After hunting a state, rest it<select name="rest">${[[0, "No rest (repeat OK)"], [1, "1 year"], [2, "2 years"]].map(([v, l]) => opt(v, l, S.rest == null ? 2 : S.rest)).join("")}</select></label>
         <label>Years to plan<select name="years">${[3, 4, 5, 6, 8, 10].map(n => opt(n, n, S.years)).join("")}</select></label>
         <label>Budget per year (optional)<input name="budget" type="number" min="0" step="100" inputmode="numeric" value="${S.budget || ""}" placeholder="no limit"></label>
       </div>
@@ -101,7 +102,7 @@
       if (sp.C && q(`s${i}cs`) && q(`s${i}cs`).checked) sp.C = 0.5; else if (sp.C && !q(`s${i}cs`)) sp.C = 0.5;
       return { sp: Object.keys(sp).length ? sp : s.sp, every: +q(`s${i}ev`).value, optional: q(`s${i}op`).checked };
     });
-    S.conf = +q("conf").value; S.quality = +q("quality").value; S.years = +q("years").value; S.budget = Math.max(0, +q("budget").value || 0);
+    S.conf = +q("conf").value; S.quality = +q("quality").value; S.rest = +q("rest").value; S.years = +q("years").value; S.budget = Math.max(0, +q("budget").value || 0);
     S.weapons = { archery: false, rifle: false, muzzleloader: false };
     f.querySelectorAll('[name="wpn"]:checked').forEach(x => { S.weapons[x.value] = true; });
     if (!S.weapons.archery && !S.weapons.rifle && !S.weapons.muzzleloader) S.weapons.rifle = true;
@@ -150,6 +151,7 @@
       <div class="ah"><span class="tag" style="color:${swing ? "var(--long)" : k[1]}" title="${esc(k[2])}">${swing || k[0]}</span>
         <b>${SN[a.st]} ${SPS[a.sp].toLowerCase()}</b><span class="odds">${P100(a.p)}</span></div>
       <div class="pm">${esc(h.label || h.id)} · ${window.bagLabel ? bagLabel(h) : ""}${a.optional ? " · bonus hunt" : ""}</div>
+      ${a.combo ? `<div class="pm"><b>Montana:</b> ${c.general ? "" : `apply for the ${a.sp === "E" ? "Big Game (elk)" : "Deer"} Combo with this permit (the permit only counts if the combo draws). `}${a.combo.buy ? `Buy a preference point with the application: you'll draw the combo with ${a.combo.drawWith} point${a.combo.drawWith === 1 ? "" : "s"}` : a.combo.have >= 3 ? "You're at the 3-point maximum: no point to buy" : "Don't buy a point this time: with 0 points you're in the random 25% pool"} (combo odds ${P100(a.combo.p)}).</div>` : ""}
       <div class="pm">${a.kind === "burn" || a.kind === "early" ? `Uses ${pts} pt${pts === 1 ? "" : "s"} · ` : POINT_ST(a.st) && a.kind !== "second" ? `${pts} pts · ` : a.kind === "second" ? `Point ${pts}→${pts + 1} and hunt · ` : ""}Trophy ${c.rated ? c.q + "/5" + inch : "not rated"} · tag ~${money(a.cost)}${lowDemand}</div>
       <button type="button" class="maplink" data-st="${a.st}" data-hid="${esc(h.id)}">Show on map</button>
     </div>`;

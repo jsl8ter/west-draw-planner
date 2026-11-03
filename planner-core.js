@@ -65,7 +65,7 @@
         // hunt, usually late season); general/OTC-style tags rate as general hunts
         if (q != null && bag === "either" && h.weapon !== "archery" && (h.species === "E" || h.species === "D")) q = Math.max(1, q - 1);
         if (general && q != null) q = Math.min(q, 2);
-        const sys = st === "MT" && general ? "pref75" : SYS[st];
+        const sys = st === "MT" && general ? "mtcombo" : SYS[st];
         const c = { st, h, sp: h.species, sys, q: q == null ? 2 : q, rated: q != null, general,
           g: grpOf(st, h.species, st === "MT" && general), cost: tagCost(ctx, st, h),
           slope: /^pref/.test(sys) ? Odds.recentSlope(Odds.creep(h.years, "NR")) : 0 };
@@ -181,6 +181,9 @@
     const coues = G.slots.some(s => s.sp.C) && !(hist.lastC != null && k - hist.lastC < 3);   // Coues at most every 3rd year
     const spOk = sp => dueSp.has(sp) && (sp !== "C" || coues);
     const apps = [], used = new Set();
+    // variety: a state + species you hunted last year sits out a year unless it's needed for your confidence target
+    const rest = G.rest == null ? 1 : G.rest;
+    const recent = g => rest > 0 && hist.hunted && hist.hunted[g] != null && k - hist.hunted[g] <= rest;
     const add = a => { apps.push(a); used.add(a.g); };
     const T = targets(P, G, pts, k, G.years + 3);
     // 1. burns: targets ready now, best first, as many as the year's slots can use. Once the year is covered
@@ -191,6 +194,7 @@
     for (const [g, t] of burns) {
       const i = slotsLeft.findIndex(s => s.sp[t.c.sp]);
       if (i < 0) continue;          // nothing left to fill with this species: keep the points (deferred)
+      if (recent(g)) continue;
       if (fillProb(apps, req) >= G.conf && expTags(apps) >= due.length + 0.3) continue;
       slotsLeft.splice(i, 1);
       const second = t.c.st === "CO" && (t.c.p2 || 0) >= 0.9;
@@ -222,7 +226,7 @@
       const protect = POINT_ST.has(st) && !g.endsWith("pref") && ((T[g] && T[g].t > 0) || (pts[g] || 0) >= 2);
       for (const sp of ["E", "D", "C", "P"]) {
         if (!spOk(sp) || grpOf(st, sp, g.endsWith("pref")) !== g) continue;
-        { const b = bestNow(P, g, sp, pts, k, G, false); if (b) pool.push({ kind: POINT_ST.has(st) && !g.endsWith("pref") ? (protect ? "early" : "draw") : (st === "MT" ? "combo" : "lottery"), protect, g, st, sp: b.c.sp, c: b.c, p: b.p, q: b.c.q, cost: b.c.cost }); }
+        { const b = bestNow(P, g, sp, pts, k, G, false); if (b) pool.push({ buy: b.c.st === "MT" && b.c.general ? comboOdds(P, b.c, pts[g] || 0, k).buy : undefined, kind: POINT_ST.has(st) && !g.endsWith("pref") ? (protect ? "early" : "draw") : (st === "MT" ? "combo" : "lottery"), protect, g, st, sp: b.c.sp, c: b.c, p: b.p, q: b.c.q, cost: b.c.cost }); }
         if (st === "CO") { const b2 = bestSecond(P, g, sp); if (b2) pool.push({ kind: "second", g, st, sp: b2.c.sp, c: b2.c, p: b2.c.p2, q: b2.c.q, cost: b2.c.cost }); }
       }
     }
@@ -230,7 +234,7 @@
     for (const pass of [false, true]) while (pf < G.conf && pool.length) {
       let best = null;
       for (const a of pool) {
-        if (takenG.has(a.g) || (a.protect && !pass)) continue;
+        if (takenG.has(a.g) || ((a.protect || recent(a.g)) && !pass)) continue;
         const np = fillProb(apps.concat(a), req);
         const gain = np - pf + 0.02 * a.p * (a.q - 2) * (G.slots.some(s => s.sp[a.sp] < 1) && a.sp === "C" ? 0.5 : 1);
         const score = gain / (1 + a.cost / 3000);
@@ -260,7 +264,15 @@
         points.push({ kind: "point", g, st, sp, p: 0, cost: (ctx.PRICES[st] || {}).pt || 0, target: tg || null });
       }
       if (st === "MT") for (const sp of ["E", "D"]) { const g = grpOf(st, sp, true); const tp = T[grpOf(st, sp)];
-        if (!takenG.has(g) && G.slots.some(s => s.sp[sp]) && ((tp && !takenG.has(grpOf(st, sp))) || (pts[g] || 0) > 0)) points.push({ kind: "point", g, st, sp, pref: true, p: 0, cost: (ctx.PRICES.MT || {}).prefPt || 0, target: T[g] || null }); }
+        if (!takenG.has(g) && (pts[g] || 0) < 3 && G.slots.some(s => s.sp[sp]) && ((tp && !takenG.has(grpOf(st, sp))) || (pts[g] || 0) > 0)) points.push({ kind: "point", g, st, sp, pref: true, p: 0, cost: (ctx.PRICES.MT || {}).prefPt || 0, target: T[g] || null }); }
+    }
+    // Montana: every elk/deer application goes with the combo license; note whether to buy the point with it
+    for (const a of apps) if (a.st === "MT") {
+      const cg = grpOf("MT", a.sp, true), combo = a.c.general ? a.c : (P.byGroup[cg] || [])[0];
+      if (!combo) continue;
+      const have = Math.min(3, pts[cg] || 0), co = comboOdds(P, combo, have, k);
+      a.combo = { p: co.p, buy: co.buy, have, drawWith: co.buy ? have + 1 : have };
+      if (a.c.general) a.buy = co.buy;
     }
     // 5. OTC fallback (after draw results)
     const otc = G.otc ? (ctx.OTC || []).filter(o => G.states.includes(o.st) && dueSp.has(o.sp) && req.some(s => s.sp[o.sp]) &&
@@ -268,11 +280,18 @@
     return { apps, points, pf, req, opt, due, targets: T, otc };
   }
 
+  // Montana combo license: a preference point bought with the application counts in that year's draw
+  // (max 3 points), and the random 25% only goes to applicants with zero points. So with 0 points it can be
+  // better NOT to buy (random pool); with 1+ points buying moves you up a level.
+  function comboOdds(P, c, pts, k) {
+    const have = Math.min(3, pts || 0);
+    const no = P.p(c, have, k), yes = have < 3 ? P.p(c, have + 1, k) : null;
+    return (yes != null && yes > (no || 0)) ? { p: yes, buy: true } : { p: no || 0, buy: false };
+  }
   function mtCombo(P, c, pts, k) {
     if (c.st !== "MT" || c.general) return 1;
     const g = grpOf("MT", c.sp, true), combo = (P.byGroup[g] || [])[0];
-    const v = combo ? P.p(combo, pts[g] || 0, k) : null;
-    return v == null ? 1 : v;
+    return combo ? comboOdds(P, combo, pts[g] || 0, k).p : 1;
   }
   function bestNow(P, g, sp, pts, k, G, lottery) {
     const bc = P.bcache || (P.bcache = new Map()), ck = g + sp + "|" + (pts[g] || 0) + "|" + k + "|" + (pts[grpOf(g.slice(0, 2), sp, true)] || 0);
@@ -280,7 +299,7 @@
     let best = null;
     for (const c of P.byGroup[g] || []) {
       if (c.sp !== sp) continue;
-      const o = P.p(c, pts[g] || 0, k); if (o == null || o <= 0) continue;
+      const o = c.st === "MT" && c.general ? comboOdds(P, c, pts[g] || 0, k).p : P.p(c, pts[g] || 0, k); if (o == null || o <= 0) continue;
       const pp = o * mtCombo(P, c, pts, k);
       const v = pp * (1 + 0.15 * (c.q - 2) * (0.5 + G.quality));
       if (!best || v > best.v) best = { c, p: pp, v };
@@ -299,10 +318,12 @@
     for (const a of plan.apps) {
       if (!POINT_ST.has(a.st)) continue;
       if (a.kind === "second") { nx[a.g] = (nx[a.g] || 0) + 1; continue; }           // CO: point 1st choice, hunt 2nd choice
+      if (a.st === "MT" && a.c.general) { nx[a.g] = drawn.has(a) ? 0 : Math.min(3, (nx[a.g] || 0) + (a.buy ? 1 : 0)); continue; }
       nx[a.g] = drawn.has(a) ? 0 : (nx[a.g] || 0) + 1;
-      if (a.st === "MT" && !a.c.general && drawn.has(a)) nx[grpOf("MT", a.sp, true)] = 0;  // combo drawn with the permit
+      if (a.st === "MT" && !a.c.general) { const cg = grpOf("MT", a.sp, true);
+        nx[cg] = drawn.has(a) ? 0 : Math.min(3, (nx[cg] || 0) + (a.combo && a.combo.buy ? 1 : 0)); }  // combo drawn with the permit
     }
-    for (const a of plan.points) nx[a.g] = (nx[a.g] || 0) + 1;
+    for (const a of plan.points) nx[a.g] = a.pref ? Math.min(3, (nx[a.g] || 0) + 1) : (nx[a.g] || 0) + 1;
     return nx;
   }
 
@@ -331,6 +352,7 @@
       plan.year = ctx.Y0 + k; plan.ptsBefore = pts; plan.cost = cost(ctx, plan);
       const drawn = new Set(plan.apps.filter(a => a.p >= 0.5));
       if ([...drawn].some(a => a.sp === "C")) hist = { ...hist, lastC: k };
+      hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
       plan.likely = drawn;
       path.push(plan);
       pts = stepPoints(pts, plan, drawn);
@@ -349,6 +371,7 @@
         const Y = yrs[k]; if (ok) Y.filled++; else { allOk = false; Y.otcNeed++; }
         Y.tags += drawn.size; if (cnt[0]) Y.elk++; if (best >= 4) { Y.q4++; q4total++; }
         if ([...drawn].some(a => a.sp === "C")) hist = { ...hist, lastC: k };
+        hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
         pts = stepPoints(pts, plan, drawn);
       }
       if (allOk) goalAll++;

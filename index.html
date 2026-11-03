@@ -851,10 +851,11 @@ const huntOk=h=>isCurrent(h)&&!restricted(h)&&(incPrivate||!privateLand(h))&&h.s
 function huntsOf(f,st){const d=DRAW[st];return d?(f._h||[]).map(i=>d.hunts[i]).filter(huntOk):[]}
 function sysOf(st){return (DRAW[st]&&DRAW[st].system)||"random"}
 // Montana general combos use preference points; its permits use bonus points
-const usesPref=(st,h)=>st==="MT"&&h&&h.kind==="general";
+const usesPref=(st,h)=>(st==="MT"||st==="UT")&&h&&h.kind==="general";
 function effPts(st,s,h){return FILTER.on&&FILTER.pts!=null&&(!FILTER.st||FILTER.st===st)?FILTER.pts:myPts(st,s,usesPref(st,h))}
 // Montana combos are a preference draw (75% by points, 25% random), not the squared-bonus permit draw
-function huntSys(st,h){return usesPref(st,h)?"mtcombo":sysOf(st)}
+// Utah general-season buck deer is a preference-point draw (limited entry uses bonus points)
+function huntSys(st,h){return (st==="UT"&&h&&h.kind==="general")?"pref":usesPref(st,h)?"mtcombo":sysOf(st)}
 // Montana: a nonresident elk or deer permit only counts if you also draw the general combo license
 // (Big Game Combo for elk, Deer Combo or Big Game Combo for deer) - a separate preference-point draw.
 function mtCombo(s){const d=DRAW.MT;if(!d)return null;const ids=s==="E"?["NR-BGC"]:s==="D"?["NR-DC","NR-BGC"]:[];let best=null;
@@ -1369,12 +1370,12 @@ const PT_ROWS={
   WY:[["E","Elk"],["D","Deer"],["P","Antelope"]],
   CO:[["E","Elk"],["D","Deer"],["P","Pronghorn"]],
   AZ:[["E","Elk"],["D","Deer"],["P","Pronghorn"]],
-  UT:[["E","Elk"],["D","Deer"],["P","Pronghorn"]],
+  UT:[["E","Elk (limited entry) · bonus"],["D","Deer (limited entry) · bonus"],["Dpref","General-season deer · preference"],["P","Pronghorn · bonus"]],
   NV:[["E","Elk"],["D","Deer"],["P","Antelope"]],
   OR:[["E","Elk"],["D","Deer"],["P","Pronghorn"],["B","Bear"]],
   MT:[["Epref","Elk combo · preference"],["Dpref","Deer combo · preference"],["E","Elk permit · bonus"],["D","Deer permit · bonus"],["P","Antelope · bonus"]]
 };
-const PT_NOTE={MT:"Preference points count toward the nonresident Big Game, Elk and Deer Combo licenses. Bonus points count toward elk and deer permits and antelope licenses.",AZ:"Arizona deer points cover both mule deer and Coues.",OR:"Bear points are saved for planning; the map doesn't show bear hunts yet."};
+const PT_NOTE={MT:"Preference points count toward the nonresident Big Game, Elk and Deer Combo licenses. Bonus points count toward elk and deer permits and antelope licenses.",AZ:"Arizona deer points cover both mule deer and Coues.",UT:"Utah keeps two kinds of deer points: bonus points for limited-entry hunts and preference points for the general-season buck deer draw.",OR:"Bear points are saved for planning; the map doesn't show bear hunts yet."};
 function buildPts(){document.getElementById("ptsGrid").innerHTML=Object.keys(PT_ROWS).map(st=>`<div class="card"><h3>${SN[st]}</h3>${PT_ROWS[st].map(([k,lab])=>`<label for="p-${st}${k}">${lab}<input type="number" min="0" max="30" inputmode="numeric" id="p-${st}${k}" value="${+(PTS[st+k]||0)}"></label>`).join("")}${PT_NOTE[st]?`<p class="note">${PT_NOTE[st]}</p>`:""}</div>`).join("");
   document.querySelectorAll("#ptsGrid input").forEach(i=>i.oninput=()=>{PTS[i.id.slice(2)]=Math.max(0,+i.value||0);savePts();render()})}
 

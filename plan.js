@@ -117,6 +117,7 @@
     const out = {};
     for (const st of ALL_ST) for (const sp of ["E", "D", "P"]) { const v = myPts(st, sp, false); if (v) out[st + sp] = v; }
     for (const sp of ["E", "D"]) { const v = myPts("MT", sp, true); if (v) out["MT" + sp + "pref"] = v; }
+    { const v = myPts("UT", "D", true); if (v) out.UTDpref = v; }
     return out;
   }
   function compute(cb) {

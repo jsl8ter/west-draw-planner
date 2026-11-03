@@ -30,6 +30,9 @@
   const SPECIES_IN = { CO: "EDP", WY: "EDP", UT: "EDP", AZ: "EDCP", NM: "EDCP", NV: "EDP", OR: "EDP", ID: "EDP", MT: "EDP" };
   const RESTRICTED = /\bCHAMP\b|\byouth\b|\bjunior\b|disab|mobility|\bMI\b|landowner|\bLOA\b|military|veteran|camp navajo|outfitter|\bguided\b|\bF-IM\b|apprentice|\bheritage\b|\bdepredation\b/i;
   const PRIVATE = /private[- ]land|\bprivate\b|valid on private|\bcwmu\b|ranching for wildlife|\bRFW\b|landowner/i;
+  // State rules the planner enforces beyond the odds model (filled from official sources; see STATE_RULES.md)
+  //   wait: { kind: years }  years you must sit out applying for that species after drawing (kind: E/D/P, "le" = limited entry)
+  const RULES = {};
   const BURN = 0.7;            // odds at which a rotation target is "ready"
   const SIMS = 300;
   const grpOf = (st, sp, pref) => st + (sp === "C" ? "D" : sp) + (pref ? "pref" : "");
@@ -65,9 +68,9 @@
         // hunt, usually late season); general/OTC-style tags rate as general hunts
         if (q != null && bag === "either" && h.weapon !== "archery" && (h.species === "E" || h.species === "D")) q = Math.max(1, q - 1);
         if (general && q != null) q = Math.min(q, 2);
-        const sys = st === "MT" && general ? "mtcombo" : SYS[st];
+        const sys = st === "MT" && general ? "mtcombo" : (st === "UT" && general) ? "pref" : SYS[st];
         const c = { st, h, sp: h.species, sys, q: q == null ? 2 : q, rated: q != null, general,
-          g: grpOf(st, h.species, st === "MT" && general), cost: tagCost(ctx, st, h),
+          g: grpOf(st, h.species, (st === "MT" || st === "UT") && general), cost: tagCost(ctx, st, h),
           slope: /^pref/.test(sys) ? Odds.recentSlope(Odds.creep(h.years, "NR")) : 0 };
         if (st === "CO") c.p2 = coSecond(h, last);
         cands.push(c);
@@ -182,6 +185,8 @@
     const spOk = sp => dueSp.has(sp) && (sp !== "C" || coues);
     const apps = [], used = new Set();
     // variety: a state + species you hunted last year sits out a year unless it's needed for your confidence target
+    // state waiting periods after drawing (can't even apply)
+    const waiting = g => { const st = g.slice(0, 2), sp = g[2], w = ((RULES[st] || {}).wait || {})[sp]; return w && hist.drawnAt && hist.drawnAt[g] != null && k - hist.drawnAt[g] <= w; };
     const rest = G.rest == null ? 1 : G.rest;
     const recent = g => rest > 0 && hist.hunted && hist.hunted[g] != null && k - hist.hunted[g] <= rest;
     const add = a => { apps.push(a); used.add(a.g); };
@@ -194,7 +199,7 @@
     for (const [g, t] of burns) {
       const i = slotsLeft.findIndex(s => s.sp[t.c.sp]);
       if (i < 0) continue;          // nothing left to fill with this species: keep the points (deferred)
-      if (recent(g)) continue;
+      if (recent(g) || waiting(g)) continue;
       if (fillProb(apps, req) >= G.conf && expTags(apps) >= due.length + 0.3) continue;
       slotsLeft.splice(i, 1);
       const second = t.c.st === "CO" && (t.c.p2 || 0) >= 0.9;
@@ -234,7 +239,7 @@
     for (const pass of [false, true]) while (pf < G.conf && pool.length) {
       let best = null;
       for (const a of pool) {
-        if (takenG.has(a.g) || ((a.protect || recent(a.g)) && !pass)) continue;
+        if (takenG.has(a.g) || waiting(a.g) || ((a.protect || recent(a.g)) && !pass)) continue;
         const np = fillProb(apps.concat(a), req);
         const gain = np - pf + 0.02 * a.p * (a.q - 2) * (G.slots.some(s => s.sp[a.sp] < 1) && a.sp === "C" ? 0.5 : 1);
         const score = gain / (1 + a.cost / 3000);
@@ -352,7 +357,8 @@
       plan.year = ctx.Y0 + k; plan.ptsBefore = pts; plan.cost = cost(ctx, plan);
       const drawn = new Set(plan.apps.filter(a => a.p >= 0.5));
       if ([...drawn].some(a => a.sp === "C")) hist = { ...hist, lastC: k };
-      hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
+      hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))),
+        drawnAt: Object.assign({}, hist.drawnAt, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
       plan.likely = drawn;
       path.push(plan);
       pts = stepPoints(pts, plan, drawn);
@@ -371,7 +377,8 @@
         const Y = yrs[k]; if (ok) Y.filled++; else { allOk = false; Y.otcNeed++; }
         Y.tags += drawn.size; if (cnt[0]) Y.elk++; if (best >= 4) { Y.q4++; q4total++; }
         if ([...drawn].some(a => a.sp === "C")) hist = { ...hist, lastC: k };
-        hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
+        hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))),
+          drawnAt: Object.assign({}, hist.drawnAt, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
         pts = stepPoints(pts, plan, drawn);
       }
       if (allOk) goalAll++;
@@ -381,6 +388,6 @@
   }
   function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 
-  const api = { run, fillProb, canFill, SYS, POINT_ST, grpOf };
+  const api = { RULES, run, fillProb, canFill, SYS, POINT_ST, grpOf };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.Planner = api;
 })(typeof window !== "undefined" ? window : globalThis);

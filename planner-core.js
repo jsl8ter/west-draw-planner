@@ -37,7 +37,19 @@
     // than ears") 3 seasons; no wait for deer (eregulations.com/nevada/hunting/eligibility-waiting-periods)
     NV: { wait: { E: 7, P: 3 }, expire: 2 },
     // Arizona: points lost after 5 consecutive years without applying for that species (R12-4-107(F)(2))
-    AZ: { expire: 5 }
+    AZ: { expire: 5 },
+    // Utah: after drawing a limited-entry buck deer or bull elk you wait 5 years, buck pronghorn 2 years
+    // (R657-62-18(6)); a nonresident can draw only one limited-entry species a year, so the plan applies for at
+    // most one limited-entry species per year. General-season deer (preference points) has no wait.
+    UT: { wait: { E: 5, D: 5, P: 2 }, oneOf: ["UTE", "UTD", "UTP"] },
+    // Wyoming: an unsuccessful application earns NO point; points are bought Jul 1-Oct 31 (count next year) and
+    // are forfeited after 2 years without buying one (WGFD Ch. 44). The plan buys the point when you miss.
+    WY: { buyPoint: true, expire: 2 },
+    // Idaho: drawn for an antlered-only deer or elk hunt, or any pronghorn hunt -> can't apply in next year's first
+    // drawing for that species (IDAPA 13.01.08.257.04). Either-sex/antlerless deer and elk: no wait.
+    ID: { wait: { E: 1, D: 1, P: 1 }, waitBag: { E: "antlered", D: "antlered" } },
+    // Montana permits: a $20 bonus point must be bought with each application (else your points aren't used)
+    MT: { bonusFee: 20 }
   };
   const BURN = 0.7;
   // states that charge the full license/tag fee with the application (refunded if you don't draw)
@@ -87,10 +99,12 @@
     // odds for a hunt with `pts` points, k years from now (preference states lose ground to point creep)
     function p(c, pts, k) {
       const pe = Math.max(0, Math.round(pts - c.slope * k));
-      const cache = c.cache || (c.cache = []);
+      // Colorado's draw changes in 2028: each hunt code splits 50/50 between preference and a bonus draw
+      const sys = c.st === "CO" && c.sys === "pref" && ctx.Y0 + k >= 2028 ? "cosplit" : c.sys;
+      const cache = sys === c.sys ? (c.cache || (c.cache = [])) : (c.cache2 || (c.cache2 = []));
       let v = cache[pe];
       if (v === undefined) {
-        const s = Odds.summarize(c.sys, c.h, "NR", pe); v = s ? (s.projected != null ? s.projected : (s.historical.length ? s.historical[s.historical.length - 1][1] : s.overall)) : null;
+        const s = Odds.summarize(sys, c.h, "NR", pe); v = s ? (s.projected != null ? s.projected : (s.historical.length ? s.historical[s.historical.length - 1][1] : s.overall)) : null;
         if (v != null) {
           // a handful of nonresident applicants is thin evidence: blend toward the whole hunt's draw rate
           const Y = c.h.years[Object.keys(c.h.years).sort().pop()] || {}, n = (Y.NR || {}).apps || 0, T = Y.T || {};
@@ -192,12 +206,20 @@
     const coues = G.slots.some(s => s.sp.C) && !(hist.lastC != null && k - hist.lastC < 3);   // Coues at most every 3rd year
     const spOk = sp => dueSp.has(sp) && (sp !== "C" || coues);
     const apps = [], used = new Set();
+    // states where only one of several species can be applied for in a year (Utah limited entry)
+    const block = (g, set) => { const o = (RULES[g.slice(0, 2)] || {}).oneOf; if (o && o.includes(g)) o.forEach(x => set.add(x)); };
     // variety: a state + species you hunted last year sits out a year unless it's needed for your confidence target
     // state waiting periods after drawing (can't even apply)
-    const waiting = g => { const st = g.slice(0, 2), sp = g[2], w = ((RULES[st] || {}).wait || {})[sp]; return w && hist.drawnAt && hist.drawnAt[g] != null && k - hist.drawnAt[g] <= w; };
+    const waiting = g => {
+      if (g.endsWith("pref")) return false;
+      const st = g.slice(0, 2), sp = g[2], R = RULES[st] || {}, w = (R.wait || {})[sp], d = hist.drawnAt && hist.drawnAt[g];
+      if (!w || !d) return false;
+      if (R.waitBag && R.waitBag[sp] && d.bag !== R.waitBag[sp]) return false;   // e.g. Idaho: only antlered-only hunts
+      return k - d.k <= w;
+    };
     const rest = G.rest == null ? 1 : G.rest;
     const recent = g => rest > 0 && hist.hunted && hist.hunted[g] != null && k - hist.hunted[g] <= rest;
-    const add = a => { apps.push(a); used.add(a.g); };
+    const add = a => { apps.push(a); used.add(a.g); block(a.g, used); };
     const T = targets(P, G, pts, k, G.years + 3);
     // 1. burns: targets ready now, best first, as many as the year's slots can use. Once the year is covered
     //    (chance >= conf and enough expected tags), extra ready targets wait a year: they keep their points.
@@ -207,7 +229,7 @@
     for (const [g, t] of burns) {
       const i = slotsLeft.findIndex(s => s.sp[t.c.sp]);
       if (i < 0) continue;          // nothing left to fill with this species: keep the points (deferred)
-      if (recent(g) || waiting(g)) continue;
+      if (recent(g) || waiting(g) || used.has(g)) continue;
       if (fillProb(apps, req) >= G.conf && expTags(apps) >= due.length + 0.3) continue;
       slotsLeft.splice(i, 1);
       const second = t.c.st === "CO" && (t.c.p2 || 0) >= 0.9;
@@ -266,13 +288,13 @@
         if (gain > 0.004 && (!best || score > best.score)) best = { a, score, np };
       }
       if (!best) break;
-      apps.push(best.a); takenG.add(best.a.g); pf = best.np;
+      apps.push(best.a); takenG.add(best.a.g); block(best.a.g, takenG); pf = best.np;
     }
     // optional slots (e.g. pronghorn some years): best single application if it's a decent chance
     for (const s of opt) {
       if (apps.some(a => s.sp[a.sp] && a.p >= 0.5)) continue;
       const o = pool.filter(a => s.sp[a.sp] && !takenG.has(a.g)).sort((a, b) => (b.p * (1 + b.q / 5)) - (a.p * (1 + a.q / 5)))[0];
-      if (o && o.p >= 0.3) { apps.push({ ...o, optional: true }); takenG.add(o.g); }
+      if (o && o.p >= 0.3) { apps.push({ ...o, optional: true }); takenG.add(o.g); block(o.g, takenG); }
     }
     // 4. points everywhere else in the goal (keeps the rotation building)
     const points = [];
@@ -360,6 +382,9 @@
       const app = a.kind === "point" ? a.cost : ((P[a.st] || {}).app || 0);
       upfront += app; expected += app;
       if (a.kind !== "point" && FULL_UPFRONT.has(a.st)) { upfront += a.cost; refundable += a.cost; }
+      const R = RULES[a.st] || {};
+      if (a.kind !== "point" && R.buyPoint) { const pc = (P[a.st] || {}).pt || 0; expected += (1 - a.p) * pc; }   // Wyoming: buy the point if you miss
+      if (a.kind !== "point" && R.bonusFee && !(a.c && a.c.general)) { upfront += R.bonusFee; expected += R.bonusFee; }
       if (a.kind !== "point") { expected += a.p * a.cost; allDrawn += a.cost; }
     }
     for (const s of st) { const l = (P[s] || {}).lic || 0; upfront += l; expected += l; }
@@ -379,7 +404,7 @@
       const drawn = new Set(plan.apps.filter(a => a.p >= 0.5));
       if ([...drawn].some(a => a.sp === "C")) hist = { ...hist, lastC: k };
       hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))),
-        drawnAt: Object.assign({}, hist.drawnAt, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
+        drawnAt: Object.assign({}, hist.drawnAt, Object.fromEntries([...drawn].map(a => [a.g, { k, bag: a.c && a.c.h.bag }]))) };
       plan.likely = drawn;
       path.push(plan);
       pts = stepPoints(pts, plan, drawn);
@@ -399,7 +424,7 @@
         Y.tags += drawn.size; if (cnt[0]) Y.elk++; if (best >= 4) { Y.q4++; q4total++; }
         if ([...drawn].some(a => a.sp === "C")) hist = { ...hist, lastC: k };
         hist = { ...hist, hunted: Object.assign({}, hist.hunted, Object.fromEntries([...drawn].map(a => [a.g, k]))),
-          drawnAt: Object.assign({}, hist.drawnAt, Object.fromEntries([...drawn].map(a => [a.g, k]))) };
+          drawnAt: Object.assign({}, hist.drawnAt, Object.fromEntries([...drawn].map(a => [a.g, { k, bag: a.c && a.c.h.bag }]))) };
         pts = stepPoints(pts, plan, drawn);
       }
       if (allOk) goalAll++;

@@ -42,7 +42,7 @@
     const total = groups.reduce((s, g) => s + g.n, 0);
     if (!tags || !total) return 0;
     if (system === "random") return Math.min(1, tags / total);
-    const prefShare = system === "pref" ? 1 : (system === "pref75" || system === "mtcombo") ? 0.75 : system === "bonus50" ? 0.5 : system === "az" ? 0.2 : 0;
+    const prefShare = system === "pref" ? 1 : system === "cohybrid" ? 0.8 : system === "cosplit" ? 0.5 : (system === "pref75" || system === "mtcombo") ? 0.75 : system === "bonus50" ? 0.5 : system === "az" ? 0.2 : 0;
     const k = Math.round(tags * prefShare);
     const { taken } = topPass(groups, k);
     const mine = groups.find(g => g.p === pts);
@@ -50,9 +50,10 @@
     const rest = tags - Array.from(taken.values()).reduce((a, b) => a + b, 0);
     if (rest <= 0) return pTop;
     // Montana combos: the random 25% goes only to applicants with zero preference points
-    const remaining = groups.map(g => ({ p: g.p, n: g.n - (taken.get(g.p) || 0) })).filter(g => g.n > 0 && (system !== "mtcombo" || g.p === 0));
+    const remaining = groups.map(g => ({ p: g.p, n: g.n - (taken.get(g.p) || 0) })).filter(g => g.n > 0 && (system !== "mtcombo" || g.p === 0) && (system !== "cohybrid" || g.p >= 5));
     if (!remaining.some(g => g.p === pts)) return pTop;
-    const weight = p => system === "bonus_sq" ? p * p + 1 : (system === "bonus" || system === "bonus50" || system === "az") ? p + 1 : 1;
+    // Colorado from 2028: half by points, half by a "bonus draw" (weighting not published; assumed points + 1)
+    const weight = p => system === "bonus_sq" ? p * p + 1 : (system === "bonus" || system === "bonus50" || system === "az" || system === "cosplit") ? p + 1 : 1;
     const odds = weightedOdds(remaining.map(g => ({ n: g.n, w: weight(g.p) })), rest);
     const pRest = odds[remaining.findIndex(g => g.p === pts)];
     return pTop + (1 - pTop) * pRest;
@@ -244,7 +245,15 @@
     const drawn = (r.drawn || 0) + (n.drawn || 0);
     return { apps: r.apps + n.apps, drawn, tags: drawn, by_pts: m.size ? Array.from(m, ([p, q]) => [p, q[0], q[1]]) : null };
   }
+  // Colorado hybrid draw (2 CCR 406-2-206): hunt codes that took 10+ resident points last primary draw and have
+  // 5+ licenses give up to 20% of licenses by random draw among applicants with 5+ points (1st choice).
+  function coHybrid(hunt) {
+    const ys = Object.keys(hunt.years).sort(), Y = hunt.years[ys[ys.length - 1]] || {};
+    const r = Y.R || {}, t = Y.T || {};
+    return r.min_pts != null && r.min_pts >= 10 && (t.tags || 0) >= 5;
+  }
   function summarize(system, hunt, res, pts) {
+    if (system === "pref" && hunt._st === "CO" && coHybrid(hunt)) system = "cohybrid";
     const y = latestYear(hunt, res);
     if (!y) return null;
     const blk = hunt.years[y][res];

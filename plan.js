@@ -22,8 +22,6 @@
   const OTC = [
     { st: "CO", sp: "E", label: "Colorado over-the-counter bull elk, 2nd or 3rd rifle", weapon: "rifle", tag: "antlered", cost: 845 + 117.62, trophy: 2, odds: 1, note: "Sold over the counter in many western units, like the Flat Tops (12/23/24)." },
     { st: "UT", sp: "E", label: "Utah general-season archery elk (over the counter)", weapon: "archery", tag: "either", cost: 849 + 144, trophy: 2, odds: 1, note: "Unlimited; goes on sale in early July." },
-    { st: "ID", sp: "E", label: "Idaho general elk tag, uncapped zone (McCall, Weiser River, Panhandle)", weapon: "any", tag: "antlered", cost: 651.75 + 205 + 18, trophy: 2, odds: 0.9, note: "Nonresident general tag draw in December; leftovers sell over the counter in late March." },
-    { st: "ID", sp: "D", label: "Idaho general deer tag", weapon: "any", tag: "antlered", cost: 351.75 + 205 + 18, trophy: 2, odds: 0.9, note: "Nonresident general tag draw in December." },
     { st: "AZ", sp: "D", label: "Arizona over-the-counter archery deer (mule deer or Coues)", weapon: "archery", tag: "antlered", cost: 300 + 160, trophy: 2, odds: 0.95, note: "On sale in early November; sells out." },
     { st: "AZ", sp: "C", label: "Arizona over-the-counter archery deer (Coues or mule deer)", weapon: "archery", tag: "antlered", cost: 300 + 160, trophy: 2, odds: 0.95, note: "On sale in early November; sells out." },
     { st: "OR", sp: "E", label: "Oregon general archery elk (over the counter)", weapon: "archery", tag: "either", cost: 660 + 193, trophy: 1, odds: 1, note: "Sold over the counter." },

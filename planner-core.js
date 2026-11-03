@@ -32,8 +32,16 @@
   const PRIVATE = /private[- ]land|\bprivate\b|valid on private|\bcwmu\b|ranching for wildlife|\bRFW\b|landowner/i;
   // State rules the planner enforces beyond the odds model (filled from official sources; see STATE_RULES.md)
   //   wait: { kind: years }  years you must sit out applying for that species after drawing (kind: E/D/P, "le" = limited entry)
-  const RULES = {};
-  const BURN = 0.7;            // odds at which a rotation target is "ready"
+  const RULES = {
+    // Nevada: after drawing a bull elk tag you may not apply for the next 7 seasons; buck pronghorn ("horns longer
+    // than ears") 3 seasons; no wait for deer (eregulations.com/nevada/hunting/eligibility-waiting-periods)
+    NV: { wait: { E: 7, P: 3 }, expire: 2 },
+    // Arizona: points lost after 5 consecutive years without applying for that species (R12-4-107(F)(2))
+    AZ: { expire: 5 }
+  };
+  const BURN = 0.7;
+  // states that charge the full license/tag fee with the application (refunded if you don't draw)
+  const FULL_UPFRONT = new Set(["NM", "WY", "MT"]);            // odds at which a rotation target is "ready"
   const SIMS = 300;
   const grpOf = (st, sp, pref) => st + (sp === "C" ? "D" : sp) + (pref ? "pref" : "");
 
@@ -219,7 +227,19 @@
         const v = covered ? (o >= 0.03 ? c.q * 10 + (c.rated ? 1 : 0) + Math.min(o, 0.25) * 4 : 0) : fillProb(apps.concat({ sp, p: o }), req) + 0.01 * o * c.q;
         if (v > 0 && (!best || v > best.v)) best = { c, p: o, v };
       }
-      if (best) add({ kind: "lottery", g, st, sp: best.c.sp, c: best.c, p: best.p, q: best.c.q, cost: best.c.cost, swing: covered && best.p < 0.35 });
+      if (!best) continue;
+      const a = { kind: "lottery", g, st, sp: best.c.sp, c: best.c, p: best.p, q: best.c.q, cost: best.c.cost, swing: covered && best.p < 0.35 };
+      // New Mexico: each application is worked 1st -> 2nd -> 3rd choice before the next applicant, so 2nd and
+      // 3rd choices add real odds. Choices share one random number, so they're discounted (rough estimate).
+      if (st === "NM") {
+        const more = (P.byGroup[g] || []).filter(c => c.sp === sp && c !== best.c && c.q >= 2)
+          .map(c => ({ c, p: P.p(c, 0, k) || 0 })).filter(x => x.p > 0).sort((x, y) => (y.p * (1 + 0.2 * y.c.q)) - (x.p * (1 + 0.2 * x.c.q))).slice(0, 2);
+        if (more.length) {
+          a.choices = [{ c: best.c, p: best.p }].concat(more);
+          a.p = 1 - (1 - best.p) * (1 - 0.6 * (more[0] ? more[0].p : 0)) * (1 - 0.4 * (more[1] ? more[1].p : 0));
+        }
+      }
+      add(a);
     }
     // 3. fill until the required slots reach the confidence target
     let pf = fillProb(apps, req);
@@ -260,7 +280,7 @@
       if (!POINT_ST.has(st)) continue;
       for (const sp of ["E", "D", "P"]) {
         if (!SPECIES_IN[st].includes(sp) || !G.slots.some(s => s.sp[sp] || (sp === "D" && s.sp.C))) continue;
-        const g = grpOf(st, sp); if (takenG.has(g)) continue;
+        const g = grpOf(st, sp); if (takenG.has(g) || waiting(g)) continue;
         // buy a point only where it builds toward something: a target still ahead, points you already hold,
         // or (when building for top units) a state with nothing reachable yet. A target you can already
         // draw at your points doesn't need more points.
@@ -334,15 +354,16 @@
 
   function cost(ctx, plan) {
     const P = ctx.PRICES, st = new Set();
-    let upfront = 0, expected = 0, allDrawn = 0;
+    let upfront = 0, expected = 0, allDrawn = 0, refundable = 0;
     for (const a of plan.apps.concat(plan.points)) {
       st.add(a.st);
       const app = a.kind === "point" ? a.cost : ((P[a.st] || {}).app || 0);
       upfront += app; expected += app;
+      if (a.kind !== "point" && FULL_UPFRONT.has(a.st)) { upfront += a.cost; refundable += a.cost; }
       if (a.kind !== "point") { expected += a.p * a.cost; allDrawn += a.cost; }
     }
     for (const s of st) { const l = (P[s] || {}).lic || 0; upfront += l; expected += l; }
-    return { upfront, expected, allDrawn: upfront + allDrawn };
+    return { upfront, expected, refundable, allDrawn: upfront - refundable + allDrawn };
   }
 
   function run(ctx, G) {

@@ -152,6 +152,7 @@
       <div class="ah"><span class="tag" style="color:${swing ? "var(--long)" : k[1]}" title="${esc(k[2])}">${swing || k[0]}</span>
         <b>${SN[a.st]} ${SPS[a.sp].toLowerCase()}</b><span class="odds">${P100(a.p)}</span></div>
       <div class="pm">${esc(h.label || h.id)} · ${window.bagLabel ? bagLabel(h) : ""}${a.optional ? " · bonus hunt" : ""}</div>
+      ${a.choices ? `<div class="pm"><b>Choices:</b> ${a.choices.map((x, i) => `${i + 1}. ${esc(x.c.h.label || x.c.h.id)} (${P100(x.p)})`).join(" · ")}. Odds shown are for drawing any of the three.</div>` : ""}
       ${a.combo ? `<div class="pm"><b>Montana:</b> ${c.general ? "" : `apply for the ${a.sp === "E" ? "Big Game (elk)" : "Deer"} Combo with this permit (the permit only counts if the combo draws). `}${a.combo.buy ? `Buy a preference point with the application: you'll draw the combo with ${a.combo.drawWith} point${a.combo.drawWith === 1 ? "" : "s"}` : a.combo.have >= 3 ? "You're at the 3-point maximum: no point to buy" : "Don't buy a point this time: with 0 points you're in the random 25% pool"} (combo odds ${P100(a.combo.p)}).</div>` : ""}
       <div class="pm">${a.kind === "burn" || a.kind === "early" ? `Uses ${pts} pt${pts === 1 ? "" : "s"} · ` : POINT_ST(a.st) && a.kind !== "second" ? `${pts} pts · ` : a.kind === "second" ? `Point ${pts}→${pts + 1} and hunt · ` : ""}Trophy ${c.rated ? c.q + "/5" + inch : "not rated"} · tag ~${money(a.cost)}${lowDemand}</div>
       <button type="button" class="maplink" data-st="${a.st}" data-hid="${esc(h.id)}">Show on map</button>
@@ -177,7 +178,7 @@
         <div><b>${tags.toFixed(1)}</b><span>tags a year on average</span></div>
         <div><b>${P100(elk)}</b><span>chance of at least one elk tag in a year</span></div>
         <div><b>${R.q4PerPlan.toFixed(1)}</b><span>hunts in units rated 4+ for trophy over ${n} years</span></div>
-        <div><b>${money(cost)}</b><span>expected cost a year (${money(up)} paid when applying)</span></div>
+        <div><b>${money(cost)}</b><span>expected cost a year (${money(up)} paid when applying, part refunded if you don't draw)</span></div>
       </div>`;
     // coming up
     const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -198,7 +199,7 @@
         ${y.apps.length ? y.apps.map(a => appHTML(a, y)).join("") : `<p class="note">No draw applications needed beyond points this year.</p>`}
         ${pts ? `<p class="pbank"><span class="tag" style="color:var(--mid)">Points only</span>${pts}</p>` : ""}
         ${otc}
-        <p class="pcost${over ? " over" : ""}">Paid when applying ${money(y.cost.upfront)} · expected total ${money(y.cost.expected)} · if every tag draws ${money(y.cost.allDrawn)}${over ? ` · over your ${money(S.budget)} budget` : ""}</p>
+        <p class="pcost${over ? " over" : ""}">Paid when applying ${money(y.cost.upfront)}${y.cost.refundable ? ` (${money(y.cost.refundable)} of it refunded if you don't draw)` : ""} · expected total ${money(y.cost.expected)} · if every tag draws ${money(y.cost.allDrawn)}${over ? ` · over your ${money(S.budget)} budget` : ""}</p>
       </div></div>`;
     });
     html += `</div>`;

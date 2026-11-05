@@ -81,15 +81,19 @@
         if (RESTRICTED.test(txt) || RESTRICTED.test(h.kind || "") || /^[DEA]-[MFE]-\d{3}-K\d/.test(h.id)) continue;
         if (!G.priv && (PRIVATE.test(txt) || /^[DEA]-[MFE]-\d{3}-(P\d|W\d|J)/.test(h.id))) continue;
         if (!wOk(h.weapon)) continue;
-        let q = null;
-        for (const u of h.units || []) { const t = (((TROPHY || {})[st] || {})[h.species] || {})[String(u)]; if (t && (q == null || t.s > q)) q = t.s; }
+        let q = null, est = false;
+        for (const u of h.units || []) {
+          let t = (((TROPHY || {})[st] || {})[h.species] || {})[String(u)], e = false;
+          if (!t) { t = (((ctx.TROPHY_EST || {})[st] || {})[h.species] || {})[String(u)]; e = !!t; }   // estimate from draw demand
+          if (t && (q == null || t.s > q)) { q = t.s; est = e; }
+        }
         const general = h.kind === "general";
         // hunt-level quality: the unit's rating, less for a rifle either-sex elk/deer tag (mostly a cow/doe
         // hunt, usually late season); general/OTC-style tags rate as general hunts
         if (q != null && bag === "either" && h.weapon !== "archery" && (h.species === "E" || h.species === "D")) q = Math.max(1, q - 1);
         if (general && q != null) q = Math.min(q, 2);
         const sys = st === "MT" && general ? "mtcombo" : (st === "UT" && general) ? "pref" : SYS[st];
-        const c = { st, h, sp: h.species, sys, q: q == null ? 2 : q, rated: q != null, general,
+        const c = { st, h, sp: h.species, sys, q: q == null ? 2 : q, rated: q != null && !est, est, general,
           g: grpOf(st, h.species, (st === "MT" || st === "UT") && general), cost: tagCost(ctx, st, h),
           slope: /^pref/.test(sys) ? Odds.recentSlope(Odds.creep(h.years, "NR")) : 0 };
         if (st === "CO") c.p2 = coSecond(h, last);

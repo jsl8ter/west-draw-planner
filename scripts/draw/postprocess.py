@@ -150,6 +150,8 @@ def annotate(st, d):
             keep.append(h)
         d["hunts"] = keep
     d.setdefault("notes", {})["bag"] = {f"{sp}:{b}": n for (sp, b), n in sorted(c.items())}
+    import sys as _s; _s.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import seasons; seasons.annotate(st, d)
     return d
 
 

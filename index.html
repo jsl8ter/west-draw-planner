@@ -123,6 +123,7 @@ td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;
 .app .ah{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.app .odds{margin-left:auto;font-family:var(--display);font-size:20px;font-weight:700}
 .rott td.rot{text-align:center;font-weight:700;min-width:30px}.rott td.rot small{display:block;font-weight:400;font-size:10.5px;color:var(--muted)}
 .rott td.hunt{color:var(--premier)}.rott td.hunt2{color:var(--easy)}
+p.season{font-size:13.5px;margin:4px 0}.trophyline{margin:4px 0 8px}
 p.warn{font-size:13px;margin:6px 0;padding:6px 8px;border-left:3px solid var(--long);background:color-mix(in srgb,var(--long) 10%,transparent);max-width:75ch}
 .callout{background:var(--ink);color:var(--bg);border-radius:6px;padding:14px 16px;margin-top:12px;display:flex;flex-direction:column;gap:6px}
 .callout ol{margin:0;padding-left:20px}
@@ -803,6 +804,7 @@ const DRAW={};let TROPHY=null;const DLS={};
 async function loadData(){
   await Promise.all(DSTATES.map(async st=>{try{const r=await fetch(`data/draw/${st}.json`,{cache:"no-cache"});if(r.ok){DRAW[st]=await r.json();DLS[st]="ok"}else DLS[st]="none"}catch(e){DLS[st]="none"}}));
   try{const r=await fetch("data/trophy.json",{cache:"no-cache"});if(r.ok)TROPHY=await r.json()}catch(e){}
+  try{const r=await fetch("data/trophy_est.json",{cache:"no-cache"});if(r.ok)TROPHY_EST=await r.json()}catch(e){}
   CUR={};for(const st in DRAW){for(const h of DRAW[st].hunts||[]){h._st=st;const ys=Object.keys(h.years||{});if(!ys.length)continue;const y=ys.sort().pop();const k=st+h.species;if(!CUR[k]||y>CUR[k])CUR[k]=y}}
   try{const by={};for(const st in DRAW)by[st]=DRAW[st].hunts||[];Odds.setCreepPriors(Odds.creepPriors(by))}catch(e){}
   renderDStatus();
@@ -1023,10 +1025,11 @@ const TROPHY_IN={
 const TROPHY_ANIMAL={E:"bulls",D:"bucks",C:"bucks",P:"bucks"};
 function trophyInches(s,score){const r=TROPHY_IN[s==="C"?"C":s];return r&&score>=1&&score<=5?r[Math.round(score)-1]:""}
 window.trophyInches=trophyInches;
-function trophyOf(st,s,id){
-  const t=TROPHY&&TROPHY.units&&TROPHY.units[st]&&TROPHY.units[st][s];if(!t)return null;
-  if(t[id])return t[id];const n=normId(id);for(const k in t){if(normId(k)===n||k.toLowerCase()===String(id).toLowerCase())return t[k]}return null;
-}
+// researched rating first; else an estimate from draw demand (only where demand tracks ratings; flagged est)
+let TROPHY_EST=null;
+function trophyLook(src,st,s,id){const t=src&&src[st]&&src[st][s];if(!t)return null;
+  if(t[id])return t[id];const n=normId(id);for(const k in t){if(normId(k)===n||k.toLowerCase()===String(id).toLowerCase())return t[k]}return null}
+function trophyOf(st,s,id){return trophyLook(TROPHY&&TROPHY.units,st,s,id)||trophyLook(TROPHY_EST&&TROPHY_EST.units,st,s,id)}
 const RAMP={
   points:[[0,"#2f8a4a","0–1"],[2,"#8bbf3f","2–4"],[5,"#e4c228","5–8"],[9,"#e08a1e","9–13"],[14,"#c8452c","14–19"],[20,"#7a2a6e","20+"]],
   odds:[[0,"#7a2a6e","<2%"],[.02,"#c8452c","2–10%"],[.10,"#e08a1e","10–25%"],[.25,"#e4c228","25–50%"],[.50,"#8bbf3f","50–75%"],[.75,"#2f8a4a","75%+"]],
@@ -1266,6 +1269,24 @@ function pick(i,zoom){sel=i;selF=null;restyle();renderList();
 let lastShown=null;
 const WPN={any:"Any legal weapon",rifle:"Rifle",archery:"Archery",muzzleloader:"Muzzleloader",other:"Other"};
 function blkCells(b){return b?`<td>${n0(b.apps)}</td><td>${n0(b.tags)}</td><td>${n0(b.drawn)}</td><td>${b.apps&&(b.drawn??b.tags)!=null?pct(Math.min(1,(b.drawn??b.tags)/b.apps)):"–"}</td><td>${Odds.ptsNeeded(b)??"–"}</td>`:`<td colspan="5">–</td>`}
+// ---------- season dates ----------
+// Next season's dates: official if the source already covers that year, else last known dates moved forward.
+// Dates on the 1st/15th or a month's last day are treated as fixed calendar dates; others keep their weekday
+// (364 days per year, the way most states set opening weekends).
+const CYCLE=2027;
+function seasonFor(h,year=CYCLE){
+  const s=h.season;if(!s||!s.r||!s.r.length)return null;
+  const n=year-s.y, fmt=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+  const mk=(md,y)=>{const [m,d]=md.split("-").map(Number);return new Date(y,m-1,d)};
+  const fixed=(dt)=>{const d=dt.getDate(),last=new Date(dt.getFullYear(),dt.getMonth()+1,0).getDate();return d===1||d===15||d===last};
+  // a range moves as one: calendar-fixed if it opens on the 1st/15th or closes at month end, else same weekdays
+  const mv=(dt,cal)=>{if(!n)return dt;if(cal)return new Date(dt.getFullYear()+n,dt.getMonth(),dt.getDate());const x=new Date(dt);x.setDate(x.getDate()+364*n);return x};
+  const out=s.r.map(([lab,a,b])=>{let A=mk(a,s.y),B=mk(b,s.y);if(B<A)B=mk(b,s.y+1);const cal=fixed(A)||(B.getDate()===new Date(B.getFullYear(),B.getMonth()+1,0).getDate());return {lab,a:mv(A,cal),b:mv(B,cal)}});
+  const rng=o=>o.a.getMonth()===o.b.getMonth()&&o.a.getFullYear()===o.b.getFullYear()?`${fmt(o.a)}–${o.b.getDate()}`:`${fmt(o.a)}–${fmt(o.b)}`;
+  const y0=out.length?out[0].a.getFullYear():year;
+  return {year, expected:n>0, from:s.y, src:s.src, text:out.map(o=>`${o.lab&&o.lab!=="Season"?o.lab+" ":""}${rng(o)}${o.b.getFullYear()>y0?", "+o.b.getFullYear():""}`).join(" · ")};
+}
+window.seasonFor=seasonFor;
 function huntCard(st,h){
   const sys=huntSys(st,h),mp=effPts(st,h.species,h),s=huntOdds(st,h);
   const y=s?s.year:Object.keys(h.years).sort().pop();const Y=h.years[y]||{};
@@ -1278,6 +1299,7 @@ function huntCard(st,h){
   const bp=(nr.by_pts||[]).slice().sort((a,b)=>b[0]-a[0]);
   const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
   return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${bagLabel(h)} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
+  ${(()=>{const sn=seasonFor(h);return sn?`<p class="season"><b>${sn.year} season${sn.expected?" (expected)":""}:</b> ${escH(sn.text)}<span class="note"> · ${sn.expected?`${sn.from} dates (${escH(sn.src)}) moved to ${sn.year}; check the ${sn.year} regulations`:escH(sn.src)}</span></p>`:`<p class="season note">Season dates not found for this hunt; see the state's regulations.</p>`})()}
   ${h.bag_text?`<p class="note"><b>Bag limit:</b> ${escH(h.bag_text)}</p>`:""}
   ${bagOf(h)==="spike"?`<p class="warn">${bagLabel(h)}: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
   ${y&&y!==Object.keys(h.years).sort().pop()?`<p class="warn">No nonresident results since ${y}: nonresidents may not get tags here now.</p>`:""}
@@ -1303,13 +1325,14 @@ function huntCard(st,h){
 }
 function huntsSheet(f,Lc){
   const hs=huntsOf(f,Lc.st);const d=DRAW[Lc.st];const tr=trophyOf(Lc.st,sp,f._id);
-  const trophy=tr?`<p><b>Trophy ${tr.s}/5: mature ${TROPHY_ANIMAL[sp]} typically ${trophyInches(sp,tr.s)}</b> (gross B&amp;C). ${tr.why||""}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`:"";
+  const trophy=tr?`<p class="trophyline"><b>Trophy ${tr.est?"~":""}${tr.s}/5${tr.est?" (estimated)":""}: mature ${TROPHY_ANIMAL[sp]} typically ${trophyInches(sp,tr.s)}</b> (gross B&amp;C). ${escH(tr.why||"")}${tr.src?` <a href="${tr.src}" target="_blank" rel="noopener">source</a>`:""}</p>`
+    :`<p class="trophyline note"><b>Trophy: not rated for this unit yet.</b> No researched rating, and draw demand doesn't predict trophy quality well enough in ${SN[Lc.st]} to estimate one.</p>`;
   if(!d)return trophy?`<div class="sheet">${trophy}<p class="note">${SN[Lc.st]} draw results are still being added.</p></div>`:"";
   if(!hs.length)return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} draw results</h3>${trophy}<p class="note">No ${sexF==="antlered"?(sp==="E"?"bull ":"buck "):sexF==="antlerless"?(sp==="E"?"cow ":"doe "):sexF==="either"?"either-sex ":""}${wpn==="any"?"":WPN[wpn].toLowerCase()+" "}${SPECIES[sp].toLowerCase()} draw hunts found for this unit in ${SN[Lc.st]}'s reports.</p></div>`;
   const selH=selHunt&&selHunt.st===Lc.st?DRAW[Lc.st].hunts[selHunt.hi]:null;
   const order=h=>(h===selH?-1e6:0)+(isAntlerless(h)?1000:0)+(()=>{const y=Odds.latestYear(h,"NR");return y&&h.years[y].NR.min_pts!=null?h.years[y].NR.min_pts:99})();
   return `<div class="sheet"><h3>${SN[Lc.st]} · ${f._id} · ${SPECIES[sp]} draw results</h3>${trophy}
-  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. ${sysOf(Lc.st)==="random"?`${SN[Lc.st]} has no points; odds are`:`Odds use your ${SN[Lc.st]} ${sp==="C"?"deer":SPECIES[sp].toLowerCase()} points from My Points and`} ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. ${sysOf(Lc.st)==="random"?"Next-year odds use last year's applicants and tags.":"Next-year odds assume everyone who missed gains a point and tags stay the same."}</p>
+  <p class="note">${hs.length} hunt${hs.length>1?"s":""}. ${sysOf(Lc.st)==="random"?`${SN[Lc.st]} has no points; odds are`:`Odds use your ${SN[Lc.st]} ${sp==="C"?"deer":SPECIES[sp].toLowerCase()} points from My Points and`} ${({pref:"a straight preference-point draw",pref75:"75% by points, 25% random",bonus:"bonus points (points + 1 chances)",bonus_sq:"squared bonus points",bonus50:"half to top points, half weighted random",az:"20% to top points, rest weighted random",random:"a pure random draw"})[sysOf(Lc.st)]||"the state's draw rules"}. Next-year odds replay the last three draws with you in them${sysOf(Lc.st)==="random"?"":", allowing for point creep"}.</p>
   ${hs.slice().sort((a,b)=>order(a)-order(b)).map(h=>huntCard(Lc.st,h)).join("")}</div>`;
 }
 function showFeature(f,Lc,lyr,keepHunt){

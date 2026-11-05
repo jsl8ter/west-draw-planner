@@ -1,0 +1,1262 @@
+{
+"generated": "from data/draw + data/trophy.json",
+"log": [
+"CO E: 64 estimated (rho 0.75)",
+"CO D: 147 estimated (rho 0.61)",
+"CO P: no estimates (demand vs rating rho 0.06)",
+"WY D: 2 estimated (rho 0.75)",
+"UT E: no estimates (demand vs rating rho 0.47)",
+"UT D: no estimates (demand vs rating rho 0.31)",
+"UT P: no estimates (demand vs rating rho -0.25)",
+"AZ E: no estimates (demand vs rating rho 0.20)",
+"AZ D: no estimates (demand vs rating rho 0.26)",
+"AZ C: no estimates (demand vs rating rho -0.63)",
+"AZ P: no estimates (demand vs rating rho 0.18)",
+"NM E: no estimates (demand vs rating rho 0.17)",
+"NM D: no estimates (demand vs rating rho -0.10)",
+"NM P: no estimates (demand vs rating rho 0.02)",
+"NV E: no estimates (demand vs rating rho 0.09)",
+"NV D: no estimates (demand vs rating rho 0.26)",
+"NV P: no estimates (demand vs rating rho 0.02)",
+"OR E: 12 estimated (rho 0.58)",
+"OR D: no estimates (demand vs rating rho 0.01)",
+"ID E: 18 estimated (rho 0.56)",
+"ID D: no estimates (demand vs rating rho 0.18)",
+"MT D: no estimates (demand vs rating rho -0.50)"
+],
+"units": {
+"CO": {
+"E": {
+"5": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"7": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"8": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"9": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"19": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"191": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"131": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"231": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"14": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"20": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"29": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"35": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"36": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"361": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"38": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"39": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"41": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"42": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"52": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"411": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"421": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"521": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"43": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"431": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"45": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"46": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"48": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"49": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"50": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"51": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"53": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"56": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"57": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"58": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"59": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"511": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"581": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"591": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"60": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"63": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"64": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"65": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"68": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"681": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"69": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"84": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"72": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"73": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"741": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"79": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"80": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"81": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"104": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"133": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"134": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"141": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"142": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"214": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"391": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"461": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"481": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"500": {
+"s": 1,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 1/5 (not researched)"
+},
+"501": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"561": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+}
+},
+"D": {
+"1": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"3": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"4": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"5": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"14": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"214": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"301": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"441": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"6": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"7": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"16": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"17": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"161": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"171": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"8": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"9": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"19": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"191": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"131": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"231": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"15": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"18": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"27": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"28": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"37": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"181": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"371": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"20": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"29": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"33": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"34": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"35": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"36": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"45": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"361": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"41": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"42": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"421": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"43": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"431": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"47": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"471": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"444": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"48": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"56": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"481": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"561": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"49": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"57": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"58": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"581": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"50": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"500": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"501": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"51": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"52": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"411": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"521": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"53": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"59": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"511": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"591": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"60": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"63": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"64": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"65": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"68": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"681": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"69": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"84": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"86": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"691": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"861": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"72": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"73": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"751": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"77": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"78": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"771": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"79": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"791": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"80": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"81": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"82": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"83": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"85": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"87": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"88": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"89": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"90": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"95": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"91": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"92": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"93": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"97": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"98": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"100": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"94": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"96": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"99": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"101": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"102": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 4/5 (not researched)"
+},
+"103": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"105": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"106": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"107": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"112": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"113": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"114": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"115": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"120": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"121": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"109": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"111": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"118": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"119": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"123": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"124": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"116": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"117": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"122": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"127": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"132": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"125": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"126": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"129": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"130": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"139": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"145": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"146": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"128": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"133": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"134": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"135": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"136": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"141": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"147": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"143": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"144": {
+"s": 5,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 5/5 (not researched)"
+},
+"137": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"138": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"140": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"142": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"391": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"512": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 3/5 (not researched)"
+},
+"741": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+},
+"951": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to CO units rated 2/5 (not researched)"
+}
+}
+},
+"WY": {
+"D": {
+"65": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to WY units rated 2/5 (not researched)"
+},
+"GEN": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to WY units rated 2/5 (not researched)"
+}
+}
+},
+"OR": {
+"E": {
+"Cascade": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Sixes": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Powers": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 3/5 (not researched)"
+},
+"Chetco": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 3/5 (not researched)"
+},
+"SE Cascades": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"E Central Cascades": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Paulina": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Fort Rock": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Hood": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Pole Cr": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 3/5 (not researched)"
+},
+"Eagle Cap Zone": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+},
+"Eagle Cap": {
+"s": 2,
+"est": true,
+"why": "Estimated: draw demand similar to OR units rated 2/5 (not researched)"
+}
+}
+},
+"ID": {
+"E": {
+"11": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"18": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"19A": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"23": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"29": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"30": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"31": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"37": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"46": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"51": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 4/5 (not researched)"
+},
+"52A": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"58": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"61": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"66": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"66A": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"70": {
+"s": 4,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 4/5 (not researched)"
+},
+"75": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+},
+"64": {
+"s": 3,
+"est": true,
+"why": "Estimated: draw demand similar to ID units rated 3/5 (not researched)"
+}
+}
+}
+}
+}

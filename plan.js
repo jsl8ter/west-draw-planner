@@ -125,7 +125,7 @@
     setTimeout(() => {
       try {
         if (!window.__creepSet) { const by = {}; for (const st in DRAW) by[st] = DRAW[st].hunts || []; Odds.setCreepPriors(Odds.creepPriors(by)); window.__creepSet = true; }
-        RES = Planner.run({ DRAW, TROPHY: TROPHY && TROPHY.units, Odds, PRICES, OTC, pts, Y0: startYear() }, S);
+        RES = Planner.run({ DRAW, TROPHY: TROPHY && TROPHY.units, TROPHY_EST: typeof TROPHY_EST !== "undefined" && TROPHY_EST ? TROPHY_EST.units : null, Odds, PRICES, OTC, pts, Y0: startYear() }, S);
         RES.pts = pts; RES_KEY = key;
       } catch (e) { RES = { error: String(e && e.stack || e) }; RES_KEY = ""; }
       BUSY = false; cb();
@@ -150,9 +150,10 @@
       <div class="ah"><span class="tag" style="color:${swing ? "var(--long)" : k[1]}" title="${esc(k[2])}">${swing || k[0]}</span>
         <b>${SN[a.st]} ${SPS[a.sp].toLowerCase()}</b><span class="odds">${P100(a.p)}</span></div>
       <div class="pm">${esc(h.label || h.id)} · ${window.bagLabel ? bagLabel(h) : ""}${a.optional ? " · bonus hunt" : ""}</div>
+      ${(() => { const sn = window.seasonFor ? seasonFor(h, y.year) : null; return sn ? `<div class="pm"><b>Season${sn.expected ? " (expected)" : ""}:</b> ${esc(sn.text)}</div>` : ""; })()}
       ${a.choices ? `<div class="pm"><b>Choices:</b> ${a.choices.map((x, i) => `${i + 1}. ${esc(x.c.h.label || x.c.h.id)} (${P100(x.p)})`).join(" · ")}. Odds shown are for drawing any of the three.</div>` : ""}
       ${a.combo ? `<div class="pm"><b>Montana:</b> ${c.general ? "" : `apply for the ${a.sp === "E" ? "Big Game (elk)" : "Deer"} Combo with this permit (the permit only counts if the combo draws). `}${a.combo.buy ? `Buy a preference point with the application: you'll draw the combo with ${a.combo.drawWith} point${a.combo.drawWith === 1 ? "" : "s"}` : a.combo.have >= 3 ? "You're at the 3-point maximum: no point to buy" : "Don't buy a point this time: with 0 points you're in the random 25% pool"} (combo odds ${P100(a.combo.p)}).</div>` : ""}
-      <div class="pm">${a.kind === "burn" || a.kind === "early" ? `Uses ${pts} pt${pts === 1 ? "" : "s"} · ` : POINT_ST(a.st) && a.kind !== "second" ? `${pts} pts · ` : a.kind === "second" ? `Point ${pts}→${pts + 1} and hunt · ` : ""}Trophy ${c.rated ? c.q + "/5" + inch : "not rated"} · tag ~${money(a.cost)}${lowDemand}</div>
+      <div class="pm">${a.kind === "burn" || a.kind === "early" ? `Uses ${pts} pt${pts === 1 ? "" : "s"} · ` : POINT_ST(a.st) && a.kind !== "second" ? `${pts} pts · ` : a.kind === "second" ? `Point ${pts}→${pts + 1} and hunt · ` : ""}Trophy ${c.rated ? c.q + "/5" + inch : c.est ? "~" + c.q + "/5 (est.)" : "not rated"} · tag ~${money(a.cost)}${lowDemand}</div>
       <button type="button" class="maplink" data-st="${a.st}" data-hid="${esc(h.id)}">Show on map</button>
     </div>`;
   }

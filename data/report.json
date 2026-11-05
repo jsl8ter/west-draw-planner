@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T03:29:46Z",
+ "generated": "2026-11-05T12:06:41Z",
  "layers": [
   {
    "id": "CO",
@@ -468,7 +468,7 @@
     "BTYPE",
     "NOTES"
    ],
-   "bytes": 2667675,
+   "bytes": 2668229,
    "values": [
     "$100 Coyote Bounty",
     "$50 Coyote Bounty",

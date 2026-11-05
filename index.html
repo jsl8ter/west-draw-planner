@@ -1274,8 +1274,10 @@ function blkCells(b){return b?`<td>${n0(b.apps)}</td><td>${n0(b.tags)}</td><td>$
 // Dates on the 1st/15th or a month's last day are treated as fixed calendar dates; others keep their weekday
 // (364 days per year, the way most states set opening weekends).
 const CYCLE=2027;
-function seasonFor(h,year=CYCLE){
+// Shown as published for the latest season we have (default); pass a year to project instead.
+function seasonFor(h,year){
   const s=h.season;if(!s||!s.r||!s.r.length)return null;
+  if(year==null)year=s.y;
   const n=year-s.y, fmt=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric"});
   const mk=(md,y)=>{const [m,d]=md.split("-").map(Number);return new Date(y,m-1,d)};
   const fixed=(dt)=>{const d=dt.getDate(),last=new Date(dt.getFullYear(),dt.getMonth()+1,0).getDate();return d===1||d===15||d===last};
@@ -1299,7 +1301,7 @@ function huntCard(st,h){
   const bp=(nr.by_pts||[]).slice().sort((a,b)=>b[0]-a[0]);
   const bpRows=bp.map(([p,a,d])=>`<tr class="${p===mp?"me":""}"><td>${p}</td><td>${n0(a)}</td><td>${n0(d)}</td><td>${pct(a?d/a:0)}</td></tr>`).join("");
   return `<div class="hunt"><div class="hh"><b>${h.label||h.id}</b><span class="code">${h.id} · ${bagLabel(h)} · ${WPN[h.weapon]||h.weapon||""}${h.kind&&h.kind!=="limited"?" · "+h.kind:""}</span></div>
-  ${(()=>{const sn=seasonFor(h);return sn?`<p class="season"><b>${sn.year} season${sn.expected?" (expected)":""}:</b> ${escH(sn.text)}<span class="note"> · ${sn.expected?`${sn.from} dates (${escH(sn.src)}) moved to ${sn.year}; check the ${sn.year} regulations`:escH(sn.src)}</span></p>`:`<p class="season note">Season dates not found for this hunt; see the state's regulations.</p>`})()}
+  ${(()=>{const sn=seasonFor(h);return sn?`<p class="season"><b>${sn.year} season:</b> ${escH(sn.text)}<span class="note"> · ${escH(sn.src)}. ${CYCLE} dates aren't out yet; expect similar dates.</span></p>`:`<p class="season note">Season dates not found for this hunt; see the state's regulations.</p>`})()}
   ${h.bag_text?`<p class="note"><b>Bag limit:</b> ${escH(h.bag_text)}</p>`:""}
   ${bagOf(h)==="spike"?`<p class="warn">${bagLabel(h)}: no mature ${MALE[h.species]}s. The unit's trophy rating doesn't apply.</p>`:bagOf(h)==="unknown"?`<p class="warn">Bag limit not confirmed from official sources; check the regulations before applying.</p>`:""}
   ${y&&y!==Object.keys(h.years).sort().pop()?`<p class="warn">No nonresident results since ${y}: nonresidents may not get tags here now.</p>`:""}

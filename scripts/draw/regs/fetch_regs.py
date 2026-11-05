@@ -13,6 +13,8 @@ OUT = os.path.join(ROOT, "data", "draw", "regs")
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
       "Accept": "text/html,application/xhtml+xml", "Accept-Language": "en-US,en;q=0.9"}
 PAGES = {
+    "NM": ["https://www.srca.nm.gov/parts/title19/19.031.0013.html", "https://www.srca.nm.gov/parts/title19/19.031.0014.html",
+           "https://www.srca.nm.gov/parts/title19/19.031.0015.html", "https://www.srca.nm.gov/parts/title19/19.031.0016.html"],
     "MT": ["https://fwp.mt.gov/binaries/content/assets/fwp/hunt/regulations/2026/2026-dea-regulations-final-with-low-resolution-maps-for-web.pdf",
            "https://fwp.mt.gov/binaries/content/assets/fwp/commission/2021/dec-14/wildlife/license-quota-and-quota-range-master-list-dec-8-2021-final.pdf"],
     "WY": ["https://wgfd.wyo.gov/media/33851/download",
@@ -96,7 +98,7 @@ def main():
     states = sys.argv[1:] or list(PAGES)
     S = requests.Session(); S.headers.update(UA)
     for st in states:
-        got, log = {}, []
+        got, log, textdump = {}, [], {}
         for url in PAGES[st]:
             try:
                 r = S.get(url, timeout=90)
@@ -108,11 +110,16 @@ def main():
                 elif r.status_code == 200:
                     got[url] = tables(r.text)
                     log.append(f"   {len(got[url])} tables")
+                    if st == "NM":   # rule pages: keep the visible text for the date extractor
+                        txt = BeautifulSoup(r.text, "html.parser").get_text("\n")
+                        pdf_like = {"pdf": False, "pages": [txt]}
+                        textdump.setdefault(url, [txt])
             except Exception as e:  # noqa: BLE001
                 log.append(f"{url} FAILED {e}")
             time.sleep(2)
         hunts = EXTRACT[st](got) if st in EXTRACT else {}
         pdfs = {u: v["pages"] for u, v in got.items() if isinstance(v, dict) and v.get("pdf")}
+        pdfs.update(textdump)
         if pdfs:   # raw text for inspection / parsing (one file per state)
             with open(os.path.join(OUT, f"{st}_text.txt"), "w") as fh:
                 for u, pages in pdfs.items():
